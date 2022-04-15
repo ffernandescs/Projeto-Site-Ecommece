@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/f84144252b.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../../assets/css/pagaAdmin/index.css">
+    <title>Painel administrativo</title>
+</head>
+<body>
+    
+    <section>
+        <div class="containerTop">
+            <div class="menuHaburger">
+                <span class="line"></span>
+                <span class="line"></span>
+                <span class="line"></span>
+            </div>
+        </div>
+        <div class="containerPrincipal">
+                <nav class="containerMenu">
+                    <ul>
+                        <li><a class="itemMenu" href="#">Pagina Incial</a></li>
+                        <li><a class="itemMenu" href="#">Site Externo</a></li>
+                        <li><a class="itemMenu" href="../../page/admin/product.html">Produtos da Loja</a></li>
+                    </ul>
+                </nav>
+                <div class="conteudo">
+                    <div class="contProduct">
+                        <div class="addProduct">
+                            <div class="prdutos">
+                                <h1>Cadastros de Produtos</h1>
+                                <i class="fa-solid fa-xmark"></i>
+                            </div>
+                            <form class="formProduct" action="">
+                                <label for="">Codigo do produto:
+                                    <input id="cod" type="text">
+                                </label>
+                                <label for="">Imagem:
+                                    <input id="file" type="file" name="olagoogle">
+                                </label>
+                                <label for="">Nome do Produto:
+                                    <input id="name" type="text">
+                                </label>
+                                <label for="">Descrição do produto:
+                                    <input id="desc" type="text">
+                                </label>
+                                <label for="">Parcelas
+                                    <select  id="qtParcela" name="quant" value="">
+                                        <option value="1x">1x</option>
+                                        <option value="2x">2x</option>
+                                        <option value="3x">3x</option>
+                                        <option value="4x">4x</option>
+                                        <option value="5x">5x</option>
+                                        <option value="6x">6x</option>
+                                        <option value="7x">7x</option>
+                                        <option value="8x">8x</option>
+                                        <option value="9x">9x</option>
+                                        <option value="10x">10x</option>
+                                    </select>
+                                </label>
+                                <label for="">Desconto:
+                                    <input id="descont" type="text">
+                                </label>
+                                <label for="">Valor Atual:
+                                    <input id="vA" type="text">
+                                </label>
+                                <label for="">Valor da Parcela:
+                                    <input id="pa" type="text">
+                                </label>
+                                <label for="">Quantidade em estoque:
+                                    <input id="qt" type="text">
+                                </label>
+                            </form>
+                            <div class="containerBtn">
+                                <button onclick="cadProduct()">Salva</button>
+                                <button>Limpar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tbListProduct">
+                        <div class="filtroProduct">
+                            <div class="checkboxList">
+                                <input type="checkbox">
+                                <span>26 Selecionados</span>
+                            </div>
+                            <div class="insertDel">
+                                <button class="btnAddProduct">Adicionar</button>
+                                <button class="btnRemoveProduct">Remover</button>
+                            </div>
+                        </div>
+                        <table class="tabelaProduct">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Codigo</th>
+                                    <th></th>
+                                    <th>Nome</th>
+                                    <th>Tipo</th>
+                                    <th>Valor Anterior</th>
+                                    <th>Valor Atual</th>
+                                    <th>Parcela</th>
+                                    <th>Estoque</th>
+                                    <th></th>
+                                </tr>
+            
+                            </thead>
+                            <tbody class="tbContent">
+                                   
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </section>
+   
+    <div class="fecharTela"></div>
+  
+        
+   
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="../../assets/js/confiDb.js"></script>
+    <script src="../../assets/js/pageAdmin/index.js"></script>
+</body>
+</html>

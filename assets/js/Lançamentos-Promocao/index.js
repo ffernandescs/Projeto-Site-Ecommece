@@ -1,9 +1,4 @@
-let lancamentos2 = [{}]
-let promo = [{}]
-
 let bd = firebase.firestore();
-
-
 
 bd.collection("lancamentos").onSnapshot(function (documentos){
  
@@ -22,6 +17,7 @@ bd.collection("lancamentos").onSnapshot(function (documentos){
 function tabelaLancamentos(lancamentos) {
 
     let insertLancamentos = document.querySelector('.listProduct');
+    let lancamentos2 = [{}]
     
         for(let i = 0; i <lancamentos2.length; i++) {
             let liTag = `<a class="sliderProduct" href="#">
@@ -45,43 +41,44 @@ function tabelaLancamentos(lancamentos) {
     }
 
     
-bd.collection("promocao").onSnapshot(function (documentos){
- 
-  documentos.docChanges().forEach(function (changes){
-
-    if(changes.type === 'added') {
-      const doc = changes.doc;
-      const promocao = doc.data();
-      tabelaLancamentos2(promocao);
-
-      
-    }
-  })
-})
-
-function tabelaLancamentos2(promocao) {
-    let insertPromo = document.querySelector('.listProduct2');
+    bd.collection("promocao").onSnapshot(function (documentos){
+      documentos.docChanges().forEach(function (changes){
     
-        for(let i = 0; i <promo.length; i++) {
-            let liTag0 = `<a class="sliderProduct2" href="#">
-            <li class="itemProduct">
-            <div class="btnCompre">Compre</div>
-                <div class="imgProduct">
-                    <img src="${promocao.img}${promocao.cod}.jpg" alt="">
-                </div>
-                <div class="textInfo">
-                    <p class="codProduct"><span>Cod.: </span>${promocao.cod}</p>
-                    <h3 class="titleProduct">${promocao.title}</h3>
-                    <p class="descricaoProduct">${promocao.description}</p>
-                    <p class="valorAnterior">R$ ${promocao.vA}</p>
-                    <h2 class="valorAtual">R$ ${promocao.vH}</h2>
-                    <p class="parcelas">Até 10X de R$${promocao.pa}</p>
-                </div>
-            </li>
-        </a>`
-        insertPromo.insertAdjacentHTML('beforeend', liTag0);
+        if(changes.type === 'added') {
+          const doc = changes.doc;
+          const promocao = doc.data();
+          tabelaLancamentos2(promocao);
         }
-    }
+      })
+    })
+    
+    function tabelaLancamentos2(promocao) {
+        let insertPromo = document.querySelector('.listProduct2');
+        let promo = [{}];
+
+            for(let i = 0; i <promo.length; i++) {
+                let liTag0 = `<a class="sliderProduct2" href="#">
+                <li class="itemProduct">
+                <div class="btnCompre">Compre</div>
+                    <div class="imgProduct">
+                        <img src="${promocao.img}${promocao.cod}.jpg" alt="">
+                    </div>
+                    <div class="textInfo">
+                        <p class="codProduct"><span>Cod.: </span>${promocao.cod}</p>
+                        <h3 class="titleProduct">${promocao.title}</h3>
+                        <p class="descricaoProduct">${promocao.description}</p>
+                        <p class="valorAnterior">R$ ${promocao.vA}</p>
+                        <h2 class="valorAtual">R$ ${promocao.vH}</h2>
+                        <p class="parcelas">Até 10X de R$${promocao.pa}</p>
+                    </div>
+                </li>
+            </a>`
+            insertPromo.insertAdjacentHTML('beforeend', liTag0);
+            }
+        }
+    
+    
+   
 
 
     
