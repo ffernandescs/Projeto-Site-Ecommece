@@ -132,8 +132,8 @@
                                                
                     </ul>
                     <div class="btnList">
-                        <i class="fa-solid fa-circle-chevron-left"></i>
-                        <i class="fa-solid fa-circle-chevron-right"></i>
+                        <i onclick="carroselPrev()" class=" prevProduct fa-solid fa-circle-chevron-left"></i>
+                        <i onclick="carroselNext()" class=" nextProduct fa-solid fa-circle-chevron-right"></i>
                     </div>
                 </div>
                 
@@ -145,14 +145,14 @@
                     <h1>Promoções</h1>
                     <a href="#">Veja Mais ></a>
                 </div>
-                <div class="list">
+                <div class="list2">
                     <ul class="listProduct2">
                 
                        
                     </ul>
                     <div class="btnList">
-                        <i class="fa-solid fa-circle-chevron-left"></i>
-                        <i class="fa-solid fa-circle-chevron-right"></i>
+                        <i onclick="carroselPrev2()" class=" prevProduct2 fa-solid fa-circle-chevron-left"></i>
+                        <i onclick="carroselNext2()" class=" nextProduct2 fa-solid fa-circle-chevron-right"></i>
                     </div>
                 </div>
                 
@@ -180,10 +180,8 @@
                         </div>
                     </div>
                 </div>
-                
             </div>
             <div class="contactInfo">
-            
                 <div class="containerItem">
                     <h1>Atendimento</h1>
                     <div class="contItem">
@@ -208,10 +206,9 @@
                                 <h3>(81) 9 8229-4247</h3>
                             </a>
                         </div>
-                        
                     </div>
-                    
                 </div>
+            </div>
             <div class="infoSite">
                 <div class="contInfoFooter">
                     <div class="itemInfo">
@@ -242,9 +239,7 @@
                             <p>Nos cartões de crédito</p>
                         </span>
                     </div>
-                </div>
-                
-                
+                </div>       
             </div>
             <div class="pagamentSegu">
                 <div class="contPagamento">
@@ -272,10 +267,9 @@
     </footer>
 
 
-
-
-
-    
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="./assets/js/confiDb.js"></script>
     <script src="./assets/js/Promoções/index.js"></script>
     <script src="./assets/js/Lançamentos/index.js"></script>
     <script src="./assets/js/scripts.js"></script>

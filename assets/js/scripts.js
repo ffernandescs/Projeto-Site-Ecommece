@@ -7,31 +7,80 @@ const topoPage = document.querySelector('.containerTop'),
     carroselImg = document.querySelector('.carrosel'),
     prevImg = document.querySelector('.prev'),
     nexstImg = document.querySelector('.next'),
-    prevListProduct = document.querySelector('.list'),
+
     carroselProduct = document.querySelector('.listProduct'),
-    sliderProduct = document.querySelectorAll('.listProduct a').length,
-    btnPrevProduct = document.querySelector('#prevProduct'),
-    btnNextProduct = document.querySelector('#nextProduct');
+    carroselProduct2 = document.querySelector('.listProduct2');
 
-let indexImg = 0,
-    indexProduct = 0,
-    indexLancamentos = 0;
 
-window.addEventListener('load', carregarListe);
+let indexImg = 0;
+let indexPromo = 0;
+
+let indexLancamentos = 0;
+
+
+    function carroselPrev2() {
+        indexPromo--;
+        if(indexPromo < 0) {
+            indexPromo = document.querySelectorAll('.sliderProduct2').length -4;
+        }
+        loadingList2();
+    }
+
+    function carroselNext2() {
+        indexPromo++;
+        if(indexPromo > document.querySelectorAll('.sliderProduct2').length -4){
+            indexPromo = 0
+        }
+        loadingList2();
+    }
+
+
+function loadingList2() {
+    carroselProduct2.style.transform = `translateX(${-indexPromo * 300}px)`;
+}
+
+
+
+    function carroselPrev() {
+        indexLancamentos--;
+        if(indexLancamentos < 0){
+            indexLancamentos = document.querySelectorAll('.sliderProduct').length -4;
+        }
+        loadingList();
+    }
+   
+    function carroselNext() {
+        indexLancamentos++;
+        if(indexLancamentos > document.querySelectorAll('.sliderProduct').length -4){
+            indexLancamentos = 0
+        }
+        loadingList();
+    }
+
+    function loadingList() {
+        carroselProduct.style.transform = `translateX(${-indexLancamentos * 300}px)`;
+    }
+    
+
+
+
+
+
+    
 nexstImg.addEventListener('click', nextStart);
-menuHaburger.addEventListener('click', ()=> {
 
+menuHaburger.addEventListener('click', ()=> {   
     menuNav.classList.toggle('containerMenuActive')
 })
-
 
 window.addEventListener('scroll', () =>{
     if(topoPage.classList.toggle('topPageActive', window.scrollY > 0)){
         menuHaburger.classList.add('menuHamburgerActive')
         btnTop.style.visibility = 'visible'
+
+
     } else {
         menuHaburger.classList.remove('menuHamburgerActive')
-        menuNav.classList.remove('containerMenuActive')
         btnTop.style.visibility = 'hidden'
     }    
 })
@@ -43,7 +92,6 @@ btnTop.addEventListener('click', () =>{
     })
 
 })
-
 
 prevImg.addEventListener('click', ()=> {
     indexImg--;
@@ -69,48 +117,5 @@ function updateMargin() {
 setInterval(updateMargin, 5000)
 
 
-function carregarListe() {
 
-let insertLancamentos = document.querySelector('.listProduct'),
-    insertLPromocao = document.querySelector('.listProduct2');
 
-    for(let i = 0; i <lancamentos.length; i++) {
-        let liTag = `<a href="#">
-        <li class="itemProduct">
-        <div class="btnCompre">Compre</div>
-            <div class="imgProduct">
-                <img src="${lancamentos[i].img}" alt="">
-            </div>
-            <div class="textInfo">
-                <p class="codProduct"><span>Cod.: </span>${lancamentos[i].cod}</p>
-                <h3 class="titleProduct">${lancamentos[i].title}</h3>
-                <p class="descricaoProduct">${lancamentos[i].description}</p>
-                <p class="valorAnterior">R$ ${lancamentos[i].valorAnt}</p>
-                <h2 class="valorAtual">R$ ${lancamentos[i].valorAtual}</h2>
-                <p class="parcelas">Até 10X de R$${lancamentos[i].parcela}</p>
-            </div>
-        </li>
-    </a>`
-    insertLancamentos.insertAdjacentHTML('beforeend', liTag);
-    }
-
-    for(let i = 0; i <promocao.length; i++) {
-        let liTag = `<a href="#">
-        <li class="itemProduct">
-        <div class="btnCompre">Compre</div>
-            <div class="imgProduct">
-                <img src="${promocao[i].img}${promocao[i].cod}.jpg" alt="">
-            </div>
-            <div class="textInfo">
-            <p class="codProduct"><span>Cod.: </span>${promocao[i].cod}</p>
-                <h3 class="titleProduct">${promocao[i].title}</h3>
-                <p class="descricaoProduct">${promocao[i].description}</p>
-                <p class="valorAnterior">R$ ${promocao[i].valorAnt}</p>
-                <h2 class="valorAtual">R$ ${promocao[i].valorAtual}</h2>
-                <p class="parcelas">Até 10X de R$ ${promocao[i].parcela}</p>
-            </div>
-        </li>
-    </a>`
-    insertLPromocao.insertAdjacentHTML('beforeend', liTag);
-    }
-}
