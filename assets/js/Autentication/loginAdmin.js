@@ -11,7 +11,7 @@ btnLogin.addEventListener('click', function() {
       var user = userCredential.user;
       // ..
       console.log('Usuario Conectado')
-      window.location.replace('../index.html')
+      window.location.replace('../../page/admin/index.html')
     })
     .catch((error) => {
       var errorCode = error.code;
@@ -19,4 +19,5 @@ btnLogin.addEventListener('click', function() {
       console.log('Usuario nao Conectado')
 
     });
+    
 });

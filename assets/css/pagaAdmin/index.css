@@ -168,6 +168,7 @@ section {
     align-items: center;
     justify-content: space-between;
     padding: 20px;
+    position: relative;
 }
 
 .formProduct label {
@@ -197,7 +198,38 @@ section {
     margin-top: 10px;
 }
 
+#newAddImg {
+    width: 100px;
+    height: 100px;
+    box-shadow: 0 0px 5px 0px #000;
+    z-index: 9999;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 0;
+    left: 20px;
+    top: 20px;
+    cursor: pointer;
+    visibility: visible;
+
+}
+
+.formProduct img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    cursor: pointer;
+    position: absolute;
+    bottom: 0;
+    left: 20px;
+    top: 20px;
+    overflow: hidden;
+}
+
 #file {
+    z-index: -2;
+    visibility: hidden;
     border: none;
 }
 
@@ -323,6 +355,7 @@ thead {
 .tabelaProduct tbody tr td {
     padding: 10px;
 }
+
 
 .tabelaProduct tbody tr {
     cursor: pointer;

@@ -34,12 +34,16 @@
                                 <i class="fa-solid fa-xmark"></i>
                             </div>
                             <form class="formProduct" action="">
+                                <span id="newAddImg"></span>
+                                <img id="imgLoad" src="../../assets/img/icoAddImg.png" alt="Sem imagem">
+                                <label for="">
+                                    <input id="file" type="file" onchange="loadImgFile(event)" accept="image/*">
+                                    <progress id="progressbar" value="0" max="100">
+                                </label>
                                 <label for="">Codigo do produto:
                                     <input id="cod" type="text">
                                 </label>
-                                <label for="">Imagem:
-                                    <input id="file" type="file" name="olagoogle">
-                                </label>
+                               
                                 <label for="">Nome do Produto:
                                     <input id="name" type="text">
                                 </label>
@@ -70,11 +74,11 @@
                                     <input id="pa" type="text">
                                 </label>
                                 <label for="">Quantidade em estoque:
-                                    <input id="qt" type="text">
+                                    <input id="qtEstoque" type="text">
                                 </label>
                             </form>
                             <div class="containerBtn">
-                                <button onclick="cadProduct()">Salva</button>
+                                <button onclick="addProduct()">Salva</button>
                                 <button>Limpar</button>
                             </div>
                         </div>
@@ -92,17 +96,19 @@
                         </div>
                         <table class="tabelaProduct">
                             <thead>
-                                <tr>
-                                    <th></th>
+                                <tr id="clickTr">
+                                    <th id="checkbox"></th>
                                     <th>Codigo</th>
-                                    <th></th>
+                                    <th>Imagem</th>
                                     <th>Nome</th>
                                     <th>Tipo</th>
+                                    <th>Quant. Parcelas</th>
+                                    <th>Desconto</th>
                                     <th>Valor Anterior</th>
                                     <th>Valor Atual</th>
-                                    <th>Parcela</th>
+                                    <th>Valor Parcela</th>
                                     <th>Estoque</th>
-                                    <th></th>
+                                    <th>Editar</th>
                                 </tr>
             
                             </thead>
@@ -124,6 +130,7 @@
 
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
     <script src="../../assets/js/confiDb.js"></script>
     <script src="../../assets/js/pageAdmin/index.js"></script>
 </body>

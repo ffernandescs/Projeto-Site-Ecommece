@@ -7,40 +7,30 @@ const btnExitCadProduct = document.querySelector('.prdutos i')
 const btnAddProduto = document.querySelector('.btnAddProduct');
 const btnRemoveProduto = document.querySelector('.btnRemoveProduct');
 
+const imgSelect = document.getElementById('file');
+const icoImgAdd = document.querySelector('.formProduct span')
+
+const select = document.getElementById('qtParcela');
+
+const checkbox = document.getElementById('checkbox');
+const clickTrCheckbox = document.getElementById('clickTr');
 
 
 
-let db = firebase.firestore();
 
-let cadProdut2 = firebase.firestore().ref("produtos");
+const dbProduct = firebase.firestore();
 
+let listaProduct = []
 
-function cadProduct() {
-    let img = document.getElementById('file').value,
-    cod = document.getElementById('cod').value,
-    title = document.getElementById('name').value,
-    description = document.getElementById('desc').value,
-    descontoProduct = document.getElementById('descont').value,
-    valorAtual = document.getElementById('vA').value,
-    valorParcela = document.getElementById('pa').value,
-    qtEstoque = document.getElementById('qt').value;
+icoImgAdd.addEventListener('click', ()=>{
+    let fileImg = document.getElementById('file');
 
-var resultado = cadProduct2.push({
-    cod: cod,
-    title: title,
-    description: description,
-    descontoProduct: descontoProduct,
-    valorAtual: valorAtual,
-    valorParcela: valorParcela,
-    qtEstoque: qtEstoque
+    fileImg.click();
 })
 
-
+window.onload = function () {
+    loadProdutos()
 }
-
-
-
-
 
 btnExitCadProduct.addEventListener('click', () =>{
     exitItem.classList.remove('acitve')
@@ -63,41 +53,112 @@ btnMenuHamburger.addEventListener('click', () => {
     menu.classList.toggle('active');    
 } )
 
+clickTrCheckbox.addEventListener('click', () => {
+    if(checkbox.checked = false){
+        checkbox.checked = true
+    }
+})
 
 
 
 
+function renderProduct() {
+    let itemList = document.querySelector('.tbContent');
+    for (let produto of listaProduct ) {
+        let tagTd = `<tr>
+        <td><input type="checkbox"></td>
+        <td>${produto.cod}</td>
+        <td class="tdImg"><img src="${produto.img}" alt=""></td>
+        <td>${produto.title}</td>
+        <td>${produto.description}</td>
+        <td>${produto.qtParcela}</td>
+        <td>R$ ${produto.vDescont}</td>
+        <td style="text-decoration: line-through;">R$ ${produto.vA}</td>
+        <td id="">R$ ${produto.vH}</td>
+        <td>R$ ${produto.valorPa}</td>
+        <td>${produto.qtEstoque}</td>
+        <td class="edit"><i class="fa-solid fa-pen-to-square"></i></td>
+    </tr>`
+    itemList.insertAdjacentHTML('beforeend', tagTd);
+    }
+}
+
+async function loadProdutos() {
+    listaProduct = []
+    const logProduct = await dbProduct.collection('produtos').get()
+    for(doc of logProduct.docs) {
+        listaProduct.push ({
+            cod: doc.data().cod,
+            img: doc.data().img,
+            title: doc.data().title,
+            description: doc.data().description,
+            vDescont: doc.data().vDescont,
+            qtParcela: doc.data().qtParcela,
+            vA: doc.data().vA,
+            vH: doc.data().vH,
+            valorPa: doc.data().valorPa,
+            qtEstoque: doc.data().qtEstoque,
+        })
+    }
+    renderProduct()
+}
+
+async function addProduct() {
+    const cod = document.getElementById('cod').value;
+    const img = document.getElementById('file').src;
+    const title = document.getElementById('name').value;
+    const description = document.getElementById('desc').value;
+    const qtParcela = select.options[select.selectedIndex].value;
+    const vDescont = document.getElementById('descont').value;
+    const vA = document.getElementById('vA').value;
+    const vH = document.getElementById('descont').value;
+    const valorPa = document.getElementById('descont').value;
+    const qtEstoque = document.getElementById('qtEstoque').value;
+   
 
 
+    await dbProduct.collection('produtos').add({
+        cod: cod,
+        img: img,
+        title: title,
+        description: description,
+        vDescont: vDescont,
+        vA: vA,
+        vH: vH,
+        qtParcela: qtParcela,
+        valorPa: valorPa,
+        qtEstoque: qtEstoque,
 
-
-db.collection("produtos").onSnapshot(function (documentos){
-    documentos.docChanges().forEach(function (changes){
-  
-      if(changes.type === 'added') {
-        const doc = changes.doc;
-        const product = doc.data();
-        tabelaLancamentos3(product);      
-      }
     })
-  })
-  
-  function tabelaLancamentos3(product) {
-      let insertProduto = document.querySelector('.tbContent');
-      let produto = [{}]
-          for(let i = 0; i <produto.length; i++) {
-              let liTag1 = `<tr>
-              <td><input type="checkbox"></td>
-              <td>${product.cod}</td>
-              <td class="tdImg"><img src="../../${product.img}${product.cod}.jpg" alt=""></td>
-              <td>${product.title}</td>
-              <td>${product.description}</td>
-              <td style="text-decoration: line-through;">${product.vA}</td>
-              <td>${product.vH}</td>
-              <td>${product.pa}</td>
-              <td>${product.qt}</td>
-              <td class="edit"><i class="fa-solid fa-pen-to-square"></i></td>
-          </tr>`
-          insertProduto.insertAdjacentHTML('beforeend', liTag1);
-          }
-      }
+    loadProdutos();
+    location.reload();
+    
+}
+
+let loadImgFile = function(event){
+    let reader = new FileReader();
+    reader.onload = function() {
+        let imageAdd = document.querySelector('#newAddImg')
+        imageAdd.style.visibility = 'visible'
+        imageAdd.style.backgroundImage = 'url('+reader.result+')'    
+    }
+    reader.readAsDataURL(event.target.files[0]);
+}
+
+
+
+document.getElementById('file').addEventListener('change', (event)=> {
+    const file = event.target.files[0];
+    const storageRef = firebase.storage().ref('siteEcommece-Isabel/' + file.name);
+
+    storageRef.put(file).then(function(result) {
+        storageRef.getDownloadURL().then(function(result){
+            const imgAdd = document.getElementById('file');
+            console.log(result)
+            imgAdd.src = result;
+    });
+
+    
+    })
+})
+
