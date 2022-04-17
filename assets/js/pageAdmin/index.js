@@ -1,4 +1,5 @@
 const itemList = document.querySelector('.tbContent');
+const itemListRespom = document.querySelector('.tabelaProductResponse');
 const menu = document.querySelector('.containerMenu');
 const btnMenuHamburger = document.querySelector('.containerTop')
 const pageAddProduct = document.querySelector('.contProduct');
@@ -15,11 +16,11 @@ const select = document.getElementById('qtParcela');
 
 const totalProduct = document.querySelector('.checkboxList span');
 const btnCheckAll = document.getElementById('btnCheckAll');
-const delItem = document.querySelector('.tbContent');
+const delItem = document.querySelector('.tbContent', '.tabelaProductResponse');
+const delItemResponse = document.querySelector('.tabelaProductResponse');
 
 
 const dbProduct = firebase.firestore();
-
 
 
 
@@ -97,33 +98,83 @@ delItem.addEventListener('click', e => {
     }
 })
 
+delItemResponse.addEventListener('click', e => {
+    const removeBtn = e.target.dataset.remove;
+    if(removeBtn){
+        dbProduct.collection('produtos').doc(removeBtn).delete()
+        
+        .then(() => {
+            const delTr = document.querySelector(`[data-remove="${removeBtn}"]`);
+            delTr.remove();
+    
+            alert('produto Removido')
+        })
+        .catch(() => {
+            console.log('error.message')
+        })
+    }
+})
+
 function renderProduct() {
    
     dbProduct.collection('produtos').get()
     .then(snapshot => {
-       const produtosTr = snapshot.docs.reduce((acc, doc, index) => {
+       const produtosTr = snapshot.docs.reduce((acc, doc) => {
+
            const {cod, img, title, description, qtParcela, vDescont, vAvista, vPrazp, valorPa, qtEstoque} = doc.data()
-            acc += `<tr data-remove="${doc.id}">
-            <td><input class="ckeckbox" type="checkbox"></td>
-            <td>${cod}</td>
-            <td class="tdImg"><img src="${img}" alt=""></td>
-            <td>${title}</td>
-            <td>${description}</td>
-            <td>R$ ${vDescont}</td>
-            <td>R$ ${vPrazp}</td>
-            <td id="">R$ ${vAvista}</td>
-            <td>${qtParcela}</td>
-            <td>R$ ${valorPa}</td>
-            <td>${qtEstoque}</td>
-            <td class="edit"><i  class="fa-solid fa-pen-to-square"></i></td>
-            <td class="delItem"><i data-remove="${doc.id}" class="fa-solid fa-trash-can"></i></i></td>
+            acc += `<tr id="tagTr" data-remove="${doc.id}">
+            <td id="check"><input class="ckeckbox" type="checkbox"></td>
+            <td id="cod">${cod}</td>
+            <td id="imgIco" class="tdImg"><img src="${img}" alt=""></td>
+            <td id="title">${title}</td>
+            <td id="description">${description}</td>
+            <td class="trDescont">R$ ${vDescont}</td>
+            <td class="trVPrazo">R$ ${vPrazp}</td>
+            <td class="trVAvista">R$ ${vAvista}</td>
+            <td class="trQtParcel">${qtParcela}</td>
+            <td class="valorPa">R$ ${valorPa}</td>
+            <td class="trQtEstoque">${qtEstoque}</td>
+            <td id="edit" class="edit"><i  class="fa-solid fa-pen-to-square"></i></td>
+            <td id="apagar" class="delItem"><i data-remove="${doc.id}" class="fa-solid fa-trash-can"></i></i></td>
         </tr>`
         return acc     
         }, '')
         itemList.innerHTML += produtosTr  
+
+
+        
     })
+    dbProduct.collection('produtos').get()
+    .then(snapshot => {
+       const produtosTrRespon = snapshot.docs.reduce((acc, doc) => {
+
+           const {cod, img, title, vAvista, vPrazp} = doc.data()
+            acc += `<tr id="tagTr" data-remove="${doc.id}">
+            <td id="check"><input class="ckeckbox" type="checkbox"></td>
+            <td id="cod">${cod}</td>
+            <td id="imgIco" class="tdImg"><img src="${img}" alt=""></td>
+            <td id="title">${title}</td>
+            <td class="trVPrazo">R$ ${vPrazp}</td>
+            <td class="trVAvista">R$ ${vAvista}</td>
+            <td id="edit" class="edit"><i  class="fa-solid fa-pen-to-square"></i></td>
+            <td id="apagar" class="delItem"><i data-remove="${doc.id}" class="fa-solid fa-trash-can"></i></i></td>
+        </tr>`
+        return acc     
+        }, '')
+        itemListRespom.innerHTML += produtosTrRespon  
+
+
+        
+    })
+
+
+
     
 }
+
+
+
+
 
 function filtroTeclas(event) {
     return ((event.charCode >= 48 && event.charCode <= 57) || (event.keyCode == 45 || event.charCode == 46))

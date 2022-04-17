@@ -335,7 +335,7 @@ section {
     background-color: #156a869c;
 }
 
-.tabelaProduct {
+.tabelaProduct, .tabelaProductResponse {
     width: 100%;
     border-collapse: collapse;
 }
@@ -347,24 +347,23 @@ thead {
     background-color: #d3d5d5;
 }
 
-.tbContent {
+.tbContent, .tabelaProductResponse {
     width: 100%;
-    border-radius: 20px;
 
 }
 
-.tabelaProduct thead tr th {
+.tabelaProduct thead tr th, .tabelaProductResponse thead tr th {
     padding: 10px;
     font-size: 12px;
     color: #5c627a;
 }
 
-.tabelaProduct tbody tr td {
+.tabelaProduct tbody tr td, .tabelaProductResponse tbody tr td {
     padding: 10px;
 }
 
 
-.tabelaProduct tbody tr {
+.tabelaProduct tbody tr, .tabelaProductResponse tbody tr {
     cursor: pointer;
     transform: scale(1);
     transition: 0.3s ease-in-out;
@@ -373,12 +372,12 @@ thead {
 
 }
 
-.tabelaProduct tbody tr:hover {
+.tabelaProduct tbody tr:hover, .tabelaProductResponse tbody tr:hover {
     transform: scale(1.005);
     background-color: rgba(114, 199, 199, 0.164);
 }
 
-.tdImg img {
+.tdImg img, .imgRespon img {
     width: 70px;
     height: 70px;
     border-radius: 50%;
@@ -393,7 +392,52 @@ thead {
     color: rgb(6, 122, 122);
 }
 
-.tabelaProduct tbody .edit:hover,.tabelaProduct tbody .delItem:hover {
+.tabelaProductResponse tbody .edit, .tabelaProductResponse tbody .delItem {
+    font-size: 20px;
+    color: rgb(6, 122, 122);
+}
+
+.tabelaProduct tbody .edit:hover, .tabelaProduct tbody .delItem:hover {
     color: #000;
 }
+
+.tabelaProductResponse tbody .edit:hover, .tabelaProductResponse tbody .delItem:hover {
+    color: #000;
+}
+
+.tabelaProductResponse {
+    visibility: hidden;
+}
+
+
+
+
+@media screen and (max-width: 1300px) {
+
+    body {
+        overflow: hidden;
+    }
+    
+    .containerMenu {
+        width: 100%;
+        position: absolute;
+        left: -100%;
+        z-index: 3;
+        transition: 0.5s ease-in-out;
+    }
+
+    .containerMenu.active {
+        left: 0;
+    }
+
+    .tabelaProductResponse {
+        visibility: visible;
+
+    }
+    
+    #thContent, .tbContent {
+        display: none;
+    }
+
+   }
 
