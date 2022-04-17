@@ -13,7 +13,6 @@ bd.collection("lancamentos").onSnapshot(function (documentos){
     }
   })
 })
-
 function tabelaLancamentos(lancamentos) {
 
     let insertLancamentos = document.querySelector('.listProduct');

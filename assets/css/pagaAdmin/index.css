@@ -13,7 +13,6 @@ a {
 }
 
 body {
-    height: 100vh;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -78,7 +77,6 @@ section {
     padding-top: 50px;
     display: flex;
     justify-content: space-between;
-    overflow: hidden;
 }
 
 .containerMenu {
@@ -106,6 +104,10 @@ section {
 
 .conteudo {
     width: 100%;
+    max-height: 700px;
+    overflow: hidden;
+    background-color: #fff;
+    border-radius: 10px;
     margin: 50px;
     position: relative;
 }
@@ -196,6 +198,7 @@ section {
     width: 50px;
     height: 30px;
     margin-top: 10px;
+    margin-left: 50px;
 }
 
 #newAddImg {
@@ -290,8 +293,9 @@ section {
 
 .tbListProduct {
     background-color: #fff;
-    border-radius: 10px;
-    overflow: hidden;
+    max-height: 700px;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .filtroProduct {
@@ -334,14 +338,17 @@ section {
 .tabelaProduct {
     width: 100%;
     border-collapse: collapse;
-    overflow: hidden;
 }
 
 thead {
+    position: sticky;
+    top: 0;
+    z-index: 2;
     background-color: #d3d5d5;
 }
 
 .tbContent {
+    width: 100%;
     border-radius: 20px;
 
 }
@@ -377,13 +384,16 @@ thead {
     border-radius: 50%;
 }
 
-.tabelaProduct tbody .edit {
-    font-size: 20px;
-    color: rgb(6, 122, 122);
-    z-index: 50000;
+#progressbar {
+    display: none;
 }
 
-.tabelaProduct tbody .edit:hover {
+.tabelaProduct tbody .edit, .tabelaProduct tbody .delItem {
+    font-size: 20px;
+    color: rgb(6, 122, 122);
+}
+
+.tabelaProduct tbody .edit:hover,.tabelaProduct tbody .delItem:hover {
     color: #000;
 }
 

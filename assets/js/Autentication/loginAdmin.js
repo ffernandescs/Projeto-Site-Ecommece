@@ -21,3 +21,24 @@ btnLogin.addEventListener('click', function() {
     });
     
 });
+
+
+delItem.addEventListener('click', e => {
+  const removeBtn = e.target.dataset.remove;
+  if(confirm('Deseja realizar esta operaçõa?') == true){
+      dbProduct.collection('produtos').doc(removeBtn).delete()
+      .then(() => {
+          const delTr = document.querySelector(`[data-remove="${removeBtn}"]`);
+          delTr.remove();
+
+          alert('Operação realizada com sucesso')
+      })
+      .catch(() => {
+          console.log('error.message')
+      })
+
+      console.log(removeBtn)       
+   } else {
+      alert('Cancelada pelo usuario')
+   }
+})

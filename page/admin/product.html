@@ -27,6 +27,16 @@
                     </ul>
                 </nav>
                 <div class="conteudo">
+                    <div class="filtroProduct">
+                        <label for="btnCheckAll" class="checkboxList">
+                            <input id="btnCheckAll" type="checkbox">
+                            <span></span>
+                        </label>
+                        <div class="insertDel">
+                            <button class="btnAddProduct">Adicionar</button>
+                            <button class="btnRemoveProduct">Remover</button>
+                        </div>
+                    </div>
                     <div class="contProduct">
                         <div class="addProduct">
                             <div class="prdutos">
@@ -41,7 +51,7 @@
                                     <progress id="progressbar" value="0" max="100">
                                 </label>
                                 <label for="">Codigo do produto:
-                                    <input id="cod" type="text">
+                                    <input id="cod" type="text" onkeypress="filtroTeclas(event)">
                                 </label>
                                
                                 <label for="">Nome do Produto:
@@ -50,28 +60,32 @@
                                 <label for="">Descrição do produto:
                                     <input id="desc" type="text">
                                 </label>
+                                
+                                <label for="">Desconto:
+                                    <input id="descont" type="text" onkeyup="filtroTeclas(event)">
+                                </label>
+                                <label for="">Valor a prazo:
+                                    <input id="vPrazp" type="text" onkeyup="formatarMoeda()">
+                                </label>
+                                <label for="">Valor Avista:
+                                    <input id="vAvista" type="text" onkeyup="formatarMoeda2()">
+                                </label>
                                 <label for="">Parcelas
-                                    <select  id="qtParcela" name="quant" value="">
-                                        <option value="1x">1x</option>
-                                        <option value="2x">2x</option>
-                                        <option value="3x">3x</option>
-                                        <option value="4x">4x</option>
-                                        <option value="5x">5x</option>
-                                        <option value="6x">6x</option>
-                                        <option value="7x">7x</option>
-                                        <option value="8x">8x</option>
-                                        <option value="9x">9x</option>
-                                        <option value="10x">10x</option>
+                                    <select  id="qtParcela" name="quant" value=""  onblur="calcularValoresAdd()">
+                                        <option value="1">1x</option>
+                                        <option value="2">2x</option>
+                                        <option value="3">3x</option>
+                                        <option value="4">4x</option>
+                                        <option value="5">5x</option>
+                                        <option value="6">6x</option>
+                                        <option value="7">7x</option>
+                                        <option value="8">8x</option>
+                                        <option value="9">9x</option>
+                                        <option value="10">10x</option>
                                     </select>
                                 </label>
-                                <label for="">Desconto:
-                                    <input id="descont" type="text">
-                                </label>
-                                <label for="">Valor Atual:
-                                    <input id="vA" type="text">
-                                </label>
                                 <label for="">Valor da Parcela:
-                                    <input id="pa" type="text">
+                                    <input id="pa" type="text" onkeyup="formatarMoeda3()">
                                 </label>
                                 <label for="">Quantidade em estoque:
                                     <input id="qtEstoque" type="text">
@@ -84,36 +98,28 @@
                         </div>
                     </div>
                     <div class="tbListProduct">
-                        <div class="filtroProduct">
-                            <div class="checkboxList">
-                                <input type="checkbox">
-                                <span>26 Selecionados</span>
-                            </div>
-                            <div class="insertDel">
-                                <button class="btnAddProduct">Adicionar</button>
-                                <button class="btnRemoveProduct">Remover</button>
-                            </div>
-                        </div>
+                        
                         <table class="tabelaProduct">
                             <thead>
                                 <tr id="clickTr">
-                                    <th id="checkbox"></th>
+                                    <th class="check"></th>
                                     <th>Codigo</th>
                                     <th>Imagem</th>
                                     <th>Nome</th>
                                     <th>Tipo</th>
-                                    <th>Quant. Parcelas</th>
                                     <th>Desconto</th>
-                                    <th>Valor Anterior</th>
-                                    <th>Valor Atual</th>
+                                    <th>Valor a prazo</th>
+                                    <th>Valor a vista</th>
+                                    <th>Quant. Parcelas</th>
                                     <th>Valor Parcela</th>
                                     <th>Estoque</th>
                                     <th>Editar</th>
+                                    <th>Apagar</th>
                                 </tr>
             
                             </thead>
                             <tbody class="tbContent">
-                                   
+                                
                             </tbody>
                         </table>
                     </div>
