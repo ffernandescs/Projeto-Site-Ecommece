@@ -13,7 +13,7 @@ const imgSelect = document.getElementById('file');
 const icoImgAdd = document.querySelector('.formProduct span')
 
 const select = document.getElementById('qtParcela');
-
+ 
 const totalProduct = document.querySelector('.checkboxList span');
 const btnCheckAll = document.getElementById('btnCheckAll');
 const delItem = document.querySelector('.tbContent', '.tabelaProductResponse');
@@ -157,7 +157,7 @@ function renderProduct() {
             <td class="trVPrazo">R$ ${vPrazp}</td>
             <td class="trVAvista">R$ ${vAvista}</td>
             <td id="edit" class="edit"><i  class="fa-solid fa-pen-to-square"></i></td>
-            <td id="apagar" class="delItem"><i data-remove="${doc.id}" class="fa-solid fa-trash-can"></i></i></td>
+            <td id="apagar" class="delItem"><i data-remove="${doc.id}" class="fa-solid fa-trash-can"></i></td>
         </tr>`
         return acc     
         }, '')

@@ -5,7 +5,8 @@
     padding: 0;
     box-sizing: border-box;
     text-transform: uppercase;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins', sans-serif; 
+    font-size: 62.5%;
 }
 
 a {
@@ -99,7 +100,7 @@ section {
 .containerMenu li a {
     color: #FFFFFF;
     text-transform: none;
-    font-size: 20px;
+    font-size: 2.0rem;
 }
 
 .conteudo {
@@ -153,14 +154,14 @@ section {
 
 .prdutos h1 {
     color: #000;
-    font-size: 22px;
+    font-size: 2.2rem;
     text-transform: none;
 }
 
 .prdutos i {
     position: absolute;
     right: 20px;
-    font-size: 30px;
+    font-size: 3.0rem;
     cursor: pointer;
 }
 
@@ -177,7 +178,7 @@ section {
     display: flex;
     flex-direction: column;
     margin-bottom: 30px;
-    font-size: 14px;
+    font-size: 1.4rem;
     color: #000;
 }
 
@@ -274,7 +275,7 @@ section {
     border: none;
     border-radius: 5px;
     color: #fff;
-    font-size: 16px;
+    font-size: 1.6rem;
     cursor: pointer;
 }
 
@@ -306,6 +307,10 @@ section {
     border-radius: 5px;
 }
 
+.filtroProduct label span {
+    font-size: 1.5rem;
+}
+
 .checkboxList input {
     margin-right: 20px;
 }
@@ -316,7 +321,7 @@ section {
     height: 40px;
     cursor: pointer;
     color: #fff;
-    font-size: 14px;
+    font-size: 1.4rem;
     border: none;
     border-radius: 5px;
 }
@@ -354,12 +359,13 @@ thead {
 
 .tabelaProduct thead tr th, .tabelaProductResponse thead tr th {
     padding: 10px;
-    font-size: 12px;
+    font-size: 1.2rem;
     color: #5c627a;
 }
 
 .tabelaProduct tbody tr td, .tabelaProductResponse tbody tr td {
     padding: 10px;
+    font-size: 1.5rem;
 }
 
 
@@ -369,7 +375,6 @@ thead {
     transition: 0.3s ease-in-out;
     border-bottom: 1px solid #5c627a38;
     text-align: center;
-
 }
 
 .tabelaProduct tbody tr:hover, .tabelaProductResponse tbody tr:hover {
@@ -377,23 +382,30 @@ thead {
     background-color: rgba(114, 199, 199, 0.164);
 }
 
+.tdImg {
+    overflow: hidden;
+    width: 70px;
+    height: 70px;
+}
+
 .tdImg img, .imgRespon img {
     width: 70px;
     height: 70px;
     border-radius: 50%;
+
 }
 
 #progressbar {
     display: none;
 }
 
-.tabelaProduct tbody .edit, .tabelaProduct tbody .delItem {
-    font-size: 20px;
+.tabelaProduct tbody tr .edit i, .tabelaProduct tbody tr .delItem i{
+    font-size: 2.2rem;
     color: rgb(6, 122, 122);
 }
 
-.tabelaProductResponse tbody .edit, .tabelaProductResponse tbody .delItem {
-    font-size: 20px;
+.tabelaProductResponse tbody tr .edit i, .tabelaProductResponse tbody .delItem  i{
+    font-size: 2.2rem;
     color: rgb(6, 122, 122);
 }
 
@@ -414,6 +426,10 @@ thead {
 
 @media screen and (max-width: 1300px) {
 
+    * {
+        font-size: 62.5%;
+    }
+
     body {
         overflow: hidden;
     }
@@ -431,12 +447,39 @@ thead {
     }
 
     .tabelaProductResponse {
+        width: 100%;
+        margin-bottom: 100px;
         visibility: visible;
 
     }
     
     #thContent, .tbContent {
         display: none;
+    }
+
+   }
+
+@media screen and (max-width: 800px) {
+
+    * {
+        font-size: 62.5%;
+    }
+
+  
+    .tdImg img{
+        width: 40px;
+        height: 40px;
+    }
+
+    .tabelaProductResponse tbody tr {
+        max-height: 5px;
+        overflow: hidden;
+    }
+
+    .tabelaProductResponse tbody tr td {
+        max-height: 5px;
+        overflow: hidden;
+        padding: 0;
     }
 
    }
