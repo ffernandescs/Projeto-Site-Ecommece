@@ -5,151 +5,260 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/f84144252b.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
     <link rel="stylesheet" href="../../assets/css/pagaAdmin/index.css">
-    <title>Painel administrativo</title>
+    <title>Painel de Produtos</title>
 </head>
-<body> 
-    
+<body>   
     <section>
-        <div class="containerTop">
-            <div class="menuHaburger">
-                <span class="line"></span>
-                <span class="line"></span>
-                <span class="line"></span>
+        <div class="menuContainer">
+            <nav>
+                <div class="btnResponseMenu">
+                    <span class="material-icons">chevron_left</span>
+                </div>
+                <div class="login">
+                    <div class="imgUser">
+                        <img src="../../assets/img/logoUser.jpg" alt="">
+                    </div>
+                    <h1>Felipe Fernandes</h1>
+                </div>
+                <ul>
+                    <li class="list"><a href="#">
+                        <span class="material-icons">home</span>
+                        <span class="textMenu">Inicio</span>
+                        <div class="textRespon text1">
+                            <p>Inicio</p>
+                        </div>
+                    </a></li>
+                    <li class="list"><a href="../../page/admin/product.html">
+                        <span class="material-icons">local_mall</span>
+                        <span class="textMenu">Produtos</span>
+                        <div class="textRespon text2">
+                            <p>Produtos</p>
+                        </div>
+                    </a></li>
+                    <li class="list"><a href="#">
+                        <span class="material-icons">language</span>
+                        <span class="textMenu">Site Externo</span>
+                        <div class="textRespon text3">
+                            <p>Site Externo</p>
+                        </div>
+                    </a></li>
+                    <li class="list"><a href="#">
+                        <span class="material-icons">lock</span>
+                        <span class="textMenu">Senha</span>
+                        <div class="textRespon text4">
+                            <p>Senha</p>
+                        </div>
+                    </a></li>
+                    <li class="list"><a href="#">
+                        <span class="material-icons">help</span>
+                        <span class="textMenu">Ajuda</span>
+                        <div class="textRespon text5">
+                            <p>Ajuda</p>
+                        </div>
+                    </a></li>
+                  
+                    <li class="list"><a href="#">
+                        <span class="material-icons">logout</span>
+                        <span class="textMenu">Sair</span>
+                        <div class="textRespon text6">
+                            <p>Sair</p>
+                        </div>
+                    </a></li>
+                  
+                </ul>
+            </nav>
+            <div class="administrator">
+                <h1>Administrador</h1>
+                <span class="material-icons">logout</span>
             </div>
         </div>
-        <div class="containerPrincipal">
-                <nav class="containerMenu">
-                    <ul>
-                        <li><a class="itemMenu" href="#">Pagina Incial</a></li>
-                        <li><a class="itemMenu" href="#">Site Externo</a></li>
-                        <li><a class="itemMenu" href="../../page/admin/product.html">Produtos da Loja</a></li>
-                    </ul>
-                </nav>
-                <div class="conteudo">
-                    <div class="filtroProduct">
-                        <label for="btnCheckAll" class="checkboxList">
-                            <input id="btnCheckAll" type="checkbox">
-                            <span></span>
+        <div class="contPrincipal">
+            <div class="barraTop">
+                <div class="menuHamburger">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
+            </div>
+            <div class="telaPrincipal">
+                <div class="containerProduct">
+                    <div class="filtroTable">
+                        <label for="checkbox">
+                            <input type="checkbox">
                         </label>
-                        <div class="insertDel">
-                            <button class="btnAddProduct">Adicionar</button>
-                            <button class="btnRemoveProduct">Remover</button>
+                        <div class="btnAddRemove">
+                            <button id="btnAddProduct" class="btnAdd">Adicionar</button>
+                            <button id="btnAddRemoveProduct" class="btnRemove">Remover</button>
                         </div>
                     </div>
-                    <div class="contProduct">
-                        <div class="addProduct">
-                            <div class="prdutos">
-                                <h1>Cadastros de Produtos</h1>
-                                <i class="fa-solid fa-xmark"></i>
-                            </div>
-                            <form class="formProduct" action="">
-                                <span id="newAddImg"></span>
-                                <img id="imgLoad" src="../../assets/img/icoAddImg.png" alt="Sem imagem">
-                                <label for="">
-                                    <input id="file" type="file" onchange="loadImgFile(event)" accept="image/*">
-                                    <progress id="progressbar" value="0" max="100">
-                                </label>
-                                <label for="">Codigo do produto:
-                                    <input id="cod" type="text" onkeypress="filtroTeclas(event)">
-                                </label>
-                               
-                                <label for="">Nome do Produto:
-                                    <input id="name" type="text">
-                                </label>
-                                <label for="">Descrição do produto:
-                                    <input id="desc" type="text">
-                                </label>
-                                
-                                <label for="">Desconto:
-                                    <input id="descont" type="text" onkeyup="filtroTeclas(event)">
-                                </label>
-                                <label for="">Valor a prazo:
-                                    <input id="vPrazp" type="text" onkeyup="formatarMoeda()">
-                                </label>
-                                <label for="">Valor Avista:
-                                    <input id="vAvista" type="text" onkeyup="formatarMoeda2()">
-                                </label>
-                                <label for="">Parcelas
-                                    <select  id="qtParcela" name="quant" value=""  onblur="calcularValoresAdd()">
-                                        <option value="1">1x</option>
-                                        <option value="2">2x</option>
-                                        <option value="3">3x</option>
-                                        <option value="4">4x</option>
-                                        <option value="5">5x</option>
-                                        <option value="6">6x</option>
-                                        <option value="7">7x</option>
-                                        <option value="8">8x</option>
-                                        <option value="9">9x</option>
-                                        <option value="10">10x</option>
-                                    </select>
-                                </label>
-                                <label for="">Valor da Parcela:
-                                    <input id="pa" type="text" onkeyup="formatarMoeda3()">
-                                </label>
-                                <label for="">Quantidade em estoque:
-                                    <input id="qtEstoque" type="text">
-                                </label>
-                            </form>
-                            <div class="containerBtn">
-                                <button onclick="addProduct()">Salva</button>
-                                <button>Limpar</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tbListProduct">
-                        
-                        
-                        <table class="tabelaProduct">
-                            <thead id="thContent">
-                                <tr id="clickTr">
-                                    <th class="check"></th>
-                                    <th>Codigo</th>
-                                    <th>Imagem</th>
-                                    <th>Nome</th>
-                                    <th class="tipo">Tipo</th>
-                                    <th class="trDescont">Desconto</th>
-                                    <th class="trVPrazo">Valor a prazo</th>
-                                    <th class="trVAvista">Valor a vista</th>
-                                    <th class="trQtParcel">Quant. Parcelas</th>
-                                    <th class="valorPa">Valor Parcela</th>
-                                    <th class="trQtEstoque">Estoque</th>
-                                    <th class="trEdit">Editar</th>
-                                    <th class="trApagar">Apagar</th>
-                                </tr>
-            
-                            </thead>
-                            <tbody class="tbContent">
-                                
-                            </tbody>
-                           
-                        </table>
-                        <table class="tabelaProductResponse">
-                            <thead id="thResponse">
-                                <tr id="clickTr">
-                                    <th class="check"></th>
-                                    <th>Codigo</th>
-                                    <th>Imagem</th>
-                                    <th>Nome</th>
-                                    <th class="trVPrazo">Valor a prazo</th>
-                                    <th class="trVAvista">Valor a vista</th>
-                                    <th class="trEdit">Editar</th>
-                                    <th class="trApagar">Apagar</th>
-                                </tr>
-            
-                            </thead>
-                            <tbody class="tbContentResponse">
-                                
-                            </tbody>
-                        </table>
-                    </div>
+                    <table class="tbContainer">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th id="trCod">Codigo</th>
+                                <th id="trImg">Imagem</th>
+                                <th id="trName">Nome</th>
+                                <th id="trVP">Valor/Prazo</th>
+                                <th id="trDesconto">Desconto</th>
+                                <th id="trVA">Valor/Vista</th>
+                                <th id="trQtParcela">Q. Parcelas</th>
+                                <th id="trVParcela">Valor/Parcela</th>
+                                <th id="trEstoque">Estoque</th>
+                                <th id="trAcoes">Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody class="tbList">
+                            
+                        </tbody>
+                    </table>
+                    
                 </div>
             </div>
         </div>
-        
+        <div class="addProduct">
+            <div class="close">
+                <span class="material-icons">close</span>
+            </div>
+            
+            <form action="" class="formAddProduct">
+                <div class="textTitle">
+                    <h1>Cadastro de Produtos</h1>
+                </div>
+                <div class="contForm">
+                    <div class="infoPrincipal">
+                        <div class="imgAdd" for="img">
+                            <img src="../../assets/img/icoAddImg.png" alt="">
+                            <span id="imgInsert"></span>
+                            <input id="file" type="file" onchange="loadImgFile(event)">
+                        </div>
+                        <div class="btnAddRemove">
+                            <button id="btnAddItem" class="btnSalva">Salva</button>
+                            <button class="btnRemove" type="reset">Limpar</button>
+                        </div>
+                    </div>
+                    
+                    <div class="labels">
+                        <label for="cod">Codigo:
+                            <input id="codInput" type="text" name="cod" >
+                        </label>
+                        <label for="name">Nome:
+                            <input id="nameInput" type="text" name="description">
+                        </label>
+                        <label id="textArea" for="description">Descrição:
+                            <textarea id="descriptionText" rows="5" cols="33" name="description" ></textarea>
+                        </label>
+                        <label for="vP">Valor a Prazo:
+                            <input type="text" name="VP" id="vPInput" >
+                        </label>
+                        <label for="vD">Valor de Desconto:
+                            <input type="text" name="vD" id="vDInput" >
+                        </label>
+                        <label for="vA">Valor Avista:
+                            <input type="text" name="vA" id="vAInput" >
+                        </label>
+                        <label for="">Quantidade de Parcelas:
+                            <select itemid="qtParcela" name="qtParcela" id="qtParcela"> 
+                                <option value="1">1x</option>
+                                <option value="2">2x</option>
+                                <option value="3">3x</option>
+                                <option value="4">4x</option>
+                                <option value="5">5x</option>
+                                <option value="6">6x</option>
+                                <option value="7">7x</option>
+                                <option value="8">8x</option>
+                                <option value="9">9x</option>
+                                <option value="10">10x</option>
+                                <option value="11">11x</option>
+                                <option value="12">12x</option>
+                            </select>
+                        </label>
+                        
+                        <label for="totalD">Valor da Parcela:
+                            <input type="text" name="totalD" id="vParcelInput" >
+                        </label>
+                        <label for="totalD">Estoque:
+                            <input type="text" name="qtEstoque" id="qtEstoque" >
+                        </label>
+                    </div>
+                </div>
+                
+                
+            </form>
+        </div>
+        <div class="editProduct">
+            <div class="closeEdit">
+                <span class="material-icons">close</span>
+            </div>
+            
+            <form action="" class="formEditProduct">
+                <div class="textTitle">
+                    <h1>Cadastro de Produtos</h1>
+                </div>
+                <div class="contForm">
+                    <div class="infoPrincipal">
+                        <div class="imgAddEdit" for="img">
+                            <img src="../../assets/img/icoAddImg.png" alt="">
+                            <span id="imgInsertEdit"></span>
+                            <input id="fileEdit" name="img" type="file" onchange="loadImgFileEdit(event)">
+                        </div>
+                        <div class="btnAddRemove">
+                            <button id="btnAddItem" class="btnSalva">Salva</button>
+                            <button class="btnRemove" type="reset">Limpar</button>
+                        </div>
+                    </div>
+                    
+                    <div class="labels">
+                        <label for="cod">Codigo:
+                            <input id="codInput" type="text" name="cod" >
+                        </label>
+                        <label for="name">Nome:
+                            <input id="nameInput" type="text" name="name">
+                        </label>
+                        <label id="textArea" for="description">Descrição:
+                            <textarea id="descriptionText" rows="5" cols="33" name="description" ></textarea>
+                        </label>
+                        <label for="vP">Valor a Prazo:
+                            <input type="text" name="valorPrazo" id="vPInput" >
+                        </label>
+                        <label for="vD">Valor de Desconto:
+                            <input type="text" name="valorDesconto" id="vDInput" >
+                        </label>
+                        <label for="vA">Valor Avista:
+                            <input type="text" name="valorAvista" id="vAInput" >
+                        </label>
+                        <label for="">Quantidade de Parcelas:
+                            <select itemid="qtParcela" name="qtParcela" id="qtParcela"> 
+                                <option value="1">1x</option>
+                                <option value="2">2x</option>
+                                <option value="3">3x</option>
+                                <option value="4">4x</option>
+                                <option value="5">5x</option>
+                                <option value="6">6x</option>
+                                <option value="7">7x</option>
+                                <option value="8">8x</option>
+                                <option value="9">9x</option>
+                                <option value="10">10x</option>
+                                <option value="11">11x</option>
+                                <option value="12">12x</option>
+                            </select>
+                        </label>
+                        
+                        <label for="totalD">Valor da Parcela:
+                            <input type="text" name="valorParcela" id="vParcelInput" >
+                        </label>
+                        <label for="totalD">Estoque:
+                            <input type="text" name="qtEstoque" id="qtEstoque" >
+                        </label>
+                    </div>
+                </div>
+                
+                
+            </form>
+        </div>
     </section>
-   
-    <div class="fecharTela"></div>
+    <div class="telaEscura"></div>
   
         
    
@@ -157,6 +266,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
+    <script src="../../assets/js/pageAdmin/menu.js"></script>
     <script src="../../assets/js/confiDb.js"></script>
     <script src="../../assets/js/pageAdmin/index.js"></script>
 </body>

@@ -1,306 +1,223 @@
-const itemList = document.querySelector('.tbContent');
-const itemListRespom = document.querySelector('.tabelaProductResponse');
-const menu = document.querySelector('.containerMenu');
-const btnMenuHamburger = document.querySelector('.containerTop')
-const pageAddProduct = document.querySelector('.contProduct');
-const exitItem = document.querySelector('.fecharTela');
-const btnExitCadProduct = document.querySelector('.prdutos i')
-
-const btnAddProduto = document.querySelector('.btnAddProduct');
-const btnRemoveProduto = document.querySelector('.btnRemoveProduct');
-
-const imgSelect = document.getElementById('file');
-const icoImgAdd = document.querySelector('.formProduct span')
-
-const select = document.getElementById('qtParcela');
- 
-const totalProduct = document.querySelector('.checkboxList span');
-const btnCheckAll = document.getElementById('btnCheckAll');
-const delItem = document.querySelector('.tbContent', '.tabelaProductResponse');
-const delItemResponse = document.querySelector('.tabelaProductResponse');
-
-
 const dbProduct = firebase.firestore();
 
+const btnAddProduct = document.getElementById('btnAddProduct');
+const addProduct = document.querySelector('.addProduct');
+const editProduct = document.querySelector('.editProduct');
+const clickFora = document.querySelector('.telaEscura');
+const tableListProduc = document.querySelector('.tbList');
+const formAddProduct = document.querySelector('.formAddProduct');
+const formEditProduct = document.querySelector('.formEditProduct');
+const select = document.getElementById('qtParcela');
+const qtParcela = select.options[select.selectedIndex].value;
+const delItem = document.querySelector('.tbList');
+const closeAddProduct = document.querySelector('.close');
+const closeEditProduct = document.querySelector('.closeEdit');
 
 
-let listaProduct = []
-let estadoCheckbox = false
+const clickImgAdd = document.querySelector('.imgAdd img');
+const clickImgEdit = document.querySelector('.imgAddEdit img');
+
+let id;
 
 
-setInterval(()=>{
-    checktd = document.querySelectorAll('tr').length;
-    checktd = checktd -1
-    totalProduct.innerHTML = 'Total' + ' ' + checktd + ' ' + 'Produtos'
-}, 1000)
+clickImgAdd.addEventListener('click', () => {
+    const imgAdd = document.getElementById('file');
+    imgAdd.click();
+})
 
-window.onload = function () {
-    loadProdutos()
+clickImgEdit.addEventListener('click', () => {
+    const imgAddEdit = document.getElementById('fileEdit');
+    imgAddEdit.click();
+})
 
-a = parseFloat('539,19')
-b = parseFloat('525.10')
 
-c = a + b
-
-console.log(c.toFixed(2))
-}
-
-btnCheckAll.addEventListener('click', () => {
-    let ckeckboxs = document.querySelectorAll('.ckeckbox[type=checkbox]');
-    for (let i = 0; i <ckeckboxs.length; i++) {
-        ckeckboxs[i].checked = !estadoCheckbox;
-    }
-    estadoCheckbox = !estadoCheckbox
+clickFora.addEventListener('click', () => {
+    const telaEscura = document.querySelector('.telaEscura');
+    const addProduct = document.querySelector('.addProduct');
+    telaEscura.classList.remove('active')
+    addProduct.classList.remove('active') 
+    editProduct.classList.remove('active') 
 
 })
 
-icoImgAdd.addEventListener('click', ()=>{
-    let fileImg = document.getElementById('file');
-
-    fileImg.click();
+btnAddProduct.addEventListener('click', () => {
+    const telaEscura = document.querySelector('.telaEscura');
+    const addProduct = document.querySelector('.addProduct');
+    telaEscura.classList.add('active')
+    addProduct.classList.add('active')
 })
 
-btnExitCadProduct.addEventListener('click', () =>{
-    exitItem.classList.remove('acitve')
-    pageAddProduct.classList.remove('activeAdd')
-
+closeAddProduct.addEventListener('click', () => {
+    const telaEscura = document.querySelector('.telaEscura');
+    const addProduct = document.querySelector('.addProduct');
+    telaEscura.classList.remove('active')
+    addProduct.classList.remove('active') 
 })
 
-btnAddProduto.addEventListener('click', () =>{
-    pageAddProduct.classList.add('activeAdd');
-    exitItem.classList.add('acitve');
+closeEditProduct.addEventListener('click', () => {
+    const telaEscura = document.querySelector('.telaEscura');
+    const addProduct = document.querySelector('.addProduct');
+    telaEscura.classList.remove('active')
+    editProduct.classList.remove('active') 
 })
 
-exitItem.addEventListener('click', () => {
-        exitItem.classList.remove('acitve')
-        pageAddProduct.classList.remove('activeAdd')
-})
-
-btnMenuHamburger.addEventListener('click', () => {
-
-    menu.classList.toggle('active');    
-} )
-
-delItem.addEventListener('click', e => {
-    const removeBtn = e.target.dataset.remove;
-    if(removeBtn){
-        dbProduct.collection('produtos').doc(removeBtn).delete()
-        
-        .then(() => {
-            const delTr = document.querySelector(`[data-remove="${removeBtn}"]`);
-            delTr.remove();
-    
-            alert('produto Removido')
-        })
-        .catch(() => {
-            console.log('error.message')
-        })
-    }
-})
-
-delItemResponse.addEventListener('click', e => {
-    const removeBtn = e.target.dataset.remove;
-    if(removeBtn){
-        dbProduct.collection('produtos').doc(removeBtn).delete()
-        
-        .then(() => {
-            const delTr = document.querySelector(`[data-remove="${removeBtn}"]`);
-            delTr.remove();
-    
-            alert('produto Removido')
-        })
-        .catch(() => {
-            console.log('error.message')
-        })
-    }
-})
-
-function renderProduct() {
-   
-    dbProduct.collection('produtos').get()
-    .then(snapshot => {
-       const produtosTr = snapshot.docs.reduce((acc, doc) => {
-
-           const {cod, img, title, description, qtParcela, vDescont, vAvista, vPrazp, valorPa, qtEstoque} = doc.data()
-            acc += `<tr id="tagTr" data-remove="${doc.id}">
-            <td id="check"><input class="ckeckbox" type="checkbox"></td>
-            <td id="cod">${cod}</td>
-            <td id="imgIco" class="tdImg"><img src="${img}" alt=""></td>
-            <td id="title">${title}</td>
-            <td id="description">${description}</td>
-            <td class="trDescont">R$ ${vDescont}</td>
-            <td class="trVPrazo">R$ ${vPrazp}</td>
-            <td class="trVAvista">R$ ${vAvista}</td>
-            <td class="trQtParcel">${qtParcela}</td>
-            <td class="valorPa">R$ ${valorPa}</td>
-            <td class="trQtEstoque">${qtEstoque}</td>
-            <td id="edit" class="edit"><i  class="fa-solid fa-pen-to-square"></i></td>
-            <td id="apagar" class="delItem"><i data-remove="${doc.id}" class="fa-solid fa-trash-can"></i></i></td>
-        </tr>`
-        return acc     
-        }, '')
-        itemList.innerHTML += produtosTr  
-
-
-        
+dbProduct.collection('produtos').get().then(querySnapshot => {
+    querySnapshot.forEach(doc => {
+        loadingList(doc);
     })
-    dbProduct.collection('produtos').get()
-    .then(snapshot => {
-       const produtosTrRespon = snapshot.docs.reduce((acc, doc) => {
+})
 
-           const {cod, img, title, vAvista, vPrazp} = doc.data()
-            acc += `<tr id="tagTr" data-remove="${doc.id}">
-            <td id="check"><input class="ckeckbox" type="checkbox"></td>
-            <td id="cod">${cod}</td>
-            <td id="imgIco" class="tdImg"><img src="${img}" alt=""></td>
-            <td id="title">${title}</td>
-            <td class="trVPrazo">R$ ${vPrazp}</td>
-            <td class="trVAvista">R$ ${vAvista}</td>
-            <td id="edit" class="edit"><i  class="fa-solid fa-pen-to-square"></i></td>
-            <td id="apagar" class="delItem"><i data-remove="${doc.id}" class="fa-solid fa-trash-can"></i></td>
-        </tr>`
-        return acc     
-        }, '')
-        itemListRespom.innerHTML += produtosTrRespon  
-
-
-        
-    })
+const loadingList = doc => {
+    const tr = `<tr data-remove="${doc.id}">
+    <td id="tdCheck"><input type="checkbox"></td>
+    <td id="tdCod">${doc.data().cod}</td>
+    <td id="tdImg"><img src="${doc.data().img}" alt=""></td>
+    <td id="tdName">${doc.data().name}</td>
+    <td id="tdVP">R$ ${doc.data().vPrazp}</td>
+    <td id="tdDesconto">${doc.data().vDescont}%</td>
+    <td id="tdVA">R$ ${doc.data().vAvista}</td>
+    <td id="tdQtParcela">${doc.data().qtParcela}x</td>
+    <td id="tdVParcela">R$ ${doc.data().valorPa}</td>
+    <td id="tdEstoque">${doc.data().qtEstoque} Und.</td>
+    <td id="tdAcoes">
+        <span class="material-icons btnEdit">open_in_new</span>
+        <span data-remove="${doc.id}" class="material-icons">delete</span>
+    </td>                            
+</tr>`
 
 
+tableListProduc.insertAdjacentHTML('beforeend', tr);
+const btnEdit = document.querySelector(`[data-remove="${doc.id}"] .btnEdit`)
+btnEdit.addEventListener('click', () => {
+    const telaEscura = document.querySelector('.telaEscura');
+    const imgPreview = document.querySelector('.imgAddEdit img');
 
-    
+    id = doc.id
+
+    editProduct.classList.add('active')
+    telaEscura.classList.add('active')
+
+    formEditProduct.cod.value = doc.data().cod
+    formEditProduct.name.value = doc.data().name
+    formEditProduct.img.src = doc.data().img
+    formEditProduct.description.value = doc.data().description
+    formEditProduct.valorPrazo.value = doc.data().vPrazp
+    formEditProduct.valorDesconto.value = doc.data().vDescont
+    formEditProduct.valorAvista.value = doc.data().vAvista
+    formEditProduct.qtParcela.value = doc.data().qtParcela
+    formEditProduct.valorParcela.value = doc.data().valorPa
+    formEditProduct.qtEstoque.value = doc.data().qtEstoque
+    imgPreview.src = doc.data().img;
+
+
+})
+
+
 }
 
-
-
-
-
-function filtroTeclas(event) {
-    return ((event.charCode >= 48 && event.charCode <= 57) || (event.keyCode == 45 || event.charCode == 46))
-  }
-
-
-function calcularValoresAdd() {
-    let valorPrazo = parseInt(document.getElementById('vPrazp').value);
-    let quatParcel = parseInt(document.getElementById('qtParcela').value);
-    let valorParcel = document.getElementById('pa')
-    let total = (valorPrazo / quatParcel);
- 
-    valorParcel.value = (total.toFixed(2))
-    
-}
-
-function formatarMoeda() {
-    var elemento = document.getElementById('vPrazp');
-    var valor = elemento.value;
-
-    valor = valor + '';
-    valor = parseInt(valor.replace(/[\D]+/g, ''));
-    valor = valor + '';
-    valor = valor.replace(/([0-9]{2})$/g, ",$1");
-
-    if (valor.length > 6) {
-        valor = valor.replace(/([0-9]{3}),([0-9]{2}$)/g, ".$1,$2");
-    }
-
-    elemento.value = valor;
-    if(valor == 'NaN') elemento.value = '';
-}
-function formatarMoeda2() {
-    var elemento = document.getElementById('vAvista');
-    var valor = elemento.value;
-
-    valor = valor + '';
-    valor = parseInt(valor.replace(/[\D]+/g, ''));
-    valor = valor + '';
-    valor = valor.replace(/([0-9]{2})$/g, ",$1");
-
-    if (valor.length > 6) {
-        valor = valor.replace(/([0-9]{3}),([0-9]{2}$)/g, ".$1,$2");
-    }
-
-    elemento.value = valor;
-    if(valor == 'NaN') elemento.value = '';
-}
-function formatarMoeda3() {
-    var elemento = document.getElementById('pa');
-    var valor = elemento.value;
-
-    valor = valor + '';
-    valor = parseInt(valor.replace(/[\D]+/g, ''));
-    valor = valor + '';
-    valor = valor.replace(/([0-9]{2})$/g, ",$1");
-
-    if (valor.length > 6) {
-        valor = valor.replace(/([0-9]{3}),([0-9]{2}$)/g, ".$1,$2");
-    }
-
-    elemento.value = valor;
-    if(valor == 'NaN') elemento.value = '';
-}
-
-
-async function loadProdutos() {
-    listaProduct = []
-    const logProduct = await dbProduct.collection('produtos').get()
-    for(doc of logProduct.docs) {
-        listaProduct.push ({
-            id: doc.id,
-            cod: doc.data().cod,
-            img: doc.data().img,
-            title: doc.data().title,
-            description: doc.data().description,
-            vDescont: doc.data().vDescont,
-            vPrazp: doc.data().vPrazp,
-            vAvista: doc.data().vAvista,
-            qtParcela: doc.data().qtParcela,
-            valorPa: doc.data().valorPa,
-            qtEstoque: doc.data().qtEstoque,
-        })
-    }
-    renderProduct()
-}
-
-async function addProduct() {
-    const cod = document.getElementById('cod').value;
+formAddProduct.addEventListener('submit', e => {
+    e.preventDefault();
+    const cod = document.getElementById('codInput').value;
     const img = document.getElementById('file').src;
-    const title = document.getElementById('name').value;
-    const description = document.getElementById('desc').value;
+    const name = document.getElementById('nameInput').value;
+    const description = document.getElementById('descriptionText').value;
     const qtParcela = select.options[select.selectedIndex].value;
-    const vDescont = document.getElementById('descont').value;
-    const vPrazp = document.getElementById('vPrazp').value;
-    const vAvista = document.getElementById('vAvista').value;
-    const valorPa = document.getElementById('pa').value;
+    const vDescont = document.getElementById('vDInput').value;
+    const vPrazp = document.getElementById('vPInput').value;
+    const vAvista = document.getElementById('vAInput').value;
+    const valorPa = document.getElementById('vParcelInput').value;
     const qtEstoque = document.getElementById('qtEstoque').value;  
 
-    await dbProduct.collection('produtos').add({
+
+
+    dbProduct.collection('produtos').add({
         cod: cod,
         img: img,
-        title: title,
+        name: name,
         description: description,
         vDescont: vDescont,
         vPrazp: vPrazp,
         vAvista: vAvista,
-        qtParcela: qtParcela,
         valorPa: valorPa,
         qtEstoque: qtEstoque,
-
+        qtParcela: qtParcela
     })
-    loadProdutos();
-    location.reload();
 
-}
+    setTimeout(function(){
+        window.location.reload();
+    }, 1000)
 
+})
 
+formEditProduct.addEventListener('submit', e => {
+    e.preventDefault();
+    const cod = document.getElementById('codInput').value;
+    const img = document.getElementById('file').src;
+    const name = document.getElementById('nameInput').value;
+    const description = document.getElementById('descriptionText').value;
+    const qtParcela = select.options[select.selectedIndex].value;
+    const vDescont = document.getElementById('vDInput').value;
+    const vPrazp = document.getElementById('vPInput').value;
+    const vAvista = document.getElementById('vAInput').value;
+    const valorPa = document.getElementById('vParcelInput').value;
+    const qtEstoque = document.getElementById('qtEstoque').value;  
+
+    dbProduct.collection('produtos').doc(id).update({
+        cod: formEditProduct.cod.value,
+        img: formEditProduct.img.src,
+        name: formEditProduct.name.value,
+        description: formEditProduct.description.value,
+        vDescont: formEditProduct.vDInput.value,
+        vPrazp: formEditProduct.valorPrazo.value,
+        vAvista: formEditProduct.valorAvista.value,
+        valorPa: formEditProduct.valorParcela.value,
+        qtEstoque: formEditProduct.qtEstoque.value,
+        qtParcela: formEditProduct.qtParcela.value,
+    })
+    
+    setTimeout(function(){
+        window.location.reload();
+    }, 1000)
+
+})
+
+delItem.addEventListener('click', e => {
+    const removeBtn = e.target.dataset.remove;
+
+    if(removeBtn){
+        dbProduct.collection('produtos').doc(removeBtn).delete()
+        
+        .then(() => {
+            const delTr = document.querySelector(`[data-remove="${removeBtn}"]`);
+            delTr.remove();
+    
+            alert('produto Removido')
+        })
+        .catch(() => {
+            console.log('error.message')
+        })
+    }
+})
 
 
 let loadImgFile = function(event){
     let reader = new FileReader();
     reader.onload = function() {
-        let imageAdd = document.querySelector('#newAddImg')
+        let imageAdd = document.querySelector('#imgInsert')
         imageAdd.style.visibility = 'visible'
+        imageAdd.style.zIndex = '5'
         imageAdd.style.backgroundImage = 'url('+reader.result+')'    
+    }
+    reader.readAsDataURL(event.target.files[0]);
+}
+
+let loadImgFileEdit = function(event){
+    let reader = new FileReader();
+    reader.onload = function() {
+        let imageAddEdit = document.querySelector('#imgInsertEdit')
+        imageAddEdit.style.visibility = 'visible'
+        imageAddEdit.style.zIndex = '5'
+        imageAddEdit.style.backgroundImage = 'url('+reader.result+')'    
     }
     reader.readAsDataURL(event.target.files[0]);
 }
@@ -322,3 +239,17 @@ document.getElementById('file').addEventListener('change', (event)=> {
     })
 })
 
+document.getElementById('fileEdit').addEventListener('change', (event)=> {
+    const fileEdit = event.target.files[0];
+    const storageRef = firebase.storage().ref('siteEcommece-Isabel/' + fileEdit.name);
+
+    storageRef.put(fileEdit).then(function(result) {
+        storageRef.getDownloadURL().then(function(result){
+            const imgEdit = document.getElementById('fileEdit');
+            console.log(result)
+            imgEdit.src = result;
+    });
+
+    
+    })
+})

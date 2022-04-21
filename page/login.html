@@ -4,25 +4,44 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/login/index.css">
     <title>Painel Admin</title>
 </head>
 <body>
     <header>
-        <div class="imgLogo">
-            <img src="../assets/img/Footer.png" alt="">
+        <div class="containerLogin">
+            <div class="loading">
+                <div class="sniperLoading"></div>
+            </div>
+            <div class="box">
+                
+            </div>
+            <form class="formLogin">
+                <h1>Login</h1>
+                <label id="email" for="email">
+                    <span class="material-icons">mail</span>
+                    <input aria-describedby="emailHelp" name="email" class="inputEmail" type="text" placeholder="Digite seu usuario" required>
+                </label>
+                <label id="password" for="password">
+                    <span class="material-icons lock">lock</span>
+                    <input class="inputSenha" name="password" type="password" placeholder="Digite sua senha" autocomplete="off" required>
+                    <span class="material-icons olhoLogin">visibility</span>
+                </label>
+                <label id="btnLogin" for="btn">
+                    <div type="" class="btnLoginAdmin">Acessar</div>
+                </label>
+                <label id="textErro" for="textErro">
+                    <p>Email ou senha invalidos!</p>
+                </label>
+            </form>
         </div>
-        <form>
-            <input aria-describedby="emailHelp" class="inputEmail" type="text" placeholder="Digite seu usuario">
-            <input class="inputSenha" type="password" placeholder="Digite sua senha">
-        </form>
-        <button class="btnLoginAdmin" type="button">Acessar</button>
+      
+        
 
     </header>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
-    <script src="./assets/js/confiDb.js"></script>
-
     <script src="../assets/js/Autentication/loginAdmin.js"></script>
     <script src="../assets/js/confiDb.js"></script>
 </body>

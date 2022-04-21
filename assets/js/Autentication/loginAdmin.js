@@ -1,4 +1,6 @@
-let btnLogin = document.querySelector('.btnLoginAdmin');
+const btnLogin = document.querySelector('.btnLoginAdmin');
+const btnOlho = document.querySelector('.olhoLogin');
+
 
 
 btnLogin.addEventListener('click', function() {
@@ -9,36 +11,28 @@ btnLogin.addEventListener('click', function() {
     .then((userCredential) => {
       // Signed in
       var user = userCredential.user;
-      // ..
       console.log('Usuario Conectado')
       window.location.replace('../../page/admin/index.html')
+      const loading = document.querySelector('.loading');
+      loading.style.visibility = 'visible'
     })
     .catch((error) => {
       var errorCode = error.code;
       var errorMessage = error.message;
       console.log('Usuario nao Conectado')
+      const textErro = document.getElementById('textErro')
+      textErro.style.visibility = 'visible'
+
 
     });
     
 });
 
-
-delItem.addEventListener('click', e => {
-  const removeBtn = e.target.dataset.remove;
-  if(confirm('Deseja realizar esta operaçõa?') == true){
-      dbProduct.collection('produtos').doc(removeBtn).delete()
-      .then(() => {
-          const delTr = document.querySelector(`[data-remove="${removeBtn}"]`);
-          delTr.remove();
-
-          alert('Operação realizada com sucesso')
-      })
-      .catch(() => {
-          console.log('error.message')
-      })
-
-      console.log(removeBtn)       
-   } else {
-      alert('Cancelada pelo usuario')
-   }
+btnOlho.addEventListener('click', () => {
+  const inputSenha = document.querySelector('.inputSenha');
+    if(inputSenha.type == 'password') {
+      inputSenha.type = 'text'
+    } else {
+      inputSenha.type = 'password'
+    }
 })

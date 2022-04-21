@@ -1,11 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: 0;
-}
+    font-family: 'Poppins', sans-serif;
+} 
 
 body {
-    background-image: radial-gradient(circle at 50% -20.71%, #fe8f62 0, #ff8564 8.33%, #ff7967 16.67%, #ff6c6b 25%, #fd5e6e 33.33%, #f84e73 41.67%, #f23c78 50%, #ea287e 58.33%, #e10e86 66.67%, #d6008f 75%, #ca0098 83.33%, #bb00a3 91.67%, #aa00ae 100%);
+    background-color: #333;
+}
+
+.loading {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.346);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    transition: 0.5s ease-in-out;
+}
+
+.loading .sniperLoading {
+    width: 40px;
+    height: 40px;
+    border: 5px solid;
+    border-color: #1f80cb #7b7974 #7b7974 ;
+    border-radius: 50%;
+    animation:  load 1s infinite linear;
+}
+
+@keyframes load {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 header {
@@ -17,64 +50,133 @@ header {
     align-items: center;
 }
 
-.imgLogo {
-    width: 250px;
-    height: 250px;
-    border: 1px solid #333;
-    background-color: #333;
-    box-shadow: 0 1px 12px 5px rgb(22, 21, 21);
-    border-radius: 50%;
+
+.containerLogin {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 70%;
+    max-width: 1200px;
+    height: 600px;
+    background-color: #fff;
+    border-radius: 10px;
     overflow: hidden;
 }
 
-.imgLogo img {
-    width: 100%;
+.box {
+    width: 45%;
     height: 100%;
-}
+    background-image: linear-gradient(to top, #0ba360 0%, #3cba92 100%);}
 
 form {
-    width: 350px;
+    width: 55%;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content:space-between;
-    margin: 60px;
+    justify-content:center;
+    align-items: center;
     box-sizing: content-box;
     position: relative;
-
+    box-sizing: border-box;
 }
 
-form input {
-    width: 100%;
+form h1 {
+    font-size: 40px;
+    margin-bottom: 50px;
+}
+
+form label {
+    width: 70%;
+    max-width: 600px;
+    min-width: 250px;
     height: 50px;
-    background-color: #fff;
-    border: none;
-    border-radius: 30px;
-    padding-left: 15px;
-    color: #000;
-    font-size: 16px;
     margin-bottom: 20px;
     box-sizing: border-box;
+    position: relative;
+}
+
+form label input {
+    width: 100%;
+    height: 100%;
+    background-color: #f3f3f3a6;
+    border-radius: 10px;
+    border: 1px solid rgba(51, 51, 51, 0.203);
     outline: 0;
+    padding-left: 50px;
+    font-size: 14px;
+    box-sizing: border-box;
 }
 
-button {
-    width: 350px;
-    height: 50px;
-    background-color: #000;
-    border: none;
-    border-radius: 30px;
-    box-sizing: content-box;
-    cursor: pointer;
-    font-size: 25px;
-    color: #fff;
-    transition: 0.5s ease-in-out;
+#textErro {
+    margin: 0;
+    visibility: hidden;
+}
+
+#textErro p {
+    color: red;
+    text-align: center;
+    font-size: 12px;
+}
+
+#email span{
     position: absolute;
-    top: 690px;
+    top: 8px;
+    left: 10px;
+    font-size: 30px;
+    color: #a4a6b6;
 }
 
-button:hover {
-    background-color: rgb(54, 53, 53);
+#password .lock {
+    position: absolute;
+    top: 8px;
+    left: 10px;
+    font-size: 30px; 
+    color: #a4a6b6;
+}
+
+.olhoLogin {
+    position: absolute;
+    top: 15px;
+    right: 10px;
+    font-size: 20px; 
+    color: #a4a6b6;
+}
+
+#btnLogin {
+    width: 50%;
+    min-width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: #fff;
+    background-color: #000;
+    border-radius: 10px;
+    margin: 40px 0 10px 0;
+    transition: 0.3s ease-in-out;
+}
+
+#btnLogin:hover {
+    background-color: rgba(0, 0, 0, 0.782);
+}
+
+.btnLoginAdmin {
+    text-align: center;
+}
+
+
+@media (max-width: 800px) {
+    .containerLogin {
+        width: 100%;
+        height: 100vh;
+    }
+
+    .box {
+        display: none;
+    }
+
+    form {
+        width: 100%;
+        height: 100vh;
+    }
 }
