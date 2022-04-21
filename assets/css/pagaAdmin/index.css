@@ -35,7 +35,7 @@ body {
 }
 
 .telaEscura.active {
-    z-index: 2;
+    z-index: 4;
     visibility: visible;
 }
 
@@ -450,7 +450,7 @@ section {
 }
 
 .addProduct.active {
-    z-index: 4;
+    z-index: 5;
     visibility: visible;
 }
 
@@ -473,7 +473,7 @@ section {
 }
 
 .editProduct.active {
-    z-index: 3;
+    z-index: 5;
     visibility: visible;
 }
 

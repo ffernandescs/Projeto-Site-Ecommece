@@ -18,7 +18,7 @@ const clickImgAdd = document.querySelector('.imgAdd img');
 const clickImgEdit = document.querySelector('.imgAddEdit img');
 
 let id;
-
+ 
 
 clickImgAdd.addEventListener('click', () => {
     const imgAdd = document.getElementById('file');
@@ -61,6 +61,7 @@ closeEditProduct.addEventListener('click', () => {
     editProduct.classList.remove('active') 
 })
 
+
 dbProduct.collection('produtos').get().then(querySnapshot => {
     querySnapshot.forEach(doc => {
         loadingList(doc);
@@ -87,6 +88,7 @@ const loadingList = doc => {
 
 
 tableListProduc.insertAdjacentHTML('beforeend', tr);
+
 const btnEdit = document.querySelector(`[data-remove="${doc.id}"] .btnEdit`)
 btnEdit.addEventListener('click', () => {
     const telaEscura = document.querySelector('.telaEscura');
@@ -112,8 +114,12 @@ btnEdit.addEventListener('click', () => {
 
 })
 
-
 }
+
+
+
+
+
 
 formAddProduct.addEventListener('submit', e => {
     e.preventDefault();
@@ -151,16 +157,6 @@ formAddProduct.addEventListener('submit', e => {
 
 formEditProduct.addEventListener('submit', e => {
     e.preventDefault();
-    const cod = document.getElementById('codInput').value;
-    const img = document.getElementById('file').src;
-    const name = document.getElementById('nameInput').value;
-    const description = document.getElementById('descriptionText').value;
-    const qtParcela = select.options[select.selectedIndex].value;
-    const vDescont = document.getElementById('vDInput').value;
-    const vPrazp = document.getElementById('vPInput').value;
-    const vAvista = document.getElementById('vAInput').value;
-    const valorPa = document.getElementById('vParcelInput').value;
-    const qtEstoque = document.getElementById('qtEstoque').value;  
 
     dbProduct.collection('produtos').doc(id).update({
         cod: formEditProduct.cod.value,

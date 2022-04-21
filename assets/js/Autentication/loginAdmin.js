@@ -1,4 +1,4 @@
-const btnLogin = document.querySelector('.btnLoginAdmin');
+const btnLogin = document.querySelector('#btnLogin');
 const btnOlho = document.querySelector('.olhoLogin');
 
 
