@@ -7,9 +7,10 @@ function getUser() {
             labelUser.innerHTML = user.email
             login.innerHTML = user.name
         } else {
+            
             setTimeout(() => {
                 window.location.replace('../../admin.html')
-            }, 1000)
+            }, 5000)
         }
     })
 }
