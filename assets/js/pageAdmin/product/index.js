@@ -109,8 +109,8 @@ const loadingList = doc => {
     <td id="tdVParcela">R$ ${doc.data().valorPa}</td>
     <td id="tdEstoque">${doc.data().qtEstoque} Und.</td>
     <td id="tdAcoes">
-        <span class="material-icons btnEdit">open_in_new</span>
-        <span data-remove="${doc.id}" class="material-icons">delete</span>
+        <span class="material-icons btnEdit" title="Editar">open_in_new</span>
+        <span data-remove="${doc.id}" class="material-icons" title="Apagar">delete</span>
     </td>                            
 </tr>`
 

@@ -12,7 +12,7 @@ btnLogin.addEventListener('click', function() {
       setTimeout(() => {
         window.location.replace('../../page/admin/index.html')
 
-      }, 5000)
+      }, 3000)
       const loading = document.querySelector('.loading');
       loading.style.visibility = 'visible'
     })

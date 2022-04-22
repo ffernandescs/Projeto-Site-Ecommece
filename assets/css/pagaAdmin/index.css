@@ -173,6 +173,10 @@ section {
     transform: scale(1);
 }
 
+.menuContainer nav li:hover .textRespon {
+    visibility: visible;
+}
+
 .menuContainer nav li .textRespon {
     padding: 5px 15px;
     background-color: #073149;
@@ -190,7 +194,7 @@ section {
     font-size: 14px;
 }
 
-.menuContainer nav li:hover .textRespon {
+.textRespon.active {
     visibility: visible;
 }
 
@@ -311,11 +315,12 @@ section {
     width: 100%;
     padding: 10px 20px;
     height: 50px;
+    background-color: #fff;
     box-shadow: 0 0 10px #000;
 }
 
 .barraTop .textUser {
-    z-index: 110;
+    z-index: 5;
 }
 
 .barraTop .textUser nav ul {
@@ -531,7 +536,7 @@ section {
 }
 
 .addProduct.active {
-    z-index: 5;
+    z-index: 8;
     visibility: visible;
 }
 
@@ -554,7 +559,7 @@ section {
 }
 
 .editProduct.active {
-    z-index: 5;
+    z-index: 8;
     visibility: visible;
 }
 
@@ -646,7 +651,7 @@ section {
 }
 
 .labels label input {
-   
+   padding-left: 10px;
     height: 30px;
     border-radius: 5px;
     border: 1px solid #757677;
@@ -657,6 +662,7 @@ section {
 }
 
 #descriptionText {
+    padding-left: 10px;
     width: 500px;
     border-radius: 5px;
     outline: 0;
@@ -707,6 +713,7 @@ section {
 
     .menuContainer.show {
         left: 0;
+        z-index: 6;
     }
 
     .contPrincipal {
@@ -730,6 +737,7 @@ section {
     .menuHamburger.show {
         left: initial;
         right: 10px;
+        z-index: 6;
     }
 
     .menuHamburger .line {
