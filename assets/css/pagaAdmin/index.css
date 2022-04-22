@@ -136,14 +136,20 @@ section {
     width: 120px;
     height: 120px;
     overflow: hidden;
-    border-radius: 50%;
     margin-bottom: 10px;
+    display: flex;
+}
+
+.imgUser #fileUser {
+    display: none;
 }
 
 .imgUser img {
     width: 100%;
     height: 100%;
+    border-radius: 50%;
     object-fit: cover;
+    cursor: pointer;
 }
 
 .menuContainer nav ul {
@@ -264,17 +270,92 @@ section {
     transition: 0.5s ease-in-out;
 }
 
+.loading {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.346);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    transition: 0.5s ease-in-out;
+    z-index: 50;
+}
+
+.loading .sniperLoading {
+    width: 40px;
+    height: 40px;
+    border: 5px solid;
+    border-color: #1f80cb #7b7974 #7b7974 ;
+    border-radius: 50%;
+    animation:  load 1s infinite linear;
+}
+
+@keyframes load {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
 .contPrincipal {
     width: calc(100% - 300px);
 }
 
 .barraTop {
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
+    justify-content: flex-end;
     width: 100%;
+    padding: 10px 20px;
     height: 50px;
     box-shadow: 0 0 10px #000;
+}
+
+.barraTop .textUser {
+    z-index: 110;
+}
+
+.barraTop .textUser nav ul {
+    list-style: none;
+}
+
+
+.barraTop .textUser nav ul li ul {
+    text-transform: none;
+    background-color: #fff;
+    border: 1px solid #c2c4c8;
+    overflow: hidden;
+    border-radius: 0 0 10px 10px;
+    visibility: hidden;
+}
+
+.barraTop .textUser nav ul li a {
+    color: #000;
+    text-transform: none;
+
+}
+
+.barraTop .textUser nav ul li ul li {
+    padding: 10px;
+    border-bottom: 1px solid #c2c4c8;
+    cursor: pointer;
+}
+
+.barraTop .textUser nav ul li ul li:hover {
+    background-color: #a1dcfa91;
+}
+
+.barraTop .textUser nav ul li ul li a {
+    color: #000;
+    text-transform: none;
+}
+
+.barraTop .textUser nav ul li ul.active {
+    visibility: visible;
+ 
 }
 
 .menuHamburger {

@@ -60,7 +60,7 @@
                         </div>
                     </a></li>
                   
-                    <li class="list"><a href="#">
+                    <li onclick="logoutUser()" class="list"><a href="#">
                         <span class="material-icons">logout</span>
                         <span class="textMenu">Sair</span>
                         <div class="textRespon text6">
@@ -76,16 +76,38 @@
             </div>
         </div>
         <div class="contPrincipal">
-            <div class="telaPrincipal">
+            <div class="barraTop">
                 <div class="menuHamburger">
-                    <spam class="line"></spam>
-                    <spam class="line"></spam>
-                    <spam class="line"></spam>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
+                <div class="textUser">
+                    <nav>
+                        <ul>
+                            <li class="list">
+                                <a id="idUserMain" href="#">Meu Usuario</a>&#9660;
+                                <ul>
+                                    <li><a href="#">Perfil</a></li>
+                                    <li onclick="logoutUser()"><a href="#">Sair</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                    
                 </div>
             </div>
         </div>
+        <div class="loading">
+            <div class="sniperLoading"></div>
+        </div>
     </section>
-        
-<script src="../../assets/js/pageAdmin/menu.js"></script>
+    <div class="telaEscura"></div>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="../../assets/js/confiDb.js"></script>
+    <script src="../../assets/js/Autentication/index.js"></script>
+    <script src="../../assets/js/pageAdmin/index.js"></script>
+    <script src="../../assets/js/pageAdmin/menu.js"></script>
 </body>
 </html>

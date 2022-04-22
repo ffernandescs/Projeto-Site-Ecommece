@@ -8,11 +8,11 @@ btnLogin.addEventListener('click', function() {
     let password = document.querySelector('.inputSenha').value;
 
     firebase.auth().signInWithEmailAndPassword(email, password)
-    .then((userCredential) => {
-      // Signed in
-      var user = userCredential.user;
-      console.log('Usuario Conectado')
-      window.location.replace('../../page/admin/index.html')
+    .then(() => {
+      setTimeout(() => {
+        window.location.replace('../../page/admin/index.html')
+
+      }, 5000)
       const loading = document.querySelector('.loading');
       loading.style.visibility = 'visible'
     })

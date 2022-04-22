@@ -18,7 +18,9 @@
                 </div>
                 <div class="login">
                     <div class="imgUser">
-                        <img src="../../assets/img/logoUser.jpg" alt="">
+                        <span id="imgUser"></span>
+                        <img src="../../assets/img/icoAddImg.png" alt="">
+                        <input type="file" id="fileUser" onchange="loadImgUserEdit(event)">
                     </div>
                     <h1>Felipe Fernandes</h1>
                 </div>
@@ -81,13 +83,24 @@
                     <div class="line"></div>
                     <div class="line"></div>
                 </div>
+                <div class="textUser">
+                    <nav>
+                        <ul>
+                            <li class="list">
+                                <a id="idUserMain" href="#">Meu Usuario</a>&#9660;
+                                <ul>
+                                    <li><a href="#">Perfil</a></li>
+                                    <li onclick="logoutUser()"><a href="#">Sair</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                    
+                </div>
             </div>
             <div class="telaPrincipal">
                 <div class="containerProduct">
                     <div class="filtroTable">
-                        <label for="checkbox">
-                            <input type="checkbox">
-                        </label>
                         <div class="btnAddRemove">
                             <button id="btnAddProduct" class="btnAdd">Adicionar</button>
                             <button id="btnAddRemoveProduct" class="btnRemove">Remover</button>
@@ -96,7 +109,6 @@
                     <table class="tbContainer">
                         <thead>
                             <tr>
-                                <th></th>
                                 <th id="trCod">Codigo</th>
                                 <th id="trImg">Imagem</th>
                                 <th id="trName">Nome</th>
@@ -266,8 +278,11 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="../../assets/js/Autentication/index.js"></script>
+    
     <script src="../../assets/js/pageAdmin/menu.js"></script>
     <script src="../../assets/js/confiDb.js"></script>
-    <script src="../../assets/js/pageAdmin/index.js"></script>
+    <script src="../../assets/js/pageAdmin/product/index.js"></script>
 </body>
 </html>
