@@ -47,17 +47,17 @@
                         </div>
                     </a></li>
                     <li class="list"><a href="#">
-                        <span class="material-icons">lock</span>
-                        <span class="textMenu">Senha</span>
+                        <span class="material-icons">person</span>
+                        <span class="textMenu">Perfil</span>
                         <div class="textRespon text4">
-                            <p>Senha</p>
+                            <p>Perfil</p>
                         </div>
                     </a></li>
                     <li class="list"><a href="#">
-                        <span class="material-icons">help</span>
-                        <span class="textMenu">Ajuda</span>
+                        <span class="material-icons">settings</span>
+                        <span class="textMenu">Configruação</span>
                         <div class="textRespon text5">
-                            <p>Ajuda</p>
+                            <p>Configruação</p>
                         </div>
                     </a></li>
                   
@@ -89,7 +89,7 @@
                             <li class="list">
                                 <a id="idUserMain" href="#">Meu Usuario</a>&#9660;
                                 <ul>
-                                    <li><a href="#">Perfil</a></li>
+                                    <li><a href="./perfil.html">Perfil</a></li>
                                     <li onclick="logoutUser()"><a href="#">Sair</a></li>
                                 </ul>
                             </li>
@@ -101,6 +101,18 @@
             <div class="telaPrincipal">
                 <div class="containerProduct">
                     <div class="filtroTable">
+                        <label class="labeCheckbox" for="checkbox">
+                            <div class="itensCheckbox">
+                                <div class="textCheck">
+                                    <h2 id="totalItens"></h2>
+                                    <span>itens</span>
+                                </div>
+                                <div class="textCheck">
+                                    <h2>26</h2>
+                                    <span>itens selecionados</span>
+                                </div>
+                            </div>
+                        </d>
                         <div class="btnAddRemove">
                             <button id="btnAddProduct" class="btnAdd">Adicionar</button>
                             <button id="btnAddRemoveProduct" class="btnRemove">Remover</button>
@@ -109,6 +121,7 @@
                     <table class="tbContainer">
                         <thead>
                             <tr>
+                                <th id="trCheck"><input class="checkboxAll" type="checkbox"></th>
                                 <th id="trCod">Codigo</th>
                                 <th id="trImg">Imagem</th>
                                 <th id="trName">Nome</th>

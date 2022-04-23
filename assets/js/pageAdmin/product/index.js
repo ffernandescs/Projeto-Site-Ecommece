@@ -21,8 +21,11 @@ const btnDropdown = document.querySelector('.barraTop .textUser nav ul li a');
 
 
 
+
 let id;
 let imgUser;
+let tagTr;
+
  
 btnDropdown.addEventListener('click', () => {
     const telaEscura = document.querySelector('.telaEscura');
@@ -85,7 +88,6 @@ closeAddProduct.addEventListener('click', () => {
 
 closeEditProduct.addEventListener('click', () => {
     const telaEscura = document.querySelector('.telaEscura');
-    const addProduct = document.querySelector('.addProduct');
     telaEscura.classList.remove('active')
     editProduct.classList.remove('active') 
 })
@@ -98,7 +100,8 @@ dbProduct.collection('produtos').get().then(querySnapshot => {
 })
 
 const loadingList = doc => {
-    const tr = `<tr data-remove="${doc.id}">
+    const tr = `<tr class="tagTr" data-remove="${doc.id}">
+    <td id="tdCheck"><input class="checkbox" type="checkbox"></td>
     <td id="tdCod">${doc.data().cod}</td>
     <td id="tdImg"><img src="${doc.data().img}" alt=""></td>
     <td id="tdName">${doc.data().name}</td>
@@ -116,6 +119,11 @@ const loadingList = doc => {
 
 
 tableListProduc.insertAdjacentHTML('beforeend', tr);
+
+const testeTr = document.querySelectorAll('.tagTr').length
+const totalItens = document.getElementById('totalItens')
+
+totalItens.innerHTML = testeTr
 
 const btnEdit = document.querySelector(`[data-remove="${doc.id}"] .btnEdit`)
 btnEdit.addEventListener('click', () => {
@@ -143,11 +151,6 @@ btnEdit.addEventListener('click', () => {
 })
 
 }
-
-
-
-
-
 
 formAddProduct.addEventListener('submit', e => {
     e.preventDefault();
@@ -182,6 +185,7 @@ formAddProduct.addEventListener('submit', e => {
     }, 1000)
 
 })
+
 
 formEditProduct.addEventListener('submit', e => {
     e.preventDefault();

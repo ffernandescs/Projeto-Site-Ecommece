@@ -376,7 +376,7 @@ section {
     justify-content: center;
 }
 
-.containerProduct {
+.containerProduct, .containerConfig {
     position: relative;
     width: 95%;
     height: 90%;
@@ -385,6 +385,10 @@ section {
     border-radius: 10px;
     overflow-y: scroll;
     overflow-x: hidden;
+}
+
+.containerConfig {
+    overflow: visible;
 }
 
 .filtroTable {
@@ -398,6 +402,37 @@ section {
     justify-content: space-between;
     align-items: center;
     z-index: 1;
+}
+
+.labeCheckbox {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    width: 100%;
+    height: 30px;
+}
+
+.labeCheckbox input {
+    height: 100%;
+}
+
+.itensCheckbox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-left: 20px;
+}
+
+.textCheck {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.textCheck h2 {
+    font-size: 18px;
+    margin-right: 10px;
 }
 
 .btnAdd, .btnRemove, .btnSalva {
