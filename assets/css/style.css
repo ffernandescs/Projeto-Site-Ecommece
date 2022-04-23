@@ -1,0 +1,724 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+    
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif; 
+}
+
+header {
+    position: relative;
+    width: 100%;
+    height: 120px;
+}
+
+a, h1, h2, h3, h4, p {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+.containerTop {
+    width: 100%;
+    position: fixed;
+    z-index: 2;
+}
+
+.topPage {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    background-color: #000;
+    padding: 5px 20px;
+}
+
+.topPage .logo span {
+    font-size: 40px;
+    color: #fff;
+}
+
+.topPage .search {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 600px;
+    height: 40px;
+    margin: 0 20px;
+    overflow: hidden;
+    border-radius: 30px;
+    background-color: #fff;
+}
+
+.topPage .search input {
+    width: calc(100% - 50px);
+    height: 100%;
+    background-color: transparent;
+    border: none;
+    outline: 0;
+    color: #000;
+    font-size: 16px;
+    padding-left: 15px;
+}
+
+.topPage .search span {
+    font-size: 30px;
+    color: #000;
+    cursor: pointer;
+}
+
+.shoppingCart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.shoppingCart .valueCart {
+    font-size: 16px;
+    color: #fff;
+    
+}
+
+.shoppingCart .iconCart {
+    font-size: 30px;
+    color: #fff;
+    padding-left: 10px;
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    background-color: #FFF;
+}
+
+.menu ul {
+    max-width: 1220px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    margin: 5px 0;
+    list-style: none;
+}
+
+
+.menu ul li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+}
+
+.menu ul li:hover .itemMenu{
+    color: #fff;
+
+}
+
+
+.menu ul li:hover {
+    background-color: #000;
+}
+
+.menu ul li a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    text-align: center;
+}
+
+.menu ul li a span {
+    font-size: 16px;
+    font-weight: 900;
+    color: #000;
+    padding: 0px 27px;
+    transition: 0.3s ease-in-out;
+}
+
+section {
+    width: 100%;
+}
+
+.slider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.containerSlider {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    border: 1px solid #000;
+    overflow: hidden;
+}
+
+.sliderImg {
+    display: flex;
+    height: 400px;
+    transform: translateX(0);
+    transition: 0.5s ease-in-out;
+}
+
+.sliderImg img {
+    width: 1200px;
+    height: 100%;
+    object-fit: cover;
+}
+
+.iconBack, .iconForward {
+    position: absolute;
+    font-size: 40px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.iconBack {
+    left: 0;
+}
+
+.iconForward {
+    right: 0;
+}
+
+.balls {
+    position: absolute;
+    bottom: 10px;
+    left: 0px;
+    right: 0;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    width: 110px;
+}
+
+.balls span {
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgb(208, 206, 206);
+    border-radius: 50%;
+    transition: 0.5s ease-in-out;
+    cursor: pointer;
+}
+
+.ballsActive {
+    background-color: rgb(208, 206, 206);
+}
+
+.balls span:hover {
+    background-color: rgb(208, 206, 206);
+}
+
+.boxInfo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 0 20px;
+    background-color: #F1F0F2;  
+}
+
+.containerBox {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px 0;
+}
+
+.boxCategory {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 0 20px;
+}
+
+.containerCategory {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    max-width: 1240px;
+    margin: 20px 0 50px 0;
+}
+
+.itemCategory {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 380px;
+    margin-bottom: 20px;
+    height: 300px;
+    border-radius: 10px;
+    transition: 0.5s ease-in-out;
+    transform: scale(1);
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.itemCategory:hover {
+    transform: scale(1.05);
+}
+
+.imgCategory {
+    width: 100%;
+    height: 100%;
+}
+
+.imgCategory img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.textCategotry {
+    position: absolute;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.35);
+    color: #fff;
+    z-index: 20;
+}
+
+.boxContainer {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    width: 100%;
+    margin: 15px 0 90px 0;
+}
+
+.containerProdutos {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.title {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    padding: 20px 0;
+    margin-bottom: 30px;
+}
+
+.title span {
+    font-size: 30px;
+}
+
+.title::before {
+    position: absolute;
+    bottom: 0;
+    content: '';
+    width: 250px;
+    height: 3px;
+    background-color: #847770;
+    border-radius: 10px;
+}
+
+.title span:first-child {
+    padding-right: 10px;
+    font-weight: 900;
+}
+
+.listProdutos ul {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    list-style: none;
+}
+
+.listProdutos ul li {
+    position: relative;
+    max-width: 300px;
+    padding: 15px;
+    border: 1px solid transparent;
+    margin: 50px 0;
+    transition: 0.2s ease-in-out;
+    transform: scale(1);
+}
+
+.listProdutos ul li::before {
+    position: absolute;
+    bottom: -60px;
+    width: 90%;
+    height: 1px;
+    background-color: #84777077;
+    border-radius: 10px;
+    content: '';
+}
+
+.listProdutos ul li:hover {
+    border-radius: 10px;
+    border: 1px solid #333;
+    transform: scale(1.05);
+}
+
+.imgProduto {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+}
+
+.imgProduto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.textProduto {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 10px 0;
+}
+
+.textProduto span:first-child {
+    font-size: 14px;
+    font-weight: 900;
+    color: #000;
+}
+
+.textProduto span:last-child {
+    font-size: 14px;
+    color: #333;
+}
+
+.preco {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#vAanterior {
+    font-size: 14px;
+    text-decoration: line-through;
+    color: #333;
+}
+
+#vAtual {
+    font-size: 22px;
+    font-weight: bold;
+    color: #000;
+}
+
+#vParcela {
+    font-size: 16px;
+    color: #333;
+}
+
+#btnCompre {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 40px;
+    background-color: #ff7900;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    transition: All 0.3s ease-out;
+}
+
+#btnCompre a {
+    width: 100%;
+    height: 100%;
+    font-size: 14px;
+    color: #fff;
+}
+
+#btnCompre:hover {
+    background-color: #ee7913;
+}
+
+.posterImg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+.imgPoster {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1800px;
+}
+
+.posterImg img {
+    width: 100%;
+    max-height: 500px;
+}
+
+.containerDepoimentos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: center;
+    max-width: 1240px;
+    width: 100%;
+}
+
+.itemDepoimento {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 380px;
+    height: 250px;
+    border: 1px solid #b0a8a4;
+    box-shadow: 0 0 5px #b0a8a4;
+    border-radius: 10px;
+    box-sizing: border-box;
+    margin: 10px;
+    padding: 30px;
+    transition: 0.5s ease-in-out;
+    transform: scale(1);
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.itemDepoimento:hover {
+    transform: scale(1.05);
+}
+
+.textDepo {
+    margin-bottom: 20px;
+}
+
+.imgName {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    overflow: hidden;
+}
+
+.imgName img {
+    width: 50px;
+    height: 50px;
+    margin-right: 20px;
+    object-fit: cover;
+}
+
+.imgName h2 {
+    font-size: 18px;
+}
+
+footer {
+    width: 100%;
+}
+
+.containerBarFooter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: #000;
+    padding: 20px;
+}
+
+.barFooter {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    width: 100%;
+    padding: 20px 0 0 0;
+}
+
+.links {
+    margin-bottom: 10px;
+}
+
+
+.links h1 {
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.links .social {
+    flex-direction:row;
+    justify-content: flex-start;
+}
+
+.textLinks {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.textLinks a, .textLinks span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    color: rgb(94, 90, 90);
+    margin-bottom: 10px;
+}
+
+.textLinks a i, .textLinks span i {
+    font-size: 22px;
+    color: #fff;
+    margin-right: 10px;
+
+}
+
+.textLinks span h2 {
+    font-size: 12px;
+    color: #fff;
+    margin-right: 10px;
+}
+
+.textLinks span {
+    color: rgb(94, 90, 90);
+}
+
+.seloImg {
+    flex-direction: row;
+    align-items: center;
+}
+
+.seloImg img {
+    width: 100px;
+    margin-right: 10px;
+}
+
+.imgCartao img {
+    width: 180px;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: #a0a4a6;
+    padding: 10px 20px;
+}
+
+.footer h1, .footer p {
+    font-size: 14px;
+    margin-right: 10px;
+}
+
+.menuHamburguer {
+    position: absolute;
+    left: 20px;
+    bottom: 13px;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 40px;
+    height: 25px;
+    cursor: pointer;
+}
+
+.menuHamburguer .line {
+    width: 100%;
+    height: 3px;
+    background-color: #000;
+}
+
+@media (max-width: 1100px) {
+    .menu ul li a {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 1100px) {
+    .menu ul li a span {
+        font-size: 14px;
+        padding: 0px 15px;
+    }
+}
+
+@media (max-width: 800px) {
+     
+    .menu {
+        position: absolute;
+        align-items: flex-start;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100vh;
+        z-index: 15;
+    }
+
+    .menu.active {
+        left: 0;
+    }
+
+    .menu ul {
+        position: relative;
+        top: 40px;
+        left: 20px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+    }
+    
+    .menu ul li:hover {
+        border-radius: 10px;
+    }
+
+    .menu ul li a span {
+        font-size: 22px;
+    }
+
+    .menuHamburguer {
+        display: flex;
+        left: 20px;
+        bottom: 13px;    
+        z-index: 15;
+    }
+
+    .menuHamburguer.active {
+        left: 35px;
+        top: 20px;
+    }
+}
+
