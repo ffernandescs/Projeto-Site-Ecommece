@@ -3,6 +3,8 @@
 * {
     margin: 0;
     padding: 0;
+    list-style: none;
+    text-decoration: none;
     box-sizing: border-box;
     text-transform: uppercase;
     font-family: 'Poppins', sans-serif; 
@@ -704,6 +706,31 @@ section {
     border: 1px solid #757677;
 }
 
+.menuBar {
+    width: 100%;
+    background-color: #C2C4C8;
+    box-shadow: 0 5px 10px #000;
+    padding: 10px 20px;
+}
+
+.menuBar nav ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+.menuBar nav ul li {
+    font-size: 14px;
+    color: #000;
+    cursor: pointer;
+}
+
+.pageInfor {
+    margin-top: 20px;
+    width: 100%;
+}
+
 @media (max-width: 1300px) {
 
     #trVParcela, #tdVParcela, #trQtParcela, #tdQtParcela {
@@ -794,6 +821,7 @@ section {
     }
     
 }
+
 
 @media (max-width: 500px) {
 

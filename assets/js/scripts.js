@@ -65,3 +65,43 @@ btnMenuHamburger.addEventListener('click', () => {
         btnMenuHamburger.classList.remove('active');
     }
 });
+
+
+const dbProduct = firebase.firestore();
+
+
+
+dbProduct.collection('dadosUsuario').get().then(querySnapshot => {
+    querySnapshot.forEach(doc => {
+        loadingUser(doc);
+    })
+})
+
+const formInfoUser = document.getElementById('formInfo');
+
+let id;
+
+
+const loadingUser = doc => {
+    const telefone = document.getElementById('telPhone')
+    const local = document.getElementById('local')
+
+    const spanTel = `<span id="phone">${doc.data().tel}</span>`
+
+    telefone.insertAdjacentHTML('beforeend', spanTel);
+
+    const spanLocal = `<span id="phone">${doc.data().local}</span>`
+
+    local.insertAdjacentHTML('beforeend', spanLocal);
+    
+    const btnSalvarInfo = document.getElementById('btnSalvarInfo')
+
+    id = doc.id
+
+    window.addEventListener('load', () => {
+
+        formInfoUser.telForm.value = doc.data().tel
+        formInfoUser.localForm.value = doc.data().local
+    })
+
+}

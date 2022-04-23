@@ -92,7 +92,6 @@ closeEditProduct.addEventListener('click', () => {
     editProduct.classList.remove('active') 
 })
 
-
 dbProduct.collection('produtos').get().then(querySnapshot => {
     querySnapshot.forEach(doc => {
         loadingList(doc);
@@ -101,7 +100,6 @@ dbProduct.collection('produtos').get().then(querySnapshot => {
 
 const loadingList = doc => {
     const tr = `<tr class="tagTr" data-remove="${doc.id}">
-    <td id="tdCheck"><input class="checkbox" type="checkbox"></td>
     <td id="tdCod">${doc.data().cod}</td>
     <td id="tdImg"><img src="${doc.data().img}" alt=""></td>
     <td id="tdName">${doc.data().name}</td>
@@ -122,6 +120,7 @@ tableListProduc.insertAdjacentHTML('beforeend', tr);
 
 const testeTr = document.querySelectorAll('.tagTr').length
 const totalItens = document.getElementById('totalItens')
+
 
 totalItens.innerHTML = testeTr
 
@@ -149,6 +148,7 @@ btnEdit.addEventListener('click', () => {
 
 
 })
+
 
 }
 
