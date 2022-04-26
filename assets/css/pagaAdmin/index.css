@@ -6,7 +6,6 @@
     list-style: none;
     text-decoration: none;
     box-sizing: border-box;
-    text-transform: uppercase;
     font-family: 'Poppins', sans-serif; 
 } 
 
@@ -726,10 +725,70 @@ section {
     cursor: pointer;
 }
 
-.pageInfor {
+.pageConfig {
+    position: absolute;
+    top: 50px;
+    left: 0;
     margin-top: 20px;
     width: 100%;
 }
+
+#formInfo {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 20px;
+}
+
+#formInfo label {
+    margin-bottom: 20px;
+}
+
+#btnSalvarInfo {
+    position: absolute;
+    bottom: -20px;
+    left: 50px;
+    width: 100px;
+    height: 40px;
+    background-color: #0f5526;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.inputs {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 40%;
+    border-right: 1px solid #000;
+}
+
+
+.textareas {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-left: 40px;
+}
+
+.inputs input, .textareas textarea {
+    padding-left: 10px;
+    margin-left: 20px;
+}
+
+
+
+
+
+
+#formUser {
+   display: none;
+}
+
 
 @media (max-width: 1300px) {
 

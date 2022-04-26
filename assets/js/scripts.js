@@ -85,23 +85,33 @@ let id;
 const loadingUser = doc => {
     const telefone = document.getElementById('telPhone')
     const local = document.getElementById('local')
+    const horarioA = document.getElementById('hrA')
+    const horarioB = document.getElementById('hrB')
+    const redeInstagram = document.getElementById('instagram')
+    const redeFacebook = document.getElementById('facebook')
+
 
     const spanTel = `<span id="phone">${doc.data().tel}</span>`
 
     telefone.insertAdjacentHTML('beforeend', spanTel);
 
-    const spanLocal = `<span id="phone">${doc.data().local}</span>`
+    const spanLocal = `<span id="local">${doc.data().local}</span>`
 
     local.insertAdjacentHTML('beforeend', spanLocal);
+
+    const hrA = `<span id="hrA">${doc.data().hrA}</span>`
+
+    horarioA.insertAdjacentHTML('beforeend', hrA);
+
+    const hrB = `<span id="hrB">${doc.data().hrB}</span>`
+
+    horarioB.insertAdjacentHTML('beforeend', hrB);
+
+    redeInstagram.href = `http://${doc.data().redeInstagram}`
+    redeFacebook.href = `http://${doc.data().redeFacebook}`
+    telefone.href = `https://api.whatsapp.com/send?phone=55${doc.data().tel}&text=Ola`
     
-    const btnSalvarInfo = document.getElementById('btnSalvarInfo')
 
     id = doc.id
-
-    window.addEventListener('load', () => {
-
-        formInfoUser.telForm.value = doc.data().tel
-        formInfoUser.localForm.value = doc.data().local
-    })
 
 }
