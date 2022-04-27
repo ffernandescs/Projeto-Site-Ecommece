@@ -36,7 +36,6 @@ btnDropdown.addEventListener('click', () => {
     } else {
         telaEscura.classList.remove('active');
         menuDropdown.classList.remove('active')
-
     }
 })
 
@@ -160,8 +159,6 @@ formAddProduct.addEventListener('submit', e => {
     const valorPa = document.getElementById('vParcelInput').value;
     const qtEstoque = document.getElementById('qtEstoque').value;  
 
-
-
     dbProduct.collection('produtos').add({
         cod: cod,
         img: img,
@@ -254,7 +251,6 @@ document.getElementById('file').addEventListener('change', (event)=> {
     storageRef.put(file).then(function(result) {
         storageRef.getDownloadURL().then(function(result){
             const imgAdd = document.getElementById('file');
-            console.log(result)
             imgAdd.src = result;
     });
 
@@ -269,7 +265,6 @@ document.getElementById('fileEdit').addEventListener('change', (event)=> {
     storageRef.put(fileEdit).then(function(result) {
         storageRef.getDownloadURL().then(function(result){
             const imgEdit = document.getElementById('fileEdit');
-            console.log(result)
             imgEdit.src = result;
     });
 

@@ -19,7 +19,7 @@
                 </div>
                 <div class="login">
                     <div class="imgUser">
-                        <img src="" alt="">
+                        
                     </div>
                     <h1>Felipe Fernandes</h1>
                 </div>
@@ -38,18 +38,11 @@
                             <p>Produtos</p>
                         </div>
                     </a></li>
-                    <li class="list"><a href="#">
+                    <li class="list"><a href="../../index.html" target="blanck_">
                         <span class="material-icons">language</span>
                         <span class="textMenu">Site Externo</span>
                         <div class="textRespon text3">
                             <p>Site Externo</p>
-                        </div>
-                    </a></li>
-                    <li class="list"><a href="#">
-                        <span class="material-icons">person</span>
-                        <span class="textMenu">Perfil</span>
-                        <div class="textRespon text4">
-                            <p>Perfil</p>
                         </div>
                     </a></li>
                     <li class="list"><a href="#">
@@ -104,7 +97,7 @@
                             <ul>
                                 <li id="menuDados">Dados do Site</li>
                                 <li id="perfil">Perfil</li>
-                                <li>Categorias</li>
+                                <li id="categoria">Categorias</li>
                             </ul>
                         </nav>
                     </div>
@@ -169,12 +162,65 @@
                                     <input id="nameForm" name="nameForm" type="text">
                                 </label>
                                 
-                            </div>
-                          
-                            
+                            </div>                           
                             <div class="btnFormularios">
                                 <button type="button" class="btnEditar">Editar</button>
                                 <button type="button" class="btnCancelInfo">Cancelar</button>
+                                <button class="btnSalvarInfo">Salvar</button>
+                            </div>
+                        </form>
+                        
+                    </div>
+                    <div class="pageConfig pageCategoria">
+                        <div class="filtroTable">
+                            <label class="labeCheckbox" for="checkbox">
+                                <div class="itensCheckbox">
+                                    <div class="textCheck">
+                                        <h2 id="totalItens"></h2>
+                                        <span>itens</span>
+                                    </div>
+                                </div>
+                            </d>
+                            <div class="btnAddRemove">
+                                <button id="btnAddProduct" class="btnAdd">Adicionar</button>
+                            </div>
+                        </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Nº</th>
+                                    <th>Nome</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody id="listCategoria">
+                               
+                            </tbody>
+                        </table>
+                        <form id="formCategorias" action="">
+                            <div class="close">
+                                <span class="material-icons">close</span>
+                            </div>
+                            <div class="inputs">
+                                <label for="">Categorias 1:
+                                    <input id="categoriaForm" name="categoriaForm" type="tel" placeholder="Nome da Categoria">
+                                </label>                                
+                            </div>
+                            <div class="btnFormularios">
+                                <button class="btnSalvarInfo">Salvar</button>
+                            </div>
+                        </form>
+
+                        <form id="formEditeCategorias" action="">
+                            <div id="closeEditeCategoria" class="close">
+                                <span class="material-icons">close</span>
+                            </div>
+                            <div class="inputs">
+                                <label for="">Categorias 1:
+                                    <input id="categoriaForm" name="categoriaForm" type="tel" placeholder="Nome da Categoria">
+                                </label>                                
+                            </div>
+                            <div class="btnFormularios">
                                 <button class="btnSalvarInfo">Salvar</button>
                             </div>
                         </form>

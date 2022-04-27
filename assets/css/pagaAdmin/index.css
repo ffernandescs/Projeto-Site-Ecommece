@@ -36,7 +36,7 @@ body {
 }
 
 .telaEscura.active {
-    z-index: 4;
+    z-index: 7;
     visibility: visible;
 }
 
@@ -323,12 +323,17 @@ section {
     z-index: 5;
 }
 
+
 .barraTop .textUser nav ul {
+    position: relative;
     list-style: none;
 }
 
-
 .barraTop .textUser nav ul li ul {
+    position: absolute;
+    top: 30px;
+    left: 0;
+    width: 100%;
     text-transform: none;
     background-color: #fff;
     border: 1px solid #c2c4c8;
@@ -453,6 +458,10 @@ section {
 }
 
 .btnAdd:hover, .btnSalva:hover {
+    background-color: #0f5526e6;
+}
+
+#formCategorias .btnFormularios button:hover {
     background-color: #0f5526e6;
 }
 
@@ -712,7 +721,7 @@ section {
     background-color: #babbbb;
     box-shadow: 0 5px 10px #000;
     overflow: hidden;
-    z-index: 10;
+    z-index: 7;
 }
 
 .menuBar nav ul {
@@ -746,7 +755,7 @@ section {
     width: 100%;
     padding: 20px 20px 70px 20px;
     display: none;
-    z-index: 9;
+    z-index: 6;
 }
 
 #formInfo.active {
@@ -762,12 +771,19 @@ section {
     width: 100%;
     padding: 20px 20px 70px 20px;
     display: none;
-    z-index: 9;
+    z-index: 6;
+}
 
+#formUser .inputs label {
+    display: flex;
 }
 
 #imgForm {
     display: none;
+}
+
+#formUser #labelImgPerfil .imgUser {
+    margin-left: 50px;
 }
 
 #labelImgPerfil {
@@ -776,7 +792,8 @@ section {
 
 #labelImgPerfil span {
     position: absolute;
-    top: 23px;
+    top: 0px;
+    right: 0;
     width: 120px;
     height: 120px;
     border-radius: 50%;
@@ -787,9 +804,6 @@ section {
     z-index: 99;
     visibility: visible;
     cursor: pointer;
-
- 
-    
 }
 
 #formInfo label, #formUser label  {
@@ -831,8 +845,6 @@ section {
     width: 400px;
 }
 
-
-
 .textareas {
     display: flex;
     flex-direction: column;
@@ -848,6 +860,107 @@ section {
 .solcialForm span{
     font-size: 12px;
     color: #757677;
+}
+
+.pageCategoria {
+    display: none;
+}
+
+.pageCategoria.active {
+    display: block;
+}
+
+#formCategorias, #formEditeCategorias {
+    position: absolute;
+    right: 0;
+    top: 200px;
+    bottom: 0;
+    left: 0;
+    margin:0 auto;
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 800px;
+    width: 100%;
+    max-height: 200px;
+    height: 100vh;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #000;
+    padding: 20px 20px 70px 20px;
+    z-index: 6;
+}
+
+#formCategorias, #formEditeCategorias {
+    z-index: 15;
+}
+
+#formCategorias.active {
+    display: flex;
+}
+
+#formEditeCategorias.active {
+    display: flex;
+}
+
+#formCategorias .close, #formEditeCategorias .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+#formCategorias .close span, #formEditeCategorias .close span {
+    font-size: 30px;
+}
+
+#formCategorias .btnFormularios, #formEditeCategorias .btnFormularios {
+    position:initial;
+}
+
+#formCategorias .btnFormularios button, #formEditeCategorias .btnFormularios button {
+    display: block;
+}
+
+#formCategorias .btnFormularios button:hover, #formEditeCategorias .btnFormularios button:hover  {
+    background-color: #0f5526e6;
+}
+
+.pageConfig table {
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse ;
+}
+
+.pageConfig table thead, .pageConfig table tbody {
+    width: 100%;
+}
+
+.pageConfig table thead tr, .pageConfig table tbody tr {
+    height: 40px;
+    width: 100%;
+}
+
+.pageConfig table thead tr {
+    background-color: #D3D5D5;
+    border-collapse:collapse ;
+}
+
+.pageConfig table thead tr th:first-child{
+    width: 100px;
+}
+
+.pageConfig table thead tr th:last-child{
+    width: 150px;
+}
+
+.pageConfig table tbody tr {
+margin-top: 10px;    
+    border-bottom: 1px solid #7b7974;
+}
+
+.pageConfig table tbody tr #tdAcoes {
+    height: 40px;
 }
 
 
@@ -948,7 +1061,8 @@ section {
     .textareas label textarea {
         width: 550px;
     }
-    
+
+  
 }
 
 
@@ -973,6 +1087,7 @@ section {
         height: 30px; 
         margin-left: 5px;
         font-size: 0.6rem;
+        z-index: 99;
     }
 
     .addProduct, .editProduct {
@@ -1008,5 +1123,23 @@ section {
         width: 300px;
     }
 
+    #formCategorias, #formEditeCategorias {
+        flex-direction: column;
+        padding: 40px 20px;
+    }
 
+    #formCategorias .btnFormularios, #formEditeCategorias .btnFormularios {
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+    }
+
+
+}
+
+@media (max-width: 400px) {
+    #formCategorias .inputs label input, #formEditeCategorias .inputs label input {
+        margin-top: 10px;
+        margin-left: 0;
+    }
 }

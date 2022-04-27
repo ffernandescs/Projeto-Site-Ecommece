@@ -1,9 +1,12 @@
 const dbUser = firebase.firestore();
 
 
+
+
 const btnResponseMenu = document.querySelector('.btnResponseMenu');
 const btnMenuHamburger = document.querySelector('.menuHamburger');
 const menu = document.querySelector('.menuContainer');
+
 
 
 const removeItensMenu = function(){
@@ -68,9 +71,14 @@ dbUser.collection('dadosUsuario').get().then(querySnapshot => {
 })
 
 const loadingPerfil = doc => {
-    const spanImg = document.querySelector('.imgUser img');
+    const spanImg = document.querySelector('.imgUser');
     const nameUser = document.querySelector('.login h1');
-    spanImg.src = doc.data().imgPerfil,
+    
+    const tagImg = `<img src="${doc.data().imgPerfil}" alt="">`
+
+    spanImg.insertAdjacentHTML('beforeend', tagImg);
+
+
     nameUser.innerHTML = doc.data().nameUser
 
 }
