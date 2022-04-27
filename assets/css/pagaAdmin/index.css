@@ -1134,6 +1134,14 @@ margin-top: 10px;
         right: 20px;
     }
 
+    .menuBar nav ul {
+        justify-content: space-between;
+    }
+
+    .menuBar nav ul li {
+        padding: 10px 25px;
+    }
+
 
 }
 
@@ -1141,5 +1149,13 @@ margin-top: 10px;
     #formCategorias .inputs label input, #formEditeCategorias .inputs label input {
         margin-top: 10px;
         margin-left: 0;
+    }
+
+    .menuBar nav ul {
+        justify-content: space-between;
+    }
+
+    .menuBar nav ul li {
+        padding: 10px 25px;
     }
 }
