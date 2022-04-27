@@ -8,7 +8,7 @@ const tableListProduc = document.querySelector('.tbList');
 const formAddProduct = document.querySelector('.formAddProduct');
 const formEditProduct = document.querySelector('.formEditProduct');
 const select = document.getElementById('qtParcela');
-const qtParcela = select.options[select.selectedIndex].value;
+const selectCategorias = document.getElementById('categorias');
 const delItem = document.querySelector('.tbList');
 const closeAddProduct = document.querySelector('.close');
 const closeEditProduct = document.querySelector('.closeEdit');
@@ -23,6 +23,7 @@ const btnDropdown = document.querySelector('.barraTop .textUser nav ul li a');
 
 
 let id;
+var categorias;
 let imgUser;
 let tagTr;
 
@@ -138,6 +139,7 @@ btnEdit.addEventListener('click', () => {
     formEditProduct.qtParcela.value = doc.data().qtParcela
     formEditProduct.valorParcela.value = doc.data().valorPa
     formEditProduct.qtEstoque.value = doc.data().qtEstoque
+    formEditProduct.categorias.value = doc.data().categorias
     imgPreview.src = doc.data().img;
 
 
@@ -146,6 +148,20 @@ btnEdit.addEventListener('click', () => {
 
 }
 
+dbProduct.collection('categorias').get().then(querySnapshot => {
+    querySnapshot.forEach(doc => {
+        const categoriasOptions = document.getElementById('categorias');
+        const tagOptionsCategoria = `
+        <option value="${doc.data().nameCategoria}">${doc.data().nameCategoria}</option>`
+
+        categoriasOptions.insertAdjacentHTML('beforeend', tagOptionsCategoria)
+        
+    })
+
+})
+
+
+
 formAddProduct.addEventListener('submit', e => {
     e.preventDefault();
     const cod = document.getElementById('codInput').value;
@@ -153,11 +169,15 @@ formAddProduct.addEventListener('submit', e => {
     const name = document.getElementById('nameInput').value;
     const description = document.getElementById('descriptionText').value;
     const qtParcela = select.options[select.selectedIndex].value;
+    const Categorias = selectCategorias.options[select.selectedIndex].value;
     const vDescont = document.getElementById('vDInput').value;
     const vPrazp = document.getElementById('vPInput').value;
     const vAvista = document.getElementById('vAInput').value;
     const valorPa = document.getElementById('vParcelInput').value;
     const qtEstoque = document.getElementById('qtEstoque').value;  
+    
+
+    
 
     dbProduct.collection('produtos').add({
         cod: cod,
@@ -169,7 +189,8 @@ formAddProduct.addEventListener('submit', e => {
         vAvista: vAvista,
         valorPa: valorPa,
         qtEstoque: qtEstoque,
-        qtParcela: qtParcela
+        qtParcela: qtParcela,
+        categorias: Categorias
     })
 
     setTimeout(function(){
@@ -193,6 +214,7 @@ formEditProduct.addEventListener('submit', e => {
         valorPa: formEditProduct.valorParcela.value,
         qtEstoque: formEditProduct.qtEstoque.value,
         qtParcela: formEditProduct.qtParcela.value,
+        categorias: formEditProduct.categorias.value,
     })
     
     setTimeout(function(){

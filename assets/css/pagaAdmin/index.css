@@ -320,13 +320,14 @@ section {
 }
 
 .barraTop .textUser {
-    z-index: 5;
+    z-index: 8;
 }
 
 
 .barraTop .textUser nav ul {
     position: relative;
     list-style: none;
+
 }
 
 .barraTop .textUser nav ul li ul {
@@ -339,6 +340,7 @@ section {
     border: 1px solid #c2c4c8;
     overflow: hidden;
     border-radius: 0 0 10px 10px;
+
     visibility: hidden;
 }
 
@@ -365,7 +367,7 @@ section {
 
 .barraTop .textUser nav ul li ul.active {
     visibility: visible;
- 
+
 }
 
 .menuHamburger {
@@ -463,6 +465,18 @@ section {
 
 #formCategorias .btnFormularios button:hover {
     background-color: #0f5526e6;
+}
+
+#formInfo .btnFormularios .btnSalvarInfo:hover, #formUser .btnFormularios .btnSalvarInfo:hover {
+    background-color: #0f5526e6;
+}
+
+#formInfo .btnFormularios .btnEditar:hover, #formUser .btnFormularios .btnEditar:hover {
+    background-color: #0f6793e6;
+}
+
+#formInfo .btnFormularios .btnCancelInfo:hover, #formUser .btnFormularios .btnCancelInfo:hover {
+    background-color: #0f6793e6;
 }
 
 
@@ -1013,7 +1027,7 @@ margin-top: 10px;
 
     .menuContainer.show {
         left: 0;
-        z-index: 6;
+        z-index: 20;
     }
 
     .contPrincipal {
@@ -1037,7 +1051,7 @@ margin-top: 10px;
     .menuHamburger.show {
         left: initial;
         right: 10px;
-        z-index: 6;
+        z-index: 21;
     }
 
     .menuHamburger .line {
@@ -1046,6 +1060,11 @@ margin-top: 10px;
         right: 10px;
 
         background-color: #000;
+    }
+
+    .containerConfig {
+        width: 100%;
+        border-radius: 0;
     }
 
     .containerProduct {
@@ -1082,15 +1101,8 @@ margin-top: 10px;
         font-size: 1.4rem;
     }
 
-    .containerProduct .filtroTable .btnAddRemove button {
-        width: 70px;  
-        height: 30px; 
-        margin-left: 5px;
-        font-size: 0.6rem;
-        z-index: 99;
-    }
-
     .addProduct, .editProduct {
+        top: -25px;
         height: 100vh;
         border-radius: 0;
     }
@@ -1105,10 +1117,7 @@ margin-top: 10px;
     }
 
     .btnAddRemove #btnAddItem, .btnAddRemove .btnRemove {
-        width: 70px;  
-        height: 30px; 
         margin-left: 5px;
-        font-size: 0.6rem;
     }
 
     .labels label {
@@ -1119,13 +1128,19 @@ margin-top: 10px;
         width: 200px;
     }
 
-    .textareas label textarea, #localForm {
-        width: 300px;
+    .textareas label textarea {
+        width: 430px;
+        margin-top: 10px;
+        margin-left: 0;
     }
 
     #formCategorias, #formEditeCategorias {
         flex-direction: column;
         padding: 40px 20px;
+    }
+
+    #formInfo .btnFormularios, #formUser .btnFormularios {
+        right: 20px;
     }
 
     #formCategorias .btnFormularios, #formEditeCategorias .btnFormularios {
@@ -1158,4 +1173,17 @@ margin-top: 10px;
     .menuBar nav ul li {
         padding: 10px 25px;
     }
+
+    .textareas label textarea {
+        width: 340px;
+    }
+
+    .tbContainer thead tr th, .tbContainer tbody tr td {
+        padding: 0 10px;
+    }
+
+    #trImg, #tdImg {
+        padding: 0;
+    }
+    
 }

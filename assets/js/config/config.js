@@ -225,7 +225,7 @@ const loadingUser = doc => {
     formInfo.instagramForm.value = doc.data().redeInstagram
     formInfo.facebookForm.value = doc.data().redeFacebook
 
-   
+
 }
 
 

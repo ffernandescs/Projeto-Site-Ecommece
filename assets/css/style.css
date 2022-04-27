@@ -406,12 +406,19 @@ section {
 }
 
 .textProduto {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
     margin: 10px 0;
+}
+
+#cod {
+    position: relative;
+    left: -65px;
+    text-align: start;
 }
 
 .textProduto span:first-child {
