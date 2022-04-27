@@ -57,11 +57,6 @@ clickImgEdit.addEventListener('click', () => {
     imgAddEdit.click();
 })
 
-clickImgUser.addEventListener('click', () => {
-    const imgUserdit = document.getElementById('fileUser');
-    imgUserdit.click();
-})
-
 
 clickFora.addEventListener('click', () => {
     const telaEscura = document.querySelector('.telaEscura');
@@ -250,17 +245,6 @@ let loadImgFileEdit = function(event){
     reader.readAsDataURL(event.target.files[0]);
 }
 
-let loadImgUserEdit = function(event){
-    let reader = new FileReader();
-    reader.onload = function() {
-        let imageAddEdit = document.querySelector('#imgUser')
-        imageAddEdit.style.visibility = 'visible'
-        imageAddEdit.style.zIndex = '5'
-        imageAddEdit.style.backgroundImage = 'url('+reader.result+')'    
-    }
-    reader.readAsDataURL(event.target.files[0]);
-}
-
 
 
 document.getElementById('file').addEventListener('change', (event)=> {
@@ -293,19 +277,3 @@ document.getElementById('fileEdit').addEventListener('change', (event)=> {
     })
 })
 
-document.getElementById('fileUser').addEventListener('change', (event)=> {
-    const fileUser = event.target.files[0];
-    const storageRef = firebase.storage().ref('siteEcommece-Isabel/' + fileUser.name);
-
-    storageRef.put(fileUser).then(function(result) {
-        storageRef.getDownloadURL().then(function(result){
-            const imgEditUser = document.getElementById('fileUser');
-            const imgSrcUser = document.querySelector('.imgUser img');
-            console.log(result)
-            imgEditUser.src = result;
-            imgSrcUser.src = result
-    });
-
-    
-    })
-})

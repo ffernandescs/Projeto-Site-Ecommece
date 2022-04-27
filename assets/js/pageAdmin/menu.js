@@ -1,3 +1,6 @@
+const dbUser = firebase.firestore();
+
+
 const btnResponseMenu = document.querySelector('.btnResponseMenu');
 const btnMenuHamburger = document.querySelector('.menuHamburger');
 const menu = document.querySelector('.menuContainer');
@@ -57,3 +60,17 @@ btnResponseMenu.addEventListener('click', () => {
     }
 })
 
+dbUser.collection('dadosUsuario').get().then(querySnapshot => {
+    querySnapshot.forEach(doc => {
+        loadingPerfil(doc);
+
+    })
+})
+
+const loadingPerfil = doc => {
+    const spanImg = document.querySelector('.imgUser img');
+    const nameUser = document.querySelector('.login h1');
+    spanImg.src = doc.data().imgPerfil,
+    nameUser.innerHTML = doc.data().nameUser
+
+}

@@ -21,6 +21,7 @@ body {
     position: relative;
     width: 100%;
     height: 100vh;
+    overflow: hidden;
 }
 
 .telaEscura {
@@ -149,7 +150,6 @@ section {
     height: 100%;
     border-radius: 50%;
     object-fit: cover;
-    cursor: pointer;
 }
 
 .menuContainer nav ul {
@@ -370,17 +370,15 @@ section {
 .telaPrincipal {
     width: 100%;
     height: calc(100vh - 50px);
-    background-color: #c2c4c8;
     display: flex;
-    align-items: center;
     justify-content: center;
+    margin-top: 30px;
 }
 
 .containerProduct, .containerConfig {
     position: relative;
     width: 95%;
     height: 90%;
-    position: relative;
     background-color: #fff;
     border-radius: 10px;
     overflow-y: scroll;
@@ -388,6 +386,10 @@ section {
 }
 
 .containerConfig {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+
 }
 
 .filtroTable {
@@ -653,7 +655,7 @@ section {
     z-index: 0;
 }
 
-#imgInsert, #imgInsertEdit {
+#imgInsert, #imgInsertEdit  {
     position: absolute;
     width: 100px;
     height: 100px;
@@ -709,14 +711,13 @@ section {
     width: 100%;
     background-color: #babbbb;
     box-shadow: 0 5px 10px #000;
-    padding: 10px 20px;
     overflow: hidden;
     z-index: 10;
 }
 
 .menuBar nav ul {
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-start;
     align-items: center;
     width: 100%;
 }
@@ -724,7 +725,13 @@ section {
 .menuBar nav ul li {
     font-size: 14px;
     color: #000;
+    padding: 10px 20px;
     cursor: pointer;
+}
+
+.menuBar nav ul li.active {
+    color: #fff;
+    background-color: #0f5526;
 }
 
 .pageConfig {
@@ -732,34 +739,85 @@ section {
     top: 50px;
     left: 0;
     width: 100%;
-    height: calc(100% - 60px);
 }
 
 #formInfo {
     position: relative;
     width: 100%;
     padding: 20px 20px 70px 20px;
-    overflow-x: hidden;
+    display: none;
+    z-index: 9;
+}
+
+#formInfo.active {
+    display: block;
+}
+
+#formUser.active {
+    display: block;
+}
+
+#formUser {
+    position: relative;
+    width: 100%;
+    padding: 20px 20px 70px 20px;
+    display: none;
     z-index: 9;
 
 }
 
-#formInfo label {
+#imgForm {
+    display: none;
+}
+
+#labelImgPerfil {
+    position: relative;
+}
+
+#labelImgPerfil span {
+    position: absolute;
+    top: 23px;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 1px solid #000;
+    background-size: cover;
+    object-fit: cover;
+    box-shadow: 0 0 15px #000;
+    z-index: 99;
+    visibility: visible;
+    cursor: pointer;
+
+ 
+    
+}
+
+#formInfo label, #formUser label  {
     margin-bottom: 20px;
 }
 
-#btnSalvarInfo {
+.btnFormularios {
     position: absolute;
+    display: flex;
     bottom: 20px;
     right: 50px;
+}
+
+.btnFormularios button {
     width: 100px;
     height: 40px;
     background-color: #1f80cb;
     border: none;
     border-radius: 5px;
     font-size: 14px;
+    margin-left: 20px;
     color: #fff;
     cursor: pointer;
+}
+
+.btnFormularios button:last-child, .btnCancelInfo {
+    display: none;
+    background-color: #0f5526;
 }
 
 .inputs {
@@ -792,14 +850,6 @@ section {
     color: #757677;
 }
 
-
-
-
-
-
-#formUser {
-   display: none;
-}
 
 
 @media (max-width: 1300px) {

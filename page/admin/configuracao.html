@@ -19,7 +19,7 @@
                 </div>
                 <div class="login">
                     <div class="imgUser">
-                        <img src="../../assets/img/logoUser.jpg" alt="">
+                        <img src="" alt="">
                     </div>
                     <h1>Felipe Fernandes</h1>
                 </div>
@@ -102,8 +102,8 @@
                     <div class="menuBar">
                         <nav>
                             <ul>
-                                <li id="">Dados do Site</li>
-                                <li>Perfil</li>
+                                <li id="menuDados">Dados do Site</li>
+                                <li id="perfil">Perfil</li>
                                 <li>Categorias</li>
                             </ul>
                         </nav>
@@ -147,19 +147,36 @@
                                 </label>
                             </div>
                             
-                            <button id="btnSalvarInfo">Editar</button>
+                            <div class="btnFormularios">
+                                <button type="button" class="btnEditar">Editar</button>
+                                <button type="button" class="btnCancelInfo">Cancelar</button>
+                                <button class="btnSalvarInfo">Salvar</button>
+                            </div>
                         </form>
                         
                     </div>
                     <div class="pageConfig">
                         <form id="formUser" action="">
-                            <label for="">Nome:
-                                <input id="nameForm" name="nameForm" type="text" placeholder="(xx) xxxxx-xxxx">
-                            </label>
-                            <label for="">Sobrenome:
-                                <input id="sobreNameForm" name="sobreNameForm" type="text">
-                            </label>
-                            <button id="btnSalvarInfo">Enviar</button>
+                            <div class="inputs">
+                                <label id="labelImgPerfil" for="">Imagem de Perfil:
+                                    <div class="imgUser">
+                                        <img src="../../assets/img/logoUser.jpg" alt="">
+                                    </div>
+                                    <input id="imgForm" name="imgForm" type="file" onchange="loadImgFileEdit(event)">
+                                    <span id="imgSrc"></span>
+                                </label>
+                                <label for="">Nome:
+                                    <input id="nameForm" name="nameForm" type="text">
+                                </label>
+                                
+                            </div>
+                          
+                            
+                            <div class="btnFormularios">
+                                <button type="button" class="btnEditar">Editar</button>
+                                <button type="button" class="btnCancelInfo">Cancelar</button>
+                                <button class="btnSalvarInfo">Salvar</button>
+                            </div>
                         </form>
                         
                     </div>
@@ -175,9 +192,10 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
     <script src="../../assets/js/confiDb.js"></script>
-    <script src="../../assets/js/config/config.js"></script>
     <script src="../../assets/js/Autentication/index.js"></script>
+    <script src="../../assets/js/config/config.js"></script>
     <script src="../../assets/js/pageAdmin/menu.js"></script>
 </body>
 </html>
