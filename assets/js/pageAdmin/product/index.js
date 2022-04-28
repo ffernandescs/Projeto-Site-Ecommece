@@ -118,6 +118,8 @@ dbProduct.collection('produtos').get().then(querySnapshot => {
     })
 })
 
+
+
 const loadingList = doc => {
     const tr = `<tr class="tagTr" data-listTr="${doc.id}" data-remove="${doc.id}">
                     <td id="tdCod">${doc.data().cod}</td>
@@ -138,8 +140,15 @@ const loadingList = doc => {
 
     tableListProduc.insertAdjacentHTML('beforeend', tr);
 
+
+
+
 const buscarProduto = document.getElementById('searchList');
+const totalItens = document.getElementById('totalItens')
 const listLiPd = document.querySelectorAll(`.tagTr`);
+    totalItens.innerHTML = listLiPd.length
+
+
 
     buscarProduto.addEventListener('input', () => {
         const buscar = buscarProduto.value.toLowerCase();
@@ -161,6 +170,8 @@ const btnEdit = document.querySelector(`[data-remove="${doc.id}"] .btnEdit`)
         const disableTextareas = document.querySelectorAll('.labels label textarea');
         const disableSelect = document.querySelectorAll('.labels label select');
         const btnEditeProdutos = document.querySelector('.editarProdutos');
+        const disableFile = document.getElementById('fileEdit');
+        disableFile.disabled = true
 
         btnPageSalva.classList.add('active')
         btnPageLimpar.classList.add('active')
@@ -189,6 +200,8 @@ const btnEdit = document.querySelector(`[data-remove="${doc.id}"] .btnEdit`)
             const inputCategoria3 = document.querySelector('#categoriasForm3');
 
             editTitle.innerHTML = 'Editar Produtos'
+            disableFile.disabled = false
+
 
             btnPageSalva.classList.remove('active')
             btnPageLimpar.classList.remove('active')

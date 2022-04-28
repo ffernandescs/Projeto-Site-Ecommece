@@ -176,7 +176,7 @@ section {
     object-fit: cover;
 }
 
-.iconBack, .iconForward {
+.iconBack, .iconForward, .iconBackPd, .iconForwardPd {
     position: absolute;
     font-size: 40px;
     color: #fff;
@@ -358,18 +358,43 @@ section {
     font-weight: 900;
 }
 
+.listProdutos {
+    position: relative;
+    max-width: 1200px;
+    width: 100%;
+    overflow: hidden;
+    padding: 10px;
+}
+
 .listProdutos ul {
     display: flex;
-    justify-content: center;
+    justify-content: c;
     align-content: center;
-    flex-wrap: wrap;
-    width: 100%;
+    width: 5000px;
+    margin: 20px 0;
+    transition: 0.7s ease-in-out;
     list-style: none;
+
 }
+
+.iconBackPd {
+    left: 0;
+    top: 50%;
+    color: #000;
+    z-index: 50;
+}
+
+.iconForwardPd {
+    right: 0;
+    top: 50%;
+    color: #000;
+    z-index: 50;
+}
+
 
 .listProdutos ul li {
     position: relative;
-    width: 300px;
+    width: 295px;
     padding: 15px;
     border: 1px solid transparent;
     margin: 50px 0;
