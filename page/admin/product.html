@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/f84144252b.js" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
     <link rel="stylesheet" href="../../assets/css/pagaAdmin/index.css">
     <title>Painel de Produtos</title>
 </head>
@@ -91,17 +91,18 @@
             <div class="telaPrincipal">
                 <div class="containerProduct">
                     <div class="filtroTable">
-                        <label class="labeCheckbox" for="checkbox">
-                            <div class="itensCheckbox">
-                                <div class="textCheck">
-                                    <h2 id="totalItens"></h2>
-                                    <span>itens</span>
-                                </div>
-                            </div>
-                        </d>
+                        <div class="textCheck">
+                            <h2 id="totalItens"></h2>
+                            <span>itens</span>
+                        </div>
+                        <label class="inputBuscar">
+                            <input id="searchList" type="text" placeholder="Pesquisar">
+                            <span class="material-icons-outlined" title="Pesquisar">search</span>
+                        </label>
                         <div class="btnAddRemove">
                             <button id="btnAddProduct" class="btnAdd">Adicionar</button>
                         </div>
+                        
                     </div>
                     <table class="tbContainer">
                         <thead>
@@ -119,6 +120,7 @@
                             </tr>
                         </thead>
                         <tbody class="tbList">
+                            
                             
                         </tbody>
                     </table>
@@ -192,19 +194,16 @@
                         </label>
                         <label for="">Categorias 1:
                             <select itemid="categorias" name="categorias" id="categorias"> 
-
+                                <option value=""></option>
                             </select>
-                        </label>
-                        <label for="">Categorias 2:
                             <select itemid="categorias2" name="categorias2" id="categorias2"> 
-
+                                <option value=""></option>
                             </select>
-                        </label>
-                        <label for="">Categorias 3:
                             <select itemid="categorias3" name="categorias3" id="categorias3"> 
-
+                                <option value=""></option>
                             </select>
                         </label>
+                
                     </div>
                 </div>
                 
@@ -242,7 +241,7 @@
                             <input id="nameInput" type="text" name="name">
                         </label>
                         <label id="textArea" for="description">Descrição:
-                            <textarea id="descriptionText" rows="5" cols="33" maxlength="100" name="description" ></textarea>
+                            <textarea id="descriptionText" rows="3" cols="33" maxlength="100" name="description" ></textarea>
                         </label>
                         <label for="vP">Valor a Prazo:
                             <input type="text" name="valorPrazo" id="vPInput" >
@@ -276,13 +275,23 @@
                         <label for="totalD">Estoque:
                             <input type="text" name="qtEstoque" id="qtEstoque" >
                         </label>
-                        <label for="">Categorias Atual:
-                            <input itemid="categoriasForm" name="categoriasForm" id="categoriasForm" disabled> 
+                        <label for="">Categorias Atuais:
+                            <div class="contInput">
+                                <input itemid="categoriasForm" name="categoriasForm" id="categoriasForm" disabled> 
+                                <input itemid="categoriasForm2" name="categoriasForm2" id="categoriasForm2" disabled> 
+                                <input itemid="categoriasForm3" name="categoriasForm3" id="categoriasForm3" disabled> 
+                            </div>
                         </label>
-                        <label for="">Alterar Categoria:
-                            <select itemid="categoriasEdit" name="categoriasEdit" id="categoriasEdit"> 
+                        <label id="optionsCategoria" for="">Alterar Categoria:
+                            <select itemid="categoriasEdit" name="categoriasEdit" id="categoriasEdit">
+                                <option value=""></option>
                             </select>    
-                            </select>
+                            <select itemid="categoriasEdit2" name="categoriasEdit2" id="categoriasEdit2"> 
+                                <option value=""></option>
+                            </select>    
+                            <select itemid="categoriasEdit3" name="categoriasEdit3" id="categoriasEdit3"> 
+                                <option value=""></option>
+                            </select>    
                         </label>
                     </div>
                 </div>

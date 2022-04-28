@@ -8,30 +8,30 @@ const tableListProduc = document.querySelector('.tbList');
 const formAddProduct = document.querySelector('.formAddProduct');
 const formEditProduct = document.querySelector('.formEditProduct');
 const select = document.getElementById('qtParcela');
-const selectCategorias = document.getElementById('categorias');
-const selectCategorias2 = document.getElementById('categorias2');
-const selectCategorias3 = document.getElementById('categorias3');
 const delItem = document.querySelector('.tbList');
 const closeAddProduct = document.querySelector('.close');
 const closeEditProduct = document.querySelector('.closeEdit');
-
 const clickImgUser = document.querySelector('.imgUser');
 const clickImgAdd = document.querySelector('.imgAdd img');
 const clickImgEdit = document.querySelector('.imgAddEdit img');
 const menuDropdown = document.querySelector('.barraTop .textUser nav ul li ul');
 const btnDropdown = document.querySelector('.barraTop .textUser nav ul li a');
 
+const telaEscura = document.querySelector('.telaEscura');
+const disableInputs = document.querySelectorAll('.labels label input');
+const disableTextareas = document.querySelectorAll('.labels label textarea');
+const disableSelect = document.querySelectorAll('.labels label select');
+const inputCategoria = document.querySelector('#categoriasForm');
+const inputCategoria2 = document.querySelector('#categoriasForm2');
+const inputCategoria3 = document.querySelector('#categoriasForm3');
 
-
-
+ 
 let id;
 let imgUser;
 let tagTr;
 
  
 btnDropdown.addEventListener('click', () => {
-    const telaEscura = document.querySelector('.telaEscura');
-
     menuDropdown.classList.toggle('active');
     if(menuDropdown.classList.contains('active')){
         telaEscura.classList.add('active');
@@ -42,7 +42,6 @@ btnDropdown.addEventListener('click', () => {
 })
 
 clickFora.addEventListener('click', () => {
-    const telaEscura = document.querySelector('.telaEscura');
     telaEscura.classList.remove('active')
     menuDropdown.classList.remove('active')
 
@@ -60,32 +59,56 @@ clickImgEdit.addEventListener('click', () => {
 
 
 clickFora.addEventListener('click', () => {
-    const telaEscura = document.querySelector('.telaEscura');
-    const addProduct = document.querySelector('.addProduct');
     telaEscura.classList.remove('active')
     addProduct.classList.remove('active') 
-    editProduct.classList.remove('active') 
+    editProduct.classList.remove('active')
+
+    for(let i = 0; i < disableInputs.length; i++){
+        disableInputs[i].disabled = false;
+    }
+        inputCategoria.disabled = true
+        inputCategoria2.disabled = true
+        inputCategoria3.disabled = true
+
+    for(let i = 0; i < disableTextareas.length; i++){
+        disableTextareas[i].disabled = false;
+    }
+
+    for(let i = 0; i < disableSelect.length; i++){
+        disableSelect[i].disabled = false;
+        }
 
 })
 
 btnAddProduct.addEventListener('click', () => {
-    const telaEscura = document.querySelector('.telaEscura');
-    const addProduct = document.querySelector('.addProduct');
     telaEscura.classList.add('active')
     addProduct.classList.add('active')
 })
 
 closeAddProduct.addEventListener('click', () => {
-    const telaEscura = document.querySelector('.telaEscura');
-    const addProduct = document.querySelector('.addProduct');
     telaEscura.classList.remove('active')
     addProduct.classList.remove('active') 
 })
 
 closeEditProduct.addEventListener('click', () => {
-    const telaEscura = document.querySelector('.telaEscura');
     telaEscura.classList.remove('active')
-    editProduct.classList.remove('active') 
+    editProduct.classList.remove('active')
+
+    for(let i = 0; i < disableInputs.length; i++){
+        disableInputs[i].disabled = false;
+    }
+        inputCategoria.disabled = true
+        inputCategoria2.disabled = true
+        inputCategoria3.disabled = true
+
+    for(let i = 0; i < disableTextareas.length; i++){
+        disableTextareas[i].disabled = false;
+    }
+
+    for(let i = 0; i < disableSelect.length; i++){
+        disableSelect[i].disabled = false;
+        }
+    
 })
 
 dbProduct.collection('produtos').get().then(querySnapshot => {
@@ -97,113 +120,117 @@ dbProduct.collection('produtos').get().then(querySnapshot => {
 
 const loadingList = doc => {
     const tr = `<tr class="tagTr" data-listTr="${doc.id}" data-remove="${doc.id}">
-    <td id="tdCod">${doc.data().cod}</td>
-    <td id="tdImg"><img src="${doc.data().img}" alt=""></td>
-    <td id="tdName">${doc.data().name}</td>
-    <td id="tdVP">R$ ${doc.data().vPrazp}</td>
-    <td id="tdDesconto">${doc.data().vDescont}%</td>
-    <td id="tdVA">R$ ${doc.data().vAvista}</td>
-    <td id="tdQtParcela">${doc.data().qtParcela}x</td>
-    <td id="tdVParcela">R$ ${doc.data().valorPa}</td>
-    <td id="tdEstoque">${doc.data().qtEstoque} Und.</td>
-    <td id="tdAcoes">
-        <span class="material-icons btnEdit" title="Editar">open_in_new</span>
-        <span data-remove="${doc.id}" class="material-icons" title="Apagar">delete</span>
-    </td>                            
-</tr>`
+                    <td id="tdCod">${doc.data().cod}</td>
+                    <td id="tdImg"><img src="${doc.data().img}" alt=""></td>
+                    <td id="tdName">${doc.data().name}</td>
+                    <td id="tdVP">R$ ${doc.data().vPrazp}</td>
+                    <td id="tdDesconto">${doc.data().vDescont}%</td>
+                    <td id="tdVA">R$ ${doc.data().vAvista}</td>
+                    <td id="tdQtParcela">${doc.data().qtParcela}x</td>
+                    <td id="tdVParcela">R$ ${doc.data().valorPa}</td>
+                    <td id="tdEstoque">${doc.data().qtEstoque} Und.</td>
+                    <td id="tdAcoes">
+                        <span class="material-icons btnEdit" title="Editar">open_in_new</span>
+                        <span data-remove="${doc.id}" class="material-icons" title="Apagar">delete</span>
+                    </td>                            
+                </tr>`
 
 
-tableListProduc.insertAdjacentHTML('beforeend', tr);
+    tableListProduc.insertAdjacentHTML('beforeend', tr);
 
+const buscarProduto = document.getElementById('searchList');
+const listLiPd = document.querySelectorAll(`.tagTr`);
 
-
-const btnEdit = document.querySelector(`[data-remove="${doc.id}"] .btnEdit`)
-btnEdit.addEventListener('click', () => {
-    const imgPreview = document.querySelector('.imgAddEdit img');
-    const telaEscura = document.querySelector('.telaEscura');
-    const editTitle = document.getElementById('titleForm');
-    const btnPageSalva = document.querySelector('.buttonSalvar');
-    const btnPageLimpar = document.querySelector('.limpar');
-    const disableInputs = document.querySelectorAll('.labels label input');
-    const disableTextareas = document.querySelectorAll('.labels label textarea');
-    const disableSelect = document.querySelectorAll('.labels label select');
-    const btnEditeProdutos = document.querySelector('.editarProdutos');
-
-    btnPageSalva.classList.add('active')
-    btnPageLimpar.classList.add('active')
-    btnEditeProdutos.style.display = 'block'
-
-
-    for(let i = 0; i < disableInputs.length; i++){
-        disableInputs[i].disabled = true;
-    }
-    for(let i = 0; i < disableTextareas.length; i++){
-        disableTextareas[i].disabled = true;
-    }
-
-    for(let i = 0; i < disableSelect.length; i++){
-        disableSelect[i].disabled = true;
-    }
-
-    editTitle.innerHTML = 'Produtos'
-    
-    editProduct.classList.add('active')
-    telaEscura.classList.add('active')
-
-    btnEditeProdutos.addEventListener('click', () => {
-        const inputCategoria = document.querySelector('#categoriasForm');
-
-        editTitle.innerHTML = 'Editar Produtos'
-
-        btnPageSalva.classList.remove('active')
-        btnPageLimpar.classList.remove('active')
-        btnEditeProdutos.style.display = 'none'
-
-    for(let i = 0; i < disableInputs.length; i++){
-        disableInputs[i].disabled = false;
-    }
-        inputCategoria.disabled = true
-
-    for(let i = 0; i < disableTextareas.length; i++){
-        disableTextareas[i].disabled = false;
-    }
-
-    for(let i = 0; i < disableSelect.length; i++){
-        disableSelect[i].disabled = false;
-    }
+    buscarProduto.addEventListener('input', () => {
+        const buscar = buscarProduto.value.toLowerCase();
+        listLiPd.forEach(e => {
+            const itens = e.innerHTML.toLowerCase().includes(buscar);
+            e.style.display = itens ? 'table-row' : 'none'
+        })
     })
 
-    
+const btnEdit = document.querySelector(`[data-remove="${doc.id}"] .btnEdit`)
 
-    id = doc.id
+    btnEdit.addEventListener('click', () => {
+        const imgPreview = document.querySelector('.imgAddEdit img');
+        const telaEscura = document.querySelector('.telaEscura');
+        const editTitle = document.getElementById('titleForm');
+        const btnPageSalva = document.querySelector('.buttonSalvar');
+        const btnPageLimpar = document.querySelector('.limpar');
+        const disableInputs = document.querySelectorAll('.labels label input');
+        const disableTextareas = document.querySelectorAll('.labels label textarea');
+        const disableSelect = document.querySelectorAll('.labels label select');
+        const btnEditeProdutos = document.querySelector('.editarProdutos');
 
-
-    formEditProduct.cod.value = doc.data().cod
-    formEditProduct.name.value = doc.data().name
-    formEditProduct.img.src = doc.data().img
-    formEditProduct.description.value = doc.data().description
-    formEditProduct.valorPrazo.value = doc.data().vPrazp
-    formEditProduct.valorDesconto.value = doc.data().vDescont
-    formEditProduct.valorAvista.value = doc.data().vAvista
-    formEditProduct.qtParcela.value = doc.data().qtParcela
-    formEditProduct.valorParcela.value = doc.data().valorPa
-    formEditProduct.qtEstoque.value = doc.data().qtEstoque
-    formEditProduct.categoriasForm.value = doc.data().categoria
-    formEditProduct.categoriasEdit.value = doc.data().categoria
-    imgPreview.src = doc.data().img;
+        btnPageSalva.classList.add('active')
+        btnPageLimpar.classList.add('active')
+        btnEditeProdutos.style.display = 'block'
 
 
-})
+        for(let i = 0; i < disableInputs.length; i++){
+            disableInputs[i].disabled = true;
+        }
+        for(let i = 0; i < disableTextareas.length; i++){
+            disableTextareas[i].disabled = true;
+        }
 
+        for(let i = 0; i < disableSelect.length; i++){
+            disableSelect[i].disabled = true;
+        }
 
-}
+        editTitle.innerHTML = 'Produtos'
+        
+        editProduct.classList.add('active')
+        telaEscura.classList.add('active')
 
+        btnEditeProdutos.addEventListener('click', () => {
+            const inputCategoria = document.querySelector('#categoriasForm');
+            const inputCategoria2 = document.querySelector('#categoriasForm2');
+            const inputCategoria3 = document.querySelector('#categoriasForm3');
 
-    const loadFormEdit = doc => {
+            editTitle.innerHTML = 'Editar Produtos'
+
+            btnPageSalva.classList.remove('active')
+            btnPageLimpar.classList.remove('active')
+            btnEditeProdutos.style.display = 'none'
+
+        for(let i = 0; i < disableInputs.length; i++){
+            disableInputs[i].disabled = false;
+        }
+            inputCategoria.disabled = true
+            inputCategoria2.disabled = true
+            inputCategoria3.disabled = true
+
+        for(let i = 0; i < disableTextareas.length; i++){
+            disableTextareas[i].disabled = false;
+        }
+
+        for(let i = 0; i < disableSelect.length; i++){
+            disableSelect[i].disabled = false;
+            }
+        })
+
+        id = doc.id
+
+        formEditProduct.cod.value = doc.data().cod
+        formEditProduct.name.value = doc.data().name
+        formEditProduct.img.src = doc.data().img
+        formEditProduct.description.value = doc.data().description
+        formEditProduct.valorPrazo.value = doc.data().vPrazp
+        formEditProduct.valorDesconto.value = doc.data().vDescont
+        formEditProduct.valorAvista.value = doc.data().vAvista
+        formEditProduct.qtParcela.value = doc.data().qtParcela
+        formEditProduct.valorParcela.value = doc.data().valorPa
+        formEditProduct.qtEstoque.value = doc.data().qtEstoque
         formEditProduct.categoriasForm.value = doc.data().categoria
-
-    }
-
+        formEditProduct.categoriasForm2.value = doc.data().categoria2
+        formEditProduct.categoriasForm3.value = doc.data().categoria3
+        formEditProduct.categoriasEdit.value = doc.data().categoria
+        formEditProduct.categoriasEdit2.value = doc.data().categoria2
+        formEditProduct.categoriasEdit3.value = doc.data().categoria3
+        imgPreview.src = doc.data().img;
+    })
+}
 
 dbProduct.collection('categorias').get().then(querySnapshot => {
     querySnapshot.forEach(doc => {
@@ -211,34 +238,52 @@ dbProduct.collection('categorias').get().then(querySnapshot => {
         const tagOptionsCategoria = `
         <option value="${doc.data().nameCategoria}">${doc.data().nameCategoria}</option>`
 
-        categoriasOptions.insertAdjacentHTML('beforeend', tagOptionsCategoria) 
+        categoriasOptions.insertAdjacentHTML('beforeend', tagOptionsCategoria);
 
         const categoriasOptions2 = document.getElementById('categorias2');
         const tagOptionsCategoria2 = `
         <option value="${doc.data().nameCategoria}">${doc.data().nameCategoria}</option>`
 
-        categoriasOptions2.insertAdjacentHTML('beforeend', tagOptionsCategoria2) 
+        categoriasOptions2.insertAdjacentHTML('beforeend', tagOptionsCategoria2);
 
         const categoriasOptions3 = document.getElementById('categorias3');
         const tagOptionsCategoria3 = `
         <option value="${doc.data().nameCategoria}">${doc.data().nameCategoria}</option>`
 
-        categoriasOptions3.insertAdjacentHTML('beforeend', tagOptionsCategoria3) 
+        categoriasOptions3.insertAdjacentHTML('beforeend', tagOptionsCategoria3);
         
         const categoriaEditsOptions = document.getElementById('categoriasEdit');
         const tagOptionsEditCategoria = `
         <option value="${doc.data().nameCategoria}">${doc.data().nameCategoria}</option>`
 
-        categoriaEditsOptions.insertAdjacentHTML('beforeend', tagOptionsEditCategoria) 
-        
-        
-    })
+        categoriaEditsOptions.insertAdjacentHTML('beforeend', tagOptionsEditCategoria);
 
+        const categoriaEditsOptions2 = document.getElementById('categoriasEdit2');
+        const tagOptionsEditCategoria2 = `
+        <option value="${doc.data().nameCategoria}">${doc.data().nameCategoria}</option>`
+
+        categoriaEditsOptions2.insertAdjacentHTML('beforeend', tagOptionsEditCategoria2);
+
+        const categoriaEditsOptions3 = document.getElementById('categoriasEdit3');
+        const tagOptionsEditCategoria4 = `
+        <option value="${doc.data().nameCategoria}">${doc.data().nameCategoria}</option>`
+
+        categoriaEditsOptions3.insertAdjacentHTML('beforeend', tagOptionsEditCategoria4);       
+    })
 })
 
+const loadFormEdit = doc => {
+    formEditProduct.categoriasForm.value = doc.data().categoria
+
+}
 
 formAddProduct.addEventListener('submit', e => {
     e.preventDefault();
+    const selectCategorias = document.getElementById('categorias');
+    const selectCategorias2 = document.getElementById('categorias2');
+    const selectCategorias3 = document.getElementById('categorias3');
+
+
     const cod = document.getElementById('codInput').value;
     const img = document.getElementById('file').src;
     const name = document.getElementById('nameInput').value;
@@ -252,9 +297,6 @@ formAddProduct.addEventListener('submit', e => {
     const vAvista = document.getElementById('vAInput').value;
     const valorPa = document.getElementById('vParcelInput').value;
     const qtEstoque = document.getElementById('qtEstoque').value;  
-    
-
-    
 
     dbProduct.collection('produtos').add({
         cod: cod,
@@ -275,9 +317,7 @@ formAddProduct.addEventListener('submit', e => {
     setTimeout(function(){
         window.location.reload();
     }, 1000)
-
 })
-
 
 formEditProduct.addEventListener('submit', e => {
     e.preventDefault();
@@ -294,12 +334,13 @@ formEditProduct.addEventListener('submit', e => {
         qtEstoque: formEditProduct.qtEstoque.value,
         qtParcela: formEditProduct.qtParcela.value,
         categoria: formEditProduct.categoriasEdit.value,
+        categoria2: formEditProduct.categoriasEdit2.value,
+        categoria3: formEditProduct.categoriasEdit3.value,
     })
     
     setTimeout(function(){
         window.location.reload();
     }, 1000)
-
 })
 
 delItem.addEventListener('click', e => {
@@ -319,7 +360,6 @@ delItem.addEventListener('click', e => {
         })
     }
 })
-
 
 let loadImgFile = function(event){
     let reader = new FileReader();
@@ -343,19 +383,15 @@ let loadImgFileEdit = function(event){
     reader.readAsDataURL(event.target.files[0]);
 }
 
-
-
 document.getElementById('file').addEventListener('change', (event)=> {
     const file = event.target.files[0];
     const storageRef = firebase.storage().ref('siteEcommece-Isabel/' + file.name);
 
-    storageRef.put(file).then(function(result) {
-        storageRef.getDownloadURL().then(function(result){
-            const imgAdd = document.getElementById('file');
-            imgAdd.src = result;
-    });
-
-    
+        storageRef.put(file).then(function(result) {
+            storageRef.getDownloadURL().then(function(result){
+                const imgAdd = document.getElementById('file');
+                imgAdd.src = result;
+        });
     })
 })
 
@@ -363,13 +399,10 @@ document.getElementById('fileEdit').addEventListener('change', (event)=> {
     const fileEdit = event.target.files[0];
     const storageRef = firebase.storage().ref('siteEcommece-Isabel/' + fileEdit.name);
 
-    storageRef.put(fileEdit).then(function(result) {
-        storageRef.getDownloadURL().then(function(result){
-            const imgEdit = document.getElementById('fileEdit');
-            imgEdit.src = result;
-    });
-
-    
+        storageRef.put(fileEdit).then(function(result) {
+            storageRef.getDownloadURL().then(function(result){
+                const imgEdit = document.getElementById('fileEdit');
+                imgEdit.src = result;
+        });
     })
 })
-
