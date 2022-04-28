@@ -9,6 +9,8 @@ const formAddProduct = document.querySelector('.formAddProduct');
 const formEditProduct = document.querySelector('.formEditProduct');
 const select = document.getElementById('qtParcela');
 const selectCategorias = document.getElementById('categorias');
+const selectCategorias2 = document.getElementById('categorias2');
+const selectCategorias3 = document.getElementById('categorias3');
 const delItem = document.querySelector('.tbList');
 const closeAddProduct = document.querySelector('.close');
 const closeEditProduct = document.querySelector('.closeEdit');
@@ -23,7 +25,6 @@ const btnDropdown = document.querySelector('.barraTop .textUser nav ul li a');
 
 
 let id;
-var categorias;
 let imgUser;
 let tagTr;
 
@@ -90,11 +91,12 @@ closeEditProduct.addEventListener('click', () => {
 dbProduct.collection('produtos').get().then(querySnapshot => {
     querySnapshot.forEach(doc => {
         loadingList(doc);
+        loadFormEdit(doc);
     })
 })
 
 const loadingList = doc => {
-    const tr = `<tr class="tagTr" data-remove="${doc.id}">
+    const tr = `<tr class="tagTr" data-listTr="${doc.id}" data-remove="${doc.id}">
     <td id="tdCod">${doc.data().cod}</td>
     <td id="tdImg"><img src="${doc.data().img}" alt=""></td>
     <td id="tdName">${doc.data().name}</td>
@@ -113,21 +115,68 @@ const loadingList = doc => {
 
 tableListProduc.insertAdjacentHTML('beforeend', tr);
 
-const testeTr = document.querySelectorAll('.tagTr').length
-const totalItens = document.getElementById('totalItens')
 
-
-totalItens.innerHTML = testeTr
 
 const btnEdit = document.querySelector(`[data-remove="${doc.id}"] .btnEdit`)
 btnEdit.addEventListener('click', () => {
-    const telaEscura = document.querySelector('.telaEscura');
     const imgPreview = document.querySelector('.imgAddEdit img');
+    const telaEscura = document.querySelector('.telaEscura');
+    const editTitle = document.getElementById('titleForm');
+    const btnPageSalva = document.querySelector('.buttonSalvar');
+    const btnPageLimpar = document.querySelector('.limpar');
+    const disableInputs = document.querySelectorAll('.labels label input');
+    const disableTextareas = document.querySelectorAll('.labels label textarea');
+    const disableSelect = document.querySelectorAll('.labels label select');
+    const btnEditeProdutos = document.querySelector('.editarProdutos');
+
+    btnPageSalva.classList.add('active')
+    btnPageLimpar.classList.add('active')
+    btnEditeProdutos.style.display = 'block'
+
+
+    for(let i = 0; i < disableInputs.length; i++){
+        disableInputs[i].disabled = true;
+    }
+    for(let i = 0; i < disableTextareas.length; i++){
+        disableTextareas[i].disabled = true;
+    }
+
+    for(let i = 0; i < disableSelect.length; i++){
+        disableSelect[i].disabled = true;
+    }
+
+    editTitle.innerHTML = 'Produtos'
+    
+    editProduct.classList.add('active')
+    telaEscura.classList.add('active')
+
+    btnEditeProdutos.addEventListener('click', () => {
+        const inputCategoria = document.querySelector('#categoriasForm');
+
+        editTitle.innerHTML = 'Editar Produtos'
+
+        btnPageSalva.classList.remove('active')
+        btnPageLimpar.classList.remove('active')
+        btnEditeProdutos.style.display = 'none'
+
+    for(let i = 0; i < disableInputs.length; i++){
+        disableInputs[i].disabled = false;
+    }
+        inputCategoria.disabled = true
+
+    for(let i = 0; i < disableTextareas.length; i++){
+        disableTextareas[i].disabled = false;
+    }
+
+    for(let i = 0; i < disableSelect.length; i++){
+        disableSelect[i].disabled = false;
+    }
+    })
+
+    
 
     id = doc.id
 
-    editProduct.classList.add('active')
-    telaEscura.classList.add('active')
 
     formEditProduct.cod.value = doc.data().cod
     formEditProduct.name.value = doc.data().name
@@ -139,7 +188,8 @@ btnEdit.addEventListener('click', () => {
     formEditProduct.qtParcela.value = doc.data().qtParcela
     formEditProduct.valorParcela.value = doc.data().valorPa
     formEditProduct.qtEstoque.value = doc.data().qtEstoque
-    formEditProduct.categorias.value = doc.data().categorias
+    formEditProduct.categoriasForm.value = doc.data().categoria
+    formEditProduct.categoriasEdit.value = doc.data().categoria
     imgPreview.src = doc.data().img;
 
 
@@ -148,18 +198,43 @@ btnEdit.addEventListener('click', () => {
 
 }
 
+
+    const loadFormEdit = doc => {
+        formEditProduct.categoriasForm.value = doc.data().categoria
+
+    }
+
+
 dbProduct.collection('categorias').get().then(querySnapshot => {
     querySnapshot.forEach(doc => {
         const categoriasOptions = document.getElementById('categorias');
         const tagOptionsCategoria = `
         <option value="${doc.data().nameCategoria}">${doc.data().nameCategoria}</option>`
 
-        categoriasOptions.insertAdjacentHTML('beforeend', tagOptionsCategoria)
+        categoriasOptions.insertAdjacentHTML('beforeend', tagOptionsCategoria) 
+
+        const categoriasOptions2 = document.getElementById('categorias2');
+        const tagOptionsCategoria2 = `
+        <option value="${doc.data().nameCategoria}">${doc.data().nameCategoria}</option>`
+
+        categoriasOptions2.insertAdjacentHTML('beforeend', tagOptionsCategoria2) 
+
+        const categoriasOptions3 = document.getElementById('categorias3');
+        const tagOptionsCategoria3 = `
+        <option value="${doc.data().nameCategoria}">${doc.data().nameCategoria}</option>`
+
+        categoriasOptions3.insertAdjacentHTML('beforeend', tagOptionsCategoria3) 
+        
+        const categoriaEditsOptions = document.getElementById('categoriasEdit');
+        const tagOptionsEditCategoria = `
+        <option value="${doc.data().nameCategoria}">${doc.data().nameCategoria}</option>`
+
+        categoriaEditsOptions.insertAdjacentHTML('beforeend', tagOptionsEditCategoria) 
+        
         
     })
 
 })
-
 
 
 formAddProduct.addEventListener('submit', e => {
@@ -169,7 +244,9 @@ formAddProduct.addEventListener('submit', e => {
     const name = document.getElementById('nameInput').value;
     const description = document.getElementById('descriptionText').value;
     const qtParcela = select.options[select.selectedIndex].value;
-    const Categorias = selectCategorias.options[select.selectedIndex].value;
+    const categorias = selectCategorias.options[selectCategorias.selectedIndex].value;
+    const categorias2 = selectCategorias2.options[selectCategorias2.selectedIndex].value;
+    const categorias3 = selectCategorias3.options[selectCategorias3.selectedIndex].value;
     const vDescont = document.getElementById('vDInput').value;
     const vPrazp = document.getElementById('vPInput').value;
     const vAvista = document.getElementById('vAInput').value;
@@ -190,7 +267,9 @@ formAddProduct.addEventListener('submit', e => {
         valorPa: valorPa,
         qtEstoque: qtEstoque,
         qtParcela: qtParcela,
-        categorias: Categorias
+        categoria: categorias,
+        categoria2: categorias2,
+        categoria3: categorias3
     })
 
     setTimeout(function(){
@@ -214,7 +293,7 @@ formEditProduct.addEventListener('submit', e => {
         valorPa: formEditProduct.valorParcela.value,
         qtEstoque: formEditProduct.qtEstoque.value,
         qtParcela: formEditProduct.qtParcela.value,
-        categorias: formEditProduct.categorias.value,
+        categoria: formEditProduct.categoriasEdit.value,
     })
     
     setTimeout(function(){

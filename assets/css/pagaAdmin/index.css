@@ -463,6 +463,14 @@ section {
     background-color: #0f5526e6;
 }
 
+.buttonSalvar.active {
+    display: none;
+}
+
+.limpar.active {
+    display: none;
+}
+
 #formCategorias .btnFormularios button:hover {
     background-color: #0f5526e6;
 }

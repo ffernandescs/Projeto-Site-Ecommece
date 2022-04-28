@@ -156,7 +156,7 @@
                             <input id="nameInput" type="text" name="description">
                         </label>
                         <label id="textArea" for="description">Descrição:
-                            <textarea id="descriptionText" rows="5" cols="33" name="description" ></textarea>
+                            <textarea id="descriptionText" rows="5" cols="33" maxlength="50" name="description" ></textarea>
                         </label>
                         <label for="vP">Valor a Prazo:
                             <input type="text" name="VP" id="vPInput" >
@@ -190,8 +190,18 @@
                         <label for="totalD">Estoque:
                             <input type="text" name="qtEstoque" id="qtEstoque" >
                         </label>
-                        <label for="">Categorias:
+                        <label for="">Categorias 1:
                             <select itemid="categorias" name="categorias" id="categorias"> 
+
+                            </select>
+                        </label>
+                        <label for="">Categorias 2:
+                            <select itemid="categorias2" name="categorias2" id="categorias2"> 
+
+                            </select>
+                        </label>
+                        <label for="">Categorias 3:
+                            <select itemid="categorias3" name="categorias3" id="categorias3"> 
 
                             </select>
                         </label>
@@ -208,7 +218,7 @@
             
             <form action="" class="formEditProduct">
                 <div class="textTitle">
-                    <h1>Editar Produtos</h1>
+                    <h1 id="titleForm">Editar Produtos</h1>
                 </div>
                 <div class="contForm">
                     <div class="infoPrincipal">
@@ -218,8 +228,9 @@
                             <input id="fileEdit" name="img" type="file" onchange="loadImgFileEdit(event)">
                         </div>
                         <div class="btnAddRemove">
-                            <button id="btnAddItem" class="btnSalva">Salva</button>
-                            <button class="btnRemove" type="reset">Limpar</button>
+                            <button id="btnAddItem" class="btnSalva buttonSalvar">Salva</button>
+                            <button class="btnRemove limpar" class="btnLimpar" type="reset">Limpar</button>
+                            <button class="btnRemove editarProdutos" type="button">Editar</button>
                         </div>
                     </div>
                     
@@ -231,7 +242,7 @@
                             <input id="nameInput" type="text" name="name">
                         </label>
                         <label id="textArea" for="description">Descrição:
-                            <textarea id="descriptionText" rows="5" cols="33" name="description" ></textarea>
+                            <textarea id="descriptionText" rows="5" cols="33" maxlength="100" name="description" ></textarea>
                         </label>
                         <label for="vP">Valor a Prazo:
                             <input type="text" name="valorPrazo" id="vPInput" >
@@ -265,9 +276,12 @@
                         <label for="totalD">Estoque:
                             <input type="text" name="qtEstoque" id="qtEstoque" >
                         </label>
-                        <label for="">Categorias:
-                            <select itemid="categorias" name="categorias" id="categorias"> 
-
+                        <label for="">Categorias Atual:
+                            <input itemid="categoriasForm" name="categoriasForm" id="categoriasForm" disabled> 
+                        </label>
+                        <label for="">Alterar Categoria:
+                            <select itemid="categoriasEdit" name="categoriasEdit" id="categoriasEdit"> 
+                            </select>    
                             </select>
                         </label>
                     </div>
