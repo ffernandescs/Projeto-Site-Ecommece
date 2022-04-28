@@ -79,7 +79,6 @@ window.addEventListener('load', () => {
         positionBaslls[i].addEventListener('click', () => {
             indexImgSlider = positionBaslls[i]
             slider();
-            console.log('clicou')
         })
     }
     

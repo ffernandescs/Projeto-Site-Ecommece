@@ -77,7 +77,6 @@ const loadPromoLancamentos = doc => {
 
 
       const count = listPd.length
-      console.log(count)
       let currentSlide = 0;
 
       btniconBackPd.addEventListener('click', () => {
