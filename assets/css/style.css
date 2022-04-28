@@ -408,7 +408,7 @@ section {
 
 .listProdutos ul li {
     position: relative;
-    width: 296px;
+    width: 295px;
     padding: 15px;
     border: 1px solid transparent;
     margin: 50px 0;
@@ -837,15 +837,23 @@ footer {
     display: none;
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 1200px) {
     
-
-    .menu ul li a {
-        font-size: 16px;
+    .listProdutos nav {
+        padding: 0;
     }
+
+    .listProdutos nav ul li {
+        width: 25vw;
+    }
+
 }
 
 @media (max-width: 1100px) {
+    .menu ul li a {
+        font-size: 16px;
+    }
+
     .menu ul li a span {
         font-size: 14px;
         padding: 0px 15px;
@@ -902,6 +910,15 @@ footer {
     .itemBox {
         flex-direction: column;
     }
+
+    .listProdutos nav {
+        padding: 0;
+    }
+
+    .listProdutos nav ul li {
+        width: 50vw;
+    }
+
     
 }
 
@@ -935,5 +952,15 @@ footer {
 
     .listProdutos nav ul li {
         width: 100vw;
+    }
+
+    .listProdutos nav ul li:hover {
+        transform: scale(1);
+        border: 1px solid transparent;
+
+    }
+
+    .itemDepoimento:hover, .itemCategory:hover {
+        transform: scale(1);
     }
 }
