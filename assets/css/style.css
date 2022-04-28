@@ -949,6 +949,10 @@ footer {
         padding: 0;
     }
 
+    .listProdutos nav ul {
+        width: 5000px;
+    }
+
     .listProdutos nav ul li {
         width: 100vw;
     }

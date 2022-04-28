@@ -7,6 +7,10 @@ dbPromoLancaMento.collection('produtos').get().then(querySnapshot => {
   })
 })
 
+
+
+
+
 const listPromo = document.getElementById('promo');
 const listLancamento = document.getElementById('lancamentos');
 
@@ -83,48 +87,80 @@ const loadPromoLancamentos = doc => {
 
       
       let currentSlidePromo = 0;
-      let currentSlideLanc = 0;
-
-
-
-      btniconBackPromo.addEventListener('click', () => {
-        currentSlidePromo--;
-        if(currentSlidePromo < 0) {
-          currentSlidePromo = countPromo -4
+      let currentSlideLanc = 0;    
+      
+      btniconBackPromo.addEventListener('click', function backPromo() {
+        const largura = window.innerWidth
+        if(largura > 400) {
+            currentSlidePromo--;
+              if(currentSlidePromo < 0) {
+                currentSlidePromo = countPromo -4
+              }
+              updateSliderPromo();
+        } else {
+            currentSlidePromo--;
+              if(currentSlidePromo < 0) {
+                currentSlidePromo = countPromo -1
+              }
+              updateSliderPromo();
         }
-        updateSliderPromo();
       })
 
-      btniconForwardPromo.addEventListener('click', () => {
-        currentSlidePromo++;
-        if(currentSlidePromo > countPromo -4) {
-          currentSlidePromo = 0
+      btniconForwardPromo.addEventListener('click', function forwardPromo() {
+        const largura = window.innerWidth
+        if(largura > 400) {
+            currentSlidePromo++;
+              if(currentSlidePromo > countPromo -4) {
+                currentSlidePromo = 0
+              }
+              updateSliderPromo();
+        } else {
+            currentSlidePromo++;
+              if(currentSlidePromo > countPromo -1) {
+                currentSlidePromo = 0
+              }
+              updateSliderPromo();
         }
-        updateSliderPromo();
       })
-
 
       function updateSliderPromo() {
         listPromo.style.marginLeft = -currentSlidePromo * listPdPromo[0].offsetWidth + 'px'
+        console.log(-currentSlidePromo * listPdPromo[0].offsetWidth)
+
       }
 
-
-      
-
       btniconBackLanc.addEventListener('click', () => {
-        currentSlideLanc--;
-        if(currentSlideLanc < 0) {
-          currentSlideLanc = countLan -4
+        const largura = window.innerWidth
+        if(largura > 400) {
+            currentSlideLanc--;
+              if(currentSlideLanc < 0) {
+                currentSlideLanc = countLan -4
+              }
+              updateSliderLanc();
+        } else {
+            currentSlideLanc--;
+              if(currentSlideLanc < 0) {
+                currentSlideLanc = countLan -1
+              }
+              updateSliderLanc();
         }
-        updateSliderLanc();
       })
 
       btniconForwardLanc.addEventListener('click', () => {
-        currentSlideLanc++;
-        if(currentSlideLanc > countLan -4) {
-          currentSlideLanc = 0
+        const largura = window.innerWidth
+        if(largura > 400) {
+            currentSlideLanc++;
+              if(currentSlideLanc > countLan -4) {
+                currentSlideLanc = 0
+              }
+              updateSliderLanc();
+        } else {
+            currentSlideLanc++;
+              if(currentSlideLanc > countLan -1) {
+                currentSlideLanc = 0
+              }
+              updateSliderLanc();
         }
-        updateSliderLanc();
       })
 
 
