@@ -363,18 +363,31 @@ section {
     max-width: 1200px;
     width: 100%;
     overflow: hidden;
-    overflow-x: scroll;
+}
+
+.listProdutos nav{
+    display: flex;
+    justify-content: flex-start;
+    align-content: center;
+    width: 100%;
+    max-width: 1200px;
     padding: 10px;
+    overflow-x: scroll;
+}
+
+.listProdutos nav::-webkit-scrollbar {
+    display: none;
 }
 
 .listProdutos ul {
     display: flex;
-    justify-content: c;
+    justify-content: center;
     align-content: center;
     margin: 20px 0;
     width: fit-content;
     transition: 0.7s ease-in-out;
     list-style: none;
+
 
 }
 
@@ -395,7 +408,7 @@ section {
 
 .listProdutos ul li {
     position: relative;
-    width: 295px;
+    width: 296px;
     padding: 15px;
     border: 1px solid transparent;
     margin: 50px 0;
