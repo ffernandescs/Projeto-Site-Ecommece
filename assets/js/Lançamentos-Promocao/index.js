@@ -13,7 +13,7 @@ const listLancamento = document.getElementById('lancamentos');
 const loadPromoLancamentos = doc => {
 
   if(doc.data().categoria == 'Lançamentos' || doc.data().categoria2 == 'Lançamentos' || doc.data().categoria3 == 'Lançamentos') {
-    const tagLiPromo = `<li class="${doc.data().categoria} listPd">
+    const tagLiPromo = `<li class="${doc.data().categoria} listPromo">
                           <a href="#">
                               <div class="imgProduto">
                                   <img src="${doc.data().img}" alt="">
@@ -44,7 +44,7 @@ const loadPromoLancamentos = doc => {
   } 
 
   if(doc.data().categoria == 'Promoção' || doc.data().categoria2 == 'Promoção' || doc.data().categoria3 == 'Promoção') {
-    const tagLiPromo = `<li class="${doc.data().categoria}">
+    const tagLiPromo = `<li class="${doc.data().categoria} listLanc">
                         <a href="#">
                             <div class="imgProduto">
                                 <img src="${doc.data().img}" alt="">
@@ -71,36 +71,66 @@ const loadPromoLancamentos = doc => {
                       </li>`
 
       listLancamento.insertAdjacentHTML('beforeend', tagLiPromo)
-      const btniconBackPd = document.querySelector('.iconBackPd');
-      const btniconForwardPd = document.querySelector('.iconForwardPd');
-      const listPd = document.querySelectorAll('.listPd');
+      const btniconBackPromo = document.querySelector('.promo .iconBackPd');
+      const btniconForwardPromo = document.querySelector('.promo .iconForwardPd');
+      const btniconBackLanc = document.querySelector('.lancamentos .iconBackPd');
+      const btniconForwardLanc = document.querySelector('.lancamentos .iconForwardPd');
+      const listPdPromo = document.querySelectorAll('#promo .listPromo');
+      const listPdLanc = document.querySelectorAll('#lancamentos .listLanc');
+
+      const countPromo = listPdPromo.length
+      const countLan = listPdLanc.length
+
+      
+      let currentSlidePromo = 0;
+      let currentSlideLanc = 0;
 
 
-      const count = listPd.length
-      let currentSlide = 0;
 
-      btniconBackPd.addEventListener('click', () => {
-        currentSlide--;
-        if(currentSlide < 0) {
-          currentSlide = count -4
+      btniconBackPromo.addEventListener('click', () => {
+        currentSlidePromo--;
+        if(currentSlidePromo < 0) {
+          currentSlidePromo = countPromo -4
         }
-        updateSliderPd();
+        updateSliderPromo();
       })
 
-      btniconForwardPd.addEventListener('click', () => {
-        currentSlide++;
-        if(currentSlide > count -4) {
-          currentSlide = 0
+      btniconForwardPromo.addEventListener('click', () => {
+        currentSlidePromo++;
+        if(currentSlidePromo > countPromo -4) {
+          currentSlidePromo = 0
         }
-        updateSliderPd();
+        updateSliderPromo();
       })
 
 
-      function updateSliderPd() {
-        listPromo.style.marginLeft = -currentSlide * listPd[0].offsetWidth + 'px'
+      function updateSliderPromo() {
+        listPromo.style.marginLeft = -currentSlidePromo * listPdPromo[0].offsetWidth + 'px'
       }
 
 
+      
+
+      btniconBackLanc.addEventListener('click', () => {
+        currentSlideLanc--;
+        if(currentSlideLanc < 0) {
+          currentSlideLanc = countLan -4
+        }
+        updateSliderLanc();
+      })
+
+      btniconForwardLanc.addEventListener('click', () => {
+        currentSlideLanc++;
+        if(currentSlideLanc > countLan -4) {
+          currentSlideLanc = 0
+        }
+        updateSliderLanc();
+      })
+
+
+      function updateSliderLanc() {
+        listLancamento.style.marginLeft = -currentSlideLanc * listPdLanc[0].offsetWidth + 'px'
+      }
     
     }
     

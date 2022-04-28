@@ -97,7 +97,6 @@
                         </div>
                         <label class="inputBuscar">
                             <input id="searchList" type="text" placeholder="Pesquisar">
-                            <span class="material-icons-outlined" title="Pesquisar">search</span>
                         </label>
                         <div class="btnAddRemove">
                             <button id="btnAddProduct" class="btnAdd">Adicionar</button>
@@ -142,7 +141,7 @@
                         <div class="imgAdd" for="img">
                             <img src="../../assets/img/icoAddImg.png" alt="">
                             <span id="imgInsert"></span>
-                            <input id="file" type="file" onchange="loadImgFile(event)">
+                            <input id="file" type="file" onchange="loadImgFile(event)" required>
                         </div>
                         <div class="btnAddRemove">
                             <button id="btnAddItem" class="btnSalva">Salva</button>
@@ -152,25 +151,25 @@
                     
                     <div class="labels">
                         <label for="cod">Codigo:
-                            <input id="codInput" type="text" name="cod" >
+                            <input id="codInput" type="text" name="cod" required>
                         </label>
                         <label for="name">Nome:
-                            <input id="nameInput" type="text" name="description">
+                            <input id="nameInput" type="text" name="description" required>
                         </label>
                         <label id="textArea" for="description">Descrição:
-                            <textarea id="descriptionText" rows="5" cols="33" maxlength="100" name="description" ></textarea>
+                            <textarea id="descriptionText" rows="5" cols="33" maxlength="100" name="description" required></textarea>
                         </label>
                         <label for="vP">Valor a Prazo:
-                            <input type="text" name="VP" id="vPInput" >
+                            <input type="text" name="VP" id="vPInput" required>
                         </label>
                         <label for="vD">Valor de Desconto:
-                            <input type="text" name="vD" id="vDInput" >
+                            <input type="text" name="vD" id="vDInput" required>
                         </label>
                         <label for="vA">Valor Avista:
-                            <input type="text" name="vA" id="vAInput" >
+                            <input type="text" name="vA" id="vAInput" required>
                         </label>
                         <label for="">Quantidade de Parcelas:
-                            <select itemid="qtParcela" name="qtParcela" id="qtParcela"> 
+                            <select itemid="qtParcela" name="qtParcela" id="qtParcela" required> 
                                 <option value="1">1x</option>
                                 <option value="2">2x</option>
                                 <option value="3">3x</option>
@@ -187,13 +186,13 @@
                         </label>
                         
                         <label for="totalD">Valor da Parcela:
-                            <input type="text" name="totalD" id="vParcelInput" >
+                            <input type="text" name="totalD" id="vParcelInput" required>
                         </label>
                         <label for="totalD">Estoque:
-                            <input type="text" name="qtEstoque" id="qtEstoque" >
+                            <input type="text" name="qtEstoque" id="qtEstoque" required>
                         </label>
                         <label for="">Categorias 1:
-                            <select itemid="categorias" name="categorias" id="categorias"> 
+                            <select itemid="categorias" name="categorias" id="categorias" required> 
                                 <option value=""></option>
                             </select>
                             <select itemid="categorias2" name="categorias2" id="categorias2"> 

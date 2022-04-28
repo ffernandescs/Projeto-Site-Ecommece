@@ -311,7 +311,9 @@ formAddProduct.addEventListener('submit', e => {
     const valorPa = document.getElementById('vParcelInput').value;
     const qtEstoque = document.getElementById('qtEstoque').value;  
 
-    dbProduct.collection('produtos').add({
+    dbProduct.collection('produtos').doc(`${cod}`).set({
+        
+        createdAt: new Date(),
         cod: cod,
         img: img,
         name: name,
