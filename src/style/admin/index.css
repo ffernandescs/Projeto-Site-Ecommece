@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif; 
+}
+
+h1 h2 h3 h4 p a {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+ 
+}
+
+section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100vh;
+    background-color: #F5F5FA;
+}
+
+.containerPrincipal .container {
+    width: 100%;
+    height: calc(100% - 60px);
+    padding: 30px;
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas: 
+    'box1 box2 box3 box4 '
+    'box5 box5 box5 box6'
+    ;
+    box-sizing: border-box;
+    align-items:flex-end;
+}
+
+.containerPrincipal .container .box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgb(209, 208, 208);
+}
+
+.containerPrincipal .container .box1 {
+    height: 250px;
+    grid-area: box1;
+    background-color: #FBAB7E;
+    background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
+}
+
+.containerPrincipal .container .box2 {
+    height: 250px;
+    grid-area: box2;
+    background-color: #098343;
+    background-image: linear-gradient(45deg, #098343 0%, #aaa976 100%);
+}
+.containerPrincipal .container .box3 {
+    height: 250px;
+    grid-area: box3;  
+    background-color: #d44e3b;
+    background-image: linear-gradient(90deg, #d44e3b 0%, #c14a59 55%, #b54459 100%);        
+}
+
+.containerPrincipal .container .box4 {
+    height: 250px;
+    grid-area: box4;  
+    background-color: #0093E9;
+    background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+}
+
+.containerPrincipal .container .box5 {
+    height: 450px;
+    grid-area: box5;  
+}
+
+.containerPrincipal .container .box6 {
+    height: 450px;
+    grid-area: box6;  
+}
+
+.containerPrincipal .container .box .itemBox {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 65%;
+    border-bottom: 1px solid #fff;  
+    padding: 20px;
+}
+
+
+.containerPrincipal .container .box .itemBox .contBox .quantItem {
+    font-size: 30px;
+    font-weight: 900;
+    color: #fff;
+    margin-right: 10px;
+}
+
+.containerPrincipal .container .box .itemBox .textItem {
+    font-size: 16px;
+    color: #fff;
+}
+
+.containerPrincipal .container .box .itemBox i {
+    font-size: 40px;
+    font-weight: 400;
+    color: #fff;
+
+}
+
+.containerPrincipal .container .box  .itemBox1 {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    height: 35%;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.containerPrincipal .container .box .itemBox1 i {
+    position: absolute;
+    left: -10px;
+    font-size: 30px;
+    font-weight: 400;
+    color: #fff;
+}
+
+.containerPrincipal .container .box .itemBox1 .textItem1 {
+    font-size: 16px;
+    color: #fff;
+}
+

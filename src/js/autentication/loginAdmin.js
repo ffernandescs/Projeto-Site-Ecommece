@@ -10,7 +10,7 @@ btnLogin.addEventListener('click', function() {
     firebase.auth().signInWithEmailAndPassword(email, password)
     .then(() => {
       setTimeout(() => {
-        window.location.replace('../../page/admin/index.html')
+        window.location.replace('../../pages/admin/index.html')
 
       }, 3000)
       const loading = document.querySelector('.loading');
@@ -36,3 +36,4 @@ btnOlho.addEventListener('click', () => {
       inputSenha.type = 'password'
     }
 })
+

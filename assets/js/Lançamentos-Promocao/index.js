@@ -125,7 +125,6 @@ const loadPromoLancamentos = doc => {
 
       function updateSliderPromo() {
         listPromo.style.marginLeft = -currentSlidePromo * listPdPromo[0].offsetWidth + 'px'
-        console.log(-currentSlidePromo * listPdPromo[0].offsetWidth)
 
       }
 

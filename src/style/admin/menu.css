@@ -1,0 +1,490 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif; 
+}
+
+h1 h2 h3 h4 p a {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+ 
+}
+
+section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100vh;
+    background-color: #F5F5FA;
+}
+
+.menuHrozintal {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 260px;
+    height: 100vh;
+    background-color: #11101d;
+    padding: 30px 0 0 0;
+    transition: all 0.4s ease;
+}
+
+.menuHrozintal.close {
+    width: 90px;
+}
+
+.menuHrozintal .contLogo {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+}
+
+.menuHrozintal .contLogo .ImgLogo {
+    margin-right: 20px;
+}
+
+.menuHrozintal .contLogo .ImgLogo img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 10px;
+    background-color: rgb(86, 86, 86);
+    box-shadow: 0 0 15px #333;
+    padding: 2px;
+}
+
+.menuHrozintal .contLogo .logoText .textLogo {
+    font-size: 16px;
+    color: #fff;
+    transition: 0.4s ease;
+    transition-delay: 0.04s;
+}
+
+.menuHrozintal.close .contLogo .logoText .textLogo {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.menuHrozintal .menu {
+    position: absolute;
+    left: 0;
+    top: 120px;
+    width: 100%;
+}
+
+.menuHrozintal .menu li {
+    position: relative;
+    width: 100%;
+    padding: 0 20px;
+    transition: all 0.4s ease;
+    cursor: pointer; 
+}
+
+.menuHrozintal .menu li .textLink .textList {
+    transition: 0.4s ease;
+    transition-delay: 0.04s;
+}
+.menuHrozintal.close .menu li .textLink .textList {
+    transition: 0.4s ease;
+    transition-delay: 0.04s;
+    opacity: 0;
+    pointer-events: none;
+}
+.menuHrozintal .menu li .textLink i {
+    font-size: 25px;
+}
+
+.menuHrozintal .menu li i {
+    text-align: center;
+    min-width: 50px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 20px;
+    font-weight: 400;
+    color: #fff;
+    transition: all 0.4s ease;
+}
+
+
+.menuHrozintal .menu li .icoLink {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.menuHrozintal .menu li .icoLink i {
+    transition: all 0.1s ease;
+}
+
+.menuHrozintal.close .menu li .icoLink .arrow {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.menuHrozintal .menu li.showMenu .icoLink i.arrow {
+    transform: rotate(-180deg);
+}
+
+.menuHrozintal .menu li:hover {
+    background-color: #1d1b31;
+}
+
+.menuHrozintal .menu li .textLink {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    white-space: nowrap;
+    width: 100%;
+    font-size: 18px;
+    color: #fff;
+    padding: 5px 0;
+}
+
+
+.menuHrozintal .menu li .subMenu li {
+    padding: 5px;
+}
+
+.menuHrozintal .menu li .subMenu li a {
+    font-size: 16px;
+    color: #fff;
+    padding: 10px;
+    opacity: 0.6;
+    transition: all 0.5s ease;
+}
+
+
+.menuHrozintal .menu li .subMenu .textLink {
+    padding: 0 10px;
+    opacity: 1;
+}
+
+.menuHrozintal .menu li .subMenu {
+    white-space: nowrap;
+    background-color: #1d1b31;
+    display: none;
+    z-index: 2;
+}
+
+.menuHrozintal .menu li.showMenu .subMenu {
+    white-space: nowrap;
+    background-color: #1d1b31;
+    display: block;
+    padding: 20px 0;
+
+}
+.menuHrozintal.close .menu li .subMenu {
+    display: block;
+    position: absolute;
+    top: -10px;
+    left: 100%;
+    white-space: nowrap;
+    background-color: #1d1b31;
+    border-radius: 0 6px 6px 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.4s ease;
+}
+
+.menuHrozintal.close .menu li:hover .subMenu {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    white-space: nowrap;
+    background-color: #1d1b31;
+    border-radius: 0 6px 6px 0;
+    padding: 10px;
+    opacity: 1;
+    pointer-events: auto;
+    display: block;
+}
+
+.menuHrozintal.close .menu li .subMenu li a:hover {
+    opacity: 1;
+}
+
+.menuHrozintal.close .menu li:hover .subMenu.blank {
+    padding: 7px;
+}
+
+.menuHrozintal .profileUser {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    background-color: #1d1b31;
+    padding: 20px;
+}
+
+.menuHrozintal .profileUser .contProfile {
+    display: flex;
+    cursor: pointer;
+}
+
+.menuHrozintal .profileUser .imgProfile {
+    width: 50px;
+    height: 50px;
+    margin-right: 15px;
+}
+
+.menuHrozintal .profileUser .imgProfile img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    padding: 3px;
+    background-color: #333;
+    box-shadow: 0 0 5px #333;
+    border-radius: 10px;
+}
+
+.menuHrozintal .profileUser .textProfile .nameUser,
+.menuHrozintal .profileUser .textProfile .profession {
+    font-size: 18px;
+    font-weight: 400;
+    color: #fff;
+    white-space: nowrap;
+
+}
+
+.menuHrozintal .profileUser .textProfile .profession {
+    font-size: 12px;
+}
+
+.menuHrozintal .profileUser .textProfile {
+    transition: 0.4s ease;
+    transition-delay: 0.04s;
+}
+.menuHrozintal.close .profileUser .textProfile {
+    transition: 0.4s ease;
+    transition-delay: 0.04s;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.menuHrozintal .profileUser i {
+    font-size: 30px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.containerPrincipal {
+    width: calc(100% - 260px);
+    height: 100%;
+    transition: all 0.4s ease;
+}
+
+.containerPrincipal .menuTop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 60px;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgb(209, 208, 208);
+    padding: 0 20px;
+}
+
+.containerPrincipal .menuTop .menuHaburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 40px;
+    height: 25px;
+    cursor: pointer;
+}
+
+.containerPrincipal .menuTop .menuHaburger .line {
+    width: 100%;
+    height: 4px;
+    background-color: #000;
+}
+
+.menuHrozintal.close ~ .containerPrincipal{
+    width: calc(100% - 90px);
+}
+
+.containerPrincipal .menuTop .modalUser {
+    position: relative;
+    z-index: 5;
+
+}
+
+.containerPrincipal .menuTop .modalUser li .textLinkUser {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.containerPrincipal .menuTop .modalUser li .textLinkUser .profileImg {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    cursor: default;
+}
+
+.containerPrincipal .menuTop .modalUser li .textLinkUser .profileImg img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    background-color: #333;
+    box-shadow: 0 0 10px #333;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.containerPrincipal .menuTop .modalUser li .textLinkUser .textIcoUser {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    cursor: pointer;
+}
+
+.containerPrincipal .menuTop .modalUser li .menuUser .subMenuUser {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 160px;
+    background-color: rgb(226, 224, 224);
+    border-radius: 0 0 6px 6px;
+    transition: all 0.4s ease;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.containerPrincipal .menuTop .modalUser li .menuUser .subMenuUser.active {
+    top: 40px;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.containerPrincipal .menuTop .modalUser li .menuUser .subMenuUser li {
+    width: 100%;
+    border-bottom: 1px solid #333;
+    padding: 10px;
+    transition: all 0.4s ease;
+}
+
+.containerPrincipal .menuTop .modalUser li .menuUser .subMenuUser li:last-child {
+    border: none;
+}
+
+.containerPrincipal .menuTop .modalUser li .menuUser .subMenuUser li:hover {
+    background-color: rgb(175, 208, 208);
+}
+
+.containerPrincipal .menuTop .modalUser li .menuUser .subMenuUser li a {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.containerPrincipal .menuTop #menuResponse {
+    visibility: hidden;
+
+}
+
+@media (max-width: 500px) {
+
+    .containerPrincipal .menuTop {
+        justify-content: flex-end;
+    }
+
+
+    .containerPrincipal .menuTop .menuHaburger {
+        display: none;
+        visibility: hidden;
+    }
+
+    .containerPrincipal .menuTop #menuResponse {
+        position: absolute;
+        left: 20px;
+        top: 20px;
+        display: flex;
+        transition: all 0.2s ease;
+        visibility: visible;
+        z-index: 51;
+    }
+
+    .containerPrincipal .menuTop #menuResponse .line {
+        transition: all 0.3s;
+
+    }
+
+    .containerPrincipal .menuTop #menuResponse.rotate {
+        left: initial;
+        right: 20px;
+        
+    }
+    
+
+    .containerPrincipal .menuTop #menuResponse.rotate .item1 {
+        position: absolute;
+        top: 10px;
+        transform: rotate(-140deg);
+        background-color: #fff;
+    }
+
+    .containerPrincipal .menuTop #menuResponse.rotate .item3 {
+        visibility: hidden;
+    }
+
+    .containerPrincipal .menuTop #menuResponse.rotate .item2 {
+        position: absolute;
+        top: 10px;
+        transform: rotate(140deg);
+        background-color: #fff;
+    }
+
+
+    .containerPrincipal  {
+        width: 100%;
+    }
+
+    
+    .menuHrozintal {
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        transition: all 0.3s ease;
+        z-index: 25;
+    }
+
+    .menuHrozintal.showResponse {
+        left: 0;
+    }
+
+    .menuHrozintal .menu li {
+        width: 60%;
+        border-radius: 0 6px 6px 0;
+    }
+
+    .menuHrozintal .menu li .icoLink {
+        width: 100%;
+    }
+
+    .menuHrozintal .menu li .subMenu li a:hover {
+        opacity: 1;
+        pointer-events: auto;
+        color: #fff;
+    }
+
+}
