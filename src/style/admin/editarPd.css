@@ -19,7 +19,22 @@
     height: 40px;
 }
 
-.containerPrincipal .container .barTop button {
+.containerPrincipal .container .barTop .contBtn {
+    position: relative;
+}
+
+.containerPrincipal .container .barTop .contBtn button:nth-child(1) {
+    position: absolute;
+    right: 0;
+
+}
+.containerPrincipal .container .barTop .contBtn button:nth-child(2),
+.containerPrincipal .container .barTop .contBtn button:nth-child(3) {
+    visibility: hidden;
+}
+
+
+.containerPrincipal .container .barTop .contBtn button {
     width: 150px;
     height: 40px;
     background-color: #005ac7;
@@ -32,7 +47,7 @@
     cursor: pointer;
 }
 
-.containerPrincipal .container .barTop button:hover {
+.containerPrincipal .container .barTop .contBtn button:hover {
     background-color: #0032ba;
 }
 
@@ -162,7 +177,7 @@
 .containerPrincipal .container .contFomr .addProduto .boxForm .form input {
     width: 100%;
     height: 35px;
-    background-color: transparent;
+    background-color: #ececed30;
     border: none;
     border-bottom: 1px solid #95959efe;
     outline: 0;
@@ -171,7 +186,7 @@
 
 .containerPrincipal .container .contFomr .addProduto .boxForm .form textarea {
     width: 100%;
-    background-color: transparent;
+    background-color: #ececed30;
     border: none;
     border-radius: 5px;
     border: 1px solid #95959efe;
@@ -183,6 +198,7 @@
     width: 100%;
     height: 35px;
     border-radius: 5px;
+    background-color: #ececed30;
     outline: 0;
     font-size: 16px;
     padding: 0 10px;
@@ -290,6 +306,7 @@
     font-size: 14px;
     color: #fff;
     transition: all 0.3s ease;
+    visibility: hidden;
     cursor: pointer;
 }
 
@@ -359,7 +376,8 @@
         font-size: 16px;
     }
 
-    .containerPrincipal .container .barTop button {
+  
+    .containerPrincipal .container .barTop .contBtn button {
         width: 120px;
         font-size: 12px;
     } 

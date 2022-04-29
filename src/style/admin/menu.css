@@ -218,6 +218,10 @@ section {
     opacity: 1;
 }
 
+.menuHrozintal .menu li .subMenu li a:hover {
+    opacity: 1;
+}
+
 .menuHrozintal.close .menu li:hover .subMenu.blank {
     padding: 7px;
 }
@@ -360,7 +364,7 @@ section {
     right: 0;
     top: 0;
     width: 160px;
-    background-color: rgb(226, 224, 224);
+    background-color: #ececed;
     border-radius: 0 0 6px 6px;
     transition: all 0.4s ease;
     overflow: hidden;
@@ -376,7 +380,7 @@ section {
 
 .containerPrincipal .menuTop .modalUser li .menuUser .subMenuUser li {
     width: 100%;
-    border-bottom: 1px solid #333;
+    border-bottom: 1px solid rgba(51, 51, 51, 0.307);
     padding: 10px;
     transition: all 0.4s ease;
 }
@@ -394,6 +398,7 @@ section {
     align-items: center;
     justify-content: flex-start;
     width: 100%;
+    color: #000;
 }
 
 .containerPrincipal .menuTop #menuResponse {
@@ -487,4 +492,11 @@ section {
         color: #fff;
     }
 
+}
+
+@media (max-width: 340px) {
+
+    .containerPrincipal .menuTop .modalUser li .textLinkUser .profileImg {
+        display: none;
+    }
 }

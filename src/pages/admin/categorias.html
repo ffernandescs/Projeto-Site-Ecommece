@@ -7,7 +7,7 @@
     <script src="https://kit.fontawesome.com/f84144252b.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
     <link rel="stylesheet" href="../../style/admin/menu.css">
-    <link rel="stylesheet" href="../../style/admin/produtos.css">
+    <link rel="stylesheet" href="../../style/admin/categorias.css">
     <title>Produtos</title>
 </head>
 <body>
@@ -45,7 +45,7 @@
                         <li><a href="./addPd.html" class="">Adicionar Produtos</a></li>
                         <li><a href="./editarPd.html" class="">Editar Produtos</a></li>
                         <li><a href="./categorias.html" class="">Categorias</a></li>
-                        <li><a href="./marcas.html" class="">Categorias</a></li>
+                        <li><a href="./marcas.html" class="">Marcas</a></li>
                     </ul>
                 </li>
                 <li>
@@ -139,36 +139,23 @@
                 <div class="barTable">
                     <div class="boxTable">
                         <input type="text" placeholder="Pesquisar">
-                        <a href="./addPd.html"><button type="button">Adicionar Produto</button></a>
+                        <a href="./addPd.html"><button type="button">Adicionar</button></a>
                     </div>
                 </div>
                 <div class="contTable">
                     <table class="listProduto">
                         <thead>
                             <tr>
-                                <th id="trCod">Codigo</th>
-                                <th id="trImg">Imagem</th>
-                                <th id="trName">Nome</th>
-                                <th id="trVP">Valor/Prazo</th>
-                                <th id="trDesconto">Desconto</th>
-                                <th id="trVA">Valor/Vista</th>
-                                <th id="trQtParcela">Q. Parcelas</th>
-                                <th id="trVParcela">Valor/Parcela</th>
-                                <th id="trEstoque">Estoque</th>
+                                <th id="trNumber">Nº</th>
+                                <th id="trName">Imagem</th>
                                 <th id="trAcoes">Ações</th>
                             </tr>
                         </thead>
                         <tbody class="tbList">
+                            
                             <tr class="tagTr" data-listTr="${doc.id}" data-remove="${doc.id}">
-                                <td id="tdCod">657845</td>
-                                <td id="tdImg"><img src="../../../assets/img/produtos/100535.jpg" alt=""></td>
-                                <td id="tdName">Felipe Fernandes</td>
-                                <td id="tdVP">R$ 200,00</td>
-                                <td id="tdDesconto">5%</td>
-                                <td id="tdVA">R$ 150,00</td>
-                                <td id="tdQtParcela">5x</td>
-                                <td id="tdVParcela">R$ 30,00</td>
-                                <td id="tdEstoque">26 Und.</td>
+                                <td id="tdNumber">657845</td>
+                                <td id="tdName">657845</td>
                                 <td id="tdAcoes">
                                     <span class="material-icons btnEdit" title="Editar">open_in_new</span>
                                     <span data-remove="${doc.id}" class="material-icons" title="Apagar">delete</span>
@@ -176,14 +163,7 @@
                             </tr>
                             <tr class="tagTr" data-listTr="${doc.id}" data-remove="${doc.id}">
                                 <td id="tdCod">657845</td>
-                                <td id="tdImg"><img src="../../../assets/img/produtos/100535.jpg"></td>
-                                <td id="tdName">Felipe Fernandes</td>
-                                <td id="tdVP">R$ 200,00</td>
-                                <td id="tdDesconto">5%</td>
-                                <td id="tdVA">R$ 150,00</td>
-                                <td id="tdQtParcela">5x</td>
-                                <td id="tdVParcela">R$ 30,00</td>
-                                <td id="tdEstoque">26 Und.</td>
+                                <td id="tdImg">657845</td>
                                 <td id="tdAcoes">
                                     <span class="material-icons btnEdit" title="Editar">open_in_new</span>
                                     <span data-remove="${doc.id}" class="material-icons" title="Apagar">delete</span>
@@ -191,14 +171,7 @@
                             </tr>
                             <tr class="tagTr" data-listTr="${doc.id}" data-remove="${doc.id}">
                                 <td id="tdCod">657845</td>
-                                <td id="tdImg"><img src="../../../assets/img/produtos/100535.jpg"></td>
-                                <td id="tdName">Felipe Fernandes</td>
-                                <td id="tdVP">R$ 200,00</td>
-                                <td id="tdDesconto">5%</td>
-                                <td id="tdVA">R$ 150,00</td>
-                                <td id="tdQtParcela">5x</td>
-                                <td id="tdVParcela">R$ 30,00</td>
-                                <td id="tdEstoque">26 Und.</td>
+                                <td id="tdImg">657845</td>
                                 <td id="tdAcoes">
                                     <span class="material-icons btnEdit" title="Editar">open_in_new</span>
                                     <span data-remove="${doc.id}" class="material-icons" title="Apagar">delete</span>
@@ -206,14 +179,7 @@
                             </tr>
                             <tr class="tagTr" data-listTr="${doc.id}" data-remove="${doc.id}">
                                 <td id="tdCod">657845</td>
-                                <td id="tdImg"><img src="../../../assets/img/produtos/100535.jpg"></td>
-                                <td id="tdName">Felipe Fernandes</td>
-                                <td id="tdVP">R$ 200,00</td>
-                                <td id="tdDesconto">5%</td>
-                                <td id="tdVA">R$ 150,00</td>
-                                <td id="tdQtParcela">5x</td>
-                                <td id="tdVParcela">R$ 30,00</td>
-                                <td id="tdEstoque">26 Und.</td>
+                                <td id="tdImg">657845</td>
                                 <td id="tdAcoes">
                                     <span class="material-icons btnEdit" title="Editar">open_in_new</span>
                                     <span data-remove="${doc.id}" class="material-icons" title="Apagar">delete</span>
@@ -221,14 +187,7 @@
                             </tr>
                             <tr class="tagTr" data-listTr="${doc.id}" data-remove="${doc.id}">
                                 <td id="tdCod">657845</td>
-                                <td id="tdImg"><img src="../../../assets/img/produtos/100535.jpg"></td>
-                                <td id="tdName">Felipe Fernandes</td>
-                                <td id="tdVP">R$ 200,00</td>
-                                <td id="tdDesconto">5%</td>
-                                <td id="tdVA">R$ 150,00</td>
-                                <td id="tdQtParcela">5x</td>
-                                <td id="tdVParcela">R$ 30,00</td>
-                                <td id="tdEstoque">26 Und.</td>
+                                <td id="tdImg">657845</td>
                                 <td id="tdAcoes">
                                     <span class="material-icons btnEdit" title="Editar">open_in_new</span>
                                     <span data-remove="${doc.id}" class="material-icons" title="Apagar">delete</span>
@@ -236,14 +195,7 @@
                             </tr>
                             <tr class="tagTr" data-listTr="${doc.id}" data-remove="${doc.id}">
                                 <td id="tdCod">657845</td>
-                                <td id="tdImg"><img src="../../../assets/img/produtos/100535.jpg"></td>
-                                <td id="tdName">Felipe Fernandes</td>
-                                <td id="tdVP">R$ 200,00</td>
-                                <td id="tdDesconto">5%</td>
-                                <td id="tdVA">R$ 150,00</td>
-                                <td id="tdQtParcela">5x</td>
-                                <td id="tdVParcela">R$ 30,00</td>
-                                <td id="tdEstoque">26 Und.</td>
+                                <td id="tdImg">657845</td>
                                 <td id="tdAcoes">
                                     <span class="material-icons btnEdit" title="Editar">open_in_new</span>
                                     <span data-remove="${doc.id}" class="material-icons" title="Apagar">delete</span>
@@ -251,14 +203,7 @@
                             </tr>
                             <tr class="tagTr" data-listTr="${doc.id}" data-remove="${doc.id}">
                                 <td id="tdCod">657845</td>
-                                <td id="tdImg"><img src="../../../assets/img/produtos/100535.jpg"></td>
-                                <td id="tdName">Felipe Fernandes</td>
-                                <td id="tdVP">R$ 200,00</td>
-                                <td id="tdDesconto">5%</td>
-                                <td id="tdVA">R$ 150,00</td>
-                                <td id="tdQtParcela">5x</td>
-                                <td id="tdVParcela">R$ 30,00</td>
-                                <td id="tdEstoque">26 Und.</td>
+                                <td id="tdImg">657845</td>
                                 <td id="tdAcoes">
                                     <span class="material-icons btnEdit" title="Editar">open_in_new</span>
                                     <span data-remove="${doc.id}" class="material-icons" title="Apagar">delete</span>
@@ -266,14 +211,7 @@
                             </tr>
                             <tr class="tagTr" data-listTr="${doc.id}" data-remove="${doc.id}">
                                 <td id="tdCod">657845</td>
-                                <td id="tdImg"><img src="../../../assets/img/produtos/100535.jpg"></td>
-                                <td id="tdName">Felipe Fernandes</td>
-                                <td id="tdVP">R$ 200,00</td>
-                                <td id="tdDesconto">5%</td>
-                                <td id="tdVA">R$ 150,00</td>
-                                <td id="tdQtParcela">5x</td>
-                                <td id="tdVParcela">R$ 30,00</td>
-                                <td id="tdEstoque">26 Und.</td>
+                                <td id="tdImg">657845</td>
                                 <td id="tdAcoes">
                                     <span class="material-icons btnEdit" title="Editar">open_in_new</span>
                                     <span data-remove="${doc.id}" class="material-icons" title="Apagar">delete</span>
@@ -281,14 +219,7 @@
                             </tr>
                             <tr class="tagTr" data-listTr="${doc.id}" data-remove="${doc.id}">
                                 <td id="tdCod">657845</td>
-                                <td id="tdImg"><img src="../../../assets/img/produtos/100535.jpg"></td>
-                                <td id="tdName">Felipe Fernandes</td>
-                                <td id="tdVP">R$ 200,00</td>
-                                <td id="tdDesconto">5%</td>
-                                <td id="tdVA">R$ 150,00</td>
-                                <td id="tdQtParcela">5x</td>
-                                <td id="tdVParcela">R$ 30,00</td>
-                                <td id="tdEstoque">26 Und.</td>
+                                <td id="tdImg">657845</td>
                                 <td id="tdAcoes">
                                     <span class="material-icons btnEdit" title="Editar">open_in_new</span>
                                     <span data-remove="${doc.id}" class="material-icons" title="Apagar">delete</span>
@@ -296,14 +227,7 @@
                             </tr>
                             <tr class="tagTr" data-listTr="${doc.id}" data-remove="${doc.id}">
                                 <td id="tdCod">657845</td>
-                                <td id="tdImg"><img src="../../../assets/img/produtos/100535.jpg"></td>
-                                <td id="tdName">Felipe Fernandes</td>
-                                <td id="tdVP">R$ 200,00</td>
-                                <td id="tdDesconto">5%</td>
-                                <td id="tdVA">R$ 150,00</td>
-                                <td id="tdQtParcela">5x</td>
-                                <td id="tdVParcela">R$ 30,00</td>
-                                <td id="tdEstoque">26 Und.</td>
+                                <td id="tdImg">657845</td>
                                 <td id="tdAcoes">
                                     <span class="material-icons btnEdit" title="Editar">open_in_new</span>
                                     <span data-remove="${doc.id}" class="material-icons" title="Apagar">delete</span>
@@ -311,14 +235,7 @@
                             </tr>
                             <tr class="tagTr" data-listTr="${doc.id}" data-remove="${doc.id}">
                                 <td id="tdCod">657845</td>
-                                <td id="tdImg"><img src="../../../assets/img/produtos/100535.jpg"></td>
-                                <td id="tdName">Felipe Fernandes</td>
-                                <td id="tdVP">R$ 200,00</td>
-                                <td id="tdDesconto">5%</td>
-                                <td id="tdVA">R$ 150,00</td>
-                                <td id="tdQtParcela">5x</td>
-                                <td id="tdVParcela">R$ 30,00</td>
-                                <td id="tdEstoque">26 Und.</td>
+                                <td id="tdImg">657845</td>
                                 <td id="tdAcoes">
                                     <span class="material-icons btnEdit" title="Editar">open_in_new</span>
                                     <span data-remove="${doc.id}" class="material-icons" title="Apagar">delete</span>
@@ -326,14 +243,7 @@
                             </tr>
                             <tr class="tagTr" data-listTr="${doc.id}" data-remove="${doc.id}">
                                 <td id="tdCod">657845</td>
-                                <td id="tdImg"><img src="../../../assets/img/produtos/100535.jpg"></td>
-                                <td id="tdName">Felipe Fernandes</td>
-                                <td id="tdVP">R$ 200,00</td>
-                                <td id="tdDesconto">5%</td>
-                                <td id="tdVA">R$ 150,00</td>
-                                <td id="tdQtParcela">5x</td>
-                                <td id="tdVParcela">R$ 30,00</td>
-                                <td id="tdEstoque">26 Und.</td>
+                                <td id="tdImg">657845</td>
                                 <td id="tdAcoes">
                                     <span class="material-icons btnEdit" title="Editar">open_in_new</span>
                                     <span data-remove="${doc.id}" class="material-icons" title="Apagar">delete</span>
@@ -341,14 +251,7 @@
                             </tr>
                             <tr class="tagTr" data-listTr="${doc.id}" data-remove="${doc.id}">
                                 <td id="tdCod">657845</td>
-                                <td id="tdImg"><img src="../../../assets/img/produtos/100535.jpg"></td>
-                                <td id="tdName">Felipe Fernandes</td>
-                                <td id="tdVP">R$ 200,00</td>
-                                <td id="tdDesconto">5%</td>
-                                <td id="tdVA">R$ 150,00</td>
-                                <td id="tdQtParcela">5x</td>
-                                <td id="tdVParcela">R$ 30,00</td>
-                                <td id="tdEstoque">26 Und.</td>
+                                <td id="tdImg">657845</td>
                                 <td id="tdAcoes">
                                     <span class="material-icons btnEdit" title="Editar">open_in_new</span>
                                     <span data-remove="${doc.id}" class="material-icons" title="Apagar">delete</span>
@@ -356,14 +259,7 @@
                             </tr>
                             <tr class="tagTr" data-listTr="${doc.id}" data-remove="${doc.id}">
                                 <td id="tdCod">657845</td>
-                                <td id="tdImg"><img src="../../../assets/img/produtos/100535.jpg"></td>
-                                <td id="tdName">Felipe Fernandes</td>
-                                <td id="tdVP">R$ 200,00</td>
-                                <td id="tdDesconto">5%</td>
-                                <td id="tdVA">R$ 150,00</td>
-                                <td id="tdQtParcela">5x</td>
-                                <td id="tdVParcela">R$ 30,00</td>
-                                <td id="tdEstoque">26 Und.</td>
+                                <td id="tdImg">657845</td>
                                 <td id="tdAcoes">
                                     <span class="material-icons btnEdit" title="Editar">open_in_new</span>
                                     <span data-remove="${doc.id}" class="material-icons" title="Apagar">delete</span>
@@ -371,14 +267,7 @@
                             </tr>
                             <tr class="tagTr" data-listTr="${doc.id}" data-remove="${doc.id}">
                                 <td id="tdCod">657845</td>
-                                <td id="tdImg"><img src="../../../assets/img/produtos/100535.jpg"></td>
-                                <td id="tdName">Felipe Fernandes</td>
-                                <td id="tdVP">R$ 200,00</td>
-                                <td id="tdDesconto">5%</td>
-                                <td id="tdVA">R$ 150,00</td>
-                                <td id="tdQtParcela">5x</td>
-                                <td id="tdVParcela">R$ 30,00</td>
-                                <td id="tdEstoque">26 Und.</td>
+                                <td id="tdImg">657845</td>
                                 <td id="tdAcoes">
                                     <span class="material-icons btnEdit" title="Editar">open_in_new</span>
                                     <span data-remove="${doc.id}" class="material-icons" title="Apagar">delete</span>
@@ -386,14 +275,7 @@
                             </tr>
                             <tr class="tagTr" data-listTr="${doc.id}" data-remove="${doc.id}">
                                 <td id="tdCod">657845</td>
-                                <td id="tdImg"><img src="../../../assets/img/produtos/100535.jpg"></td>
-                                <td id="tdName">Felipe Fernandes</td>
-                                <td id="tdVP">R$ 200,00</td>
-                                <td id="tdDesconto">5%</td>
-                                <td id="tdVA">R$ 150,00</td>
-                                <td id="tdQtParcela">5x</td>
-                                <td id="tdVParcela">R$ 30,00</td>
-                                <td id="tdEstoque">26 Und.</td>
+                                <td id="tdImg">657845</td>
                                 <td id="tdAcoes">
                                     <span class="material-icons btnEdit" title="Editar">open_in_new</span>
                                     <span data-remove="${doc.id}" class="material-icons" title="Apagar">delete</span>
@@ -401,14 +283,7 @@
                             </tr>
                             <tr class="tagTr" data-listTr="${doc.id}" data-remove="${doc.id}">
                                 <td id="tdCod">657845</td>
-                                <td id="tdImg"><img src="../../../assets/img/produtos/100535.jpg"></td>
-                                <td id="tdName">Felipe Fernandes</td>
-                                <td id="tdVP">R$ 200,00</td>
-                                <td id="tdDesconto">5%</td>
-                                <td id="tdVA">R$ 150,00</td>
-                                <td id="tdQtParcela">5x</td>
-                                <td id="tdVParcela">R$ 30,00</td>
-                                <td id="tdEstoque">26 Und.</td>
+                                <td id="tdImg">657845</td>
                                 <td id="tdAcoes">
                                     <span class="material-icons btnEdit" title="Editar">open_in_new</span>
                                     <span data-remove="${doc.id}" class="material-icons" title="Apagar">delete</span>
@@ -416,14 +291,7 @@
                             </tr>
                             <tr class="tagTr" data-listTr="${doc.id}" data-remove="${doc.id}">
                                 <td id="tdCod">657845</td>
-                                <td id="tdImg"><img src="../../../assets/img/produtos/100535.jpg"></td>
-                                <td id="tdName">Felipe Fernandes</td>
-                                <td id="tdVP">R$ 200,00</td>
-                                <td id="tdDesconto">5%</td>
-                                <td id="tdVA">R$ 150,00</td>
-                                <td id="tdQtParcela">5x</td>
-                                <td id="tdVParcela">R$ 30,00</td>
-                                <td id="tdEstoque">26 Und.</td>
+                                <td id="tdImg">657845</td>
                                 <td id="tdAcoes">
                                     <span class="material-icons btnEdit" title="Editar">open_in_new</span>
                                     <span data-remove="${doc.id}" class="material-icons" title="Apagar">delete</span>
@@ -431,14 +299,7 @@
                             </tr>
                             <tr class="tagTr" data-listTr="${doc.id}" data-remove="${doc.id}">
                                 <td id="tdCod">657845</td>
-                                <td id="tdImg"><img src="../../../assets/img/produtos/100535.jpg"></td>
-                                <td id="tdName">Felipe Fernandes</td>
-                                <td id="tdVP">R$ 200,00</td>
-                                <td id="tdDesconto">5%</td>
-                                <td id="tdVA">R$ 150,00</td>
-                                <td id="tdQtParcela">5x</td>
-                                <td id="tdVParcela">R$ 30,00</td>
-                                <td id="tdEstoque">26 Und.</td>
+                                <td id="tdImg">657845</td>
                                 <td id="tdAcoes">
                                     <span class="material-icons btnEdit" title="Editar">open_in_new</span>
                                     <span data-remove="${doc.id}" class="material-icons" title="Apagar">delete</span>
@@ -446,14 +307,7 @@
                             </tr>
                             <tr class="tagTr" data-listTr="${doc.id}" data-remove="${doc.id}">
                                 <td id="tdCod">657845</td>
-                                <td id="tdImg"><img src="../../../assets/img/produtos/100535.jpg"></td>
-                                <td id="tdName">Felipe Fernandes</td>
-                                <td id="tdVP">R$ 200,00</td>
-                                <td id="tdDesconto">5%</td>
-                                <td id="tdVA">R$ 150,00</td>
-                                <td id="tdQtParcela">5x</td>
-                                <td id="tdVParcela">R$ 30,00</td>
-                                <td id="tdEstoque">26 Und.</td>
+                                <td id="tdImg">657845</td>
                                 <td id="tdAcoes">
                                     <span class="material-icons btnEdit" title="Editar">open_in_new</span>
                                     <span data-remove="${doc.id}" class="material-icons" title="Apagar">delete</span>
@@ -461,19 +315,109 @@
                             </tr>
                             <tr class="tagTr" data-listTr="${doc.id}" data-remove="${doc.id}">
                                 <td id="tdCod">657845</td>
-                                <td id="tdImg"><img src="../../../assets/img/produtos/100535.jpg"></td>
-                                <td id="tdName">Felipe Fernandes</td>
-                                <td id="tdVP">R$ 200,00</td>
-                                <td id="tdDesconto">5%</td>
-                                <td id="tdVA">R$ 150,00</td>
-                                <td id="tdQtParcela">5x</td>
-                                <td id="tdVParcela">R$ 30,00</td>
-                                <td id="tdEstoque">26 Und.</td>
+                                <td id="tdImg">657845</td>
                                 <td id="tdAcoes">
                                     <span class="material-icons btnEdit" title="Editar">open_in_new</span>
                                     <span data-remove="${doc.id}" class="material-icons" title="Apagar">delete</span>
                                 </td>                            
                             </tr>
+                            <tr class="tagTr" data-listTr="${doc.id}" data-remove="${doc.id}">
+                                <td id="tdCod">657845</td>
+                                <td id="tdImg">657845</td>
+                                <td id="tdAcoes">
+                                    <span class="material-icons btnEdit" title="Editar">open_in_new</span>
+                                    <span data-remove="${doc.id}" class="material-icons" title="Apagar">delete</span>
+                                </td>                            
+                            </tr>
+                            <tr class="tagTr" data-listTr="${doc.id}" data-remove="${doc.id}">
+                                <td id="tdCod">657845</td>
+                                <td id="tdImg">657845</td>
+                                <td id="tdAcoes">
+                                    <span class="material-icons btnEdit" title="Editar">open_in_new</span>
+                                    <span data-remove="${doc.id}" class="material-icons" title="Apagar">delete</span>
+                                </td>                            
+                            </tr>
+                            <tr class="tagTr" data-listTr="${doc.id}" data-remove="${doc.id}">
+                                <td id="tdCod">657845</td>
+                                <td id="tdImg">657845</td>
+                                <td id="tdAcoes">
+                                    <span class="material-icons btnEdit" title="Editar">open_in_new</span>
+                                    <span data-remove="${doc.id}" class="material-icons" title="Apagar">delete</span>
+                                </td>                            
+                            </tr>
+                            <tr class="tagTr" data-listTr="${doc.id}" data-remove="${doc.id}">
+                                <td id="tdCod">657845</td>
+                                <td id="tdImg">657845</td>
+                                <td id="tdAcoes">
+                                    <span class="material-icons btnEdit" title="Editar">open_in_new</span>
+                                    <span data-remove="${doc.id}" class="material-icons" title="Apagar">delete</span>
+                                </td>                            
+                            </tr>
+                            <tr class="tagTr" data-listTr="${doc.id}" data-remove="${doc.id}">
+                                <td id="tdCod">657845</td>
+                                <td id="tdImg">657845</td>
+                                <td id="tdAcoes">
+                                    <span class="material-icons btnEdit" title="Editar">open_in_new</span>
+                                    <span data-remove="${doc.id}" class="material-icons" title="Apagar">delete</span>
+                                </td>                            
+                            </tr>
+                            <tr class="tagTr" data-listTr="${doc.id}" data-remove="${doc.id}">
+                                <td id="tdCod">657845</td>
+                                <td id="tdImg">657845</td>
+                                <td id="tdAcoes">
+                                    <span class="material-icons btnEdit" title="Editar">open_in_new</span>
+                                    <span data-remove="${doc.id}" class="material-icons" title="Apagar">delete</span>
+                                </td>                            
+                            </tr>
+                            <tr class="tagTr" data-listTr="${doc.id}" data-remove="${doc.id}">
+                                <td id="tdCod">657845</td>
+                                <td id="tdImg">657845</td>
+                                <td id="tdAcoes">
+                                    <span class="material-icons btnEdit" title="Editar">open_in_new</span>
+                                    <span data-remove="${doc.id}" class="material-icons" title="Apagar">delete</span>
+                                </td>                            
+                            </tr>
+                            <tr class="tagTr" data-listTr="${doc.id}" data-remove="${doc.id}">
+                                <td id="tdNumber">657845</td>
+                                <td id="tdImg">657845</td>
+                                <td id="tdAcoes">
+                                    <span class="material-icons btnEdit" title="Editar">open_in_new</span>
+                                    <span data-remove="${doc.id}" class="material-icons" title="Apagar">delete</span>
+                                </td>                            
+                            </tr>
+                            <tr class="tagTr" data-listTr="${doc.id}" data-remove="${doc.id}">
+                                <td id="tdCod">657845</td>
+                                <td id="tdImg">657845</td>
+                                <td id="tdAcoes">
+                                    <span class="material-icons btnEdit" title="Editar">open_in_new</span>
+                                    <span data-remove="${doc.id}" class="material-icons" title="Apagar">delete</span>
+                                </td>                            
+                            </tr>
+                            <tr class="tagTr" data-listTr="${doc.id}" data-remove="${doc.id}">
+                                <td id="tdCod">657845</td>
+                                <td id="tdImg">657845</td>
+                                <td id="tdAcoes">
+                                    <span class="material-icons btnEdit" title="Editar">open_in_new</span>
+                                    <span data-remove="${doc.id}" class="material-icons" title="Apagar">delete</span>
+                                </td>                            
+                            </tr>
+                            <tr class="tagTr" data-listTr="${doc.id}" data-remove="${doc.id}">
+                                <td id="tdCod">657845</td>
+                                <td id="tdImg">657845</td>
+                                <td id="tdAcoes">
+                                    <span class="material-icons btnEdit" title="Editar">open_in_new</span>
+                                    <span data-remove="${doc.id}" class="material-icons" title="Apagar">delete</span>
+                                </td>                            
+                            </tr>
+                            <tr class="tagTr" data-listTr="${doc.id}" data-remove="${doc.id}">
+                                <td id="tdCod">657845</td>
+                                <td id="tdImg">657845</td>
+                                <td id="tdAcoes">
+                                    <span class="material-icons btnEdit" title="Editar">open_in_new</span>
+                                    <span data-remove="${doc.id}" class="material-icons" title="Apagar">delete</span>
+                                </td>                            
+                            </tr>
+                            
                             
                         </tbody>
                     </table>
@@ -485,6 +429,6 @@
         </div>
     </section>
     <script src="../../js/admin/menu.js"></script>
-    <script src="../../js/admin/produtos.js"></script>
+    <script src="../../js/admin/categorias.js"></script>
 </body>
 </html>

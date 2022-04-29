@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/f84144252b.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
-    <link rel="stylesheet" href="../../style/admin/addPd.css">
     <link rel="stylesheet" href="../../style/admin/menu.css">
-    <title>Adicionar Produtos</title>
+    <link rel="stylesheet" href="../../style/admin/editarPd.css">
+    <title>Produtos</title>
 </head>
 <body>
     <section>
@@ -134,8 +134,12 @@
             </div>
             <div class="container">
                 <div class="barTop">
-                    <span class="namePage">Adicionar Produtos</span>
-                    <button type="button">Salvar e Publicar</button>
+                    <span class="namePage">Editar Produtos</span>
+                    <div class="contBtn">
+                        <button id="btnEdit" type="button">Editar</button>
+                        <button id="btnCancel" type="button">Cancelar</button>
+                        <button id="btnSalvar" type="button">Salvar e Publicar</button>
+                    </div>
                 </div>
                 <div class="contFomr">
                     <form class="addProduto" action="">
@@ -143,7 +147,7 @@
                             <div class="boxForm">
                                 <div class="form itemForm1" for="cod">
                                     <label for="cod">Codigo:</label>
-                                    <input type="text" name="cod">
+                                    <input disabled type="text" name="cod">
                                     <div class="msmErro">
                                         <i class="material-icons-outlined">error_outline</i>
                                         <small class="textErro">Mensagem de erro</small>
@@ -151,7 +155,7 @@
                                 </div>
                                 <div class="form itemForm2 imgForm" for="img">
                                     <label for="img">Imagem:</label>
-                                    <input type="file" name="img">
+                                    <input disabled type="file" name="img">
                                     <img src="../../../assets/img/logoUser.jpg" alt="">
                                     <div class="msmErro">
                                         <i class="material-icons-outlined">error_outline</i>
@@ -159,21 +163,21 @@
                                     </div>                                </div>
                                 <div class="form itemForm3" for="nome">
                                     <label for="nome">Nome:</label>
-                                    <input type="text" name="nome">
+                                    <input disabled type="text" name="nome">
                                     <div class="msmErro">
                                         <i class="material-icons-outlined">error_outline</i>
                                         <small class="textErro">Mensagem de erro</small>
                                     </div>                                </div>
                                 <div class="form itemForm4" for="artigo">
                                     <label for="artigo">Artigo:</label>
-                                    <input type="text" name="artigo">
+                                    <input disabled type="text" name="artigo">
                                     <div class="msmErro">
                                         <i class="material-icons-outlined">error_outline</i>
                                         <small class="textErro">Mensagem de erro</small>
                                     </div>                                </div>
                                 <div class="form itemForm5" for="description">
                                     <label for="description">Descrição:</label>
-                                    <textarea name="description" id="description" cols="30" rows="5"></textarea>
+                                    <textarea disabled name="description" id="description" cols="30" rows="5"></textarea>
                                     <div class="msmErro">
                                         <i class="material-icons-outlined">error_outline</i>
                                         <small class="textErro">Mensagem de erro</small>
@@ -182,21 +186,21 @@
                             <div class="boxForm box2">
                                 <div class="form itemForm6" for="vPrazo">
                                     <label for="vPrazo">Valor a prazo:</label>
-                                    <input type="text" name="vPrazo">
+                                    <input disabled type="text" name="vPrazo">
                                     <div class="msmErro">
                                         <i class="material-icons-outlined">error_outline</i>
                                         <small class="textErro">Mensagem de erro</small>
                                     </div>                                </div>
                                 <div class="form itemForm7" for="vDesconto">
                                     <label for="vDesconto">Valor de desconto:</label>
-                                    <input type="text" name="vDesconto">
+                                    <input disabled type="text" name="vDesconto">
                                     <div class="msmErro">
                                         <i class="material-icons-outlined">error_outline</i>
                                         <small class="textErro">Mensagem de erro</small>
                                     </div>                                </div>
                                 <div class="form itemForm8" for="VAvista">
                                     <label for="VAvista">Valor avista:</label>
-                                    <input type="text" name="VAvista">
+                                    <input disabled type="text" name="VAvista">
                                     <div class="msmErro">
                                         <i class="material-icons-outlined">error_outline</i>
                                         <small class="textErro">Mensagem de erro</small>
@@ -204,28 +208,28 @@
                                 
                                 <div class="form itemForm9" for="vParcela">
                                     <label for="vParcela">Valor da parcela:</label>
-                                    <input type="text" name="vParcela">
+                                    <input disabled type="text" name="vParcela">
                                     <div class="msmErro">
                                         <i class="material-icons-outlined">error_outline</i>
                                         <small class="textErro">Mensagem de erro</small>
                                     </div>                                </div>
                                 <div class="form itemForm10" for="vFrete">
                                     <label for="vFrete">Valor do frete:</label>
-                                    <input type="text" name="vFrete">
+                                    <input disabled type="text" name="vFrete">
                                     <div class="msmErro">
                                         <i class="material-icons-outlined">error_outline</i>
                                         <small class="textErro">Mensagem de erro</small>
                                     </div>                                </div>
                                 <div class="form itemForm11" for="qtEstoque">
                                     <label for="qtEstoque">Quant. em estoque:</label>
-                                    <input type="text" name="qtEstoque">
+                                    <input disabled type="text" name="qtEstoque">
                                     <div class="msmErro">
                                         <i class="material-icons-outlined">error_outline</i>
                                         <small class="textErro">Mensagem de erro</small>
                                     </div>                                </div>
                                 <div class="form itemForm12" for="qtParcela">
                                     <label for="qtParcela">Quant. de Parcelas:</label>
-                                    <select itemid="qtParcela" name="qtParcela" id="qtParcela" required> 
+                                    <select disabled itemid="qtParcela" name="qtParcela" id="qtParcela" required> 
                                         <option value="1">1x</option>
                                         <option value="2">2x</option>
                                         <option value="3">3x</option>
@@ -245,7 +249,7 @@
                                     </div>                                </div>
                                 <div class="form itemForm13" for="marcas">
                                     <label for="marcas">Marcas:</label>
-                                    <select itemid="marcas" name="marcas" id="marcas" required> 
+                                    <select disabled itemid="marcas" name="marcas" id="marcas" required> 
                                         <option value="">Nenhum</option>
                                     </select>
                                     <div class="msmErro">
@@ -254,22 +258,22 @@
                                     </div>                                </div>
                                 <div class="form itemForm14" for="categorias">
                                     <label for="categorias">Categorias:</label>
-                                    <select itemid="categorias" name="categorias" id="categorias" required> 
+                                    <select disabled itemid="categorias" name="categorias" id="categorias" required> 
                                         <option value="">Nenhum</option>
                                     </select>
-                                    <select itemid="categorias2" name="categorias2" id="categorias2"> 
+                                    <select disabled itemid="categorias2" name="categorias2" id="categorias2"> 
                                         <option value="">Nenhum</option>
                                     </select>
-                                    <select itemid="categorias3" name="categorias3" id="categorias3"> 
+                                    <select disabled itemid="categorias3" name="categorias3" id="categorias3"> 
                                         <option value="">Nenhum</option>
                                     </select>
-                                    <select itemid="categorias4" name="categorias4" id="categorias4"> 
+                                    <select disabled itemid="categorias4" name="categorias4" id="categorias4"> 
                                         <option value="">Nenhum</option>
                                     </select>
-                                    <select itemid="categorias5" name="categorias5" id="categorias5"> 
+                                    <select disabled itemid="categorias5" name="categorias5" id="categorias5"> 
                                         <option value="">Nenhum</option>
                                     </select>
-                                    <select itemid="categorias6" name="categorias6" id="categorias6"> 
+                                    <select disabled itemid="categorias6" name="categorias6" id="categorias6"> 
                                         <option value="">Nenhum</option>
                                     </select>
                                     <div class="msmErro">
@@ -295,6 +299,6 @@
         </div>
     </section>
     <script src="../../js/admin/menu.js"></script>
-    <script src="../../js/admin/produtos.js"></script>
+    <script src="../../js/admin/editarPd.js"></script>
 </body>
 </html>
