@@ -145,3 +145,53 @@ section {
     color: #fff;
 }
 
+@media (max-width: 1200px) {
+
+
+    .containerPrincipal {
+        overflow: hidden;
+    }
+
+    .containerPrincipal .container {
+        height: 1200px;
+        overflow-y: scroll;
+    }
+
+    .containerPrincipal .container::-webkit-scrollbar {
+        width: 6px;
+        background-color: #95959e;
+    }
+    .containerPrincipal .container::-webkit-scrollbar-thumb {
+        background-color: #1d1b31;
+    }
+
+    .containerPrincipal .container {
+        grid-gap: 20px;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas: 
+        'box1 box2'
+        'box3 box4'
+        'box5 box5'
+        'box6 box6';
+        box-sizing: border-box;
+    }
+    
+   
+}
+
+@media (max-width: 700px) {
+
+    .containerPrincipal .container {
+        grid-gap: 20px;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-areas: 
+        'box1'
+        'box2'
+        'box3'
+        'box4'
+        'box5'
+        'box6';
+        box-sizing: border-box;
+    } 
+}
+
