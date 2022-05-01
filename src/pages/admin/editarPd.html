@@ -133,163 +133,165 @@
                 </div>
             </div>
             <div class="container">
-                <div class="barTop">
-                    <span class="namePage">Editar Produtos</span>
-                    <div class="contBtn">
-                        <button id="btnEdit" type="button">Editar</button>
-                        <button id="btnCancel" type="button">Cancelar</button>
-                        <button id="btnSalvar" type="button">Salvar e Publicar</button>
+                <div class="contEditProduto">
+                    <div class="barTopEdit">
+                        <span class="namePage">Editar Produtos</span>
+                        <div class="contBtnEdit">
+                            <button id="btnEdit" type="button">Editar</button>
+                            <button id="btnCancel" type="button">Cancelar</button>
+                            <button id="btnSalvar" type="button">Salvar e Publicar</button>
+                        </div>
                     </div>
-                </div>
-                <div class="contFomr">
-                    <form class="addProduto editProduto" action="">
-                        <div class="box">
-                            <div class="boxForm">
-                                <div class="form itemForm1" for="cod">
-                                    <label for="cod">Codigo:</label>
-                                    <input disabled type="text" value="0202" name="cod" id="cod">
-                                    <div class="msmErro">
-                                        <i class="material-icons-outlined">error_outline</i>
-                                        <small class="textErro">Mensagem de erro</small>
+                    <div class="contFomr">
+                        <form class="addProduto editProduto" action="">
+                            <div class="box">
+                                <div class="boxForm">
+                                    <div class="form itemForm1" for="cod">
+                                        <label for="cod">Codigo:</label>
+                                        <input disabled type="text" value="" name="cod" id="cod">
+                                        <div class="msmErro">
+                                            <i class="material-icons-outlined">error_outline</i>
+                                            <small class="textErro">Mensagem de erro</small>
+                                        </div>
                                     </div>
+                                    <div class="form itemForm2 imgForm" for="img">
+                                        <label for="img">Imagem:</label>
+                                        <input disabled type="file" name="img">
+                                        <img src="../../../assets/img/logoUser.jpg" alt="">
+                                        <div class="msmErro">
+                                            <i class="material-icons-outlined">error_outline</i>
+                                            <small class="textErro">Mensagem de erro</small>
+                                        </div>                                </div>
+                                    <div class="form itemForm3" for="nome">
+                                        <label for="nome">Nome:</label>
+                                        <input disabled type="text" name="nome">
+                                        <div class="msmErro">
+                                            <i class="material-icons-outlined">error_outline</i>
+                                            <small class="textErro">Mensagem de erro</small>
+                                        </div>                                </div>
+                                    <div class="form itemForm4" for="artigo">
+                                        <label for="artigo">Artigo:</label>
+                                        <input disabled type="text" name="artigo">
+                                        <div class="msmErro">
+                                            <i class="material-icons-outlined">error_outline</i>
+                                            <small class="textErro">Mensagem de erro</small>
+                                        </div>                                </div>
+                                    <div class="form itemForm5" for="description">
+                                        <label for="description">Descrição:</label>
+                                        <textarea disabled name="description" id="description" cols="30" rows="5"></textarea>
+                                        <div class="msmErro">
+                                            <i class="material-icons-outlined">error_outline</i>
+                                            <small class="textErro">Mensagem de erro</small>
+                                        </div>                                </div>
                                 </div>
-                                <div class="form itemForm2 imgForm" for="img">
-                                    <label for="img">Imagem:</label>
-                                    <input disabled type="file" name="img">
-                                    <img src="../../../assets/img/logoUser.jpg" alt="">
-                                    <div class="msmErro">
-                                        <i class="material-icons-outlined">error_outline</i>
-                                        <small class="textErro">Mensagem de erro</small>
-                                    </div>                                </div>
-                                <div class="form itemForm3" for="nome">
-                                    <label for="nome">Nome:</label>
-                                    <input disabled type="text" name="nome">
-                                    <div class="msmErro">
-                                        <i class="material-icons-outlined">error_outline</i>
-                                        <small class="textErro">Mensagem de erro</small>
-                                    </div>                                </div>
-                                <div class="form itemForm4" for="artigo">
-                                    <label for="artigo">Artigo:</label>
-                                    <input disabled type="text" name="artigo">
-                                    <div class="msmErro">
-                                        <i class="material-icons-outlined">error_outline</i>
-                                        <small class="textErro">Mensagem de erro</small>
-                                    </div>                                </div>
-                                <div class="form itemForm5" for="description">
-                                    <label for="description">Descrição:</label>
-                                    <textarea disabled name="description" id="description" cols="30" rows="5"></textarea>
-                                    <div class="msmErro">
-                                        <i class="material-icons-outlined">error_outline</i>
-                                        <small class="textErro">Mensagem de erro</small>
-                                    </div>                                </div>
+                                <div class="boxForm box2">
+                                    <div class="form itemForm6" for="vPrazo">
+                                        <label for="vPrazo">Valor a prazo:</label>
+                                        <input disabled type="text" name="vPrazo">
+                                        <div class="msmErro">
+                                            <i class="material-icons-outlined">error_outline</i>
+                                            <small class="textErro">Mensagem de erro</small>
+                                        </div>                                </div>
+                                    <div class="form itemForm7" for="vDesconto">
+                                        <label for="vDesconto">Valor de desconto:</label>
+                                        <input disabled type="text" name="vDesconto">
+                                        <div class="msmErro">
+                                            <i class="material-icons-outlined">error_outline</i>
+                                            <small class="textErro">Mensagem de erro</small>
+                                        </div>                                </div>
+                                    <div class="form itemForm8" for="VAvista">
+                                        <label for="VAvista">Valor avista:</label>
+                                        <input disabled type="text" name="VAvista">
+                                        <div class="msmErro">
+                                            <i class="material-icons-outlined">error_outline</i>
+                                            <small class="textErro">Mensagem de erro</small>
+                                        </div>                                </div>
+                                    
+                                    <div class="form itemForm9" for="vParcela">
+                                        <label for="vParcela">Valor da parcela:</label>
+                                        <input disabled type="text" name="vParcela">
+                                        <div class="msmErro">
+                                            <i class="material-icons-outlined">error_outline</i>
+                                            <small class="textErro">Mensagem de erro</small>
+                                        </div>                                </div>
+                                    <div class="form itemForm10" for="vFrete">
+                                        <label for="vFrete">Valor do frete:</label>
+                                        <input disabled type="text" name="vFrete">
+                                        <div class="msmErro">
+                                            <i class="material-icons-outlined">error_outline</i>
+                                            <small class="textErro">Mensagem de erro</small>
+                                        </div>                                </div>
+                                    <div class="form itemForm11" for="qtEstoque">
+                                        <label for="qtEstoque">Quant. em estoque:</label>
+                                        <input disabled type="text" name="qtEstoque">
+                                        <div class="msmErro">
+                                            <i class="material-icons-outlined">error_outline</i>
+                                            <small class="textErro">Mensagem de erro</small>
+                                        </div>                                </div>
+                                    <div class="form itemForm12" for="qtParcela">
+                                        <label for="qtParcela">Quant. de Parcelas:</label>
+                                        <select disabled itemid="qtParcela" name="qtParcela" id="qtParcela" required> 
+                                            <option value="1">1x</option>
+                                            <option value="2">2x</option>
+                                            <option value="3">3x</option>
+                                            <option value="4">4x</option>
+                                            <option value="5">5x</option>
+                                            <option value="6">6x</option>
+                                            <option value="7">7x</option>
+                                            <option value="8">8x</option>
+                                            <option value="9">9x</option>
+                                            <option value="10">10x</option>
+                                            <option value="11">11x</option>
+                                            <option value="12">12x</option>
+                                        </select>
+                                        <div class="msmErro">
+                                            <i class="material-icons-outlined">error_outline</i>
+                                            <small class="textErro">Mensagem de erro</small>
+                                        </div>                                </div>
+                                    <div class="form itemForm13" for="marcas">
+                                        <label for="marcas">Marcas:</label>
+                                        <select disabled itemid="marcas" name="marcas" id="marcas" required> 
+                                            <option value="">Nenhum</option>
+                                        </select>
+                                        <div class="msmErro">
+                                            <i class="material-icons-outlined">error_outline</i>
+                                            <small class="textErro">Mensagem de erro</small>
+                                        </div>                                </div>
+                                    <div class="form itemForm14" for="categorias">
+                                        <label for="categorias">Categorias:</label>
+                                        <select disabled itemid="categoria1" name="categoria1" id="categoria1" required> 
+                                            <option value="">Nenhum</option>
+                                        </select>
+                                        <select disabled itemid="categoria2" name="categoria2" id="categoria2"> 
+                                            <option value="">Nenhum</option>
+                                        </select>
+                                        <select disabled itemid="categoria3" name="categoria3" id="categoria3"> 
+                                            <option value="">Nenhum</option>
+                                        </select>
+                                        <select disabled itemid="categoria4" name="categoria4" id="categoria4"> 
+                                            <option value="">Nenhum</option>
+                                        </select>
+                                        <select disabled itemid="categoria5" name="categoria5" id="categoria5"> 
+                                            <option value="">Nenhum</option>
+                                        </select>
+                                        <select disabled itemid="categoria6" name="categoria6" id="categoria6"> 
+                                            <option value="">Nenhum</option>
+                                        </select>
+                                        <div class="msmErro">
+                                            <i class="material-icons-outlined">error_outline</i>
+                                            <small class="textErro">Mensagem de erro</small>
+                                        </div>                                </div>
+                                    
+                                </div>
                             </div>
-                            <div class="boxForm box2">
-                                <div class="form itemForm6" for="vPrazo">
-                                    <label for="vPrazo">Valor a prazo:</label>
-                                    <input disabled type="text" name="vPrazo">
-                                    <div class="msmErro">
-                                        <i class="material-icons-outlined">error_outline</i>
-                                        <small class="textErro">Mensagem de erro</small>
-                                    </div>                                </div>
-                                <div class="form itemForm7" for="vDesconto">
-                                    <label for="vDesconto">Valor de desconto:</label>
-                                    <input disabled type="text" name="vDesconto">
-                                    <div class="msmErro">
-                                        <i class="material-icons-outlined">error_outline</i>
-                                        <small class="textErro">Mensagem de erro</small>
-                                    </div>                                </div>
-                                <div class="form itemForm8" for="VAvista">
-                                    <label for="VAvista">Valor avista:</label>
-                                    <input disabled type="text" name="VAvista">
-                                    <div class="msmErro">
-                                        <i class="material-icons-outlined">error_outline</i>
-                                        <small class="textErro">Mensagem de erro</small>
-                                    </div>                                </div>
-                                
-                                <div class="form itemForm9" for="vParcela">
-                                    <label for="vParcela">Valor da parcela:</label>
-                                    <input disabled type="text" name="vParcela">
-                                    <div class="msmErro">
-                                        <i class="material-icons-outlined">error_outline</i>
-                                        <small class="textErro">Mensagem de erro</small>
-                                    </div>                                </div>
-                                <div class="form itemForm10" for="vFrete">
-                                    <label for="vFrete">Valor do frete:</label>
-                                    <input disabled type="text" name="vFrete">
-                                    <div class="msmErro">
-                                        <i class="material-icons-outlined">error_outline</i>
-                                        <small class="textErro">Mensagem de erro</small>
-                                    </div>                                </div>
-                                <div class="form itemForm11" for="qtEstoque">
-                                    <label for="qtEstoque">Quant. em estoque:</label>
-                                    <input disabled type="text" name="qtEstoque">
-                                    <div class="msmErro">
-                                        <i class="material-icons-outlined">error_outline</i>
-                                        <small class="textErro">Mensagem de erro</small>
-                                    </div>                                </div>
-                                <div class="form itemForm12" for="qtParcela">
-                                    <label for="qtParcela">Quant. de Parcelas:</label>
-                                    <select disabled itemid="qtParcela" name="qtParcela" id="qtParcela" required> 
-                                        <option value="1">1x</option>
-                                        <option value="2">2x</option>
-                                        <option value="3">3x</option>
-                                        <option value="4">4x</option>
-                                        <option value="5">5x</option>
-                                        <option value="6">6x</option>
-                                        <option value="7">7x</option>
-                                        <option value="8">8x</option>
-                                        <option value="9">9x</option>
-                                        <option value="10">10x</option>
-                                        <option value="11">11x</option>
-                                        <option value="12">12x</option>
-                                    </select>
-                                    <div class="msmErro">
-                                        <i class="material-icons-outlined">error_outline</i>
-                                        <small class="textErro">Mensagem de erro</small>
-                                    </div>                                </div>
-                                <div class="form itemForm13" for="marcas">
-                                    <label for="marcas">Marcas:</label>
-                                    <select disabled itemid="marcas" name="marcas" id="marcas" required> 
-                                        <option value="">Nenhum</option>
-                                    </select>
-                                    <div class="msmErro">
-                                        <i class="material-icons-outlined">error_outline</i>
-                                        <small class="textErro">Mensagem de erro</small>
-                                    </div>                                </div>
-                                <div class="form itemForm14" for="categorias">
-                                    <label for="categorias">Categorias:</label>
-                                    <select disabled itemid="categorias" name="categorias" id="categorias" required> 
-                                        <option value="">Nenhum</option>
-                                    </select>
-                                    <select disabled itemid="categorias2" name="categorias2" id="categorias2"> 
-                                        <option value="">Nenhum</option>
-                                    </select>
-                                    <select disabled itemid="categorias3" name="categorias3" id="categorias3"> 
-                                        <option value="">Nenhum</option>
-                                    </select>
-                                    <select disabled itemid="categorias4" name="categorias4" id="categorias4"> 
-                                        <option value="">Nenhum</option>
-                                    </select>
-                                    <select disabled itemid="categorias5" name="categorias5" id="categorias5"> 
-                                        <option value="">Nenhum</option>
-                                    </select>
-                                    <select disabled itemid="categorias6" name="categorias6" id="categorias6"> 
-                                        <option value="">Nenhum</option>
-                                    </select>
-                                    <div class="msmErro">
-                                        <i class="material-icons-outlined">error_outline</i>
-                                        <small class="textErro">Mensagem de erro</small>
-                                    </div>                                </div>
-                                
+                            <div class="btnForm">
+                                <button class="btnClear" type="reset">Limpar</button>
+                                <button class="btnSubmit" type="button" style="display: none;"></button>
                             </div>
-                        </div>
-                        <div class="btnForm">
-                            <button class="btnClear" type="reset">Limpar</button>
-                            <button class="btnSubmit" type="button" style="display: none;"></button>
-                        </div>
-                        
-                        
-                    </form>
+                            
+                            
+                        </form>
+                    </div>
                 </div>
                 
                 
