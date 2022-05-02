@@ -208,7 +208,11 @@ body {
     height: 100%;
     padding: 20px;
 }
+.containerPrincipal .container .contFomr .dadosSite .boxForm .form {
+    width: 100%;
+}
 .containerPrincipal .container .contFomr .dadosSite .boxForm .itemForm5 {
+    width: 100%;
     grid-area: itemForm5;
 }
 
@@ -353,6 +357,10 @@ body {
         margin: 20px;
     }
 
+    .containerPrincipal .container .contFomr .dadosSite {
+        height: fit-content;
+    }
+
     .containerPrincipal .container .contFomr .dadosSite .box {
         display: flex;
         width: 100%;
@@ -387,15 +395,48 @@ body {
         font-size: 12px;
     }
 
-     .containerPrincipal .container .contDadosSite .contFomr .dadosSite .box2 {
+     .containerPrincipal .container .contDadosSite .contFomr .dadosSite .box .box2 {
         display: grid;
-        grid-template-columns: repeat(1, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         grid-template-areas: 
-        'itemForm6' 
-        'itemForm7' 
-        'itemForm8'
-        'itemForm9'
-        'itemForm10'
+        'itemForm5 itemForm5'
+        'itemForm6 itemForm6'
+        'itemForm7 itemForm11'
+        'itemForm8 itemForm8'
+        'itemForm9 itemForm9'
+        'itemForm10 itemForm10'
+        'btnForm btnForm';
+        grid-gap: 20px;
+        margin-top: 0;
+    }
+}
+
+@media (max-width: 500px) {
+
+    .containerPrincipal .container .contDadosSite .barTop #namePage {
+        width: 100px;
+    }
+
+    .containerPrincipal .container .contFomr .dadosSite .boxForm .itemForm9 .itemInput, 
+    .containerPrincipal .container .contFomr .dadosSite .boxForm .itemForm10 .itemInput {
+        display: block;
+    }
+
+    .containerPrincipal .container .contFomr .dadosSite .boxForm .itemForm9 .itemInput span, 
+    .containerPrincipal .container .contFomr .dadosSite .boxForm .itemForm10 .itemInput span {
+        margin: 10px 0;
+    }
+
+    .containerPrincipal .container .contDadosSite .contFomr .dadosSite .box2 {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas: 
+        'itemForm5 itemForm5'
+        'itemForm6 itemForm6'
+        'itemForm7 itemForm11'
+        'itemForm8 itemForm8'
+        'itemForm9 itemForm9'
+        'itemForm10 itemForm10'
         'btnForm btnForm';
         grid-gap: 20px;
     }
