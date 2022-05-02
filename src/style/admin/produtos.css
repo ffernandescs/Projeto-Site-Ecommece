@@ -23,6 +23,8 @@ body {
 
 .containerPrincipal {
     position: relative;
+    overflow: hidden;
+
 }
 
 .containerPrincipal .container {
@@ -75,10 +77,22 @@ body {
     width: 100%;
 }
 
+.containerPrincipal .container .barTable .boxTable .textCheck {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-width: 100px;
+}
+
+.containerPrincipal .container .barTable .boxTable .textCheck h2,
+.containerPrincipal .container .barTable .boxTable .textCheck span {
+    margin-right: 10px;
+}
+
 .containerPrincipal .container .barTable .boxTable input {
     width: 400px;
     max-width: 400px;
-    min-width: 120px;
+    min-width: 80px;
     height: 40px;
     padding-left: 15px;
     background-color: #fff;
@@ -119,6 +133,7 @@ body {
     overflow:scroll;
     text-align: center;
     border-spacing: 0;
+    margin-bottom: 10px;
 }
 
 .containerPrincipal .container .contTable::-webkit-scrollbar {
@@ -191,12 +206,6 @@ body {
     margin-left: 5px;
 }
 
-
-
-
-
-
-
 .containerPrincipal .container .contEditProduto {
     position: absolute;
     top: 60px;
@@ -211,7 +220,6 @@ body {
     padding: 20px;
     z-index: -5;
     opacity: 0;
-    overflow: hidden;
     transition: all 0.4s ease;
 }
 
@@ -232,6 +240,9 @@ body {
 
 .containerPrincipal .container .barTopEdit .contBtnEdit {
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     overflow: hidden;
 
 }
@@ -253,6 +264,8 @@ body {
     opacity: 0;
     transition: all 0.3s ease;
     background-color: #0e6f18;
+    margin-left: 15px;
+
 }
 
 .containerPrincipal .container .barTopEdit .contBtnEdit button:nth-child(3):hover {
@@ -293,8 +306,8 @@ body {
 
 .containerPrincipal .container .contFomr {
     width: 100%;
-    height: calc(100% - 60px);
-    margin: 20px;
+    height: 100vh;
+    margin: 20px 0;
     background-color: #F8F8F8;
     border: 0.2px solid #95959e40;
     border-radius: 5px;
@@ -307,14 +320,15 @@ body {
     height: 100%;
 }
 
-
-
 .containerPrincipal .container .contFomr .addProduto .box {
     display: flex;
     width: 100%;
+    height: 100%;
+    overflow: hidden;
 }
 
 .containerPrincipal .container .contFomr .addProduto .boxForm {
+    position: relative;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-areas: 
@@ -331,7 +345,6 @@ body {
 
 .containerPrincipal .container .contFomr .addProduto .boxForm .itemForm1 {
     height: 170px;
-
     grid-area: itemForm1;
 }
 .containerPrincipal .container .contFomr .addProduto .boxForm .itemForm2  {
@@ -355,7 +368,8 @@ body {
     'itemForm6 itemForm7 itemForm8'
     'itemForm9 itemForm10 itemForm11'
     'itemForm12 itemForm13 itemForm13'
-    'itemForm14 itemForm14 itemForm14';
+    'itemForm14 itemForm14 itemForm14'
+    'btnForm btnForm btnForm';
     grid-gap: 20px;
     align-items: flex-start;
     width: 50%;
@@ -392,6 +406,7 @@ body {
 }
 
 .containerPrincipal .container .contFomr .addProduto .boxForm .itemForm13 {
+    
     grid-area: itemForm13;
 }
 .containerPrincipal .container .contFomr .addProduto .boxForm .itemForm14 {
@@ -399,13 +414,34 @@ body {
     grid-area: itemForm14;
 }
 
+.containerPrincipal .container .contFomr .addProduto .boxForm .btnForm {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    width: 100%;
+    grid-area: btnForm;
+
+}
+
+.containerPrincipal .container .contFomr .addProduto .btnForm button {
+    width: 150px;
+    height: 40px;
+    background-color: #005ac7;
+    border-radius: 5px;
+    border: none;
+    outline: 0;
+    font-size: 14px;
+    color: #fff;
+    transition: all 0.3s ease;
+    visibility: hidden;
+    cursor: pointer;
+}
 
 .containerPrincipal .container .contFomr .addProduto .boxForm .form .contCategorias {
     display: flex;
     flex-wrap: wrap;
     align-content: center;
     justify-content: space-between;
- 
  }
 
 .containerPrincipal .container .contFomr .addProduto .boxForm .form .contCategorias select {
@@ -422,7 +458,7 @@ body {
 
 .containerPrincipal .container .contFomr .addProduto .boxForm .form label {
     display: flex;
-    margin-bottom: 10px;
+    height: 40px;
 }
 
 .containerPrincipal .container .contFomr .addProduto .boxForm .form .itemInput {
@@ -435,7 +471,7 @@ body {
 
 .containerPrincipal .container .contFomr .addProduto .boxForm .form .itemInput input {
     width: 100%;
-    height: 35px;
+    height: 20px;
     background-color: #ececed30;
     border: none;
     border-bottom: 1px solid #95959efe;
@@ -484,10 +520,6 @@ body {
     margin-bottom: 5px;
 }
 
-
-
-
-
 .containerPrincipal .container .contFomr .addProduto .boxForm .itemForm12 select, 
 .containerPrincipal .container .contFomr .addProduto .boxForm .itemForm13 select {
     margin-bottom: 5px;
@@ -498,8 +530,6 @@ body {
     align-items: center;
     justify-items: center;
 }
-
-
 
 .containerPrincipal .container .contFomr .addProduto .boxForm .imgForm  .msmErro {
     margin-right: 30px;
@@ -515,7 +545,6 @@ body {
     visibility: hidden;
 }
 
-
 .containerPrincipal .container .contFomr .addProduto .boxForm .imgForm {
     position: relative;
     display: flex;
@@ -525,15 +554,12 @@ body {
     cursor: pointer;
 }
 
-
-
 .containerPrincipal .container .contFomr .addProduto .boxForm .imgForm label {
     position: relative;
     left: -60px;
     width: 100px;
     object-fit: cover;
     margin-bottom: 10px;
-
 }
 
 .containerPrincipal .container .contFomr .addProduto .boxForm .imgForm span {
@@ -545,7 +571,6 @@ body {
     border-radius: 10px;
     margin-bottom: 5px;
     visibility: hidden;
-
 }
 
 .containerPrincipal .container .contFomr .addProduto .boxForm .imgForm img {
@@ -558,9 +583,7 @@ body {
     padding: 1px;
     margin-bottom: 5px;
     z-index: 1;
-
 }
-
 
 .containerPrincipal .container .contFomr .addProduto .boxForm .imgForm input {
     display: none;
@@ -571,35 +594,11 @@ body {
     height: 50px;
 }
 
-.containerPrincipal .container .contFomr .addProduto .btnForm {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    width: 100%;
-    padding: 20px;
-}
-
-
-.containerPrincipal .container .contFomr .addProduto .btnForm button {
-    width: 150px;
-    height: 40px;
-    background-color: #005ac7;
-    border-radius: 5px;
-    border: none;
-    outline: 0;
-    font-size: 14px;
-    color: #fff;
-    transition: all 0.3s ease;
-    visibility: hidden;
-    cursor: pointer;
-}
-
 
 
 .containerPrincipal .container .contFomr .addProduto .btnForm button:hover {
     background-color: #0032ba;
 }
-
 
 .containerPrincipal .container .contFomr .addProduto .boxForm .form.error small {
     font-size: 12px;
@@ -615,7 +614,6 @@ body {
 .containerPrincipal .container .contFomr .addProduto .boxForm .form.error textarea {
     border-color:#e74c3c ;
     visibility: visible;
-
 }
 
 .containerPrincipal .container .contFomr .addProduto .boxForm .itemForm12.error select,
@@ -629,7 +627,6 @@ body {
     color:#e74c3c ;
     visibility: visible;
 }
-
 
 @media (max-width: 1100px) {
     .containerPrincipal .container .listProduto tbody tr td:nth-child(8),
@@ -654,18 +651,55 @@ body {
         display: none;
     }
 
-    .containerPrincipal .container .contEditProduto .contFomr {
-        overflow-y:scroll;
+    .containerPrincipal .container .barTable .boxTable a button {
+        width: 100px;
+        font-size: 12px;
     }
 
-    .containerPrincipal .container .contEditProduto .contFomr::-webkit-scrollbar {
+    
+
+    .containerPrincipal .container .contEditProduto .contFomr {
+        height: fit-content;
+        overflow: hidden;
+    }
+
+    .containerPrincipal .container .contFomr .addProduto .box {
+        display: flex;
+        width: 100%;
+    }
+
+    .containerPrincipal .container .contEditProduto  {
+        overflow-y: scroll;
+        overflow-x: hidden;
+        height: 100%;
+        padding: 0 20px 60px 20px;
+
+    }
+
+    .containerPrincipal .container .contEditProduto::-webkit-scrollbar {
         width: 6px;
         background-color: #95959e;
     }
-    .containerPrincipal .container .contEditProduto .contFomr::-webkit-scrollbar-thumb {
+    .containerPrincipal .container .contEditProduto::-webkit-scrollbar-thumb {
         background-color: #1d1b31;
     }
 
+
+    .containerPrincipal .container .contEditProduto .barTopEdit {
+        position: sticky;
+        top: 0px;
+        background-color: #fff;
+        padding: 10px 0;
+        box-sizing: content-box;
+        z-index: 66;
+    }
+
+    .containerPrincipal .container .contEditProduto .contFomr {
+        overflow: visible;
+
+    }
+
+   
     .containerPrincipal .container .contEditProduto .contFomr .addProduto .box {
         flex-direction: column;
         align-items: center;
@@ -682,9 +716,13 @@ body {
 
   
     .containerPrincipal .container .contEditProduto .barTopEdit .contBtnEdit button {
-        width: 120px;
+        width: 100px;
         font-size: 12px;
     } 
+
+    .containerPrincipal .container .contFomr .addProduto .boxForm:first-child {
+        border-right: none;
+    }
 }
 
 @media (max-width: 700px) {
@@ -707,7 +745,8 @@ body {
         'itemForm10 itemForm11'
         'itemForm12 itemForm12'
         'itemForm13 itemForm13'
-        'itemForm14 itemForm14';
+        'itemForm14 itemForm14'
+        'btnForm btnForm';
         grid-gap: 20px;
     }
 
@@ -722,6 +761,8 @@ body {
         display: none;
     }
 
+    
+
     .containerPrincipal .container .contFomr .addProduto .boxForm .imgForm { 
         align-items: flex-start;
     }
@@ -735,17 +776,13 @@ body {
         width: 100px;
         height: 100px;
     }
-    
-}
 
-@media (max-width: 340px) {
-
-    .containerPrincipal .container .listProduto tbody tr #tdImg {
-        display: none;
+    .containerPrincipal .container .barTopEdit .contBtnEdit button {
+        width: 100px;
     }
 
-    .containerPrincipal .container .listProduto thead tr th:nth-child(2) {
-        display: none;
+    .containerPrincipal .container .contFomr .addProduto .btnForm button {
+        width: 100px;
     }
 
     .containerPrincipal .container .contEditProduto .contFomr .addProduto .box2 {
@@ -760,8 +797,20 @@ body {
         'itemForm11'
         'itemForm12'
         'itemForm13'
-        'itemForm14';
-        grid-gap: 0px;
+        'itemForm14'
+        'btnForm ';
+    }
+    
+}
+
+@media (max-width: 340px) {
+
+    .containerPrincipal .container .listProduto tbody tr #tdImg {
+        display: none;
+    }
+
+    .containerPrincipal .container .listProduto thead tr th:nth-child(2) {
+        display: none;
     }
 
     .containerPrincipal .container .contEditProduto .contFomr .addProduto .boxForm .imgForm img {
@@ -777,4 +826,9 @@ body {
         border: 0.2px solid #95959e40;
         border-radius: 5px;
     }
+
+    .containerPrincipal .container .barTable .boxTable .textCheck h2,
+    .containerPrincipal .container .barTable .boxTable .textCheck span {
+        display: none;
+}
 }

@@ -6,7 +6,7 @@ const formEdit = document.querySelector('.editProduto');
 const formEditProduct = document.querySelector('.editProduto');
 const imgPreview = document.querySelector('.imgForm img');
 
-let id;
+let id; 
 
 const btnSubmit = document.querySelector('.contBtnEdit #btnSalvar');
 
@@ -43,6 +43,20 @@ const loadingList = doc => {
 
 
     tableListProduc.insertAdjacentHTML('beforeend', tr);
+
+    const buscarProduto = document.getElementById('searchList');
+    const listLiPd = document.querySelectorAll(`.tagTr`);
+    const totalItens = document.getElementById('totalItens')
+
+        totalItens.innerHTML = listLiPd.length
+
+    buscarProduto.addEventListener('input', () => {
+        const buscar = buscarProduto.value.toLowerCase();
+        listLiPd.forEach(e => {
+            const itens = e.innerHTML.toLowerCase().includes(buscar);
+            e.style.display = itens ? 'table-row' : 'none'
+        })
+    })
 
     const btnEdit = document.querySelector(`[data-remove="${doc.id}"] .btnEdit`)
 
@@ -100,6 +114,9 @@ const loadingList = doc => {
         formEditProduct.categoria1.value = doc.data().categoria
         formEditProduct.categoria2.value = doc.data().categoria2
         formEditProduct.categoria3.value = doc.data().categoria3
+        formEditProduct.categoria4.value = doc.data().categoria4
+        formEditProduct.categoria5.value = doc.data().categoria5
+        formEditProduct.categoria6.value = doc.data().categoria6
         imgPreview.src = doc.data().img
 
         const btnCancel = document.getElementById('btnCancel');

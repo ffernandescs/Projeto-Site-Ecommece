@@ -1,4 +1,4 @@
-const dbProduct = firebase.firestore();
+const dbProduct = firebase.firestore(); 
 
 const btnAddProduct = document.getElementById('btnAddProduct');
 const addProduct = document.querySelector('.addProduct');

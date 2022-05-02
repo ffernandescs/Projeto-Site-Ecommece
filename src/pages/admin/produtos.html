@@ -139,7 +139,11 @@
                     </div>
                     <div class="barTable">
                         <div class="boxTable">
-                            <input type="text" placeholder="Pesquisar">
+                            <div class="textCheck">
+                                <h2 id="totalItens">0</h2>
+                                <span>itens</span>
+                                <input id="searchList" type="text" placeholder="Pesquisar">
+                            </div>
                             <a href="./addPd.html"><button type="button">Adicionar Produto</button></a>
                         </div>
                     </div>
@@ -173,7 +177,7 @@
                         <div class="contBtnEdit">
                             <button id="btnEdit" type="button">Editar</button>
                             <button id="btnCancel" type="button">Cancelar</button>
-                            <button id="btnSalvar" type="button">Salvar e Publicar</button>
+                            <button id="btnSalvar" type="button">Salvar</button>
                         </div>
                     </div>
                     <div class="contFomr">
@@ -349,13 +353,14 @@
                                         </div> 
                                                                      
                                     </div>
-                                    
+                                    <div class="btnForm">
+                                        <button class="btnSubmit" type="text" style="display: none;"></button>
+                                        <button class="btnClear" type="reset">Limpar</button>
+                                    </div>
                                 </div>
+                                
                             </div>
-                            <div class="btnForm">
-                                <button class="btnClear" type="reset">Limpar</button>
-                                <button class="btnSubmit" type="text" style="display: none;"></button>
-                            </div>
+                            
                             
                             
                         </form>
