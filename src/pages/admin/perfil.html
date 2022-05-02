@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/f84144252b.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+    <link rel="stylesheet" href="../../style/admin/perfil.css">
     <link rel="stylesheet" href="../../style/admin/menu.css">
-    <link rel="stylesheet" href="../../style/admin/index.css">
-    <title>Painel de Produtos</title>
+    <title>Perfil</title>
 </head>
 <body>
     <section>
@@ -111,7 +111,7 @@
                                     <li onclick="logoutUser()">
                                         <a class="textLinkUser" href="#">
                                             <i class="material-icons-outlined">logout</i>
-                                            <span  class="textUser">Sair</span>
+                                            <span class="textUser">Sair</span>
                                         </a>
                                     </li>
                                 </ul>
@@ -121,65 +121,91 @@
                 </div>
             </div>
             <div class="container">
-                <div class="box1 box">
-                    <div class="itemBox">
-                        <div class="contBox">
-                            <span class="quantItem">140</span>
-                            <span class="textItem">Produtos</span>
+                <div class="contDadosUser">
+                    <div class="barTop">
+                        <span id="namePage">Perfil</span>
+                        <div class="contBtnAdd">
+                            <button id="btnEdit" type="button">Editar</button>
+                            <button id="btnCancel" type="button">Cancelar</button>
+                            <button id="btnSalvar" type="button">Salvar</button>
                         </div>
-                        <i class="material-icons-outlined">clock</i>
                     </div>
-                    <div class="itemBox1">
-                        <i class="material-icons-outlined">clock</i>
-                        <span class="textItem1">update: 2:15 am</span>
+                    <div class="contFomr">
+                        <form class="dadosUser" action="">
+                            <div class="box">
+                                <div class="boxForm">
+                                    <div class="form itemForm1" for="imgPerfil">
+                                        <label for="imgPerfil">Imagem do Perfil:</label>
+                                        <input id="fileUser" type="file" style="display: none;" name="imgPerfil" onchange="loadImgFileEdit(event)">
+                                        <img src="../../../assets/img/addImg.png" alt="">
+                                        <span id="itemImgEdit"></span>
+                                    </div>
+                                    <div class="form itemForm2" for="nome">
+                                        <label for="nome">Nome:</label>
+                                        <div class="itemInput">
+                                            <input type="text" value="" maxlength="20" name="nome" id="nome" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="form itemForm3" for="cargo">
+                                        <label for="cargo">Cargo:</label>
+                                        <div class="itemInput">
+                                            <input type="text" maxlength="20" name="cargo" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="form itemForm4" for="tel">
+                                        <label for="tel">Contato:</label>
+                                        <div class="itemInput">
+                                            <input type="tel" name="tel" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="form itemForm5" for="endereco">
+                                        <label for="endereco">Endereço:</label>
+                                        <div class="itemInput">
+                                            <input type="text" name="endereco" disabled>
+                                        </div>
+                                        <p>Ex: Av: Barão de Bonito, 462, Várzea - Recife/PE</p>
+                                    </div>
+                                </div>
+                                <div class="boxForm box2">
+                                   
+                                    <div class="form itemForm8" for="email">
+                                        <label for="email">Email:</label>
+                                        <div class="itemInput">
+                                            <input type="email" name="email" disabled>
+                                        </div>
+                                        <p>Ex: sistemas@sistemas.com</p>
+                                    </div>
+                                    
+                                    <div class="form itemForm9" for="senhaAtual">
+                                        <label for="senhaAtual">Senha Atual:</label>
+                                        <div class="itemInput">
+                                            <input type="password" name="senhaAtual" autocomplete="of" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="form itemForm10" for="newSenha">
+                                        <label for="newSenha">Nova senha :</label>
+                                        <div class="itemInput">
+                                            <input type="password" name="newSenha" autocomplete="of" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="form itemForm11" for="confirmNewSenha">
+                                        <label for="confirmNewSenha">Confirme a nova senha:</label>
+                                        <div class="itemInput">
+                                            <input type="password" name="confirmNewSenha" autocomplete="of" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="form itemForm12" for="">
+                                    </div>
+                                    <div class="btnForm">
+                                        <button class="btnClear" type="reset">Limpar</button>
+                                        <button class="btnSubmit" type="text" style="display: none;"></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
-                <div class="box2 box">
-                    <div class="itemBox">
-                        <div class="contBox">
-                            <span class="quantItem">140</span>
-                            <span class="textItem">Produtos</span>
-                        </div>
-                        <i class="material-icons-outlined">clock</i>
-                    </div>
-                    <div class="itemBox1">
-                        <i class="material-icons-outlined">clock</i>
-                        <span class="textItem1">update: 2:15 am</span>
-                    </div>
-                </div>
-                <div class="box3 box">
-                    <div class="itemBox">
-                        <div class="contBox">
-                            <span class="quantItem">140</span>
-                            <span class="textItem">Produtos</span>
-                        </div>
-                        <i class="material-icons-outlined">clock</i>
-                    </div>
-                    <div class="itemBox1">
-                        <i class="material-icons-outlined">clock</i>
-                        <span class="textItem1">update: 2:15 am</span>
-                    </div>
-                </div>
-                <div class="box4 box">
-                    <div class="itemBox">
-                        <div class="contBox">
-                            <span class="quantItem">140</span>
-                            <span class="textItem">Produtos</span>
-                        </div>
-                        <i class="material-icons-outlined">clock</i>
-                    </div>
-                    <div class="itemBox1">
-                        <i class="material-icons-outlined">clock</i>
-                        <span class="textItem1">update: 2:15 am</span>
-                    </div>
-                </div>
-                <div class="box5 box">
-                    
-                </div>
-                <div class="box6 box">
-                    
-                </div>
-            </div>
+            </div>           
         </div>
         <div class="loading">
             <div class="sniperLoading"></div>
@@ -192,6 +218,6 @@
     <script src="../../js/db/confiDb.js"></script>
     <script src="../../js/autentication/index.js"></script>
     <script src="../../js/admin/menu.js"></script>
-    <script src="../../js/admin/loginUser.js"></script>
+    <script src="../../js/admin/perfil.js"></script>
 </body>
 </html>

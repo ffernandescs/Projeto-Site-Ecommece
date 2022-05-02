@@ -1,0 +1,425 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif; 
+}
+
+h1 h2 h3 h4 p a {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+ 
+}
+
+
+.containerPrincipal {
+    position: relative;
+    overflow: hidden;
+}
+
+.containerPrincipal .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: calc(100% - 60px);
+    background-color: #fff;
+    padding: 20px;
+    overflow: hidden;
+
+}
+
+.containerPrincipal .container .barTop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 40px;
+}
+
+.containerPrincipal .container .barTop #namePage {
+    font-size: 22px;
+    font-weight: 400;
+    color: #95959e;
+}
+
+
+
+.containerPrincipal .container .contDadosUser {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: calc(100% - 60px);
+    background-color: #fff;
+    padding: 20px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+
+.containerPrincipal .container .barTop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 40px;
+}
+
+.containerPrincipal .container .barTop .contBtnAdd {
+    position: relative;
+}
+
+.containerPrincipal .container .barTop .contBtnAdd button:nth-child(1) {
+    position: absolute;
+    right: 0;
+
+}
+.containerPrincipal .container .barTop .contBtnAdd button:nth-child(2) {
+    background-color: #d54b4a;
+    visibility: hidden;
+}
+
+.containerPrincipal .container .barTop .contBtnAdd button:nth-child(2):hover {
+    background-color: #ba2525;
+}
+
+.containerPrincipal .container .barTop .contBtnAdd button:nth-child(3) {
+    background-color: #0e6f18;
+    visibility: hidden;
+
+}
+
+.containerPrincipal .container .barTop .contBtnAdd button:nth-child(3):hover {
+    background-color: #1d5e23;
+}
+
+
+
+.containerPrincipal .container .barTop .contBtnAdd button {
+    width: 150px;
+    height: 40px;
+    background-color: #005ac7;
+    border-radius: 5px;
+    border: none;
+    outline: 0;
+    font-size: 14px;
+    color: #fff;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.containerPrincipal .container .barTop .contBtnAdd button:hover {
+    background-color: #0032ba;
+}
+
+.containerPrincipal .container .barTop #namePage {
+    font-size: 22px;
+    font-weight: 400;
+    color: #95959e;
+}
+
+.containerPrincipal .container .contFomr {
+    width: 100%;
+    height: 100vh;
+    margin: 20px 0;
+    background-color: #F8F8F8;
+    border: 0.2px solid #95959e40;
+    border-radius: 5px;
+}
+
+.containerPrincipal .container .contFomr .dadosUser {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.containerPrincipal .container .contFomr .dadosUser .box {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.containerPrincipal .container .contFomr .dadosUser .boxForm {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-areas: 
+    'itemForm1'
+    'itemForm2'
+    'itemForm3'
+    'itemForm4'
+    'itemForm5';
+    grid-gap: 20px;
+    align-items: flex-start;
+    width: 50%;
+    height: 100%;
+    padding: 20px;
+    overflow: hidden;
+
+}
+
+.containerPrincipal .container .contFomr .dadosUser .boxForm .itemForm1 {
+    grid-area: itemForm1;
+    width: 150px;
+    height: 150px;
+    margin-bottom: 30px;
+}
+
+.containerPrincipal .container .contFomr .dadosUser .boxForm .itemForm1 img {
+    grid-area: itemForm1;
+    width: 150px;
+    height: 150px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #333;
+    object-fit: contain;
+}
+
+.containerPrincipal .container .contFomr .dadosUser .boxForm .itemForm2  {
+    grid-area: itemForm2;
+}
+
+.containerPrincipal .container .contFomr .dadosUser .boxForm .itemForm3 {
+    grid-area: itemForm3;
+}
+
+.containerPrincipal .container .contFomr .dadosUser .boxForm .itemForm4 {
+    grid-area: itemForm4;
+}
+
+.containerPrincipal .container .contFomr .dadosUser .boxForm .itemForm5 {
+    grid-area: itemForm5;
+}
+
+
+.containerPrincipal .container .contFomr .dadosUser .box2 {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: 
+    'itemForm8 itemForm8'
+    'itemForm9 itemForm10'
+    'itemForm11 itemForm12'
+    'btnForm btnForm';
+    grid-gap: 20px;
+    align-items: flex-start;
+    width: 50%;
+    height: 100%;
+    padding: 20px;
+}
+
+.containerPrincipal .container .contFomr .dadosUser .boxForm .itemForm8 {
+    grid-area: itemForm8;
+}
+
+.containerPrincipal .container .contFomr .dadosUser .boxForm .itemForm9 {
+    grid-area: itemForm9;
+}
+
+.containerPrincipal .container .contFomr .dadosUser .boxForm .itemForm10 {
+    grid-area: itemForm10;
+}
+
+.containerPrincipal .container .contFomr .dadosUser .boxForm .itemForm11 {
+    grid-area: itemForm11;
+}
+
+.containerPrincipal .container .contFomr .dadosUser .boxForm .itemForm12 {
+    grid-area: itemForm12;
+}
+
+.containerPrincipal .container .contFomr .dadosUser .boxForm .btnForm {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    grid-area: btnForm;
+}
+
+.containerPrincipal .container .contFomr .dadosUser .btnForm button {
+    width: 150px;
+    height: 40px;
+    background-color: #005ac7;
+    border-radius: 5px;
+    border: none;
+    outline: 0;
+    font-size: 14px;
+    color: #fff;
+    transition: all 0.3s ease;
+    visibility: hidden;
+    cursor: pointer;
+}
+
+.containerPrincipal .container .contFomr .dadosUser .btnForm button:hover {
+    background-color: #0032ba;
+}
+
+.containerPrincipal .container .contFomr .dadosUser .boxForm:first-child {
+    border-right: 0.2px solid #95959e40;
+}
+
+.containerPrincipal .container .contFomr .dadosUser .boxForm .form {
+    position: relative;
+}
+
+.containerPrincipal .container .contFomr .dadosUser .boxForm .form p {
+    font-size: 12px;
+    color: #333;
+}
+
+.containerPrincipal .container .contFomr .dadosUser .boxForm .form label {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.containerPrincipal .container .contFomr .dadosUser .boxForm .form .itemInput {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.containerPrincipal .container .contFomr .dadosUser .boxForm .form .itemInput input {
+    width: 100%;
+    height: 20px;
+    background-color: #ececed30;
+    border: none;
+    border-bottom: 1px solid #95959efe;
+    outline: 0;
+    padding-left: 10px;
+    margin-bottom: 5px;
+}
+
+.containerPrincipal .container .contFomr .dadosUser .boxForm .form textarea {
+    width: 100%;
+    background-color: #ececed30;
+    border: none;
+    border-radius: 5px;
+    border: 1px solid #95959efe;
+    outline: 0;
+    padding: 10px;
+}
+
+@media (max-width: 900px) {
+
+    .containerPrincipal .container  { 
+        background-color: #fff;
+
+    }
+    .containerPrincipal .container .contDadosUser  { 
+        overflow-y: scroll;
+        overflow-x: hidden;
+        height: 100%;
+        padding: 0 20px 60px 20px;
+
+    }
+
+    .containerPrincipal .container .contDadosUser::-webkit-scrollbar {
+        width: 6px;
+        background-color: #95959e;
+    }
+    .containerPrincipal .container .contDadosUser::-webkit-scrollbar-thumb {
+        background-color: #1d1b31;
+    }
+
+    .containerPrincipal .container .contDadosUser .barTop { 
+        position: sticky;
+        top: 0px;
+        background-color: #fff;
+        padding: 10px 0;
+        box-sizing: content-box;
+        z-index: 2;
+    }
+
+    .containerPrincipal .container .contDadosUser .barTop #namePage {
+        font-size: 16px;
+    }
+  
+    .containerPrincipal .container .contDadosUser .barTop .contBtnAdd button {
+        width: 100px;
+        font-size: 12px;
+    } 
+
+    .containerPrincipal .container .contDadosUser .contFomr {
+        width: 100%;
+        height: fit-content;
+        background-color: #F8F8F8;
+        border: 0.2px solid #95959e40;
+        border-radius: 5px;
+        margin: 20px;
+    }
+
+    .containerPrincipal .container .contFomr .dadosUser .box {
+        display: flex;
+        width: 100%;
+    }
+
+    .containerPrincipal .container .contDadosUser .contFomr .dadosUser .box {
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+    }
+    
+    .containerPrincipal .container .contDadosUser .contFomr .dadosUser .box .boxForm {
+        width: 100%;
+        padding-bottom: 0;
+    }
+
+    .containerPrincipal .container .contDadosUser .contFomr .dadosUser .box .box2 {
+        width: 100%;
+        padding-bottom: 20px;
+    }
+
+    .containerPrincipal .container .contDadosUser .contFomr .dadosUser .box .box2 .itemForm11  {
+        margin-bottom: 20px;
+    }
+
+    .containerPrincipal .container .contFomr .dadosUser .boxForm:first-child {
+        border-right: none;
+    }
+
+    .containerPrincipal .container .contFomr .dadosUser .btnForm {
+        padding-top: 30px;
+    }
+    .containerPrincipal .container .contFomr .dadosUser .btnForm button {
+        width: 100px;
+        font-size: 12px;
+    }
+
+     .containerPrincipal .container .contDadosUser .contFomr .dadosUser {
+       height: fit-content;
+    }
+     .containerPrincipal .container .contDadosUser .contFomr .dadosUser .box2 {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-areas: 
+        'itemForm8'
+        'itemForm9'
+        'itemForm10'
+        'itemForm11'
+        'itemForm12'
+        'btnForm';
+        grid-gap: 20px;
+    }
+}
+
+

@@ -50,25 +50,28 @@ section {
     display: flex;
     align-items: center;
     width: 100%;
+    background-color: #1d1b31;
     padding: 20px;
 }
 
 .menuHrozintal .contLogo .ImgLogo {
-    margin-right: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: #000;
+    border-radius: 50%;
+    margin-right: 10px;
 }
 
 .menuHrozintal .contLogo .ImgLogo img {
     width: 50px;
     height: 50px;
+    border-radius: 50%;
     object-fit: cover;
-    border-radius: 10px;
-    background-color: rgb(86, 86, 86);
-    box-shadow: 0 0 15px #333;
-    padding: 2px;
 }
 
 .menuHrozintal .contLogo .logoText .textLogo {
-    font-size: 16px;
+    font-size: 25px;
+    font-style: italic;
     color: #fff;
     transition: 0.4s ease;
     transition-delay: 0.04s;
@@ -229,21 +232,24 @@ section {
 .menuHrozintal .profileUser {
     display: flex;
     align-items: center;
+    flex-direction: row-reverse;
     justify-content: space-between;
     width: 100%;
     background-color: #1d1b31;
+    overflow: hidden;
     padding: 20px;
 }
 
 .menuHrozintal .profileUser .contProfile {
     display: flex;
-    cursor: pointer;
+    overflow: hidden;
+
 }
 
 .menuHrozintal .profileUser .imgProfile {
     width: 50px;
     height: 50px;
-    margin-right: 15px;
+    margin-right: 5px;
 }
 
 .menuHrozintal .profileUser .imgProfile img {
@@ -258,7 +264,8 @@ section {
 
 .menuHrozintal .profileUser .textProfile .nameUser,
 .menuHrozintal .profileUser .textProfile .profession {
-    font-size: 18px;
+    word-wrap: break-word;
+    font-size: 14px;
     font-weight: 400;
     color: #fff;
     white-space: nowrap;
@@ -405,6 +412,37 @@ section {
 .containerPrincipal .menuTop #menuResponse {
     visibility: hidden;
 
+}
+
+.loading {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.346);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    z-index: 20;
+    transition: 0.5s ease-in-out;
+}
+
+.loading .sniperLoading {
+    width: 40px;
+    height: 40px;
+    border: 5px solid;
+    border-color: #1f80cb #7b7974 #7b7974 ;
+    border-radius: 50%;
+    animation:  load 1s infinite linear;
+}
+
+@keyframes load {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 @media (max-width: 500px) {

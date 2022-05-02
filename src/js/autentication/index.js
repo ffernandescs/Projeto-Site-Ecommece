@@ -2,25 +2,30 @@
 function getUser() {
     firebase.auth().onAuthStateChanged((user) => {
         if(user) {
-            let labelUser = document.getElementById('idUserMain');
-            let login = document.querySelector('.login h1');
-            labelUser.innerHTML = user.email
-            login.innerHTML = user.email
+            
         } else {
 
                 
-                window.location.replace('../../admin.html')
+                window.location.replace('../../pages/login/login.html')
         
         }
     })
 }
 
+
 function logoutUser() {
-    firebase.auth().signOut()
-    
     const loading = document.querySelector('.loading');
-      loading.style.visibility = 'visible'
+    const modalRemove = document.querySelector('.subMenuUser');
+    loading.style.visibility = 'visible';
+    modalRemove.classList.remove('active');
+
+    setTimeout(function(){
+        firebase.auth().signOut()
+    }, 3000)
+     
 }
+
+
 
 window.onload = function() {
     getUser();

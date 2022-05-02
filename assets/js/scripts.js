@@ -160,7 +160,7 @@ const loadingUser = doc => {
     const politica = `<p>${doc.data().politica}</p>`
     politicaText.insertAdjacentHTML('beforeend', politica);
 
-    const envio = `<p>${doc.data().envio}</p>`
+    const envio = ` <p>${doc.data().envio}</p>`
     envioText.insertAdjacentHTML('beforeend', envio);
 
     const termos = `<p>${doc.data().termos}</p>`

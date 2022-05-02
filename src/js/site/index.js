@@ -200,7 +200,6 @@ const loadPromoLancamentos = doc => {
 
       btniconBackLanc.addEventListener('click', () => {
         const largura = window.innerWidth
-        console.log('sadsa')
         if(largura > 400) {
             currentSlideLanc--;
               if(currentSlideLanc < 0) {

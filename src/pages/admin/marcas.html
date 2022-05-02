@@ -15,20 +15,20 @@
         <div class="menuHrozintal ">
             <div class="contLogo">
                 <div class="ImgLogo">
-                    <img src="../../../assets/img/logoUser.jpg" alt="">
+                    <img src="../../../assets/img/logo.jpg" alt="">
                 </div>
                 <div class="logoText">
-                    <span class="textLogo">Administrador</span>
+                    <span class="textLogo">Sistemas</span>
                 </div>
             </div>
             <ul class="menu">
                 <li>
-                    <a href="./index.html" class="textLink">
+                    <a href="../../pages/admin/index.html" class="textLink">
                         <i class="material-icons-outlined">home</i>
                         <span class="textList">Inicio</span>
                     </a>
                     <ul class="subMenu blank">
-                        <li><a href="./index.html" class="textLink">Inicio</a></li>
+                        <li><a href="../../pages/admin/index.html" class="textLink">Inicio</a></li>
                     </ul>
                     
                 </li>
@@ -43,9 +43,7 @@
                     <ul class="subMenu">
                         <li><a href="./produtos.html" class="textLink">Produtos</a></li>
                         <li><a href="./addPd.html" class="">Adicionar Produtos</a></li>
-                        <li><a href="./editarPd.html" class="">Editar Produtos</a></li>
-                        <li><a href="./categorias.html" class="">Categorias</a></li>
-                        <li><a href="./marcas.html" class="">Categorias</a></li>
+                        <li><a href="./produtos.html" class="">Editar Produtos</a></li>
                     </ul>
                 </li>
                 <li>
@@ -66,25 +64,15 @@
                         <i class="material-icons-outlined arrow">expand_more</i>
                     </div>
                     <ul class="subMenu">
-                        <li><a href="#" class="textLink">Configuração</a></li>
+                        <li><a href="#" class="textLink">Dados do Site</a></li>
                         <li><a href="#" class="">Perfil</a></li>
-                        <li><a href="#" class="">Dados do Site</a></li>
-                        <li><a href="#" class="">Excluir Produtos</a></li>
+                        <li><a href="#" class="">Adicionar Categoria</a></li>
+                        <li><a href="#" class="">Adicionar Marcas</a></li>
                     </ul>
                 </li>
             </ul>
             <div class="profileUser">
-                <div class="contProfile">
-                    <div class="imgProfile">
-                        <img src="../../../assets/img/logoUser.jpg" alt="">
-                    </div>
-                    <div class="textProfile">
-                        <span class="nameUser">Felipe Web</span>
-                        <span class="profession">Desenvolvedor Web</span>
-                    </div>
-                </div>
-                
-                <i class="material-icons-outlined">logout</i>
+                <i onclick="logoutUser()" class="material-icons-outlined">logout</i>
             </div>
         </div>
         <div class="containerPrincipal">
@@ -120,7 +108,7 @@
                                             <span class="textUser">Perfil</span>
                                         </a>
                                     </li>
-                                    <li>
+                                    <li onclick="logoutUser()">
                                         <a class="textLinkUser" href="#">
                                             <i class="material-icons-outlined">logout</i>
                                             <span class="textUser">Sair</span>
@@ -417,18 +405,24 @@
                                     <span data-remove="${doc.id}" class="material-icons" title="Apagar">delete</span>
                                 </td>                            
                             </tr>
-                            
-                            
                         </tbody>
                     </table>
                 </div>
-                
             </div>
-                
-            
         </div>
+        <div class="loading">
+            <div class="sniperLoading"></div>
+        </div>
+
     </section>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
+    <script src="../../js/db/confiDb.js"></script>
+    <script src="../../js/autentication/index.js"></script>
     <script src="../../js/admin/menu.js"></script>
     <script src="../../js/admin/marcas.js"></script>
+    <script src="../../js/admin/loginUser.js"></script>
 </body>
 </html>
