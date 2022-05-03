@@ -4,8 +4,8 @@ const formAddProduto = document.querySelector('.addProduto');
 const btnSubmit = document.querySelector('.barTop button');
 
 const cod =  document.getElementById('cod')
-const img =  document.getElementById('fileEdit')
-const nameText =  document.getElementById('name')
+const img =  document.getElementById('imgAdd')
+const name =  document.getElementById('name')
 const artigo =  document.getElementById('artigo')
 const description =  document.getElementById('description')
 const vPrazo =  document.getElementById('vPrazo')
@@ -72,66 +72,49 @@ dbFirestore.collection('categorias').get().then(querySnapshot => {
 
 formAddProduto.addEventListener('submit', e => {
     e.preventDefault();
-
     const imageProduto = document.querySelector('.imgForm img');
-    const codd = document.getElementById('cod').value;
-    const form = document.querySelectorAll('.form');
+    const cod = document.getElementById('cod').value;
 
+    checkFormulario();
 
-    checkFormulario()
+  
+    dbFirestore.collection('produtos').doc(cod).set({
+        createdAt: new Date(),
+        cod: formAddProduto.cod.value,
+        img: imageProduto.src,
+        name: formAddProduto.nome.value,
+        artigo: formAddProduto.artigo.value,
+        description: formAddProduto.description.value,
+        vDescont: formAddProduto.vDesconto.value,
+        vPrazp: formAddProduto.vPrazo.value,
+        vAvista: formAddProduto.vAvista.value,
+        valorPa: formAddProduto.vParcela.value,
+        vFrete: formAddProduto.vFrete.value,
+        qtEstoque: formAddProduto.qtEstoque.value,
+        qtParcela: formAddProduto.qtParcela.value,
+        marcas: formAddProduto.marca.value,
+        categoria: formAddProduto.categoria1.value,
+        categoria2: formAddProduto.categoria2.value,
+        categoria3: formAddProduto.categoria3.value,
+        categoria4: formAddProduto.categoria4.value,
+        categoria5: formAddProduto.categoria5.value,
+        categoria6: formAddProduto.categoria6.value,
+    })
+
 
     
-
-    if(cod.value.length == 0 || img.src.length == 0 || nameText.value.length == 0 || artigo.value.length == 0 ||  
-        description.value.length == 0 || vPrazo.value.length == 0 ||  vDesconto.value.length == 0 ||
-        vParcela.value.length == 0 || vAvista.value.length == 0 || vFrete.value.length == 0 || 
-        qtEstoque.value.length == 0 || qtParcela.value.length == 0 || marca.value.length == 0 || 
-        categoria1.value.length == 0 ) {
-            
-    } else {
-        dbFirestore.collection('produtos').doc().set({
-            createdAt: new Date(),
-            cod: formAddProduto.cod.value,
-            img: imageProduto.src,
-            name: formAddProduto.nome.value,
-            artigo: formAddProduto.artigo.value,
-            description: formAddProduto.description.value,
-            vDescont: formAddProduto.vDesconto.value,
-            vPrazp: formAddProduto.vPrazo.value,
-            vAvista: formAddProduto.vAvista.value,
-            valorPa: formAddProduto.vParcela.value,
-            vFrete: formAddProduto.vFrete.value,
-            qtEstoque: formAddProduto.qtEstoque.value,
-            qtParcela: formAddProduto.qtParcela.value,
-            marcas: formAddProduto.marca.value,
-            categoria: formAddProduto.categoria1.value,
-            categoria2: formAddProduto.categoria2.value,
-            categoria3: formAddProduto.categoria3.value,
-            categoria4: formAddProduto.categoria4.value,
-            categoria5: formAddProduto.categoria5.value,
-            categoria6: formAddProduto.categoria6.value,
-        }).then(() => {
-            alert('saslvo com sucesso')
-        })
-        formAddProduto.reset()
-        imageProduto.src = '../../../assets/img/addImg.png'
-
-        
-
-    }
-
     
-
+    setTimeout(function(){
+        window.location.reload();
+    }, 1000)
 
 })
 
 
-
-
 function checkFormulario() {
     const codValue =  document.getElementById('cod').value
-    const imgSrc =  document.getElementById('fileEdit').src
-    const nameTextValue =  document.getElementById('name').value
+    const imgSrc =  document.getElementById('imgAdd').src
+    const nameValue =  document.getElementById('name').value
     const artigoValue =  document.getElementById('artigo').value
     const descriptionValue =  document.getElementById('description').value
     const vPrazoValue =  document.getElementById('vPrazo').value
@@ -143,93 +126,28 @@ function checkFormulario() {
     const qtParcelaValue =  document.getElementById('qtParcela').value
     const marcaValue =  document.getElementById('marca').value
     const categoria1Value =  document.getElementById('categoria1').value
+    const categoria2Value =  document.getElementById('categoria2').value
+    const categoria3Value =  document.getElementById('categoria3').value
+    const categoria4Value =  document.getElementById('categoria4').value
+    const categoria5Value =  document.getElementById('categoria5').value
+    const categoria6Value =  document.getElementById('categoria6').value
 
     if(codValue === '') {
-        setErrorFor(cod)
-    } else {
-        setSucessFor(cod)
+        setErrorFor(cod, 'o errei')
     }
-    if(imgSrc === '') {
-        setErrorFor(img)
-    } else {
-        setSucessFor(img)
-    }
-    if(nameTextValue === '') {
-        setErrorFor(nameText)
-    } else {
-        setSucessFor(nameText)
-    }
+
     if(artigoValue === '') {
-        setErrorFor(artigo)
-    } else {
-        setSucessFor(artigo)
+        setErrorFor(artigo, 'o errei')
     }
-    if(descriptionValue === '') {
-        setErrorFor(description)
-    } else {
-        setSucessFor(description)
-    }
-    if(vPrazoValue === '') {
-        setErrorFor(vPrazo)
-    } else {
-        setSucessFor(vPrazo)
-    }
-    if(vDescontoValue === '') {
-        setErrorFor(vDesconto)
-    } else {
-        setSucessFor(vDesconto)
-    }
-    if(vParcelaValue === '') {
-        setErrorFor(vParcela)
-    } else {
-        setSucessFor(vParcela)
-    }
-    if(vAvistaValue === '') {
-        setErrorFor(vAvista)
-    } else {
-        setSucessFor(vAvista)
-    }
-    if(vFreteValue === '') {
-        setErrorFor(vFrete)
-    } else {
-        setSucessFor(vFrete)
-    }
-    if(qtEstoqueValue === '') {
-        setErrorFor(qtEstoque)
-    } else {
-        setSucessFor(qtEstoque)
-    }
-    if(qtParcelaValue === '') {
-        setErrorFor(qtParcela)
-    } else {
-        setSucessFor(qtParcela)
-    }
-    if(marcaValue === '') {
-        setErrorFor(marca)
-    } else {
-        setSucessFor(marca)
-    }
-    if(categoria1Value === '') {
-        setErrorFor(categoria1)
-    } else {
-        setSucessFor(categoria1)
-    }
-    
 
-}
-
-function setSucessFor(input, message) {
-    const itemInput = input
-    const formError = itemInput.closest('.form')
-
-    formError.classList.remove('error')
 }
 
 function setErrorFor(input, message) {
-    const itemInput = input
-    
-    const formError = itemInput.closest('.form')
+    const inputDiv = document.querySelector('.itemInput')
+    const formError = inputDiv.parentElement;
+    const small = formError.querySelector('small')
 
+    small.innerText = message
     formError.classList.add('error')
 }
 

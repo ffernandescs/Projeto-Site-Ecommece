@@ -129,46 +129,48 @@
                         </div>
                     </div>
                     <div class="contFomr">
-                        <form class="addProduto" action="">
+                        <form class="addProduto" method="" action="">
                             <div class="box">
                                 <div class="boxForm">
                                     <div class="form itemForm1" for="cod">
                                         <label for="cod">Codigo:</label>
                                         <div class="itemInput">
-                                            <input type="text" value="" name="cod" id="cod">
+                                            <input type="text" value="" name="cod" id="cod" >
                                             <i class="material-icons-outlined">error_outline</i>
                                         </div>
                                         <div class="msmErro">
-                                            <small class="textErro">Mensagem de erro</small>
+                                            <small class="textErro">Campo obrigatorio!</small>
                                         </div>
                                     </div>
                                     <div class="form itemForm2 imgForm" for="img">
                                         <label for="img">Imagem:</label>
-                                        <input type="file" name="img" id="fileEdit" onchange="loadImgFileEdit(event)">
-                                        <img src="../../../assets/img/addImg.png" alt="">
+                                        <div class="itemInput">
+                                            <input type="file" name="img" id="fileEdit" onchange="loadImgFileEdit(event)">
+                                        </div>
+                                        <img id="imgAdd" src="../../../assets/img/addImg.png" alt="">
                                         <span id="itemImgEdit"></span>
                                         <div class="msmErro">
                                             <i class="material-icons-outlined">error_outline</i>
-                                            <small class="textErro">Mensagem de erro</small>
+                                            <small class="textErro">Campo obrigatorio!</small>
                                         </div>                                </div>
                                     <div class="form itemForm3" for="nome">
                                         <label for="nome">Nome:</label>
                                         <div class="itemInput">
-                                            <input type="text" name="nome">
+                                            <input id="name" type="text" name="nome">
                                             <i class="material-icons-outlined">error_outline</i>
                                         </div>
                                         <div class="msmErro">
-                                            <small class="textErro">Mensagem de erro</small>
+                                            <small class="textErro">Campo obrigatorio!</small>
                                         </div>    
                                     </div>
                                     <div class="form itemForm4" for="artigo">
                                         <label for="artigo">Artigo:</label>
                                         <div class="itemInput">
-                                            <input type="text" name="artigo">
+                                            <input id="artigo" type="text" name="artigo">
                                             <i class="material-icons-outlined">error_outline</i>
                                         </div>
                                         <div class="msmErro">
-                                            <small class="textErro">Mensagem de erro</small>
+                                            <small class="textErro">Campo obrigatorio!</small>
                                         </div>         
                                     </div>
                                     <div class="form itemForm5" for="description">
@@ -176,7 +178,7 @@
                                         <textarea name="description" id="description" cols="30" rows="5"></textarea>
                                         <div class="msmErro">
                                             <i class="material-icons-outlined">error_outline</i>
-                                            <small class="textErro">Mensagem de erro</small>
+                                            <small class="textErro">Campo obrigatorio!</small>
                                         </div>                                
                                     </div>
                                 </div>
@@ -184,67 +186,68 @@
                                     <div class="form itemForm6" for="vPrazo">
                                         <label for="vPrazo">Valor a prazo:</label>
                                         <div class="itemInput">
-                                            <input type="text" name="vPrazo">
+                                            <input id="vPrazo" type="text" name="vPrazo">
                                             <i class="material-icons-outlined">error_outline</i>
                                         </div>
                                         <div class="msmErro">
-                                            <small class="textErro">Mensagem de erro</small>
+                                            <small class="textErro">Campo obrigatorio!</small>
                                         </div>   
                                     </div>
                                     <div class="form itemForm7" for="vDesconto">
                                         <label for="vDesconto">Valor de desconto:</label>
                                         <div class="itemInput">
-                                            <input type="text" name="vDesconto">
+                                            <input id="vDesconto" type="text" name="vDesconto">
                                             <i class="material-icons-outlined">error_outline</i>
                                         </div>
                                         <div class="msmErro">
-                                            <small class="textErro">Mensagem de erro</small>
+                                            <small class="textErro">Campo obrigatorio!</small>
                                         </div>
                                     </div>
                                     <div class="form itemForm8" for="vAvista">
                                         <label for="vAvista">Valor avista:</label>
                                         <div class="itemInput">
-                                            <input type="text" name="vAvista">
+                                            <input id="vAvista" type="text" name="vAvista">
                                             <i class="material-icons-outlined">error_outline</i>
                                         </div>
                                         <div class="msmErro">
-                                            <small class="textErro">Mensagem de erro</small>
+                                            <small class="textErro">Campo obrigatorio!</small>
                                         </div>
                                     </div>
                                     
                                     <div class="form itemForm9" for="vParcela">
                                         <label for="vParcela">Valor da parcela:</label>
                                         <div class="itemInput">
-                                            <input type="text" name="vParcela">
+                                            <input id="vParcela" type="text" name="vParcela">
                                             <i class="material-icons-outlined">error_outline</i>
                                         </div>
                                         <div class="msmErro">
-                                            <small class="textErro">Mensagem de erro</small>
+                                            <small class="textErro">Campo obrigatorio!</small>
                                         </div>
                                     </div>
                                     <div class="form itemForm10" for="vFrete">
                                         <label for="vFrete">Valor do frete:</label>
                                         <div class="itemInput">
-                                            <input type="text" name="vFrete">
+                                            <input id="vFrete" type="text" name="vFrete">
                                             <i class="material-icons-outlined">error_outline</i>
                                         </div>
                                         <div class="msmErro">
-                                            <small class="textErro">Mensagem de erro</small>
+                                            <small class="textErro">Campo obrigatorio!</small>
                                         </div>
                                     </div>
                                     <div class="form itemForm11" for="qtEstoque">
                                         <label for="qtEstoque">Quant. em estoque:</label>
                                         <div class="itemInput">
-                                            <input type="text" name="qtEstoque">
+                                            <input id="qtEstoque" type="text" name="qtEstoque">
                                             <i class="material-icons-outlined">error_outline</i>
                                         </div>
                                         <div class="msmErro">
-                                            <small class="textErro">Mensagem de erro</small>
+                                            <small class="textErro">Campo obrigatorio!</small>
                                         </div>                               
                                     </div>
                                     <div class="form itemForm12" for="qtParcela">
                                         <label for="qtParcela">Quant. de Parcelas:</label>
-                                        <select itemid="qtParcela" name="qtParcela" id="qtParcela" required> 
+                                        <select itemid="qtParcela" name="qtParcela" id="qtParcela"> 
+                                            <option value=""></option>
                                             <option value="1">1x</option>
                                             <option value="2">2x</option>
                                             <option value="3">3x</option>
@@ -260,21 +263,21 @@
                                         </select>
                                         <div class="msmErro">
                                             <i class="material-icons-outlined">error_outline</i>
-                                            <small class="textErro">Mensagem de erro</small>
+                                            <small class="textErro">Campo obrigatorio!</small>
                                         </div>                                </div>
                                     <div class="form itemForm13" for="marca">
                                         <label for="marca">Marcas:</label>
-                                        <select itemid="marca" name="marca" id="marca" required> 
+                                        <select itemid="marca" name="marca" id="marca" > 
                                             <option value="">Nenhum</option>
                                         </select>
                                         <div class="msmErro">
                                             <i class="material-icons-outlined">error_outline</i>
-                                            <small class="textErro">Mensagem de erro</small>
+                                            <small class="textErro">Campo obrigatorio!</small>
                                         </div>                                </div>
                                     <div class="form itemForm14" for="categorias">
                                         <label for="categorias">Categorias:</label>
                                         <div class="contCategorias">
-                                            <select itemid="categoria1" name="categoria1" id="categoria1" required> 
+                                            <select itemid="categoria1" name="categoria1" id="categoria1"> 
                                                 <option value="">Nenhum</option>
                                             </select>
                                             
@@ -296,7 +299,7 @@
                                         </div>
                                         <div class="msmErro">
                                             <i class="material-icons-outlined">error_outline</i>
-                                            <small class="textErro">Mensagem de erro</small>
+                                            <small class="textErro">Campo obrigatorio!</small>
                                         </div> 
                                     </div>
                                     <div class="btnForm">

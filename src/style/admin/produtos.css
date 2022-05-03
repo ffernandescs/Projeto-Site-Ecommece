@@ -264,7 +264,7 @@ body {
     opacity: 0;
     transition: all 0.3s ease;
     background-color: #0e6f18;
-    margin-left: 15px;
+    margin-left: 5px;
 
 }
 
@@ -482,7 +482,8 @@ body {
 
 .containerPrincipal .container .contFomr .addProduto .boxForm .form .itemInput i {
     position: absolute;
-    right: 5px;
+    right: -5px;
+    bottom: 10px;
     font-size: 12px;
     visibility: hidden;
 }

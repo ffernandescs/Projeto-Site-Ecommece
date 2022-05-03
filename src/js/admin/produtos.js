@@ -2,9 +2,25 @@ const tableListProduc = document.querySelector('.tbList');
 const delItem = document.querySelector('.tbList'); 
 const formEdit = document.querySelector('.editProduto'); 
 
-
 const formEditProduct = document.querySelector('.editProduto');
 const imgPreview = document.querySelector('.imgForm img');
+
+const cod =  document.getElementById('cod')
+const img =  document.getElementById('fileEdit')
+const nameText =  document.getElementById('name')
+const artigo =  document.getElementById('artigo')
+const description =  document.getElementById('description')
+const vPrazo =  document.getElementById('vPrazo')
+const vDesconto =  document.getElementById('vDesconto')
+const vParcela =  document.getElementById('vParcela')
+const vAvista =  document.getElementById('vAvista')
+const vFrete =  document.getElementById('vFrete')
+const qtEstoque =  document.getElementById('qtEstoque')
+const qtParcela =  document.getElementById('qtParcela')
+const marca =  document.getElementById('marca')
+const categoria1 =  document.getElementById('categoria1')
+const categoria2 =  document.getElementById('categoria2')
+const categoria3 =  document.getElementById('categoria3')
 
 let id; 
 
@@ -74,7 +90,7 @@ const loadingList = doc => {
         namePageEdit.innerHTML = 'Produtos'
         modalEdit.classList.add('active')
         disableFile.disabled = true
-
+        disableFile.src = `${doc.data().img}`
 
         for(let i = 0; i < disableInputs.length; i++){
             disableInputs[i].disabled = true;
@@ -87,7 +103,6 @@ const loadingList = doc => {
             if(disableTextareas[i].disabled = true) {
                 disableTextareas[i].style.backgroundColor = '#ececed30'
             }
-
         }
 
         for(let i = 0; i < disableSelect.length; i++){
@@ -98,7 +113,7 @@ const loadingList = doc => {
         }
 
         id = doc.id
-
+        
         formEditProduct.cod.value = doc.data().cod
         formEditProduct.nome.value = doc.data().name
         formEditProduct.artigo.value = doc.data().artigo
@@ -126,15 +141,10 @@ const loadingList = doc => {
 
         })
 
-
-
-
-
         const btnEdit = document.getElementById('btnEdit');
         btnEdit.addEventListener('click', () => {
 
             namePageEdit.innerHTML = 'Editar Produtos'
-
 
             btnPageEditar.style.display = 'none'
             btnPageSalvar.classList.add('active')    
@@ -150,7 +160,6 @@ const loadingList = doc => {
             for(let i = 0; i < disableTextareas.length; i++){
                 disableTextareas[i].disabled = false;
                 disableTextareas[i].style.backgroundColor = 'transparent'
-
             }
     
             for(let i = 0; i < disableSelect.length; i++){
@@ -161,15 +170,15 @@ const loadingList = doc => {
             imgPreview.addEventListener('click', () => {
                 const imgFile = document.getElementById('fileEdit');
                 imgFile.click();
-                
             })
-
-         
 
         })
 
     })
 }
+
+
+
 
 dbFirestore.collection('categorias').get().then(querySnapshot => {
     querySnapshot.forEach(doc => {
@@ -237,38 +246,150 @@ delItem.addEventListener('click', e => {
     }
 })
 
-
 formEdit.addEventListener('submit', e => {
     e.preventDefault();
     const imageProduto = document.querySelector('.imgForm img');
-  
-    dbFirestore.collection('produtos').doc(id).update({
-        cod: formEditProduct.cod.value,
-        img: imageProduto.src,
-        name: formEditProduct.nome.value,
-        artigo: formEditProduct.artigo.value,
-        description: formEditProduct.description.value,
-        vDescont: formEditProduct.vDesconto.value,
-        vPrazp: formEditProduct.vPrazo.value,
-        vAvista: formEditProduct.vAvista.value,
-        valorPa: formEditProduct.vParcela.value,
-        vFrete: formEditProduct.vFrete.value,
-        qtEstoque: formEditProduct.qtEstoque.value,
-        qtParcela: formEditProduct.qtParcela.value,
-        marcas: formEditProduct.marca.value,
-        categoria: formEditProduct.categoria1.value,
-        categoria2: formEditProduct.categoria2.value,
-        categoria3: formEditProduct.categoria3.value,
-        categoria4: formEditProduct.categoria4.value,
-        categoria5: formEditProduct.categoria5.value,
-        categoria6: formEditProduct.categoria6.value,
-    })
-    
-    setTimeout(function(){
-        window.location.reload();
-    }, 1000)
+    checkFormulario()
+
+    if(cod.value.length == 0 || img.src.length == 0 || nameText.value.length == 0 || artigo.value.length == 0 ||  
+        description.value.length == 0 || vPrazo.value.length == 0 ||  vDesconto.value.length == 0 ||
+        vParcela.value.length == 0 || vAvista.value.length == 0 || vFrete.value.length == 0 || 
+        qtEstoque.value.length == 0 || qtParcela.value.length == 0 || marca.value.length == 0 || 
+        categoria1.value.length == 0 ) {
+
+    } else {
+        dbFirestore.collection('produtos').doc(id).update({
+            cod: formEditProduct.cod.value,
+            img: imageProduto.src,
+            name: formEditProduct.nome.value,
+            artigo: formEditProduct.artigo.value,
+            description: formEditProduct.description.value,
+            vDescont: formEditProduct.vDesconto.value,
+            vPrazp: formEditProduct.vPrazo.value,
+            vAvista: formEditProduct.vAvista.value,
+            valorPa: formEditProduct.vParcela.value,
+            vFrete: formEditProduct.vFrete.value,
+            qtEstoque: formEditProduct.qtEstoque.value,
+            qtParcela: formEditProduct.qtParcela.value,
+            marcas: formEditProduct.marca.value,
+            categoria: formEditProduct.categoria1.value,
+            categoria2: formEditProduct.categoria2.value,
+            categoria3: formEditProduct.categoria3.value,
+            categoria4: formEditProduct.categoria4.value,
+            categoria5: formEditProduct.categoria5.value,
+            categoria6: formEditProduct.categoria6.value,
+        })
+        
+        setTimeout(function(){
+            window.location.reload();
+        }, 1000)
+    }
 
 })
+
+function checkFormulario() {
+    const codValue =  document.getElementById('cod').value
+    const imgSrc =  document.getElementById('fileEdit').src
+    const nameTextValue =  document.getElementById('name').value
+    const artigoValue =  document.getElementById('artigo').value
+    const descriptionValue =  document.getElementById('description').value
+    const vPrazoValue =  document.getElementById('vPrazo').value
+    const vDescontoValue =  document.getElementById('vDesconto').value
+    const vParcelaValue =  document.getElementById('vParcela').value
+    const vAvistaValue =  document.getElementById('vAvista').value
+    const vFreteValue =  document.getElementById('vFrete').value
+    const qtEstoqueValue =  document.getElementById('qtEstoque').value
+    const qtParcelaValue =  document.getElementById('qtParcela').value
+    const marcaValue =  document.getElementById('marca').value
+    const categoria1Value =  document.getElementById('categoria1').value
+
+    if(codValue === '') {
+        setErrorFor(cod)
+    } else {
+        setSucessFor(cod)
+    }
+    if(imgSrc === '') {
+        setErrorFor(img)
+    } else {
+        setSucessFor(img)
+    }
+    if(nameTextValue === '') {
+        setErrorFor(nameText)
+    } else {
+        setSucessFor(nameText)
+    }
+    if(artigoValue === '') {
+        setErrorFor(artigo)
+    } else {
+        setSucessFor(artigo)
+    }
+    if(descriptionValue === '') {
+        setErrorFor(description)
+    } else {
+        setSucessFor(description)
+    }
+    if(vPrazoValue === '') {
+        setErrorFor(vPrazo)
+    } else {
+        setSucessFor(vPrazo)
+    }
+    if(vDescontoValue === '') {
+        setErrorFor(vDesconto)
+    } else {
+        setSucessFor(vDesconto)
+    }
+    if(vParcelaValue === '') {
+        setErrorFor(vParcela)
+    } else {
+        setSucessFor(vParcela)
+    }
+    if(vAvistaValue === '') {
+        setErrorFor(vAvista)
+    } else {
+        setSucessFor(vAvista)
+    }
+    if(vFreteValue === '') {
+        setErrorFor(vFrete)
+    } else {
+        setSucessFor(vFrete)
+    }
+    if(qtEstoqueValue === '') {
+        setErrorFor(qtEstoque)
+    } else {
+        setSucessFor(qtEstoque)
+    }
+    if(qtParcelaValue === '') {
+        setErrorFor(qtParcela)
+    } else {
+        setSucessFor(qtParcela)
+    }
+    if(marcaValue === '') {
+        setErrorFor(marca)
+    } else {
+        setSucessFor(marca)
+    }
+    if(categoria1Value === '') {
+        setErrorFor(categoria1)
+    } else {
+        setSucessFor(categoria1)
+    }
+
+}
+
+function setSucessFor(input, message) {
+    const itemInput = input
+    const formError = itemInput.closest('.form')
+
+    formError.classList.remove('error')
+}
+
+function setErrorFor(input, message) {
+    const itemInput = input
+    
+    const formError = itemInput.closest('.form')
+
+    formError.classList.add('error')
+}
 
 let loadImgFileEdit = function(event){
     let reader = new FileReader();
