@@ -8,6 +8,38 @@
     font-family: 'Poppins', sans-serif; 
 }
 
+body {
+    position: relative;
+    height: 100vh;
+}
+
+.btnTop {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f1f0f296;
+    border-radius: 50%;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.btnTop span {
+    font-size: 40px;
+    color: #000;
+}
+
+.btnTop.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
 header {
     position: relative;
     width: 100%;
@@ -23,7 +55,16 @@ a, h1, h2, h3, h4, p {
 .containerTop {
     width: 100%;
     position: fixed;
-    z-index: 2;
+    z-index: 5;
+    transition: all 0.4s ease-in-out;
+}
+
+.containerTop.active {
+    top: -10%;
+}
+.containerTop.show {
+    top: 0;
+    box-shadow: 0 0 10px #333;
 }
 
 .topPage {
@@ -32,7 +73,7 @@ a, h1, h2, h3, h4, p {
     align-items: center;
     width: 100%;
     background-color: #000;
-    padding: 5px 20px;
+    padding: 15px 20px;
 }
 
 .topPage .logo {
@@ -400,14 +441,14 @@ section {
     left: 0;
     top: 50%;
     color: #000;
-    z-index: 50;
+    z-index: 2;
 }
 
 .iconForwardPd {
     right: 0;
     top: 50%;
     color: #000;
-    z-index: 50;
+    z-index: 2;
 }
 
 
@@ -838,7 +879,7 @@ footer {
 
 .menuHamburguer .line {
     width: 100%;
-    height: 3px;
+    height: 4px;
     background-color: #000;
 }
 
@@ -874,10 +915,11 @@ footer {
     .menu {
         position: absolute;
         align-items: flex-start;
-        top: 0;
+        top: 80px;
         left: -100%;
         width: 100%;
         height: 100vh;
+        transition: all 0.3s ease-in-out;
         z-index: 15;
     }
 
@@ -905,15 +947,51 @@ footer {
     }
 
     .menuHamburguer {
+        position: fixed;
         display: flex;
-        left: 20px;
-        bottom: 13px;    
+        top: 70px;
+        left: 0px;
+        bottom: 13px; 
+        justify-content:center;   
+        width: 100%;
+        height: 50px;
+        background-color: #FFF;
         z-index: 15;
     }
 
+    .menuHamburguer .line {
+        width: 40px;
+        margin-left: 20px;
+        margin-bottom: 8px;
+        transition: all 0.3s ease;
+    }
+
+    .menuHamburguer .line:last-child {
+        margin-bottom: 0;
+    }
+
     .menuHamburguer.active {
-        left: 35px;
+        z-index: 15;
+    }
+
+    .menuHamburguer.active .item2 {
+        display: none;
+    }
+
+    .menuHamburguer.active .item1 {
+        position: absolute;
         top: 20px;
+        transform: rotate(-138deg);
+    }
+
+    .menuHamburguer.active .item3 {
+        position: absolute;
+        top: 20px;
+        transform: rotate(138deg);
+    }
+
+    .menuHamburguer.active .item2 {
+        visibility: hidden;
     }
 
     .itemBox {

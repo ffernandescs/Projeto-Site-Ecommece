@@ -553,10 +553,13 @@ body {
     }
 
  
-    .containerPrincipal .container .contAddProduto .contFomr .addProduto .boxForm .imgForm img {
+    .containerPrincipal .container .contAddProduto .contFomr .addProduto .boxForm .imgForm img,
+    .containerPrincipal .container .contAddProduto .contFomr .addProduto .boxForm .imgForm span {
         width: 100px;
         height: 100px;
     }
+
+    
 
     .containerPrincipal .container .barTop .contBtnAdd button {
         width: 100px;

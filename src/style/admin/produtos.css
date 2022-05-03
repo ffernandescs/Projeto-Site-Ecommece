@@ -778,6 +778,11 @@ body {
         height: 100px;
     }
 
+    .containerPrincipal .container .contFomr .addProduto .boxForm .imgForm span {
+        width: 100px;
+        height: 100px;
+    }
+
     .containerPrincipal .container .barTopEdit .contBtnEdit button {
         width: 100px;
     }

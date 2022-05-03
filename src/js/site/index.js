@@ -9,6 +9,7 @@ const btnMenuHamburger = document.querySelector('.menuHamburguer');
 const listPromo = document.getElementById('promo');
 const listLancamento = document.getElementById('lancamentos');
 const containerFooter = document.querySelector('.containerBarFooter');
+const btnTop = document.querySelector('.btnTop');
 
 let indexImgSlider = 0;
 
@@ -22,6 +23,27 @@ dbFirestore.collection('dadosUsuario').get().then(querySnapshot => {
   querySnapshot.forEach(doc => {
     loadingFooter(doc);
   })
+})
+
+window.addEventListener('scroll', () => {
+  if(scrollY > 500) {
+    btnTop.classList.add('active')
+  } else {
+    btnTop.classList.remove('active')
+  }
+  const containerTop = document.querySelector('.containerTop');
+
+  if(scrollY > 1) {
+    containerTop.classList.add('active')
+  } else {
+    containerTop.classList.remove('active');
+  }
+  if (scrollY > 2) {
+    containerTop.classList.add('show')
+  } else {
+    containerTop.classList.remove('show')
+  }
+
 })
 
 window.addEventListener('load', () => {
@@ -42,6 +64,15 @@ window.addEventListener('load', () => {
   }
   
 });
+
+btnTop.addEventListener('click', () => {
+    window.scroll({
+      top: 0,
+      behavior: 'smooth'
+    })
+
+  console.log('ok')
+})
 
 
 
@@ -301,11 +332,11 @@ const loadingFooter = doc => {
                       <div class="links">
                           <h1>Atendimentos</h1>
                           <div class="location">
-                              <a id="telPhone" href="https://api.whatsapp.com/send?phone=55${doc.data().tel}&text=Ola" target="blank_">
+                              <a id="telPhone" target="blank_" href="https://api.whatsapp.com/send?phone=55${doc.data().tel}&text=Ola">
                                   <i class="fa-brands fa-whatsapp"></i>
                                   <span id="phone">${doc.data().tel}</span>
                               </a>
-                              <a id="local" href="${doc.data().gps}" target="blank_">
+                              <a id="local" target="blank_" href="${doc.data().gps}">
                                   <i class="fa-solid fa-location-dot"></i>
                                   <span id="local">${doc.data().local}</span>
                               </a>
