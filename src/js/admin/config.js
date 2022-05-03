@@ -65,10 +65,12 @@ dbFirestore.collection('dadosUsuario').get().then(querySnapshot => {
         formDadosSite.politica.value = doc.data().politica
         formDadosSite.envio.value = doc.data().envio
         formDadosSite.termos.value = doc.data().termos
+        formDadosSite.logo.src = doc.data().imgLogo
+        formDadosSite.whatsapp.value = doc.data().tel
         formDadosSite.instagram.value = doc.data().redeInstagram
         formDadosSite.facebook.value = doc.data().redeFacebook
-        formDadosSite.whatsapp.value = doc.data().tel
         formDadosSite.endereco.value = doc.data().local
+        formDadosSite.gps.value = doc.data().gps
         formDadosSite.horario1.value = doc.data().hrA
         formDadosSite.nameHorario1.value = doc.data().nameHrA
         formDadosSite.horario2.value = doc.data().hrB
@@ -85,10 +87,12 @@ formDadosSite.addEventListener('submit', e => {
         politica: formDadosSite.politica.value,
         envio: formDadosSite.envio.value,
         termos: formDadosSite.termos.value,
+        imgLogo: formDadosSite.logo.src,
+        tel: formDadosSite.whatsapp.value,
         redeInstagram: formDadosSite.instagram.value,
         redeFacebook: formDadosSite.facebook.value,
-        tel: formDadosSite.whatsapp.value,
         local: formDadosSite.endereco.value,
+        gps: formDadosSite.gps.value,
         hrA: formDadosSite.horario1.value,
         nameHrA: formDadosSite.nameHorario1.value,
         hrB: formDadosSite.horario2.value,
@@ -98,4 +102,17 @@ formDadosSite.addEventListener('submit', e => {
     setTimeout(function(){
         window.location.reload();
     }, 1000)
+})
+
+
+document.getElementById('fileLogo').addEventListener('change', (event)=> {
+    const fileEdit = event.target.files[0];
+    const storageRef = firebase.storage().ref('siteEcommece-Isabel/' + fileEdit.name);
+
+        storageRef.put(fileEdit).then(function(result) {
+            storageRef.getDownloadURL().then(function(result){
+                const imgEdit = document.getElementById('fileLogo');
+                imgEdit.src = result;
+        });
+    })
 })

@@ -201,12 +201,12 @@ body {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-areas: 
-    'itemForm5 itemForm11'
-    'itemForm6 itemForm11'
-    'itemForm7 itemForm11'
-    'itemForm8 itemForm8'
+    'itemForm5 itemForm6'
+    'itemForm7 itemForm8'
     'itemForm9 itemForm9'
     'itemForm10 itemForm10'
+    'itemForm11 itemForm11'
+    'itemForm12 itemForm12'
     'btnForm btnForm';
     grid-gap: 20px;
     align-items: flex-start;
@@ -304,12 +304,12 @@ body {
 
 .containerPrincipal .container .contFomr .dadosSite .boxForm .form .itemInput input {
     width: 100%;
-    height: 20px;
+    height: 30px;
     background-color: #ececed30;
     border: none;
     border-bottom: 1px solid #95959efe;
     outline: 0;
-    padding-left: 10px;
+    padding: 5px 2px;
     margin-bottom: 5px;
 }
 
@@ -403,20 +403,6 @@ body {
         font-size: 12px;
     }
 
-     .containerPrincipal .container .contDadosSite .contFomr .dadosSite .box .box2 {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-areas: 
-        'itemForm5 itemForm5'
-        'itemForm6 itemForm6'
-        'itemForm7 itemForm11'
-        'itemForm8 itemForm8'
-        'itemForm9 itemForm9'
-        'itemForm10 itemForm10'
-        'btnForm btnForm';
-        grid-gap: 20px;
-        margin-top: 0;
-    }
 }
 
 @media (max-width: 500px) {
@@ -437,16 +423,24 @@ body {
 
     .containerPrincipal .container .contDadosSite .contFomr .dadosSite .box2 {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(1, 1fr);
         grid-template-areas: 
-        'itemForm5 itemForm5'
-        'itemForm6 itemForm6'
-        'itemForm7 itemForm11'
-        'itemForm8 itemForm8'
-        'itemForm9 itemForm9'
-        'itemForm10 itemForm10'
-        'btnForm btnForm';
+        'itemForm5 '
+        'itemForm6 '
+        'itemForm7 '
+        'itemForm8 '
+        'itemForm9 '
+        'itemForm10 '
+        'itemForm11 '
+        'itemForm12 '
+        'btnForm';
         grid-gap: 20px;
+    }
+    .containerPrincipal .container .contFomr .dadosSite .boxForm .form .itemInput {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
     }
 }
 

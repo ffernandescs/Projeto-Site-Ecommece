@@ -246,8 +246,8 @@ const loadingFooter = doc => {
                       <div class="links">
                           <h1>Siga-nós</h1>
                           <div class="redeSocial">
-                              <a id="instagram" href="http://${doc.data().redeInstagram}" target="black_"><i class="fa-brands fa-instagram"></i></a>
-                              <a id="facebook" href="http://${doc.data().redeFacebook}" target="black_"><i class="fa-brands fa-facebook"></i></a>
+                              <a id="instagram" href="http://${doc.data().redeInstagram}" target="blank_"><i class="fa-brands fa-instagram"></i></a>
+                              <a id="facebook" href="http://${doc.data().redeFacebook}" target="blank_"><i class="fa-brands fa-facebook"></i></a>
                           </div>
                           <h1>Aceitamos Cartões</h1>
                           <div class="imgCartao">
@@ -305,7 +305,7 @@ const loadingFooter = doc => {
                                   <i class="fa-brands fa-whatsapp"></i>
                                   <span id="phone">${doc.data().tel}</span>
                               </a>
-                              <a id="local" href="#">
+                              <a id="local" href="${doc.data().gps}" target="blank_">
                                   <i class="fa-solid fa-location-dot"></i>
                                   <span id="local">${doc.data().local}</span>
                               </a>
@@ -329,6 +329,12 @@ const loadingFooter = doc => {
                     </div>`
 
     containerFooter.insertAdjacentHTML('beforeend', tagFooter)
+
+    const tagLogo = document.querySelector('.logo');
+    
+    const imgLogo = document.createElement('img')
+    tagLogo.appendChild(imgLogo)
+    imgLogo.src = `${doc.data().imgLogo}`
 
     const clickPopup = document.querySelector('.listText1 p');
     const clickPopup4 = document.querySelector('.listText4 p');
