@@ -38,6 +38,7 @@ body {
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
+    z-index: 16;
 }
 
 header {
@@ -462,9 +463,22 @@ section {
     transform: scale(1);
 }
 
+.listProdutos ul li #textDesconto {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 50px;
+    text-align: center;
+    background-color: #ee7913;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #fff;
+    padding: 2px 8px;
+}
+
 .listProdutos ul li::before {
     position: absolute;
-    bottom: -60px;
+    bottom: -60px; 
     width: 90%;
     height: 1px;
     background-color: #84777077;
@@ -483,14 +497,13 @@ section {
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 250px;
     overflow: hidden;
 }
 
 .imgProduto img {
     width: 80%;
-    height: 250px;
-    object-fit: cover;
+    height: 170px;
+    object-fit: contain;
 }
 
 .containerTextProduto {
@@ -547,7 +560,7 @@ section {
     margin: 0 auto;
     font-size: 14px;
     line-height: 1;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -934,7 +947,6 @@ footer {
         font-size: 22px;
     }
 
-
     .menuHamburguer {
         position: relative;
         display: flex;
@@ -996,8 +1008,6 @@ footer {
     .listProdutos nav ul li {
         width: 50vw;
     }
-
-    
 }
 
 @media (max-width: 400px) {

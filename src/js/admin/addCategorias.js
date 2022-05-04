@@ -6,7 +6,7 @@ btnSubmit.addEventListener('click', () => {
     const btnFormSubmit = document.querySelector('.btnForm .btnSubmit');
     btnFormSubmit.click();
 })
-
+ 
 formAddMarcas.addEventListener('submit', e => {
     e.preventDefault();
     checkFormulario()

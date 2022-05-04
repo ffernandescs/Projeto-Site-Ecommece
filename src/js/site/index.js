@@ -62,7 +62,6 @@ window.addEventListener('load', () => {
           slider();
       })
   }
-  
 });
 
 btnTop.addEventListener('click', () => {
@@ -73,8 +72,6 @@ btnTop.addEventListener('click', () => {
 
   console.log('ok')
 })
-
-
 
 btnSliderBack.addEventListener('click', () => {
     indexImgSlider--
@@ -93,7 +90,6 @@ function slider() {
         indexImgSlider = qtImg.length -1
     }
     imgSlider.style.marginLeft = -1200 * indexImgSlider + 'px'
-  
 }
 
 setInterval(() => {
@@ -118,6 +114,7 @@ const loadPromoLancamentos = doc => {
   if(doc.data().categoria == 'Lançamentos' || doc.data().categoria2 == 'Lançamentos' || doc.data().categoria3 == 'Lançamentos' || doc.data().categoria4 == 'Lançamentos'
   || doc.data().categoria5 == 'Lançamentos' || doc.data().categoria6 == 'Lançamentos') {
     const tagLiPromo = `<li class="${doc.data().categoria} listPromo">
+                          <span id="textDesconto">-${doc.data().vDescont}</span>
                           <a href="#">
                               <div class="imgProduto">
                                   <img src="${doc.data().img}" alt="">
@@ -137,7 +134,6 @@ const loadPromoLancamentos = doc => {
                                   <span id="vParcela">Até ${doc.data().qtParcela}x de R$ ${doc.data().valorPa}</span>
                                 </div>
                               </div>
-                              
                               <div id="btnCompre">
                                   Acessar
                               </div>
@@ -150,7 +146,8 @@ const loadPromoLancamentos = doc => {
   if(doc.data().categoria == 'Promoção' || doc.data().categoria2 == 'Promoção' || doc.data().categoria3 == 'Promoção' || doc.data().categoria4 == 'Promoção'
   || doc.data().categoria5 == 'Promoção' || doc.data().categoria6 == 'Promoção') {
     const tagLiPromo = `<li class="${doc.data().categoria} listLanc">
-                        <a href="#">
+                          <span id="textDesconto">-${doc.data().vDescont}</span>
+                          <a href="#">
                             <div class="imgProduto">
                                 <img src="${doc.data().img}" alt="">
                             </div>

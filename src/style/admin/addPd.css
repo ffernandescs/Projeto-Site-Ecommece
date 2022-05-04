@@ -287,6 +287,11 @@ body {
     margin-bottom: 5px;
 }
 
+.containerPrincipal .container .contFomr .addProduto .boxForm .form .itemInput #vParcela, 
+.containerPrincipal .container .contFomr .addProduto .boxForm .form .itemInput #vDesconto {
+    background-color: #ececed9c;
+}
+
 .containerPrincipal .container .contFomr .addProduto .boxForm .form .itemInput i {
     position: absolute;
     right: -5px;

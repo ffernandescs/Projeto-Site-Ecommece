@@ -197,7 +197,7 @@
                                     <div class="form itemForm3" for="nome">
                                         <label for="nome">Nome:</label>
                                         <div class="itemInput">
-                                            <input id="name" type="text" name="nome">
+                                            <input id="name" type="text" name="nome" maxlength="25">
                                             <i class="material-icons-outlined">error_outline</i>
                                         </div>
                                         <div class="msmErro">
@@ -237,7 +237,7 @@
                                     <div class="form itemForm7" for="vDesconto">
                                         <label for="vDesconto">Valor de desconto:</label>
                                         <div class="itemInput">
-                                            <input id="vDesconto" type="text" name="vDesconto" value="0" disabled  oninput="soma()"> 
+                                            <input id="vDesconto" type="text" name="vDesconto" value="0" disabled  onkeyup="soma()"> 
                                             <i class="material-icons-outlined">error_outline</i>
                                         </div>
                                         <div class="msmErro">

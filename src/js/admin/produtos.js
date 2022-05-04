@@ -47,18 +47,20 @@ window.addEventListener('load', () => {
 
 function soma() {
     const vPrazo = parseFloat(document.getElementById("vPrazo").value.replace(/[R$\.]/g, "").replace(",", "."));
-    const vAvista = parseFloat(document.getElementById("vAvista").value.replace(/[R$\.]/g, "").replace(",", "."));
+    const vAvista = parseInt(document.getElementById("vAvista").value.replace(/[R$\.]/g, "").replace(",", "."));
     
     const valorDescont = vPrazo - vAvista;
     const desconto = valorDescont * 100; 800
     const percentual = desconto / vPrazo;
 
-    vDesconto.value = Math.floor(percentual) + '%'
-
-    const quantParcel = vPrazo / parseFloat(qtParcela.value)
+    if(percentual >= 1) {
+        vDesconto.value = Math.floor(percentual) + '%'
+    } else {
+        vDesconto.value = percentual.toFixed(2) + '%'
+    }
+    const quantParcel = vPrazo / qtParcela.value
  
-    vParcela.value = quantParcel.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) 
-    console.log()
+    vParcela.value = quantParcel.toLocaleString('pt-Br',{style: 'currency', currency: 'BRL'})
 }
 
   function maskCurrency(valor, locale = 'pt-BR', currency = 'BRL') {
@@ -136,7 +138,9 @@ const loadingList = doc => {
         modalEdit.classList.add('active')
         disableFile.disabled = true
         vDesconto.disabled = true
+        vDesconto.style.backgroundColor = '#95959efe'
         vParcela.disabled = true
+        vParcela.style.backgroundColor = '#95959efe'
         disableFile.src = `${doc.data().img}`
 
         for(let i = 0; i < disableInputs.length; i++){
@@ -193,7 +197,7 @@ const loadingList = doc => {
 
             namePageEdit.innerHTML = 'Editar Produtos'
             vDesconto.disabled = true
-            vParcela.disabled = true    
+            vParcela.disabled = true
             btnPageEditar.style.display = 'none'
             btnPageSalvar.classList.add('active')    
             btnPageLimpar.style.visibility = 'visible'
@@ -203,7 +207,8 @@ const loadingList = doc => {
             for(let i = 0; i < disableInputs.length; i++){
                 disableInputs[i].disabled = false;
                 disableInputs[i].style.backgroundColor = 'transparent'
-
+                vDesconto.style.backgroundColor = '#ececed30'
+                vParcela.style.backgroundColor = '#ececed30'
             }
             for(let i = 0; i < disableTextareas.length; i++){
                 disableTextareas[i].disabled = false;

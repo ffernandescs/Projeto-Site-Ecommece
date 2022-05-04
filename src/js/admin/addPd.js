@@ -41,26 +41,21 @@ window.addEventListener('load', () => {
 
 function soma() {
     const vPrazo = parseFloat(document.getElementById("vPrazo").value.replace(/[R$\.]/g, "").replace(",", "."));
-    const vAvista = parseFloat(document.getElementById("vAvista").value.replace(/[R$\.]/g, "").replace(",", "."));
+    const vAvista = parseInt(document.getElementById("vAvista").value.replace(/[R$\.]/g, "").replace(",", "."));
     
     const valorDescont = vPrazo - vAvista;
     const desconto = valorDescont * 100; 800
     const percentual = desconto / vPrazo;
 
-
-
-    vDesconto.value = Math.floor(percentual) + '%'
-    const quantParcel = vPrazo / parseFloat(qtParcela.value)
+    if(percentual >= 1) {
+        vDesconto.value = Math.floor(percentual) + '%'
+    } else {
+        vDesconto.value = percentual.toFixed(2) + '%'
+    }
+    const quantParcel = vPrazo / qtParcela.value
  
-    vParcela.value = quantParcel.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) 
-    console.log()
+    vParcela.value = quantParcel.toLocaleString('pt-Br',{style: 'currency', currency: 'BRL'})
 }
-
-
-
-
-
-
 
   function maskCurrency(valor, locale = 'pt-BR', currency = 'BRL') {
     return new Intl.NumberFormat(locale, {
@@ -68,9 +63,6 @@ function soma() {
       currency
     }).format(valor)
   }
-
-
-
 
 btnSubmit.addEventListener('click', () => {
     const btnFormSubmit = document.querySelector('.btnForm .btnSubmit');
@@ -177,10 +169,7 @@ function checkFormulario() {
     const artigoValue =  document.getElementById('artigo').value
     const descriptionValue =  document.getElementById('description').value
     const vPrazoValue =  document.getElementById('vPrazo').value
-    const vDescontoValue =  document.getElementById('vDesconto').value
-    const vParcelaValue =  document.getElementById('vParcela').value
     const vAvistaValue =  document.getElementById('vAvista').value
-    const vFreteValue =  document.getElementById('vFrete').value
     const qtEstoqueValue =  document.getElementById('qtEstoque').value
     const qtParcelaValue =  document.getElementById('qtParcela').value
     const marcaValue =  document.getElementById('marca').value
@@ -211,32 +200,17 @@ function checkFormulario() {
     } else {
         setSucessFor(description)
     }
-    if(vPrazoValue === '') {
+    if(vPrazoValue === '' || vPrazoValue == 'R$ 0,00') {
         setErrorFor(vPrazo)
     } else {
         setSucessFor(vPrazo)
     }
-    if(vDescontoValue === '') {
-        setErrorFor(vDesconto)
-    } else {
-        setSucessFor(vDesconto)
-    }
-    if(vParcelaValue === '') {
-        setErrorFor(vParcela)
-    } else {
-        setSucessFor(vParcela)
-    }
-    if(vAvistaValue === '') {
+    if(vAvistaValue === '' || vAvistaValue == 'R$ 0,00') {
         setErrorFor(vAvista)
     } else {
         setSucessFor(vAvista)
     }
-    if(vFreteValue === '') {
-        setErrorFor(vFrete)
-    } else {
-        setSucessFor(vFrete)
-    }
-    if(qtEstoqueValue === '') {
+    if(qtEstoqueValue === '' || qtEstoqueValue == 0) {
         setErrorFor(qtEstoque)
     } else {
         setSucessFor(qtEstoque)
