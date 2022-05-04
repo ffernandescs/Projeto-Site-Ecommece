@@ -43,7 +43,8 @@
                     <ul class="subMenu">
                         <li><a href="./produtos.html" class="textLink">Produtos</a></li>
                         <li><a href="./addPd.html" class="">Adicionar Produtos</a></li>
-                        <li><a href="./produtos.html" class="">Editar Produtos</a></li>
+                        <li><a href="./categorias.html" class="">Categorias</a></li>
+                        <li><a href="./marcas.html" class="">Marcas</a></li>
                     </ul>
                 </li>
                 <li>
@@ -64,10 +65,10 @@
                         <i class="material-icons-outlined arrow">expand_more</i>
                     </div>
                     <ul class="subMenu">
-                        <li><a href="#" class="textLink">Dados do Site</a></li>
-                        <li><a href="#" class="">Perfil</a></li>
-                        <li><a href="#" class="">Adicionar Categoria</a></li>
-                        <li><a href="#" class="">Adicionar Marcas</a></li>
+                        <li><a href="./configuracao.html" class="textLink">Dados do Site</a></li>
+                        <li><a href="./perfil.html" class="">Perfil</a></li>
+                        <li><a href="./addCategorias.html" class="">Adicionar Categoria</a></li>
+                        <li><a href="./addMarcas.html" class="">Adicionar Marcas</a></li>
                     </ul>
                 </li>
             </ul>
@@ -226,7 +227,7 @@
                                     <div class="form itemForm6" for="vPrazo">
                                         <label for="vPrazo">Valor a prazo:</label>
                                         <div class="itemInput">
-                                            <input id="vPrazo" type="text" name="vPrazo">
+                                            <input data-vAvista="soma" class="moeda" id="vPrazo" type="text" name="vPrazo" value="0"  onkeyup="soma()">
                                             <i class="material-icons-outlined">error_outline</i>
                                         </div>
                                         <div class="msmErro">
@@ -236,7 +237,7 @@
                                     <div class="form itemForm7" for="vDesconto">
                                         <label for="vDesconto">Valor de desconto:</label>
                                         <div class="itemInput">
-                                            <input id="vDesconto" type="text" name="vDesconto">
+                                            <input id="vDesconto" type="text" name="vDesconto" value="0" disabled  oninput="soma()"> 
                                             <i class="material-icons-outlined">error_outline</i>
                                         </div>
                                         <div class="msmErro">
@@ -246,7 +247,7 @@
                                     <div class="form itemForm8" for="vAvista">
                                         <label for="vAvista">Valor avista:</label>
                                         <div class="itemInput">
-                                            <input id="vAvista" type="text" name="vAvista">
+                                            <input data-vAvista="soma" class="moeda" id="vAvista" type="text" name="vAvista" value="0" onkeyup="soma()">
                                             <i class="material-icons-outlined">error_outline</i>
                                         </div>
                                         <div class="msmErro">
@@ -257,7 +258,7 @@
                                     <div class="form itemForm9" for="vParcela">
                                         <label for="vParcela">Valor da parcela:</label>
                                         <div class="itemInput">
-                                            <input id="vParcela" type="text" name="vParcela">
+                                            <input class="moeda" id="vParcela" type="text" name="vParcela" value="0"  onkeyup="soma()" disabled>
                                             <i class="material-icons-outlined">error_outline</i>
                                         </div>
                                         <div class="msmErro">
@@ -267,7 +268,7 @@
                                     <div class="form itemForm10" for="vFrete">
                                         <label for="vFrete">Valor do frete:</label>
                                         <div class="itemInput">
-                                            <input id="vFrete" type="text" name="vFrete">
+                                            <input class="moeda" id="vFrete" type="text" name="vFrete" value="0"  onkeyup="soma()">
                                             <i class="material-icons-outlined">error_outline</i>
                                         </div>
                                         <div class="msmErro">
@@ -277,7 +278,7 @@
                                     <div class="form itemForm11" for="qtEstoque">
                                         <label for="qtEstoque">Quant. em estoque:</label>
                                         <div class="itemInput">
-                                            <input id="qtEstoque" type="text" name="qtEstoque">
+                                            <input id="qtEstoque" type="text" value="0" name="qtEstoque">
                                             <i class="material-icons-outlined">error_outline</i>
                                         </div>
                                         <div class="msmErro">
@@ -286,8 +287,7 @@
                                     </div>
                                     <div class="form itemForm12" for="qtParcela">
                                         <label for="qtParcela">Quant. de Parcelas:</label>
-                                        <select itemid="qtParcela" name="qtParcela" id="qtParcela"> 
-                                            <option value=""></option>
+                                        <select itemid="qtParcela" name="qtParcela" id="qtParcela"  oninput="soma()"> 
                                             <option value="1">1x</option>
                                             <option value="2">2x</option>
                                             <option value="3">3x</option>

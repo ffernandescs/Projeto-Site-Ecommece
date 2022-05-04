@@ -865,25 +865,13 @@ footer {
     margin-right: 10px;
 }
 
-.menuHamburguer {
-    position: absolute;
-    left: 20px;
-    bottom: 13px;
-    display: none;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 40px;
-    height: 25px;
-    cursor: pointer;
-}
 
-.menuHamburguer .line {
-    width: 100%;
-    height: 4px;
-    background-color: #000;
-}
 
 .sliderResponse {
+    display: none;
+}
+
+.menuHamburguer {
     display: none;
 }
 
@@ -915,7 +903,7 @@ footer {
     .menu {
         position: absolute;
         align-items: flex-start;
-        top: 80px;
+        top: 110px;
         left: -100%;
         width: 100%;
         height: 100vh;
@@ -946,22 +934,32 @@ footer {
         font-size: 22px;
     }
 
+
     .menuHamburguer {
-        position: fixed;
+        position: relative;
         display: flex;
-        top: 70px;
-        left: 0px;
-        bottom: 13px; 
-        justify-content:center;   
+        justify-content: flex-start;
+        align-items: center;       
         width: 100%;
         height: 50px;
         background-color: #FFF;
-        z-index: 15;
+        padding: 10px 20px;
+        z-index: 55;
+    }
+
+    .menuHamburguer .conLines {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 40px;
+        height: 30px;
+        cursor: pointer;
     }
 
     .menuHamburguer .line {
         width: 40px;
-        margin-left: 20px;
+        height: 4px;
+        background-color: #000;
         margin-bottom: 8px;
         transition: all 0.3s ease;
     }
@@ -970,28 +968,21 @@ footer {
         margin-bottom: 0;
     }
 
-    .menuHamburguer.active {
-        z-index: 15;
-    }
-
-    .menuHamburguer.active .item2 {
+    .menuHamburguer .conLines.active .item2 {
         display: none;
     }
 
-    .menuHamburguer.active .item1 {
+    .menuHamburguer .conLines.active .item1 {
         position: absolute;
-        top: 20px;
+        top: 24px;
         transform: rotate(-138deg);
+        margin-bottom: 0;
     }
 
-    .menuHamburguer.active .item3 {
+    .menuHamburguer .conLines.active .item3 {
         position: absolute;
-        top: 20px;
+        top: 24px;
         transform: rotate(138deg);
-    }
-
-    .menuHamburguer.active .item2 {
-        visibility: hidden;
     }
 
     .itemBox {

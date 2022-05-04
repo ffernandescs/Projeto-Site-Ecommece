@@ -1,0 +1,302 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif; 
+}
+
+h1 h2 h3 h4 p a {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+ 
+}
+
+
+.containerPrincipal {
+    position: relative;
+    overflow: hidden;
+}
+
+.containerPrincipal .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: calc(100% - 60px);
+    background-color: #fff;
+    padding: 20px;
+    overflow: hidden;
+
+}
+
+.containerPrincipal .container .conainerProdutos {
+    width: 100%;
+    overflow: hidden;
+}
+.containerPrincipal .container .barTop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 40px;
+}
+
+.containerPrincipal .container .barTop #namePage {
+    font-size: 22px;
+    font-weight: 400;
+    color: #95959e;
+}
+
+
+
+.containerPrincipal .container .contAddMarcas {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: calc(100% - 60px);
+    background-color: #fff;
+    padding: 20px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+
+.containerPrincipal .container .barTop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 40px;
+}
+
+.containerPrincipal .container .barTop .contBtnAdd {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.containerPrincipal .container .barTop .contBtnAdd button {
+    width: 150px;
+    height: 40px;
+    background-color: #0e6f18;
+    border-radius: 5px;
+    border: none;
+    outline: 0;
+    font-size: 14px;
+    color: #fff;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.containerPrincipal .container .barTop .contBtnAdd button:hover {
+    background-color: #1d5e23;
+}
+
+.containerPrincipal .container .barTop #namePage {
+    font-size: 22px;
+    font-weight: 400;
+    color: #95959e;
+}
+
+.containerPrincipal .container .contFomr {
+    width: 100%;
+    height: 100vh;
+    margin: 20px 0;
+    background-color: #F8F8F8;
+    border: 0.2px solid #95959e40;
+    border-radius: 5px;
+}
+
+.containerPrincipal .container .contFomr .addMarcas {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.containerPrincipal .container .contFomr .addMarcas .box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    overflow: hidden;
+}
+
+.containerPrincipal .container .contFomr .addMarcas .boxForm {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-areas: 
+    'itemForm1'
+    'btnForm';
+    grid-gap: 20px;
+    align-items: flex-start;
+    width: 50%;
+    height: 100%;
+    padding: 20px;
+}
+
+.containerPrincipal .container .contFomr .addMarcas .boxForm .itemForm1 {
+    grid-area: itemForm1;
+}
+
+.containerPrincipal .container .contFomr .addMarcas .boxForm .btnForm {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    grid-area: btnForm;
+}
+
+.containerPrincipal .container .contFomr .addMarcas .btnForm button {
+    width: 150px;
+    height: 40px;
+    background-color: #005ac7;
+    border-radius: 5px;
+    border: none;
+    outline: 0;
+    font-size: 14px;
+    color: #fff;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.containerPrincipal .container .contFomr .addMarcas .boxForm .form .contCategorias {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-between;
+ }
+
+.containerPrincipal .container .contFomr .addMarcas .boxForm .form {
+    position: relative;
+}
+
+.containerPrincipal .container .contFomr .addMarcas .boxForm .form label {
+    display: flex;
+    height: 40px;
+}
+
+.containerPrincipal .container .contFomr .addMarcas .boxForm .form .itemInput {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.containerPrincipal .container .contFomr .addMarcas .boxForm .form .itemInput input {
+    width: 100%;
+    height: 20px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #95959efe;
+    outline: 0;
+    padding-left: 10px;
+    margin-bottom: 5px;
+}
+
+.containerPrincipal .container .contFomr .addMarcas .boxForm .form .itemInput i {
+    position: absolute;
+    right: -5px;
+    bottom: 10px;
+    font-size: 12px;
+    visibility: hidden;
+}
+
+.containerPrincipal .container .contFomr .addMarcas .boxForm .form  i {
+    font-size: 12px;
+    margin-right: 5px;
+    visibility: hidden;
+}
+
+.containerPrincipal .container .contFomr .addMarcas .boxForm .form .msmErro {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+}
+
+.containerPrincipal .container .contFomr .addMarcas .boxForm .form .msmErro small {
+    font-size: 12px;
+    visibility: hidden;
+}
+
+.boxForm {
+    width: 100%;
+    height: 50px;
+}
+
+.containerPrincipal .container .contFomr .addMarcas .btnForm button:hover {
+    background-color: #0032ba;
+}
+
+.containerPrincipal .container .contFomr .addMarcas .boxForm .form.error small {
+    font-size: 12px;
+    color:#e74c3c ;
+    visibility: visible;
+}
+
+.containerPrincipal .container .contFomr .addMarcas .boxForm .form.error input {
+    border-color:#e74c3c ;
+    visibility: visible;
+}
+
+.containerPrincipal .container .contFomr .addMarcas .boxForm .form.error i {
+    color:#e74c3c ;
+    visibility: visible;
+}
+
+@media (max-width: 900px) {
+
+
+
+    .containerPrincipal .container .contAddMarcas .contFomr {
+        width: 100%;
+        height: fit-content;
+        background-color: #F8F8F8;
+        border: 0.2px solid #95959e40;
+        border-radius: 5px;
+        margin: 20px;
+    }
+
+    .containerPrincipal .container .contAddMarcas .contFomr .addMarcas .box .boxForm {
+        width: 100%;
+    }
+
+    .containerPrincipal .container .contAddMarcas .barTop #namePage {
+        font-size: 16px;
+    }
+
+  
+    .containerPrincipal .container .contAddMarcas .barTop .contBtnAdd button {
+        width: 100px;
+        font-size: 12px;
+    } 
+
+    .containerPrincipal .container .contFomr .addMarcas .boxForm:first-child {
+        border-right: none;
+    }
+
+    .containerPrincipal .container .contFomr .addMarcas .btnForm button {
+        width: 100px;
+        font-size: 12px;
+    }
+}
+

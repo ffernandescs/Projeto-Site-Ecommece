@@ -1,8 +1,14 @@
 const btnEditDados = document.getElementById('btnEdit');
 const formDadosSite = document.querySelector('.dadosSite');
 const btnSalvar = document.getElementById('btnSalvar');
+const inputWhatsapp = document.getElementById('whatsapp');
 
 let id;
+
+
+inputWhatsapp.addEventListener('keyup', () => {
+    inputWhatsapp.value = inputWhatsapp.value.replace(/\D/g, '').replace(/^(\d{2})(\d)/g,"($1) $2").replace(/(\d)(\d{4})$/,"$1-$2");
+})
 
 btnSalvar.addEventListener('click', () => {
     const btnSubmit = document.querySelector('.btnForm .btnSubmit');

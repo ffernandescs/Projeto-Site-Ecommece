@@ -17,8 +17,14 @@ h1 h2 h3 h4 p a {
 body {
     margin: 0;
     padding: 0;
-    
+    overflow: hidden;
  
+}
+
+.containerPrincipal {
+    position: relative;
+    overflow: hidden;
+
 }
 
 .containerPrincipal .container {
@@ -30,25 +36,34 @@ body {
     height: calc(100% - 60px);
     background-color: #fff;
     padding: 20px;
+    overflow: hidden;
+
 }
 
+.containerPrincipal .container .containerCategorias {
+    width: 100%;
+    overflow: hidden;
+} 
 .containerPrincipal .container .barTop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     width: 100%;
     height: 40px;
 }
 
-.containerPrincipal .container .barTop .namePage {
+.containerPrincipal .container .barTop #namePage {
     font-size: 22px;
     font-weight: 400;
     color: #95959e;
 }
 
-.containerPrincipal .container .barTable {
+.containerPrincipal .container .containerCategorias .barTable {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
-    margin: 20px;
+    margin: 20px 0;
     background-color: #F8F8F8;
     border: 0.2px solid #95959e40;
     border-radius: 5px;
@@ -62,10 +77,22 @@ body {
     width: 100%;
 }
 
+.containerPrincipal .container .barTable .boxTable .textCheck {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-width: 100px;
+}
+
+.containerPrincipal .container .barTable .boxTable .textCheck h2,
+.containerPrincipal .container .barTable .boxTable .textCheck span {
+    margin-right: 10px;
+}
+
 .containerPrincipal .container .barTable .boxTable input {
     width: 400px;
     max-width: 400px;
-    min-width: 120px;
+    min-width: 80px;
     height: 40px;
     padding-left: 15px;
     background-color: #fff;
@@ -103,10 +130,10 @@ body {
 
 .containerPrincipal .container .listProduto {
     width: 100%;
-    height: 200px;
     overflow:scroll;
     text-align: center;
     border-spacing: 0;
+    margin-bottom: 10px;
 }
 
 .containerPrincipal .container .contTable::-webkit-scrollbar {
@@ -154,19 +181,6 @@ body {
     width: 100px;
 }
 
-.containerPrincipal .container .listProduto tbody tr #tdImg img {
-    width: 40px;
-    height: 40px;
-    object-fit: cover;
-    transition: all 0.3s ease;
-    transform: scale(1);
-}
-
-.containerPrincipal .container .listProduto tbody tr #tdImg img:hover {
-    transform: scale(3);
-    z-index: 20;
-}
-
 .containerPrincipal .container .listProduto tbody tr td span {
     color: #005ac7;
     transition: all 0.5s ease;
@@ -186,60 +200,333 @@ body {
     margin-left: 5px;
 }
 
+.containerPrincipal .container .contEditCategorias {
+    position: absolute;
+    top: 60px;
+    right: -100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: calc(100% - 60px);
+    background-color: #fff;
+    padding: 20px;
+    z-index: -5;
+    opacity: 0;
+    transition: all 0.4s ease;
+}
 
-@media (max-width: 1100px) {
-    .containerPrincipal .container .listProduto tbody tr td:nth-child(8),
-    .containerPrincipal .container .listProduto tbody tr td:nth-child(9) {
-        display: none;
-    }
+.containerPrincipal .container .contEditCategorias.active {
+    opacity: 1;
+    z-index: 3;
+    top: 60px;
+    right: 0;
+}
 
-    .containerPrincipal .container .listProduto thead tr th:nth-child(8),
-    .containerPrincipal .container .listProduto thead tr th:nth-child(9) {
-        display: none;
-    }
+.containerPrincipal .container .barTopEdit {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 40px;
+}
+
+.containerPrincipal .container .barTopEdit .contBtnEdit {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+
+}
+
+.containerPrincipal .container .barTopEdit .contBtnEdit button:nth-child(1) {
+    position: absolute;
+    right: 0;
+    background-color: #005ac7;
+}
+
+.containerPrincipal .container .barTopEdit .contBtnEdit button:nth-child(1):hover {
+    position: absolute;
+    right: 0;
+    background-color: #114686;
+}
+
+.containerPrincipal .container .barTopEdit .contBtnEdit button:nth-child(3) {
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.3s ease;
+    background-color: #0e6f18;
+    margin-left: 5px;
+
+}
+
+.containerPrincipal .container .barTopEdit .contBtnEdit button:nth-child(3):hover {
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.3s ease;
+    background-color: #1d5e23;
+}
+
+.containerPrincipal .container .barTopEdit .contBtnEdit button:nth-child(3).active {
+    visibility: visible;
+    opacity: 1;
+}
+
+
+.containerPrincipal .container .barTopEdit .contBtnEdit button {
+    width: 150px;
+    height: 40px;
+    background-color: #d54b4a;
+    border-radius: 5px;
+    border: none;
+    outline: 0;
+    font-size: 14px;
+    color: #fff;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.containerPrincipal .container .barTopEdit .contBtnEdit button:hover {
+    background-color: #ba2525;
+}
+
+.containerPrincipal .container .barTopEdit #namePage {
+    font-size: 22px;
+    font-weight: 400;
+    color: #95959e;
+}
+
+.containerPrincipal .container .contFomr {
+    width: 100%;
+    height: 100vh;
+    margin: 20px 0;
+    background-color: #F8F8F8;
+    border: 0.2px solid #95959e40;
+    border-radius: 5px;
+}
+
+.containerPrincipal .container .contFomr .editCategoria {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.containerPrincipal .container .contFomr .editCategoria .box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    overflow: hidden;
+}
+
+.containerPrincipal .container .contFomr .editCategoria .boxForm {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-areas: 
+    'itemForm1'
+    'btnForm';
+    grid-gap: 20px;
+    max-width: 100%;
+    width: 50%;
+    height: 100%;
+    padding: 20px;
+}
+
+.containerPrincipal .container .contFomr .editCategoria .boxForm .itemForm1 {
+    grid-area: itemForm1;
+}
+
+.containerPrincipal .container .contFomr .editCategoria .boxForm .btnForm {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    width: 100%;
+    grid-area: btnForm;
+
+}
+
+.containerPrincipal .container .contFomr .editCategoria .btnForm button {
+    width: 150px;
+    height: 40px;
+    background-color: #005ac7;
+    border-radius: 5px;
+    border: none;
+    outline: 0;
+    font-size: 14px;
+    color: #fff;
+    transition: all 0.3s ease;
+    visibility: hidden;
+    cursor: pointer;
+}
+
+.containerPrincipal .container .contFomr .editCategoria .boxForm .form {
+    position: relative;
+}
+
+.containerPrincipal .container .contFomr .editCategoria .boxForm .form label {
+    display: flex;
+    height: 40px;
+}
+
+.containerPrincipal .container .contFomr .editCategoria .boxForm .form .itemInput {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.containerPrincipal .container .contFomr .editCategoria .boxForm .form .itemInput input {
+    width: 100%;
+    height: 20px;
+    background-color: #ececed30;
+    border: none;
+    border-bottom: 1px solid #95959efe;
+    outline: 0;
+    padding-left: 10px;
+    margin-bottom: 5px;
+}
+
+.containerPrincipal .container .contFomr .editCategoria .boxForm .form .itemInput i {
+    position: absolute;
+    right: -5px;
+    bottom: 10px;
+    font-size: 12px;
+    visibility: hidden;
+}
+
+.containerPrincipal .container .contFomr .editCategoria .boxForm .form  i {
+    font-size: 12px;
+    margin-right: 5px;
+    visibility: hidden;
+}
+
+.containerPrincipal .container .contFomr .editCategoria .boxForm .form .msmErro {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+}
+
+.containerPrincipal .container .contFomr .editCategoria .boxForm .imgForm  .msmErro {
+    margin-right: 30px;
+}
+
+.containerPrincipal .container .contFomr .editCategoria .boxForm .imgForm  .msmErro i {
+    position: static;
+    margin-right: 5px;
+}
+
+.containerPrincipal .container .contFomr .editCategoria .boxForm .form .msmErro small {
+    font-size: 12px;
+    visibility: hidden;
+}
+
+.boxForm {
+    width: 100%;
+    height: 50px;
+}
+
+.containerPrincipal .container .contFomr .editCategoria .btnForm button:hover {
+    background-color: #0032ba;
+}
+
+.containerPrincipal .container .contFomr .editCategoria .boxForm .form.error small {
+    font-size: 12px;
+    color:#e74c3c ;
+    visibility: visible;
+}
+
+.containerPrincipal .container .contFomr .editCategoria .boxForm .form.error input {
+    border-color:#e74c3c ;
+    visibility: visible;
+}
+
+.containerPrincipal .container .contFomr .editCategoria .boxForm .form.error i {
+    color:#e74c3c ;
+    visibility: visible;
 }
 
 @media (max-width: 900px) {
-    .containerPrincipal .container .listProduto tbody tr td:nth-child(6),
-    .containerPrincipal .container .listProduto tbody tr td:nth-child(7) {
-        display: none;
+    .containerPrincipal .container .barTable .boxTable a button {
+        width: 100px;
+        font-size: 12px;
     }
 
-    .containerPrincipal .container .listProduto thead tr th:nth-child(6),
-    .containerPrincipal .container .listProduto thead tr th:nth-child(7) {
-        display: none;
+    
+
+    .containerPrincipal .container .contEditCategorias .contFomr {
+        height: fit-content;
+        overflow: hidden;
+    }
+
+    .containerPrincipal .container .contFomr .editCategoria .box {
+        display: flex;
+        width: 100%;
+    }
+
+    .containerPrincipal .container .contEditCategorias  {
+        overflow-y: scroll;
+        overflow-x: hidden;
+        height: 100%;
+        padding: 0 20px 60px 20px;
+
+    }
+
+    .containerPrincipal .container .contEditCategorias::-webkit-scrollbar {
+        width: 6px;
+        background-color: #95959e;
+    }
+    .containerPrincipal .container .contEditCategorias::-webkit-scrollbar-thumb {
+        background-color: #1d1b31;
+    }
+
+
+    .containerPrincipal .container .contEditCategorias .barTopEdit {
+        position: sticky;
+        top: 0px;
+        background-color: #fff;
+        padding: 10px 0;
+        box-sizing: content-box;
+        z-index: 66;
+    }
+
+    .containerPrincipal .container .contEditCategorias .contFomr {
+        overflow: visible;
+
+    }
+
+   
+    .containerPrincipal .container .contEditCategorias .contFomr .editCategoria .box {
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+    }
+    
+    .containerPrincipal .container .contEditCategorias .contFomr .editCategoria .box .boxForm {
+        width: 100%;
+    }
+
+    .containerPrincipal .container .contEditCategorias .barTopEdit #namePage {
+        font-size: 16px;
+    }
+
+  
+    .containerPrincipal .container .contEditCategorias .barTopEdit .contBtnEdit button {
+        width: 100px;
+        font-size: 12px;
+    } 
+
+    .containerPrincipal .container .contFomr .editCategoria .boxForm:first-child {
+        border-right: none;
+    }
+
+    
+    .containerPrincipal .container .contFomr .editCategoria .btnForm button {
+        width: 100px;
     }
 }
 
-@media (max-width: 700px) {
-    .containerPrincipal .container .listProduto tbody tr td:nth-child(4),
-    .containerPrincipal .container .listProduto tbody tr td:nth-child(5) {
-        display: none;
-    }
-
-    .containerPrincipal .container .listProduto thead tr th:nth-child(4),
-    .containerPrincipal .container .listProduto thead tr th:nth-child(5) {
-        display: none;
-    }
-}
-
-@media (max-width: 400px) {
-    .containerPrincipal .container .listProduto tbody tr td:nth-child(1) {
-        display: none;
-    }
-
-    .containerPrincipal .container .listProduto thead tr th:nth-child(1) {
-        display: none;
-    }
-}
-
-@media (max-width: 340px) {
-
-    .containerPrincipal .container .listProduto tbody tr #tdImg {
-        display: none;
-    }
-
-    .containerPrincipal .container .listProduto thead tr th:nth-child(2) {
-        display: none;
-    }
-}

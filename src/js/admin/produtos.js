@@ -26,6 +26,49 @@ let id;
 
 const btnSubmit = document.querySelector('.contBtnEdit #btnSalvar');
 
+
+const inputMoedas = document.querySelectorAll('.moeda');
+
+window.addEventListener('load', () => {
+    for(let i = 0; i < inputMoedas.length; i++) {
+        if(inputMoedas[i]) {
+            inputMoedas[i].addEventListener('keyup', (event) => {
+                const onlyDigits = event.target.value
+                  .split("")
+                  .filter(s => /\d/.test(s))
+                  .join("")
+                  .padStart(3, "0")
+                const digitsFloat = onlyDigits.slice(0, -2) + "." + onlyDigits.slice(-2)
+                event.target.value = maskCurrency(digitsFloat)
+            })
+        }
+    }
+})
+
+function soma() {
+    const vPrazo = parseFloat(document.getElementById("vPrazo").value.replace(/[R$\.]/g, "").replace(",", "."));
+    const vAvista = parseFloat(document.getElementById("vAvista").value.replace(/[R$\.]/g, "").replace(",", "."));
+    
+    const valorDescont = vPrazo - vAvista;
+    const desconto = valorDescont * 100; 800
+    const percentual = desconto / vPrazo;
+
+    vDesconto.value = Math.floor(percentual) + '%'
+
+    const quantParcel = vPrazo / parseFloat(qtParcela.value)
+ 
+    vParcela.value = quantParcel.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) 
+    console.log()
+}
+
+  function maskCurrency(valor, locale = 'pt-BR', currency = 'BRL') {
+    return new Intl.NumberFormat(locale, {
+      style: 'currency',
+      currency
+    }).format(valor)
+  }
+
+
 btnSubmit.addEventListener('click', () => {
     const btnFormSubmit = document.querySelector('.btnForm .btnSubmit');
     btnFormSubmit.click();
@@ -45,11 +88,11 @@ const loadingList = doc => {
                     <td id="tdCod">${doc.data().cod}</td>
                     <td id="tdImg"><img src="${doc.data().img}" alt=""></td>
                     <td id="tdName">${doc.data().name}</td>
-                    <td id="tdVP">R$ ${doc.data().vPrazp}</td>
-                    <td id="tdDesconto">${doc.data().vDescont}%</td>
-                    <td id="tdVA">R$ ${doc.data().vAvista}</td>
+                    <td id="tdVP">${doc.data().vPrazp}</td>
+                    <td id="tdDesconto">${doc.data().vDescont}</td>
+                    <td id="tdVA">${doc.data().vAvista}</td>
                     <td id="tdQtParcela">${doc.data().qtParcela}x</td>
-                    <td id="tdVParcela">R$ ${doc.data().valorPa}</td>
+                    <td id="tdVParcela">${doc.data().valorPa}</td>
                     <td id="tdEstoque">${doc.data().qtEstoque} Und.</td>
                     <td id="tdAcoes">
                         <span class="material-icons btnEdit" title="Editar">open_in_new</span>
@@ -86,10 +129,14 @@ const loadingList = doc => {
         const disableSelect = document.querySelectorAll('.form select');
         const disableFile = document.getElementById('fileEdit');
         const namePageEdit = document.querySelector('.barTopEdit #namePage');
+        const vDesconto = document.getElementById('vDesconto');
+        const vParcela = document.getElementById('vParcela');
 
         namePageEdit.innerHTML = 'Produtos'
         modalEdit.classList.add('active')
         disableFile.disabled = true
+        vDesconto.disabled = true
+        vParcela.disabled = true
         disableFile.src = `${doc.data().img}`
 
         for(let i = 0; i < disableInputs.length; i++){
@@ -145,7 +192,8 @@ const loadingList = doc => {
         btnEdit.addEventListener('click', () => {
 
             namePageEdit.innerHTML = 'Editar Produtos'
-
+            vDesconto.disabled = true
+            vParcela.disabled = true    
             btnPageEditar.style.display = 'none'
             btnPageSalvar.classList.add('active')    
             btnPageLimpar.style.visibility = 'visible'
@@ -171,6 +219,8 @@ const loadingList = doc => {
                 const imgFile = document.getElementById('fileEdit');
                 imgFile.click();
             })
+            vDesconto.disabled = true
+            vParcela.disabled = true    
 
         })
 
@@ -328,27 +378,27 @@ function checkFormulario() {
     } else {
         setSucessFor(description)
     }
-    if(vPrazoValue === '') {
+    if(vPrazoValue === '' || codValue == 0) {
         setErrorFor(vPrazo)
     } else {
         setSucessFor(vPrazo)
     }
-    if(vDescontoValue === '') {
+    if(vDescontoValue === '' || codValue == 0) {
         setErrorFor(vDesconto)
     } else {
         setSucessFor(vDesconto)
     }
-    if(vParcelaValue === '') {
+    if(vParcelaValue === '' || codValue == 0) {
         setErrorFor(vParcela)
     } else {
         setSucessFor(vParcela)
     }
-    if(vAvistaValue === '') {
+    if(vAvistaValue === '' || codValue == 0) {
         setErrorFor(vAvista)
     } else {
         setSucessFor(vAvista)
     }
-    if(vFreteValue === '') {
+    if(vFreteValue === '' || codValue == 0) {
         setErrorFor(vFrete)
     } else {
         setSucessFor(vFrete)

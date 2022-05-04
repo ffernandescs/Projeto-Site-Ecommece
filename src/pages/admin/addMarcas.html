@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/f84144252b.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+    <link rel="stylesheet" href="../../style/admin/addMarcas.css">
     <link rel="stylesheet" href="../../style/admin/menu.css">
-    <link rel="stylesheet" href="../../style/admin/categorias.css">
-    <title>Produtos</title>
+    <title>Adicionar Produtos</title>
 </head>
 <body>
     <section>
@@ -72,7 +72,7 @@
                     </ul>
                 </li>
             </ul>
-            <div class="profileUser">
+            <div class="profileUser">               
                 <i onclick="logoutUser()" class="material-icons-outlined">logout</i>
             </div>
         </div>
@@ -102,7 +102,7 @@
                                 </div>
                             </div>
                             <div class="menuUser">
-                                <ul class="subMenuUser"> 
+                                <ul class="subMenuUser">
                                     <li>
                                         <a class="textLinkUser" href="#">
                                             <i class="material-icons-outlined">person</i>
@@ -122,53 +122,21 @@
                 </div>
             </div>
             <div class="container">
-                <div class="containerCategorias">
+                <div class="contAddMarcas">
                     <div class="barTop">
-                        <span id="namePage">Produtos</span>
-                    </div>
-                    <div class="barTable">
-                        <div class="boxTable">
-                            <div class="textCheck">
-                                <h2 id="totalItens">0</h2>
-                                <span>itens</span>
-                                <input id="searchList" type="text" placeholder="Pesquisar">
-                            </div>
-                            <a href="./addPd.html"><button type="button">Adicionar Produto</button></a>
-                        </div>
-                    </div>
-                    <div class="contTable">
-                        <table class="listProduto">
-                            <thead>
-                                <tr>
-                                    <th id="nameCategorias">Codigo</th>
-                                    <th id="trAcoes">Ações</th>
-                                </tr>
-                            </thead>
-                            <tbody class="tbList">
-                                
-                                
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                
-                <div class="contEditCategorias">
-                    <div class="barTopEdit">
-                        <span id="namePage">Produtos</span>
-                        <div class="contBtnEdit">
-                            <button id="btnEdit" type="button">Editar</button>
-                            <button id="btnCancel" type="button">Cancelar</button>
+                        <span id="namePage">Adicionar Categorias</span>
+                        <div class="contBtnAdd">
                             <button id="btnSalvar" type="button">Salvar</button>
                         </div>
                     </div>
                     <div class="contFomr">
-                        <form class="editCategoria" action="">
+                        <form class="addMarcas" method="" action="">
                             <div class="box">
                                 <div class="boxForm">
-                                    <div class="form" for="name">
-                                        <label for="name">Codigo:</label>
+                                    <div class="form" for="cod">
+                                        <label for="name">Nome:</label>
                                         <div class="itemInput">
-                                            <input type="text" name="name" id="name">
+                                            <input type="text" value="" name="name" id="name" >
                                             <i class="material-icons-outlined">error_outline</i>
                                         </div>
                                         <div class="msmErro">
@@ -197,7 +165,7 @@
     <script src="../../js/db/confiDb.js"></script>
     <script src="../../js/autentication/index.js"></script>
     <script src="../../js/admin/menu.js"></script>
-    <script src="../../js/admin/categorias.js"></script>
+    <script src="../../js/admin/addMarcas.js"></script>
     <script src="../../js/admin/loginUser.js"></script>
 </body>
 </html>

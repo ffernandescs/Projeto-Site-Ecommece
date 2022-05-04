@@ -19,9 +19,58 @@ const marca =  document.getElementById('marca')
 const categoria1 =  document.getElementById('categoria1')
 const categoria2 =  document.getElementById('categoria2')
 const categoria3 =  document.getElementById('categoria3')
-const categoria4 =  document.getElementById('categoria4')
-const categoria5 =  document.getElementById('categoria5')
-const categoria6 =  document.getElementById('categoria6')
+
+const inputMoedas = document.querySelectorAll('.moeda');
+
+
+window.addEventListener('load', () => {
+    for(let i = 0; i < inputMoedas.length; i++) {
+        if(inputMoedas[i]) {
+            inputMoedas[i].addEventListener('keyup', (event) => {
+                const onlyDigits = event.target.value
+                  .split("")
+                  .filter(s => /\d/.test(s))
+                  .join("")
+                  .padStart(3, "0")
+                const digitsFloat = onlyDigits.slice(0, -2) + "." + onlyDigits.slice(-2)
+                event.target.value = maskCurrency(digitsFloat)
+            })
+        }
+    }
+})
+
+function soma() {
+    const vPrazo = parseFloat(document.getElementById("vPrazo").value.replace(/[R$\.]/g, "").replace(",", "."));
+    const vAvista = parseFloat(document.getElementById("vAvista").value.replace(/[R$\.]/g, "").replace(",", "."));
+    
+    const valorDescont = vPrazo - vAvista;
+    const desconto = valorDescont * 100; 800
+    const percentual = desconto / vPrazo;
+
+
+
+    vDesconto.value = Math.floor(percentual) + '%'
+    const quantParcel = vPrazo / parseFloat(qtParcela.value)
+ 
+    vParcela.value = quantParcel.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) 
+    console.log()
+}
+
+
+
+
+
+
+
+  function maskCurrency(valor, locale = 'pt-BR', currency = 'BRL') {
+    return new Intl.NumberFormat(locale, {
+      style: 'currency',
+      currency
+    }).format(valor)
+  }
+
+
+
 
 btnSubmit.addEventListener('click', () => {
     const btnFormSubmit = document.querySelector('.btnForm .btnSubmit');
@@ -87,7 +136,7 @@ formAddProduto.addEventListener('submit', e => {
         vParcela.value.length == 0 || vAvista.value.length == 0 || vFrete.value.length == 0 || 
         qtEstoque.value.length == 0 || qtParcela.value.length == 0 || marca.value.length == 0 || 
         categoria1.value.length == 0 ) {
-            
+
     } else {
         dbFirestore.collection('produtos').doc().set({
             createdAt: new Date(),
@@ -115,14 +164,7 @@ formAddProduto.addEventListener('submit', e => {
         })
         formAddProduto.reset()
         imageProduto.src = '../../../assets/img/addImg.png'
-
-        
-
     }
-
-    
-
-
 })
 
 
