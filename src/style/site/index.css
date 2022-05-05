@@ -410,7 +410,6 @@ section {
     position: relative;
     max-width: 1200px;
     width: 100%;
-    overflow: hidden;
 }
 
 .listProdutos nav{
@@ -420,6 +419,7 @@ section {
     width: 100%;
     max-width: 1200px;
     padding: 10px;
+    overflow: hidden;
 }
 
 .listProdutos nav::-webkit-scrollbar {
@@ -434,8 +434,6 @@ section {
     width: fit-content;
     transition: 0.7s ease-in-out;
     list-style: none;
-
-
 }
 
 .iconBackPd {
@@ -465,8 +463,8 @@ section {
 
 .listProdutos ul li #textDesconto {
     position: absolute;
-    top: 10px;
-    left: 10px;
+    top: 20px;
+    right: 20px;
     width: 50px;
     text-align: center;
     background-color: #ee7913;
