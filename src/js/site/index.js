@@ -16,13 +16,13 @@ let indexImgSlider = 0;
 dbFirestore.collection('produtos').get().then(querySnapshot => {
   querySnapshot.forEach(doc => {
     loadPromoLancamentos(doc);
+    promocao(doc);
 
     const ulrTest = './src/pages/site/produto.html'
 
     document.getElementById('compre').href = ulrTest;
     
-    const tamanho = document.querySelectorAll('.listPromo')
-    console.log(tamanho.length)
+    const tamanho = document.querySelectorAll('.listaProduto')
     for(let i = 0; i <tamanho.length; i++){
         const textDesconto = tamanho[i].querySelector('#textDesconto').getAttribute('data-textDesconto')
         const image = tamanho[i].querySelector('.imgProduto img').getAttribute('data-image')
@@ -33,8 +33,18 @@ dbFirestore.collection('produtos').get().then(querySnapshot => {
         const vAtual = tamanho[i].querySelector('#vAtual').getAttribute('data-vAtual')
         const vParcela = tamanho[i].querySelector('#vParcela').getAttribute('data-vParcela')
         const qtParcela = tamanho[i].querySelector('.qtParcela').getAttribute('data-qtParcela')
+        const marcas = tamanho[i].querySelector('.variaveis .marcas').getAttribute('data-marcas')
+        const categoria = tamanho[i].querySelector('.variaveis .categoria').getAttribute('data-categoria')
+        const categoria2 = tamanho[i].querySelector('.variaveis .categoria2').getAttribute('data-categoria2')
+        const categoria3 = tamanho[i].querySelector('.variaveis .categoria3').getAttribute('data-categoria3')
+        const categoria4 = tamanho[i].querySelector('.variaveis .categoria4').getAttribute('data-categoria4')
+        const categoria5 = tamanho[i].querySelector('.variaveis .categoria5').getAttribute('data-categoria5')
+        const categoria6 = tamanho[i].querySelector('.variaveis .categoria6').getAttribute('data-categoria6')
+        const artigo = tamanho[i].querySelector('.variaveis .artigo').getAttribute('data-artigo')
         tamanho[i].querySelector('#compre').href = ulrTest + '?image='+image+'&textDesconto='+textDesconto+'&qtParcela='+qtParcela+
-        '&cod='+cod+'&nameItem='+nameItem+'&description='+description+'&vAanterior='+vAanterior+'&vAtual='+vAtual+'&vParcela='+vParcela;
+        '&cod='+cod+'&nameItem='+nameItem+'&description='+description+'&vAanterior='+vAanterior+'&vAtual='+vAtual+'&vParcela='+vParcela+
+        '&marcas='+marcas+'&categoria='+categoria+'&categoria2='+categoria2+'&categoria3='+categoria3+'&categoria4='+categoria4+
+        '&categoria5='+categoria5+'&categoria6='+categoria6+'&artigo='+artigo;
     }
   })
 })
@@ -89,8 +99,6 @@ btnTop.addEventListener('click', () => {
       top: 0,
       behavior: 'smooth'
     })
-
-  console.log('ok')
 })
 
 btnSliderBack.addEventListener('click', () => {
@@ -129,11 +137,10 @@ btnMenuHamburger.addEventListener('click', () => {
     }
 });
 
-const loadPromoLancamentos = doc => {
-
-  if(doc.data().categoria == 'Lançamentos' || doc.data().categoria2 == 'Lançamentos' || doc.data().categoria3 == 'Lançamentos' || doc.data().categoria4 == 'Lançamentos'
-  || doc.data().categoria5 == 'Lançamentos' || doc.data().categoria6 == 'Lançamentos') {
-    const tagLiPromo = `<li class="${doc.data().categoria} listPromo">
+const promocao = doc => {
+  if(doc.data().categoria == 'Promoção' || doc.data().categoria2 == 'Promoção' || doc.data().categoria3 == 'Promoção' || doc.data().categoria4 == 'Promoção'
+  || doc.data().categoria5 == 'Promoção' || doc.data().categoria6 == 'Promoção') {
+    const tagLiPromo = `<li class="${doc.data().categoria} listPromo listaProduto">
                           <span id="textDesconto" data-textDesconto="${doc.data().vDescont}">-${doc.data().vDescont}</span>
                           <a href="#">
                               <div class="imgProduto">
@@ -149,88 +156,46 @@ const loadPromoLancamentos = doc => {
                                     <p id="description" data-description="${doc.data().description}">${doc.data().description}</p>
                                   </div>
                                 <div class="preco">
-                                  <span id="vAanterior" data-vAanterior="${doc.data().vPrazp}">R$ ${doc.data().vPrazp}</span>
-                                  <span class="atual" id="vAtual" data-vAtual="${doc.data().vAvista}">R$ ${doc.data().vAvista}</span>
+                                  <span id="vAanterior" data-vAanterior="${doc.data().vPrazp}">${doc.data().vPrazp}</span>
+                                  <span class="atual" id="vAtual" data-vAtual="${doc.data().vAvista}">${doc.data().vAvista}</span>
                                   <div class="parcela">
                                     <span>Até</span>
                                     <span class="qtParcela" data-qtParcela="${doc.data().qtParcela}">${doc.data().qtParcela}x</span>
                                     <span>de</span>
-                                    <span class=valorParcela  id="vParcela" data-vParcela="${doc.data().valorPa}">R$ ${doc.data().valorPa}</span>
+                                    <span class=valorParcela  id="vParcela" data-vParcela="${doc.data().valorPa}">${doc.data().valorPa}</span>
                                   </div>
                                 </div>
                               </div>
+                            
                               <a id="compre" href="#">
                                 <div id="btnCompre">
                                   Acessar
                                 </div>
                               </a>
-                             
+                            
                           </a>
+                          <div class="variaveis" style="display: none;">
+                          <span class="marcas" data-marcas="${doc.data().marcas}"></span>
+                          <span class="categoria"  data-categoria="${doc.data().categoria}"></span>
+                          <span class="categoria2"  data-categoria2="${doc.data().categoria2}"></span>
+                          <span class="categoria3"  data-categoria3="${doc.data().categoria3}"></span>
+                          <span class="categoria4"  data-categoria4="${doc.data().categoria4}"></span>
+                          <span class="categoria5"  data-categoria5="${doc.data().categoria5}"></span>
+                          <span class="categoria6"  data-categoria6="${doc.data().categoria6}"></span>
+                          <span class="artigo"  data-artigo="${doc.data().artigo}"></span>
+                        </div>
                       </li>`
 
-    listPromo.insertAdjacentHTML('beforeend', tagLiPromo)
+        listPromo.insertAdjacentHTML('beforeend', tagLiPromo)
+  }
 
-        
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-  } 
-
-  if(doc.data().categoria == 'Promoção' || doc.data().categoria2 == 'Promoção' || doc.data().categoria3 == 'Promoção' || doc.data().categoria4 == 'Promoção'
-  || doc.data().categoria5 == 'Promoção' || doc.data().categoria6 == 'Promoção') {
-    const tagLiPromo = `<li class="${doc.data().categoria} listLanc">
-                          <span id="textDesconto">-${doc.data().vDescont}</span>
-                          <a href="#">
-                            <div class="imgProduto">
-                                <img src="${doc.data().img}" alt="">
-                            </div>
-                            <div class="containerTextProduto">
-                            <div class="textProduto">
-                                <div id="cod">
-                                  <span>Cod:</span>
-                                  <p>${doc.data().cod}</p>
-                                </div>
-                                <span id="nameItem">${doc.data().name}</span>
-                                <p id="description">${doc.data().description}</p>
-                            </div>
-                            <div class="preco">
-                              <span id="vAanterior">R$ ${doc.data().vPrazp}</span>
-                              <span id="vAtual">R$ ${doc.data().vAvista}</span>
-                              <span id="vParcela">Até ${doc.data().qtParcela}x de R$ ${doc.data().valorPa}</span>
-                            </div>
-                          </div>
-                          <div id="btnCompre">
-                                Acessar
-                            </div>
-                        </a>
-                      </li>`
-
-      listLancamento.insertAdjacentHTML('beforeend', tagLiPromo)
-      const btniconBackPromo = document.querySelector('.promo .iconBackPd');
+  const btniconBackPromo = document.querySelector('.promo .iconBackPd');
       const btniconForwardPromo = document.querySelector('.promo .iconForwardPd');
-      const btniconBackLanc = document.querySelector('.lancamentos .iconBackPd');
-      const btniconForwardLanc = document.querySelector('.lancamentos .iconForwardPd');
       const listPdPromo = document.querySelectorAll('#promo .listPromo');
-      const listPdLanc = document.querySelectorAll('#lancamentos .listLanc');
-
       const countPromo = listPdPromo.length
-      const countLan = listPdLanc.length
 
-      
       let currentSlidePromo = 0;
-      let currentSlideLanc = 0;    
-      
+
       btniconBackPromo.addEventListener('click', function backPromo() {
         const largura = window.innerWidth
         if(largura > 400) {
@@ -269,6 +234,66 @@ const loadPromoLancamentos = doc => {
         listPromo.style.marginLeft = -currentSlidePromo * listPdPromo[0].offsetWidth + 'px'
 
       }
+}
+
+const loadPromoLancamentos = doc => {
+
+  if(doc.data().categoria == 'Lançamentos' || doc.data().categoria2 == 'Lançamentos' || doc.data().categoria3 == 'Lançamentos' || doc.data().categoria4 == 'Lançamentos'
+  || doc.data().categoria5 == 'Lançamentos' || doc.data().categoria6 == 'Lançamentos') {
+    const tagLiLancamento = `<li class="${doc.data().categoria} listLanc listaProduto">
+                          <span id="textDesconto" data-textDesconto="${doc.data().vDescont}">-${doc.data().vDescont}</span>
+                          <a href="#">
+                              <div class="imgProduto">
+                                  <img data-image="${doc.data().img}" src="${doc.data().img}" alt="">
+                              </div>
+                              <div class="containerTextProduto">
+                                <div class="textProduto">
+                                    <div id="cod">
+                                      <span>Cod:</span>
+                                      <p data-cod="${doc.data().cod}">${doc.data().cod}</p>
+                                    </div>
+                                    <span class="name" id="nameItem" data-nameItem="${doc.data().name}">${doc.data().name}</span>
+                                    <p id="description" data-description="${doc.data().description}">${doc.data().description}</p>
+                                  </div>
+                                <div class="preco">
+                                  <span id="vAanterior" data-vAanterior="${doc.data().vPrazp}">${doc.data().vPrazp}</span>
+                                  <span class="atual" id="vAtual" data-vAtual="${doc.data().vAvista}">${doc.data().vAvista}</span>
+                                  <div class="parcela">
+                                    <span>Até</span>
+                                    <span class="qtParcela" data-qtParcela="${doc.data().qtParcela}">${doc.data().qtParcela}x</span>
+                                    <span>de</span>
+                                    <span class=valorParcela  id="vParcela" data-vParcela="${doc.data().valorPa}">${doc.data().valorPa}</span>
+                                  </div>
+                                </div>
+                              </div>
+                             
+                              <a id="compre" href="#">
+                                <div id="btnCompre">
+                                  Acessar
+                                </div>
+                              </a>
+                          </a>
+                          <div class="variaveis" style="display: none;">
+                          <span class="marcas" data-marcas="${doc.data().marcas}"></span>
+                          <span class="categoria"  data-categoria="${doc.data().categoria}"></span>
+                          <span class="categoria2"  data-categoria2="${doc.data().categoria2}"></span>
+                          <span class="categoria3"  data-categoria3="${doc.data().categoria3}"></span>
+                          <span class="categoria4"  data-categoria4="${doc.data().categoria4}"></span>
+                          <span class="categoria5"  data-categoria5="${doc.data().categoria5}"></span>
+                          <span class="categoria6"  data-categoria6="${doc.data().categoria6}"></span>
+                          <span class="artigo"  data-artigo="${doc.data().artigo}"></span>
+                        </div>
+                      </li>`
+
+        listLancamento.insertAdjacentHTML('beforeend', tagLiLancamento)
+  } 
+      
+      const btniconBackLanc = document.querySelector('.lancamentos .iconBackPd');
+      const btniconForwardLanc = document.querySelector('.lancamentos .iconForwardPd');
+      const listPdLanc = document.querySelectorAll('#lancamentos .listLanc');
+      const countLan = listPdLanc.length
+
+      let currentSlideLanc = 0;    
 
       btniconBackLanc.addEventListener('click', () => {
         const largura = window.innerWidth
@@ -304,15 +329,12 @@ const loadPromoLancamentos = doc => {
         }
       })
 
-
       function updateSliderLanc() {
         listLancamento.style.marginLeft = -currentSlideLanc * listPdLanc[0].offsetWidth + 'px'
       }
     
     }
   
-}
-
 const loadingFooter = doc => {
   const tagFooter = `<div class="barFooter">
                       <div class="links">

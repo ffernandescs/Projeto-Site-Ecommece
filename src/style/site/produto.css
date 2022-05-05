@@ -255,7 +255,6 @@ section {
     position: relative;
     grid-area: boxOne;
     width: 100%;
-    height: 75vh;
     padding: 20px;
     overflow: hidden;
 }
@@ -282,6 +281,9 @@ section {
 }
 
 .container .containerProduto .boxProdutos .boxOne .imgPrevie {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     height: auto;
     border: 1px solid #66666641;
@@ -290,7 +292,7 @@ section {
 
 .container .containerProduto .boxProdutos .boxOne .imgPrevie img {
     width: 100%;
-    height: 100%;
+    height: auto;
     object-fit: cover;
 }
 
@@ -328,27 +330,50 @@ section {
     flex-direction: column;
     align-items: flex-start;
     width: 100%;
-    height: 74vh;
+    height: 650px;
     border-bottom: 1px solid #66666641;
+    padding: 20px 0;
 }
 
 .container .containerProduto .boxProdutos .boxTwo .itemCompre .textItem {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+.container .containerProduto .boxProdutos .boxTwo .itemCompre .textItem .nameCod {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.container .containerProduto .boxProdutos .boxTwo .itemCompre .textItem div {
+    margin-bottom: 5px;
+}
+
+.container .containerProduto .boxProdutos .boxTwo .itemCompre .textItem .parcela {
     margin-bottom: 20px;
 }
 
 .container .containerProduto .boxProdutos .boxTwo .itemCompre .textItem:nth-child(2) {
-    margin-bottom: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70%;
+    border: 1px solid #66666641;
+    border-radius: 5px;
+    padding: 40px;
 }
 
 .container .containerProduto .boxProdutos .boxTwo .itemCompre .textItem .name {
+    width: 100%;
     font-size: 22px;
     font-weight: bold;
     color: #000;
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 }
 
 .container .containerProduto .boxProdutos .boxTwo .itemCompre .textItem .cod,
@@ -363,7 +388,7 @@ section {
     color: #666666;
 }
 
-.container .containerProduto .boxProdutos .boxTwo .itemCompre .textItem .precoAnterior span:last-child {
+.container .containerProduto .boxProdutos .boxTwo .itemCompre .textItem .precoAnterior span:nth-child(2) {
     text-decoration: line-through;
 }
 
@@ -394,29 +419,29 @@ section {
     margin-right: 2px;
 }
 
-.container .containerProduto .boxProdutos .boxTwo .itemCompre a button {
+.container .containerProduto .boxProdutos .boxTwo .itemCompre .textItem a button {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 250px;
-    height: 70px;
+    padding: 20px;
     background-color: #ff7900;
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
 
-.container .containerProduto .boxProdutos .boxTwo .itemCompre a button:hover {
+.container .containerProduto .boxProdutos .boxTwo .itemCompre .textItem a button:hover {
     background-color: #ee7913;
 }
 
-.container .containerProduto .boxProdutos .boxTwo .itemCompre a button span:first-child {
+.container .containerProduto .boxProdutos .boxTwo .itemCompre .textItem a button span:first-child {
     font-size: 30px;
     color: #fff;
     margin-right: 10px;
 }
 
-.container .containerProduto .boxProdutos .boxTwo .itemCompre a button span:last-child {
+.container .containerProduto .boxProdutos .boxTwo .itemCompre .textItem a button span:last-child {
     font-size: 18px;
     color: #fff;
 }
@@ -431,15 +456,16 @@ section {
     padding: 20px 0;
     border-bottom: 1px solid #66666641;
     cursor: pointer;
-    margin-bottom: 60px
+    margin-bottom: 20px
 
 }
 
 .containerTexto .descricao .menuDescription .listMenu h1 {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bold;
     text-transform: uppercase;
     color: #000;
+    transition: all 0.3s ease;
 }
 
 .containerTexto .descricao .menuDescription .listMenu::after {
@@ -454,15 +480,42 @@ section {
     transition: all 0.3s ease;
 }
 
+.containerTexto .descricao .menuDescription.active .listMenu h1 {
+    font-size: 18px;
+    color: #ff7900;
+}
+
+
 .containerTexto .descricao .menuDescription.active .listMenu::after {
+    color: #ff7900;
     transform: rotate(-180deg);
 }
+
+.containerTexto .descricao .menuDescription .listMenu:hover .titleList {
+    color: #ff7900;
+}
+
+ .containerTexto .descricao .menuDescription .listMenu:hover::after{
+    color: #ff7900;
+}
+
 
 .containerTexto .descricao .menuDescription .list {
     max-height: 0;
     overflow: hidden;
     transition: all 0.3s ease;
     transition-delay: 0.5s;
+}
+
+.containerTexto .descricao .menuDescription .list .descriptionText h1 {
+    font-size: 18px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.containerTexto .descricao .menuDescription .list .descriptionText p {
+    font-size: 16px;
+    color: #333;
 }
 
 .containerTexto .descricao .menuDescription.active .list {
@@ -489,26 +542,6 @@ section {
 .containerTexto .descricao .menuDescription .listMenu.active a span {
     transform: rotate(-180deg);
  }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 footer {
     width: 100%;
@@ -821,6 +854,73 @@ footer {
     .listProdutos nav ul li {
         width: 50vw;
     }
+
+
+    .container .containerProduto .boxProdutos {
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-areas: 
+        'boxOne'
+        'boxTwo' ;
+        grid-gap: 0px;
+    }
+
+    .container .containerProduto .boxProdutos .boxOne {
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+       justify-content: center;
+       padding-bottom: 0;
+    }
+
+    .container .containerProduto .boxProdutos .boxTwo {
+        padding-top: 0px;
+    }
+
+    .container .containerProduto .boxProdutos .boxOne .imgPrevie {
+        width: 60%;
+    }
+
+    
+    .container .containerProduto .boxProdutos .boxTwo .itemCompre {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: fit-content;
+     }
+
+     .container .containerProduto .boxProdutos .boxOne .percentual {
+        top: 30px;
+        right: 170px;
+    }
+
+    .container .containerProduto .boxProdutos .boxTwo .itemCompre .textItem:nth-child(2) {
+        margin-bottom: 0;
+    }
+}
+
+@media (max-width: 500px) {
+
+    .container .containerProduto .boxProdutos .boxOne .imgPrevie {
+        width: 90%;
+    }
+
+    .container .containerProduto .boxProdutos .boxOne .imgIco {
+        display: none;
+    }
+
+    .container .containerProduto .boxProdutos .boxTwo .itemCompre .textItem:nth-child(1) {
+        margin: 40px 10px 0 0;
+    }
+
+    .container .containerProduto .boxProdutos .boxTwo .itemCompre .textItem a button {
+        width: 180px;
+        padding: 15px;
+    }
+
+    .container .containerProduto .boxProdutos .boxTwo .itemCompre .textItem:nth-child(2) {
+        width: 100%;
+    }
 }
 
 @media (max-width: 400px) {
@@ -862,10 +962,19 @@ footer {
     .listProdutos nav ul li:hover {
         transform: scale(1);
         border: 1px solid transparent;
-
     }
 
     .itemDepoimento:hover, .itemCategory:hover {
         transform: scale(1);
     }
+
+    .marcas {
+        display: none;
+    }
+
+    .container .containerProduto .boxProdutos .boxTwo .itemCompre .textItem:nth-child(2) {
+        width: 100%;
+        padding: 15px;
+    }
+
 }
