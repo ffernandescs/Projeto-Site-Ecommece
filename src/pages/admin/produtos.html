@@ -133,7 +133,7 @@
                                 <span>itens</span>
                                 <input id="searchList" type="text" placeholder="Pesquisar">
                             </div>
-                            <a href="./addPd.html"><button type="button">Adicionar Produto</button></a>
+                            <a id="teste" href=""><button type="button">Adicionar Produto</button></a>
                         </div>
                     </div>
                     <div class="contTable">
@@ -227,7 +227,7 @@
                                     <div class="form itemForm6" for="vPrazo">
                                         <label for="vPrazo">Valor a prazo:</label>
                                         <div class="itemInput">
-                                            <input data-vAvista="soma" class="moeda" id="vPrazo" type="tel" name="vPrazo" value="0"  onkeyup="soma()">
+                                            <input data-vAvista="soma" class="moeda" id="vPrazo" type="tel" name="vPrazo" value="R$ 0,00">
                                             <i class="material-icons-outlined">error_outline</i>
                                         </div>
                                         <div class="msmErro">
@@ -237,7 +237,7 @@
                                     <div class="form itemForm7" for="vDesconto">
                                         <label for="vDesconto">Valor de desconto:</label>
                                         <div class="itemInput">
-                                            <input id="vDesconto" type="tel" name="vDesconto" value="0" disabled  onkeyup="soma()"> 
+                                            <input id="vDesconto" type="tel" name="vDesconto" value="0%" disabled>
                                             <i class="material-icons-outlined">error_outline</i>
                                         </div>
                                         <div class="msmErro">
@@ -247,7 +247,7 @@
                                     <div class="form itemForm8" for="vAvista">
                                         <label for="vAvista">Valor avista:</label>
                                         <div class="itemInput">
-                                            <input data-vAvista="soma" class="moeda" id="vAvista" type="tel" name="vAvista" value="0" onkeyup="soma()">
+                                            <input data-vAvista="soma" class="moeda" id="vAvista" type="tel" name="vAvista" value="R$ 0,00" onkeyup="soma()">
                                             <i class="material-icons-outlined">error_outline</i>
                                         </div>
                                         <div class="msmErro">
@@ -258,7 +258,7 @@
                                     <div class="form itemForm9" for="vParcela">
                                         <label for="vParcela">Valor da parcela:</label>
                                         <div class="itemInput">
-                                            <input class="moeda" id="vParcela" type="tel" name="vParcela" value="0"  onkeyup="soma()" disabled>
+                                            <input class="moeda" id="vParcela" type="tel" name="vParcela" value="R$ 0,00" onkeyup="soma()" disabled>
                                             <i class="material-icons-outlined">error_outline</i>
                                         </div>
                                         <div class="msmErro">
@@ -268,7 +268,7 @@
                                     <div class="form itemForm10" for="vFrete">
                                         <label for="vFrete">Valor do frete:</label>
                                         <div class="itemInput">
-                                            <input class="moeda" id="vFrete" type="tel" name="vFrete" value="0"  onkeyup="soma()">
+                                            <input class="moeda" id="vFrete" type="tel" name="vFrete" value="R$ 0,00" onkeyup="soma()">
                                             <i class="material-icons-outlined">error_outline</i>
                                         </div>
                                         <div class="msmErro">
@@ -278,7 +278,7 @@
                                     <div class="form itemForm11" for="qtEstoque">
                                         <label for="qtEstoque">Quant. em estoque:</label>
                                         <div class="itemInput">
-                                            <input id="qtEstoque" type="tel" value="0" name="qtEstoque">
+                                            <input id="qtEstoque" type="tel" name="qtEstoque" value="0">
                                             <i class="material-icons-outlined">error_outline</i>
                                         </div>
                                         <div class="msmErro">
@@ -287,7 +287,7 @@
                                     </div>
                                     <div class="form itemForm12" for="qtParcela">
                                         <label for="qtParcela">Quant. de Parcelas:</label>
-                                        <select itemid="qtParcela" name="qtParcela" id="qtParcela"  oninput="soma()"> 
+                                        <select itemid="qtParcela" name="qtParcela" id="qtParcela" oninput="soma()"> 
                                             <option value="1">1x</option>
                                             <option value="2">2x</option>
                                             <option value="3">3x</option>
@@ -364,7 +364,7 @@
     <script src="../../js/db/confiDb.js"></script>
     <script src="../../js/autentication/index.js"></script>
     <script src="../../js/admin/menu.js"></script>
-    <script src="../../js/admin/produtos.js"></script>
+    <script type="module" src="../../js/admin/produtos.js"></script>
     <script src="../../js/admin/loginUser.js"></script>
 </body>
 </html>

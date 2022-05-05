@@ -256,10 +256,10 @@ section {
 .menuHrozintal .profileUser .imgProfile img {
     width: 50px;
     height: 50px;
-    object-fit: cover;
+    object-fit: unset;
     padding: 3px;
-    background-color: #333;
-    box-shadow: 0 0 5px #333;
+    background-color: #b0a8a4;
+    box-shadow: 0 0 5px #b0a8a4;
     border-radius: 10px;
 }
 
@@ -292,6 +292,11 @@ section {
     font-size: 30px;
     color: #fff;
     cursor: pointer;
+    display: block;
+}
+
+.menuHrozintal.close .profileUser i {
+   display: none;
 }
 
 .containerPrincipal {
@@ -353,11 +358,11 @@ section {
 .containerPrincipal .menuTop .modalUser li .textLinkUser .profileImg img {
     width: 40px;
     height: 40px;
-    object-fit: cover;
-    background-color: #333;
-    box-shadow: 0 0 10px #333;
+    object-fit: unset;
+    background-color: #b0a8a4;
+    box-shadow: 0 0 10px #b0a8a4;
     border-radius: 10px;
-    padding: 5px;
+    padding: 2px;
 }
 
 .containerPrincipal .menuTop .modalUser li .textLinkUser .textIcoUser {
@@ -366,6 +371,10 @@ section {
     justify-content: center;
     width: 100%;
     cursor: pointer;
+}
+
+.containerPrincipal .menuTop .modalUser li .textLinkUser i {
+    margin-right: 10px;
 }
 
 .containerPrincipal .menuTop .modalUser li .menuUser .subMenuUser {

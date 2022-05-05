@@ -171,7 +171,6 @@ function checkFormulario() {
     const vPrazoValue =  document.getElementById('vPrazo').value
     const vAvistaValue =  document.getElementById('vAvista').value
     const qtEstoqueValue =  document.getElementById('qtEstoque').value
-    const qtParcelaValue =  document.getElementById('qtParcela').value
     const marcaValue =  document.getElementById('marca').value
     const categoria1Value =  document.getElementById('categoria1').value
 
@@ -210,15 +209,10 @@ function checkFormulario() {
     } else {
         setSucessFor(vAvista)
     }
-    if(qtEstoqueValue === '' || qtEstoqueValue == 0) {
+    if(qtEstoqueValue === '') {
         setErrorFor(qtEstoque)
     } else {
         setSucessFor(qtEstoque)
-    }
-    if(qtParcelaValue === '') {
-        setErrorFor(qtParcela)
-    } else {
-        setSucessFor(qtParcela)
     }
     if(marcaValue === '') {
         setErrorFor(marca)
@@ -230,8 +224,6 @@ function checkFormulario() {
     } else {
         setSucessFor(categoria1)
     }
-    
-
 }
 
 function setSucessFor(input, message) {

@@ -13,7 +13,30 @@ window.addEventListener('load', () => {
             arrowParent.classList.toggle('showMenu');
         })
     }
+
+    const largura = window.innerWidth
+    if(largura > 500) {
+        menuHrozintal.classList.add('close')
+    } else {
+        menuHrozintal.classList.remove('close')
+    }
 })
+
+menuHamburger.addEventListener('click', () => {
+    menuHrozintal.classList.toggle('close')
+})
+
+campoUser.addEventListener('click', () => {
+    subMenuUser.classList.toggle('active')
+   
+})
+
+dbFirestore.collection('perfil').get().then(querySnapshot => {
+    querySnapshot.forEach(doc => {
+        loadingInfoUser(doc);
+    })
+})
+
 function menuResponse() {
     menuHrozintal.classList.toggle('showResponse')
     if(menuHrozintal.classList.contains('showResponse')) {
@@ -22,22 +45,6 @@ function menuResponse() {
         menuHamburgerResponse.classList.remove('rotate')
     }
 }
-
-
-
-menuHamburger.addEventListener('click', () => {
-    menuHrozintal.classList.toggle('close')
-})
-
-campoUser.addEventListener('click', () => {
-    subMenuUser.classList.toggle('active')
-})
-
-dbFirestore.collection('perfil').get().then(querySnapshot => {
-    querySnapshot.forEach(doc => {
-        loadingInfoUser(doc);
-    })
-})
 
 const loadingInfoUser = doc => {
     const contProfile = `<div class="contProfile">
@@ -50,8 +57,10 @@ const loadingInfoUser = doc => {
                     </div>
                 </div>`
 
-
     itemProfileUser.insertAdjacentHTML('beforeend', contProfile);
+
+    const profileImg = document.querySelector('.profileImg img');
+        profileImg.src = `${doc.data().imgPerfil}`
 }
 
 

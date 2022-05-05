@@ -1,3 +1,8 @@
+
+
+
+
+
 const tableListProduc = document.querySelector('.tbList');
 const delItem = document.querySelector('.tbList'); 
 const formEdit = document.querySelector('.editProduto'); 
@@ -104,6 +109,18 @@ const loadingList = doc => {
 
 
     tableListProduc.insertAdjacentHTML('beforeend', tr);
+
+
+
+
+
+
+
+
+
+
+
+
 
     const buscarProduto = document.getElementById('searchList');
     const listLiPd = document.querySelectorAll(`.tagTr`);
@@ -349,12 +366,8 @@ function checkFormulario() {
     const artigoValue =  document.getElementById('artigo').value
     const descriptionValue =  document.getElementById('description').value
     const vPrazoValue =  document.getElementById('vPrazo').value
-    const vDescontoValue =  document.getElementById('vDesconto').value
-    const vParcelaValue =  document.getElementById('vParcela').value
     const vAvistaValue =  document.getElementById('vAvista').value
-    const vFreteValue =  document.getElementById('vFrete').value
     const qtEstoqueValue =  document.getElementById('qtEstoque').value
-    const qtParcelaValue =  document.getElementById('qtParcela').value
     const marcaValue =  document.getElementById('marca').value
     const categoria1Value =  document.getElementById('categoria1').value
 
@@ -383,40 +396,20 @@ function checkFormulario() {
     } else {
         setSucessFor(description)
     }
-    if(vPrazoValue === '' || codValue == 0) {
+    if(vPrazoValue === '' || vPrazoValue == 'R$ 0,00') {
         setErrorFor(vPrazo)
     } else {
         setSucessFor(vPrazo)
     }
-    if(vDescontoValue === '' || codValue == 0) {
-        setErrorFor(vDesconto)
-    } else {
-        setSucessFor(vDesconto)
-    }
-    if(vParcelaValue === '' || codValue == 0) {
-        setErrorFor(vParcela)
-    } else {
-        setSucessFor(vParcela)
-    }
-    if(vAvistaValue === '' || codValue == 0) {
+    if(vAvistaValue === '' || vAvistaValue == 'R$ 0,00') {
         setErrorFor(vAvista)
     } else {
         setSucessFor(vAvista)
-    }
-    if(vFreteValue === '' || codValue == 0) {
-        setErrorFor(vFrete)
-    } else {
-        setSucessFor(vFrete)
     }
     if(qtEstoqueValue === '') {
         setErrorFor(qtEstoque)
     } else {
         setSucessFor(qtEstoque)
-    }
-    if(qtParcelaValue === '') {
-        setErrorFor(qtParcela)
-    } else {
-        setSucessFor(qtParcela)
     }
     if(marcaValue === '') {
         setErrorFor(marca)
@@ -428,8 +421,8 @@ function checkFormulario() {
     } else {
         setSucessFor(categoria1)
     }
-
 }
+
 
 function setSucessFor(input, message) {
     const itemInput = input
@@ -468,3 +461,4 @@ document.getElementById('fileEdit').addEventListener('change', (event)=> {
         });
     })
 })
+

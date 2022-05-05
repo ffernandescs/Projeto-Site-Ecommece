@@ -16,6 +16,26 @@ let indexImgSlider = 0;
 dbFirestore.collection('produtos').get().then(querySnapshot => {
   querySnapshot.forEach(doc => {
     loadPromoLancamentos(doc);
+
+    const ulrTest = './src/pages/site/produto.html'
+
+    document.getElementById('compre').href = ulrTest;
+    
+    const tamanho = document.querySelectorAll('.listPromo')
+    console.log(tamanho.length)
+    for(let i = 0; i <tamanho.length; i++){
+        const textDesconto = tamanho[i].querySelector('#textDesconto').getAttribute('data-textDesconto')
+        const image = tamanho[i].querySelector('.imgProduto img').getAttribute('data-image')
+        const cod = tamanho[i].querySelector('#cod p').getAttribute('data-cod')
+        const nameItem = tamanho[i].querySelector('#nameItem').getAttribute('data-nameItem')
+        const description = tamanho[i].querySelector('#description').getAttribute('data-description')
+        const vAanterior = tamanho[i].querySelector('#vAanterior').getAttribute('data-vAanterior')
+        const vAtual = tamanho[i].querySelector('#vAtual').getAttribute('data-vAtual')
+        const vParcela = tamanho[i].querySelector('#vParcela').getAttribute('data-vParcela')
+        const qtParcela = tamanho[i].querySelector('.qtParcela').getAttribute('data-qtParcela')
+        tamanho[i].querySelector('#compre').href = ulrTest + '?image='+image+'&textDesconto='+textDesconto+'&qtParcela='+qtParcela+
+        '&cod='+cod+'&nameItem='+nameItem+'&description='+description+'&vAanterior='+vAanterior+'&vAtual='+vAtual+'&vParcela='+vParcela;
+    }
   })
 })
 
@@ -114,33 +134,57 @@ const loadPromoLancamentos = doc => {
   if(doc.data().categoria == 'Lançamentos' || doc.data().categoria2 == 'Lançamentos' || doc.data().categoria3 == 'Lançamentos' || doc.data().categoria4 == 'Lançamentos'
   || doc.data().categoria5 == 'Lançamentos' || doc.data().categoria6 == 'Lançamentos') {
     const tagLiPromo = `<li class="${doc.data().categoria} listPromo">
-                          <span id="textDesconto">-${doc.data().vDescont}</span>
+                          <span id="textDesconto" data-textDesconto="${doc.data().vDescont}">-${doc.data().vDescont}</span>
                           <a href="#">
                               <div class="imgProduto">
-                                  <img src="${doc.data().img}" alt="">
+                                  <img data-image="${doc.data().img}" src="${doc.data().img}" alt="">
                               </div>
                               <div class="containerTextProduto">
                                 <div class="textProduto">
                                     <div id="cod">
                                       <span>Cod:</span>
-                                      <p>${doc.data().cod}</p>
+                                      <p data-cod="${doc.data().cod}">${doc.data().cod}</p>
                                     </div>
-                                    <span id="nameItem">${doc.data().name}</span>
-                                    <p id="description">${doc.data().description}</p>
+                                    <span class="name" id="nameItem" data-nameItem="${doc.data().name}">${doc.data().name}</span>
+                                    <p id="description" data-description="${doc.data().description}">${doc.data().description}</p>
                                   </div>
                                 <div class="preco">
-                                  <span id="vAanterior">R$ ${doc.data().vPrazp}</span>
-                                  <span id="vAtual">R$ ${doc.data().vAvista}</span>
-                                  <span id="vParcela">Até ${doc.data().qtParcela}x de R$ ${doc.data().valorPa}</span>
+                                  <span id="vAanterior" data-vAanterior="${doc.data().vPrazp}">R$ ${doc.data().vPrazp}</span>
+                                  <span class="atual" id="vAtual" data-vAtual="${doc.data().vAvista}">R$ ${doc.data().vAvista}</span>
+                                  <div class="parcela">
+                                    <span>Até</span>
+                                    <span class="qtParcela" data-qtParcela="${doc.data().qtParcela}">${doc.data().qtParcela}x</span>
+                                    <span>de</span>
+                                    <span class=valorParcela  id="vParcela" data-vParcela="${doc.data().valorPa}">R$ ${doc.data().valorPa}</span>
+                                  </div>
                                 </div>
                               </div>
-                              <div id="btnCompre">
+                              <a id="compre" href="#">
+                                <div id="btnCompre">
                                   Acessar
-                              </div>
+                                </div>
+                              </a>
+                             
                           </a>
                       </li>`
 
     listPromo.insertAdjacentHTML('beforeend', tagLiPromo)
+
+        
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
   } 
 
   if(doc.data().categoria == 'Promoção' || doc.data().categoria2 == 'Promoção' || doc.data().categoria3 == 'Promoção' || doc.data().categoria4 == 'Promoção'
