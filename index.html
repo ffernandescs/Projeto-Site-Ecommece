@@ -10,6 +10,7 @@
     <title>Loja</title>
 </head>
 <body>
+    <div class="telaEscura"></div>
     <div class="btnTop">
         <span class="material-icons-outlined">arrow_circle_up</span>
     </div>
@@ -22,10 +23,118 @@
                     <input type="text" placeholder="Digite o que voçê procura">
                     <span class="material-icons-outlined" title="Pesquisar">search</span>
                 </div>
-                <div class="shoppingCart">
+                <ul class="shoppingCart">
                     <span class="valueCart">R$59,00</span>
                     <span class="material-icons-outlined iconCart">shopping_cart</span>
-                </div>
+                    <li class="containerCart">
+                        <div class="contTable">
+                            <div class="containerTable">
+                                <table class="tableSubMenu">
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>Produto</th>
+                                            <th>Preço</th>
+                                            <th>QTD</th>
+                                            <th>Excluir</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="tagTr" data-listTr="${doc.id}" data-remove="${doc.id}">
+                                            <td id=""><img src="./assets/img/produtos/100535.jpg" alt=""></td>
+                                            <td id="">Natura Homem 350ml</td>
+                                            <td id="">R$ 59,00</td>
+                                            <td id="">2</td>
+                                            <td id="">
+                                                <span data-remove="${doc.id}" class="material-icons" title="Apagar">delete</span>
+                                            </td>                            
+                                        </tr>
+                                        <tr class="tagTr" data-listTr="${doc.id}" data-remove="${doc.id}">
+                                            <td id=""><img src="./assets/img/produtos/100535.jpg" alt=""></td>
+                                            <td id="">Natura Homem 350ml</td>
+                                            <td id="">R$ 59,00</td>
+                                            <td id="">2</td>
+                                            <td id="">
+                                                <span data-remove="${doc.id}" class="material-icons" title="Apagar">delete</span>
+                                            </td>                            
+                                        </tr>
+                                        <tr class="tagTr" data-listTr="${doc.id}" data-remove="${doc.id}">
+                                            <td id=""><img src="./assets/img/produtos/100535.jpg" alt=""></td>
+                                            <td id="">Natura Homem 350ml</td>
+                                            <td id="">R$ 59,00</td>
+                                            <td id="">2</td>
+                                            <td id="">
+                                                <span data-remove="${doc.id}" class="material-icons" title="Apagar">delete</span>
+                                            </td>                            
+                                        </tr>
+                                        <tr class="tagTr" data-listTr="${doc.id}" data-remove="${doc.id}">
+                                            <td id=""><img src="./assets/img/produtos/100535.jpg" alt=""></td>
+                                            <td id="">Natura Homem 350ml</td>
+                                            <td id="">R$ 59,00</td>
+                                            <td id="">2</td>
+                                            <td id="">
+                                                <span data-remove="${doc.id}" class="material-icons" title="Apagar">delete</span>
+                                            </td>                            
+                                        </tr>
+                                        <tr class="tagTr" data-listTr="${doc.id}" data-remove="${doc.id}">
+                                            <td id=""><img src="./assets/img/produtos/100535.jpg" alt=""></td>
+                                            <td id="">Natura Homem 350ml</td>
+                                            <td id="">R$ 59,00</td>
+                                            <td id="">2</td>
+                                            <td id="">
+                                                <span data-remove="${doc.id}" class="material-icons" title="Apagar">delete</span>
+                                            </td>                            
+                                        </tr>
+                                        <tr class="tagTr" data-listTr="${doc.id}" data-remove="${doc.id}">
+                                            <td id=""><img src="./assets/img/produtos/100535.jpg" alt=""></td>
+                                            <td id="">Natura Homem 350ml</td>
+                                            <td id="">R$ 59,00</td>
+                                            <td id="">2</td>
+                                            <td id="">
+                                                <span data-remove="${doc.id}" class="material-icons" title="Apagar">delete</span>
+                                            </td>                            
+                                        </tr>
+                                        <tr class="tagTr" data-listTr="${doc.id}" data-remove="${doc.id}">
+                                            <td id=""><img src="./assets/img/produtos/100535.jpg" alt=""></td>
+                                            <td id="">Natura Homem 350ml</td>
+                                            <td id="">R$ 59,00</td>
+                                            <td id="">2</td>
+                                            <td id="">
+                                                <span data-remove="${doc.id}" class="material-icons" title="Apagar">delete</span>
+                                            </td>                            
+                                        </tr>
+                                        <tr class="tagTr" data-listTr="${doc.id}" data-remove="${doc.id}">
+                                            <td id=""><img src="./assets/img/produtos/100535.jpg" alt=""></td>
+                                            <td id="">Natura Homem 350ml</td>
+                                            <td id="">R$ 59,00</td>
+                                            <td id="">2</td>
+                                            <td id="">
+                                                <span data-remove="${doc.id}" class="material-icons" title="Apagar">delete</span>
+                                            </td>                            
+                                        </tr>
+                                        <tr class="tagTr" data-listTr="${doc.id}" data-remove="${doc.id}">
+                                            <td id=""><img src="./assets/img/produtos/100535.jpg" alt=""></td>
+                                            <td id="">Natura Homem 350ml</td>
+                                            <td id="">R$ 59,00</td>
+                                            <td id="">2</td>
+                                            <td id="">
+                                                <span data-remove="${doc.id}" class="material-icons" title="Apagar">delete</span>
+                                            </td>                            
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="confirme">
+                                <div class="textTotal">
+                                    <span>Total</span>
+                                    <span>R$ 525,25</span>
+                                    </div>
+                                <button>Finalizar Pedido</button>
+                            </div>
+                        </div>
+                        
+                    </li>
+                </ul>
             </div>
             <nav class="menu">
                 <ul>
@@ -48,15 +157,7 @@
             </div>
         </div>
     </header>
-    <div class="variaveis" style="display: none;">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
+  
     <section>
         <div class="slider">
             <div class="containerSlider">

@@ -127,16 +127,16 @@ window.addEventListener('load', () => {
     
     const imgProduto = document.querySelector('.boxOne');
 
-        const tagDivImg = `<div class="imgPrevie">
-                            <img src="${subTexto2}" alt="">
+        const tagDivImg =   `<div class="imgPrevie">
+                                <img src="${subTexto2}" alt="">
+                                <span class="percentual">-${textDesconto}</span>
                             </div>
                             <div class="imgIco">
                                 <span>Passe o mouse para ampliar</span>
                                 <div class="tagImg">
                                     <img src="${subTexto2}" alt="">
                                 </div>
-                            </div>
-                            <span class="percentual">-${textDesconto}</span>`
+                            </div>`
             
                 imgProduto.insertAdjacentHTML('beforeend', tagDivImg)
 

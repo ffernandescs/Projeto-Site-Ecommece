@@ -10,6 +10,7 @@ const listPromo = document.getElementById('promo');
 const listLancamento = document.getElementById('lancamentos');
 const containerFooter = document.querySelector('.containerBarFooter');
 const btnTop = document.querySelector('.btnTop');
+const btnCart = document.querySelector('.shoppingCart');
 
 let indexImgSlider = 0;
 
@@ -93,6 +94,11 @@ window.addEventListener('load', () => {
       })
   }
 });
+
+btnCart.addEventListener('click', () => {
+    const tagBody = document.querySelector('body');
+    tagBody.classList.toggle('active')
+})
 
 btnTop.addEventListener('click', () => {
     window.scroll({

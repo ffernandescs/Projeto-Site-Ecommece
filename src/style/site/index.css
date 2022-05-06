@@ -13,6 +13,31 @@ body {
     height: 100vh;
 }
 
+body.active {
+    overflow: hidden;
+}
+
+.telaEscura {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.352);
+    z-index: -9999;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+
+body.active .telaEscura {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.352);
+    z-index: 6;
+    visibility: visible;
+    pointer-events: auto;
+}
+
 .btnTop {
     position: fixed;
     bottom: 10px;
@@ -56,7 +81,7 @@ a, h1, h2, h3, h4, p {
 .containerTop {
     width: 100%;
     position: fixed;
-    z-index: 5;
+    z-index: 7;
     transition: all 0.4s ease-in-out;
 }
 
@@ -84,7 +109,7 @@ a, h1, h2, h3, h4, p {
 }
 
 .topPage .logo img {
-    width: 120px;
+    width: 100px;
     height: 40px;
     object-fit: cover;
 }
@@ -119,16 +144,141 @@ a, h1, h2, h3, h4, p {
 }
 
 .shoppingCart {
+    position: relative;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
+    max-width: 700px;
+    z-index: 10;
     cursor: pointer;
 }
+
+.shoppingCart .containerCart {
+    position: absolute;
+    top: -100vh;
+    right: 0;
+    width: 700px;
+    height: calc(100vh - 70px);
+    max-height: 700px;
+    background-color: #fff;
+    border-radius: 0 5px 0 5px;
+    transition: all 0.5s ease;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    z-index: 10;
+    cursor: default;
+}
+
+body.active header .containerTop .topPage .shoppingCart .containerCart {
+    top: 35px;
+}
+
+.shoppingCart .containerCart::-webkit-scrollbar {
+    width: 6px;
+    background-color: #95959e;
+
+}
+.shoppingCart .containerCart::-webkit-scrollbar-thumb {
+    background-color: #1d1b31;
+}
+
+.shoppingCart .containerCart .contTable {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.shoppingCart .containerCart .tableSubMenu {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.shoppingCart .containerCart .tableSubMenu thead {
+    position: sticky;
+    top: 0;
+    background-color: #F1F0F2;
+    z-index: 5;
+}
+
+.shoppingCart .containerCart .tableSubMenu thead tr {
+    width: 100%;
+}
+
+.shoppingCart .containerCart .tableSubMenu thead tr th {
+    font-size: 14px;
+    color: #666666;
+    padding: 5px 10px;
+
+}
+
+.shoppingCart .containerCart .tableSubMenu tbody tr td {
+    padding: 20px 10px;
+    border-bottom: 1px solid #66666641;
+}
+
+.shoppingCart .containerCart .tableSubMenu tbody tr td span {
+    cursor: pointer;
+    color: #005ac7;
+    transition: all 0.5s ease;
+    transform: scale(1);
+}
+
+.shoppingCart .containerCart .tableSubMenu tbody tr td span:hover {
+    color: #0032ba;
+    transform: scale(1.3);
+}
+
+.shoppingCart .containerCart .tableSubMenu tbody tr td img {
+    width: 60px;
+    height: 60px;
+}
+
+.shoppingCart .containerCart .contTable .confirme {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
+    padding: 20px 30px;
+}
+
+.shoppingCart .containerCart .contTable .confirme .textTotal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.shoppingCart .containerCart .contTable .confirme .textTotal span:nth-child(1) {
+    font-size: 16px;
+    text-transform: uppercase;
+    color: #333;
+    margin-right: 10px;
+}
+
+.shoppingCart .containerCart .contTable .confirme .textTotal span:nth-child(2) {
+    font-size: 22px;
+    font-weight: bold;
+    color: #000;
+}
+
+.shoppingCart .containerCart .contTable .confirme button {
+    width: 150px;
+    background-color: #ff7900;
+    border-radius: 5px;
+    border: none;
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+    padding: 15px;
+    cursor: pointer;
+}
+
+.shoppingCart .containerCart .contTable .confirme button:hover {
+    background-color: #ee7913;
+}
+
 
 .shoppingCart .valueCart {
     font-size: 16px;
     color: #fff;
-    
 }
 
 .shoppingCart .iconCart {
@@ -967,7 +1117,7 @@ footer {
         height: 50px;
         background-color: #FFF;
         padding: 10px 20px;
-        z-index: 55;
+        z-index: 9;
     }
 
     .menuHamburguer .conLines {
@@ -1019,6 +1169,35 @@ footer {
     .listProdutos nav ul li {
         width: 50vw;
     }
+
+    .shoppingCart {
+        position: static;
+    }
+
+    .shoppingCart .containerCart {
+        top: -100vh;
+        right: 0;
+        width: 100%;
+        max-height: 100vh;
+    }
+
+    body.active header .containerTop .topPage .shoppingCart .containerCart {
+        top: 70px;
+        z-index: 56;
+    }
+
+    .shoppingCart .containerCart .tableSubMenu tbody tr td img  {
+        width: 40px;
+        height: 40px;
+    }
+
+    .shoppingCart .containerCart .tableSubMenu tbody tr td {
+        padding: 10px 5px;
+    }
+
+
+
+
 }
 
 @media (max-width: 400px) {
@@ -1065,5 +1244,13 @@ footer {
 
     .itemDepoimento:hover, .itemCategory:hover {
         transform: scale(1);
+    }
+
+    .topPage .search {
+        margin: 0 5px;
+    }
+
+    .shoppingCart .valueCart {
+        display: none;
     }
 }
