@@ -66,7 +66,7 @@ const loadingFooter = doc => {
                             </div>
                             <h1>Aceitamos Cartões</h1>
                             <div class="imgCartao">
-                                <img src="../../../assets/img/cartao.png" alt="">
+                                <img src="https://firebasestorage.googleapis.com/v0/b/ecommece-382ee.appspot.com/o/siteEcommece-Isabel%2FimgFooter%2Fcartao.png?alt=media&token=9dc83477-662f-4c64-ae50-49571767d4e2" alt="">
                             </div>
                         </div>
                         <div class="links">
@@ -109,8 +109,8 @@ const loadingFooter = doc => {
                             
                             <h1>Selos</h1>
                             <div class="seloImg">
-                                <img src="../../../assets/img/seloGoogle.png" alt="">
-                                <img src="../../../assets/img/siteProtegido.webp" alt="">
+                                <img src="https://firebasestorage.googleapis.com/v0/b/ecommece-382ee.appspot.com/o/siteEcommece-Isabel%2FimgFooter%2FseloGoogle.png?alt=media&token=644d93d2-bdd9-4a4d-8942-50fc53a22e19" alt="">
+                                <img src="https://firebasestorage.googleapis.com/v0/b/ecommece-382ee.appspot.com/o/siteEcommece-Isabel%2FimgFooter%2FsiteProtegido.webp?alt=media&token=bc3b1813-9e72-4fea-ab07-b55f519c559b" alt="">
                             </div>
                         </div>
                         <div class="links">
