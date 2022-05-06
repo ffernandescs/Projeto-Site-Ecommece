@@ -66,6 +66,10 @@ body.active .telaEscura {
     z-index: 16;
 }
 
+#mainPage {
+    display: none;
+}
+
 header {
     position: relative;
     width: 100%;
@@ -79,14 +83,15 @@ a, h1, h2, h3, h4, p {
 }
 
 .containerTop {
-    width: 100%;
     position: fixed;
+    width: 100%;
+    background-color: #fff;
     z-index: 7;
     transition: all 0.4s ease-in-out;
 }
 
 .containerTop.active {
-    top: -10%;
+    top: -5%;
 }
 .containerTop.show {
     top: 0;
@@ -1193,6 +1198,7 @@ footer {
 
     .shoppingCart .containerCart .tableSubMenu tbody tr td {
         padding: 10px 5px;
+        text-align: center;
     }
 
 
