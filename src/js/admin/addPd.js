@@ -129,8 +129,12 @@ formAddProduto.addEventListener('submit', e => {
         qtEstoque.value.length == 0 || qtParcela.value.length == 0 || marca.value.length == 0 || 
         categoria1.value.length == 0 ) {
 
+
+
     } else {
+        
         dbFirestore.collection('produtos').doc().set({
+            
             createdAt: new Date(),
             cod: formAddProduto.cod.value,
             img: imageProduto.src,

@@ -1,5 +1,3 @@
-const dbPromoLancaMento = firebase.firestore();
-
 const btnSliderBack = document.querySelector('.iconBack');
 const btnSliderForward = document.querySelector('.iconForward');
 const imgSlider = document.querySelector('.sliderImg');
@@ -12,17 +10,37 @@ const containerFooter = document.querySelector('.containerBarFooter');
 const btnTop = document.querySelector('.btnTop');
 const btnCart = document.querySelector('.shoppingCart');
 
+
+const ulrCategoria = './src/pages/site/categorias.html'
+const btnMenu = document.querySelector('.itemX a')
+
+
+
+const itemMenu = document.querySelectorAll('.itemX')
+
+for(let i = 0; i <itemMenu.length; i++){
+  const item = itemMenu[i].querySelector('a .itemMenu')
+  if(item.innerHTML == item.innerHTML){
+    const itemHref = itemMenu[i].querySelector('a')
+    itemHref.href = ulrCategoria + '?var='+item.innerHTML
+    console.log()
+  } else {
+    console.log('No')
+
+  }
+}
+
 let indexImgSlider = 0;
 
 dbFirestore.collection('produtos').get().then(querySnapshot => {
   querySnapshot.forEach(doc => {
-    loadPromoLancamentos(doc);
     promocao(doc);
+    loadPromoLancamentos(doc);
+
 
     const ulrTest = './src/pages/site/produto.html'
 
-    document.getElementById('compre').href = ulrTest;
-    
+
     const tamanho = document.querySelectorAll('.listaProduto')
     for(let i = 0; i <tamanho.length; i++){
         const textDesconto = tamanho[i].querySelector('#textDesconto').getAttribute('data-textDesconto')
@@ -46,8 +64,12 @@ dbFirestore.collection('produtos').get().then(querySnapshot => {
         '&cod='+cod+'&nameItem='+nameItem+'&description='+description+'&vAanterior='+vAanterior+'&vAtual='+vAtual+'&vParcela='+vParcela+
         '&marcas='+marcas+'&categoria='+categoria+'&categoria2='+categoria2+'&categoria3='+categoria3+'&categoria4='+categoria4+
         '&categoria5='+categoria5+'&categoria6='+categoria6+'&artigo='+artigo;
-    }
+       
+      }
+    
   })
+  
+
 })
 
 dbFirestore.collection('dadosUsuario').get().then(querySnapshot => {
@@ -489,10 +511,3 @@ const loadingFooter = doc => {
   })
 
 }
-
-
-
-
-
-
-

@@ -12,7 +12,6 @@
 
 body {
     position: relative;
-    height: 100vh;
 }
 
 body.active {
@@ -345,8 +344,8 @@ body.active header .containerTop .topPage .shoppingCart .containerCart {
 
 section {
     width: 100%;
+    min-height: 100vh;
     display: flex;
-    align-items: center;
     justify-content: center;
 }
 
@@ -379,14 +378,14 @@ section {
 }
 
 .container .containerProduto .boxProdutos {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    grid-template-areas: 
-    'box';
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    width: 100%;
 }
 
 .container .containerProduto .boxProdutos .box {
-    grid-area: boxOne;
+    width: 100%;
     height: 100%;
 }
 
@@ -400,7 +399,8 @@ section {
 }
 
 .container .containerProduto .boxProdutos .box .botton {
-    justify-content: flex-end;
+    justify-content: center;
+    width: 100%;
     border-bottom: none;
     padding: 60px 0 30px 0;
 }
@@ -428,34 +428,27 @@ section {
     display: none;
 }
 
-.container .containerProduto .boxProdutos .box .topProdutos .pagesProduto {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.container .containerProduto .boxProdutos .box .loadProdutos {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   width: 100%;
+   padding: 40px;
 }
 
-.container .containerProduto .boxProdutos .box .topProdutos .pagesProduto span {
-    font-size: 14px;
-    color: #666666;
+ 
+.container .containerProduto .boxProdutos .box .loadProdutos button {
+    width: 200px;
+    height: 50px;
+    background-color: #000;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #fff;
     cursor: pointer;
 }
 
-.container .containerProduto .boxProdutos .box .topProdutos .pagesProduto div {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 30px;
-    height: 30px;
-    background-color: #F1F0F2;
-    border-radius: 50%;
-    margin: 0 5px;
-    cursor: pointer;
-}
-
-.container .containerProduto .boxProdutos .box .topProdutos .pagesProduto div span {
-    font-size: 14px;
-    font-weight: bold;
-    color: #000;
+.container .containerProduto .boxProdutos .box .loadProdutos button.active {
+    background-color: #000;
 }
 
 .produtos {
@@ -473,11 +466,13 @@ section {
     justify-content: center;
     flex-wrap: wrap;
     width: 100%;
+    transition: 0.2s ease-in-out;
+
 }
 
 .produtos ul li {
     position: relative;
-    max-width: 295px;
+    width: 295px;
     padding: 15px;
     border: 1px solid transparent;
     margin: 50px 0px;
@@ -1086,6 +1081,7 @@ footer {
         align-items: center;
         justify-content: space-between;
         width: 100%;
+        height: 200px;
         max-width: initial;
         border: none;
         padding: 0;
@@ -1108,13 +1104,13 @@ footer {
     }
 
     .imgProduto {
-        width: 50%;
+        width: 40%;
     }
 
     .containerTextProduto {
         align-items: flex-start;
         text-align: start;
-        width: 50%;
+        width: 60%;
     }
 
     .textProduto {
@@ -1168,8 +1164,21 @@ footer {
 @media (max-width: 400px) {
     
 
-    .imgProduto img {
-        width: 150px;
+    .imgProduto {
+        width: 40%;
+    }
+
+
+
+    .produtos ul li {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        height: 300px;
+        max-width: initial;
+        border: none;
+        padding: 0;
     }
 
 }

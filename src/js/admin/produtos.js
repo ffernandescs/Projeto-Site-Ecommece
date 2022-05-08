@@ -110,18 +110,6 @@ const loadingList = doc => {
 
     tableListProduc.insertAdjacentHTML('beforeend', tr);
 
-
-
-
-
-
-
-
-
-
-
-
-
     const buscarProduto = document.getElementById('searchList');
     const listLiPd = document.querySelectorAll(`.tagTr`);
     const totalItens = document.getElementById('totalItens')

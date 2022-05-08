@@ -1,26 +1,21 @@
-const route = (event) => {
-    event = event || window.event
-    event.preventDefault();
-    window.history.pushState({}, "", event.target.href)
-    hanleLocation();
-    console.log('clicou')
-}
+const ulrCategoria = '../../../../src/pages/site/categorias.html'
+const btnMenu = document.querySelector('.itemX a')
 
-const routes = {
-    404: '/404.html',
-    '/': '/index.html',
-    '/feminino': '/feminino.html',
-    '/mais-vendidos': '/src/pages/site/produto.html',
-}
 
-const hanleLocation = async () => {
-    const path = window.location.pathname;
-    const route = routes[path] || routes[404];
-    const html = await fetch(route).then((data) => data.text());
-    document.getElementById('mainPage').innerHTML = html
-}
 
-window.onpopstate = hanleLocation;
-window.route = route;
+const itemMenu = document.querySelectorAll('.itemX')
 
-hanleLocation();
+window.addEventListener('load', () => {
+    for(let i = 0; i <itemMenu.length; i++){
+        const item = itemMenu[i].querySelector('a .itemMenu')
+        if(item.innerHTML == item.innerHTML){
+          const itemHref = itemMenu[i].querySelector('a')
+          itemHref.href = ulrCategoria + '?var='+item.innerHTML
+        } else {
+      
+        }
+      }
+      
+})
+
+

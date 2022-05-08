@@ -3,6 +3,7 @@ const listDescription = document.querySelector('.listMenu');
 const url = window.location.search;
 const urlParametro = new URLSearchParams(url)
 
+
 const imgDb = urlParametro.get('image')
 const tokenIMg = urlParametro.get('token')
 const nameItem = urlParametro.get('nameItem')
@@ -75,7 +76,7 @@ window.addEventListener('load', () => {
                             <a href="#">
                                 <button>
                                     <span class="material-icons">lock</span>
-                                    <span>Comprar</span>
+                                    <span>Comprar</span> 
                                 </button>
                             </a>
                         </div>`
@@ -104,11 +105,3 @@ listDescription.addEventListener('click', () => {
 
     lista.classList.toggle('active')
 })
-
-  
-  
-  
-  
-  
-  
-  
