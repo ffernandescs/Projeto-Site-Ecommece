@@ -16,7 +16,8 @@ const variavel = urlParametro.get('var')
 const cat = 'categoria'
 
 
-dbFirestore.collection('produtos').limit(20).get().then(querySnapshot => {
+
+dbFirestore.collection('produtos').orderBy('order').limit(20).get().then(querySnapshot => {
 	cargarDocumentos(querySnapshot.docs);
     totalTag = querySnapshot.size
 
