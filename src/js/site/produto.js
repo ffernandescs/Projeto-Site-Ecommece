@@ -1,14 +1,15 @@
 const listDescription = document.querySelector('.listMenu');
 
+
 const url = window.location.search;
 const urlParametro = new URLSearchParams(url)
 
-
+ 
 const imgDb = urlParametro.get('image')
 const tokenIMg = urlParametro.get('token')
 const nameItem = urlParametro.get('nameItem')
 const codItem = urlParametro.get('cod')
-const vAanterior = urlParametro.get('vAanterior')
+const vAanterior = urlParametro.get('vAanterior') 
 const vAtual = urlParametro.get('vAtual')
 const vParcela = urlParametro.get('vParcela')
 const textDesconto = urlParametro.get('textDesconto')
@@ -73,7 +74,7 @@ window.addEventListener('load', () => {
                                 <span>de</span>
                                 <span class=valorParcela>${vParcela}</span>
                             </div>
-                            <a href="#">
+                            <a id="btnCompre" href="#">
                                 <button>
                                     <span class="material-icons">lock</span>
                                     <span>Comprar</span> 
@@ -105,3 +106,4 @@ listDescription.addEventListener('click', () => {
 
     lista.classList.toggle('active')
 })
+

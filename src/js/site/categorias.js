@@ -15,6 +15,9 @@ const variavel = urlParametro.get('var')
 
 const cat = 'categoria'
 
+const title = document.querySelector('.title');
+
+title.innerHTML = variavel
 
 
 dbFirestore.collection('produtos').orderBy('order').limit(20).get().then(querySnapshot => {

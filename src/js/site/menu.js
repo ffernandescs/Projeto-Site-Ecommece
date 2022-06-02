@@ -206,4 +206,31 @@ const loadingFooter = doc => {
   }
 
 
+  dbFirestore.collection('produtos').orderBy('order').limit().get().then(doc => {
+    const listCart = document.querySelector('.listCart');
+    document.querySelector('.listCart').innerHTML = localStorage.name
+    
+    const btnCart = document.getElementById('btnCompre')
+    
+
+    btnCart.addEventListener('click', () => {
+        localStorage.name += `<tr class="tagTr" data-listTr="${doc.id}" data-remove="${doc.id}">
+                                            <td id=""><img src="${subTexto2}" alt=""></td>
+                                            <td id="">${nameItem}</td>
+                                            <td id="">${vAtual}</td>
+                                            <td id="">2</td>
+                                            <td id="">
+                                                <span data-remove="${doc.id}" class="material-icons" title="Apagar">delete</span>
+                                            </td>                            
+                                        </tr>`
+
+        listCart.innerHTML += localStorage.name
+       
+    })
+
+});
+
+
+
+
 
