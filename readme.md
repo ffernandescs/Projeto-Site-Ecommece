@@ -13,8 +13,6 @@ O projeto é um site E-Commerce na qual simula um site de vendas de perfumarias 
 Tambem foi criado um ambiente para alterar os dados estaticos da pagina como: Logo, e informações no Footer(Endereço, Telefone, Link´s de Rede Sociais, campo Sobre, Politica de Trocas dentre outos).
 Todo armazenamento de dados como informações estaticas, nomes de marcas, categorias, produtos e imagem, esta vinculado ao banco de dados Firebase, onde foi feita toda comunicação e criação de documents no ambiente firestore para armazenamento das informações.
 
-A &nbsp;[API](https://fakestoreapi.com/docs) utilizada é a Fake Store API que é facilmente encontrada no Google através de uma pesquisa ou no&nbsp;[GitHub](https://github.com/keikaavousi/fake-store-api) do criador que está devidamente explicado. Ela possui algumas opções:
-
 - Produtos: Na pagina inicial temos duas categorias de produtos onde foi criado um carrosel, esses produtos são adicionados pelo ambiente Administrativo ultizando as categorias, Lançamentos e Promoções.
 
 - Categorias: As categorias vistas no menu principal ira mostrar 20 produtos, onde foi ultilizado o metodo (URLSearchParams) para passar paramentros via URL e assim exibir os produtos com suas respectivas categorias ja cadastrada no ambiente administrativo.
