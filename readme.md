@@ -5,7 +5,7 @@
 
 >  O projeto é um site E-Commerce na qual simula um site de vendas de perfumarias e produtos de beleza.
 
-Link da aplicação: https://ecoolmmecebe.netlify.app/ <br>
+Link da aplicação: https://e-commercefcs.netlify.app/ <br>
 
 ## :page_facing_up: Explicação
 
